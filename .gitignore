@@ -14,3 +14,4 @@ docs/.fonts/
 
 # Claude Code session state
 /.claude/
+/.serena/
