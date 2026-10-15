@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="web/favicon.svg" alt="Meal Prep Studio logo" width="96">
+
 <img src="docs/img/banner.webp" alt="Meal Prep Studio: pick your week like a meal kit, planned by Claude" width="100%">
 
 <br>
