@@ -1,0 +1,50 @@
+{
+  "items": [
+    {
+      "name": "Baking tray",
+      "anz": 1,
+      "notiz": "only ~2 cm rim – no liquid sauce"
+    },
+    {
+      "name": "Casserole dish",
+      "anz": 1,
+      "notiz": "about 10 × 14 in, 2.5 in deep – for sauces and bakes"
+    },
+    {
+      "name": "Large pot",
+      "anz": 1,
+      "notiz": "5 l, for rice, pasta, stews"
+    },
+    {
+      "name": "Medium pot",
+      "anz": 1,
+      "notiz": "3 l"
+    },
+    {
+      "name": "Frying pan",
+      "anz": 2,
+      "notiz": "11 in, non-stick"
+    },
+    {
+      "name": "Oven",
+      "anz": 1,
+      "notiz": "one tray or dish per rack, 2 racks"
+    },
+    {
+      "name": "Cutting board",
+      "anz": 2,
+      "notiz": "large"
+    },
+    {
+      "name": "Kitchen scale",
+      "anz": 1,
+      "notiz": "up to 5 kg"
+    },
+    {
+      "name": "Food containers",
+      "anz": 8,
+      "notiz": "750 ml, microwave safe"
+    }
+  ],
+  "aktualisiert": "2026-10-11T12:00:00"
+}

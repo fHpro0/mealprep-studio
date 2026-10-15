@@ -1,0 +1,71 @@
+# Meal Prep Studio — household configuration.
+# Everything personal lives in this folder; the tool itself stays generic.
+name = "Meal Prep Studio"
+language = "en"            # "en" or "de" (UI + everything Claude writes)
+
+# Never suggested — checked in titles and ingredients ("without X" is fine).
+exclusions = ["mushroom"]
+
+[schedule]
+days = 4                   # eating days per prep round
+# freeze_days = 2           # optional: freeze the last N days on prep day
+shopping_day = "sat"
+prep_day = "sun"
+first_day = "mon"
+
+[budget]
+per_round = 60
+currency = "€"
+
+# One entry per person. kcal = daily target, protein in g/day.
+[[persons]]
+id = "a"
+label = "Alex"
+name = "Alex"
+kcal = 2200
+protein = 150
+
+[[persons]]
+id = "b"
+label = "Sam"
+name = "Sam"
+kcal = 1800
+protein = 120
+
+# Meals that are NOT planned (fixed breakfast, shake …) — subtracted from the daily target.
+[[fixed_meals]]
+name = "Breakfast"
+text = "Oats with yogurt and berries"
+kcal = 450
+protein = 25
+carbs = 55
+
+# Meals Claude plans. Either `share` of what is left after fixed meals,
+# or exact `targets = { a = 700, b = 560 }` per person.
+[[meals]]
+id = "lunch"
+label = "Lunch · cold"
+cold = true
+share = 0.42
+
+[[meals]]
+id = "dinner"
+label = "Dinner · warm"
+share = 0.58
+
+# Supermarket offers (Germany/Austria via marktguru). Set enabled = false elsewhere.
+[offers]
+enabled = false
+zip = ""
+retailers = ["aldi-sued", "lidl", "netto-marken-discount", "kaufland", "rewe", "edeka"]
+markup = { rewe = 1.15, edeka = 1.15 }   # regular-price surcharge vs. discounters
+second_store_min_saving = 3.0            # only suggest a second store if it saves this much
+
+[agent]
+command = "claude"         # Claude Code CLI, logged in
+model = "sonnet"           # sonnet = fast & good; opus = slower, more careful
+candidates_per_meal = 4
+
+[server]
+port = 8090
+pin = ""                   # set a PIN if other people use your Wi-Fi

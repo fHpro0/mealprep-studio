@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.DS_Store
+# household data never belongs in the repo
+/household/
+/my-*/
+*.local.toml
+
+# fonts downloaded by docs/make_images.py
+docs/.fonts/

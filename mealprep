@@ -1,0 +1,4 @@
+#!/bin/sh
+# Run from anywhere:  ./mealprep serve ~/my-household
+DIR="$(cd "$(dirname "$0")" && pwd)"
+PYTHONPATH="$DIR${PYTHONPATH:+:$PYTHONPATH}" exec python3 -m mealprep_studio "$@"

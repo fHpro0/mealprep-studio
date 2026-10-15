@@ -1,0 +1,50 @@
+{
+  "items": [
+    {
+      "name": "Backblech / Fettpfanne",
+      "anz": 1,
+      "notiz": "nur ca. 2 cm Rand – keine flüssige Sauce"
+    },
+    {
+      "name": "Auflaufform",
+      "anz": 1,
+      "notiz": "ca. 25 × 35 cm, 6 cm tief – für Saucen und Aufläufe"
+    },
+    {
+      "name": "Topf groß",
+      "anz": 1,
+      "notiz": "5 l, für Reis, Nudeln, Eintöpfe"
+    },
+    {
+      "name": "Topf mittel",
+      "anz": 1,
+      "notiz": "3 l"
+    },
+    {
+      "name": "Pfanne",
+      "anz": 2,
+      "notiz": "28 cm, beschichtet"
+    },
+    {
+      "name": "Backofen",
+      "anz": 1,
+      "notiz": "ein Blech oder eine Form pro Ebene, 2 Ebenen"
+    },
+    {
+      "name": "Schneidebrett",
+      "anz": 2,
+      "notiz": "groß"
+    },
+    {
+      "name": "Messbecher / Waage",
+      "anz": 1,
+      "notiz": "Küchenwaage bis 5 kg"
+    },
+    {
+      "name": "Frischhaltedosen",
+      "anz": 8,
+      "notiz": "750 ml, mikrowellengeeignet"
+    }
+  ],
+  "aktualisiert": "2026-10-11T12:00:00"
+}
