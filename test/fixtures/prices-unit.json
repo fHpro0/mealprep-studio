@@ -1,0 +1,675 @@
+{
+ "best_inputs": {
+  "z": {
+   "muss": "brust",
+   "nicht": "curry|marin",
+   "stueck_g": 60
+  },
+  "rows": [
+   {
+    "produkt": "Brustfilet",
+    "marke": "A",
+    "laden": "Lidl",
+    "laden_id": "lidl",
+    "preis": 7.0,
+    "grundpreis": 5.0,
+    "einheit": "kg",
+    "gueltig_bis": "2026-10-17",
+    "treueprogramm": false
+   },
+   {
+    "produkt": "Brustfilet",
+    "marke": "",
+    "laden": "Lidl, Rewe",
+    "laden_id": "lidl,rewe",
+    "preis": 6.0,
+    "grundpreis": 4.0,
+    "einheit": "KG",
+    "gueltig_bis": "2026-10-17",
+    "treueprogramm": true
+   },
+   {
+    "produkt": "Brust curry",
+    "marke": "",
+    "laden": "Lidl",
+    "laden_id": "lidl",
+    "preis": 1,
+    "grundpreis": 1.0,
+    "einheit": "kg",
+    "gueltig_bis": "",
+    "treueprogramm": false
+   },
+   {
+    "produkt": "Brust",
+    "marke": "",
+    "laden": "Unknown",
+    "laden_id": "unknown-shop",
+    "preis": 2.0,
+    "grundpreis": 0.24,
+    "einheit": "Stk",
+    "gueltig_bis": "2026-10-17",
+    "treueprogramm": false
+   },
+   {
+    "produkt": "Brust",
+    "marke": "",
+    "laden": "Edeka",
+    "laden_id": "edeka",
+    "preis": 2.0,
+    "grundpreis": 3.0,
+    "einheit": "Pack",
+    "gueltig_bis": "",
+    "treueprogramm": false
+   },
+   {
+    "produkt": "Brust",
+    "marke": "",
+    "laden": "Edeka",
+    "laden_id": "edeka",
+    "preis": 2.0,
+    "grundpreis": 0,
+    "einheit": "kg",
+    "gueltig_bis": "",
+    "treueprogramm": false
+   },
+   {
+    "produkt": "Brust",
+    "marke": "",
+    "laden": "Edeka",
+    "laden_id": "edeka",
+    "preis": 2.0,
+    "grundpreis": 3.3333,
+    "einheit": "l",
+    "gueltig_bis": "",
+    "treueprogramm": false
+   }
+  ]
+ },
+ "best": {
+  "lidl": {
+   "laden": "Lidl",
+   "produkt": "Brustfilet",
+   "preis": 6.0,
+   "eur_kg": 4.0,
+   "bis": "2026-10-17",
+   "treue": true
+  },
+  "rewe": {
+   "laden": "Rewe",
+   "produkt": "Brustfilet",
+   "preis": 6.0,
+   "eur_kg": 4.0,
+   "bis": "2026-10-17",
+   "treue": true
+  },
+  "unknown-shop": {
+   "laden": "Unknown",
+   "produkt": "Brust",
+   "preis": 2.0,
+   "eur_kg": 4.0,
+   "bis": "2026-10-17",
+   "treue": false
+  },
+  "edeka": {
+   "laden": "Edeka",
+   "produkt": "Brust",
+   "preis": 2.0,
+   "eur_kg": 3.33,
+   "bis": "",
+   "treue": false
+  }
+ },
+ "plan_inputs": {
+  "prices": {
+   "stichtag": "2026-10-17",
+   "plz": "10115",
+   "laeden": {
+    "lidl": "Lidl",
+    "rewe": "Rewe",
+    "edeka": "Edeka"
+   },
+   "aufschlag": {
+    "rewe": 1.15,
+    "edeka": 1.2
+   },
+   "zweiter_laden_ab": 1.0,
+   "zutaten": {
+    "haehnchenbrust": {
+     "name": "H",
+     "standard_eur_kg": 6,
+     "regulaer_eur_kg": 10,
+     "pack_g": 1000,
+     "angebote": {
+      "lidl": {
+       "laden": "Lidl",
+       "produkt": "Brust",
+       "preis": 5.0,
+       "eur_kg": 5.5,
+       "bis": "2026-10-17",
+       "treue": false
+      }
+     }
+    },
+    "reis": {
+     "name": "R",
+     "standard_eur_kg": 2,
+     "regulaer_eur_kg": 2.4,
+     "pack_g": 500,
+     "angebote": {
+      "edeka": {
+       "laden": "Edeka",
+       "produkt": "Reis",
+       "preis": 1.0,
+       "eur_kg": 1.5,
+       "bis": "2026-10-17",
+       "treue": true
+      }
+     }
+    },
+    "skyr": {
+     "name": "S",
+     "standard_eur_kg": 4,
+     "regulaer_eur_kg": 4,
+     "pack_g": 450,
+     "angebote": {
+      "rewe": {
+       "laden": "Rewe",
+       "produkt": "Skyr",
+       "preis": 1,
+       "eur_kg": 9.0,
+       "bis": "",
+       "treue": false
+      }
+     }
+    }
+   }
+  },
+  "items": [
+   {
+    "zutat": "haehnchenbrust",
+    "name": "H",
+    "g": 3100,
+    "pack_g": 1000,
+    "eur_kg": 6.0,
+    "laden": "",
+    "quelle": "",
+    "aisle": "chilled"
+   },
+   {
+    "zutat": "reis",
+    "name": "R",
+    "g": 1234,
+    "pack_g": 500,
+    "eur_kg": 2.0,
+    "laden": "",
+    "quelle": "",
+    "aisle": "dry"
+   },
+   {
+    "zutat": "skyr",
+    "name": "S",
+    "g": 900,
+    "pack_g": 450,
+    "eur_kg": 4.0,
+    "laden": "",
+    "quelle": "",
+    "aisle": "chilled"
+   },
+   {
+    "zutat": "oel",
+    "name": "O",
+    "g": 50,
+    "pack_g": 500,
+    "eur_kg": 9.0,
+    "laden": "Vorrat",
+    "quelle": "",
+    "aisle": "pantry"
+   },
+   {
+    "zutat": "unbekannt",
+    "name": "U",
+    "g": 123,
+    "pack_g": 100,
+    "eur_kg": 3.33,
+    "laden": "X",
+    "quelle": "",
+    "aisle": "other"
+   }
+  ]
+ },
+ "plans": {
+  "0.0": {
+   "stores": [
+    "lidl",
+    "edeka"
+   ],
+   "total": 28.52,
+   "rows": [
+    {
+     "zutat": "haehnchenbrust",
+     "name": "H",
+     "g": 3100,
+     "pack_g": 1000,
+     "eur_kg": 6.0,
+     "laden": "",
+     "quelle": "",
+     "aisle": "chilled",
+     "packungen": 4,
+     "eur": 22.0,
+     "laden_plan": "lidl",
+     "angebot": {
+      "laden": "Lidl",
+      "produkt": "Brust",
+      "preis": 5.0,
+      "eur_kg": 5.5,
+      "bis": "2026-10-17",
+      "treue": false
+     }
+    },
+    {
+     "zutat": "reis",
+     "name": "R",
+     "g": 1234,
+     "pack_g": 500,
+     "eur_kg": 2.0,
+     "laden": "",
+     "quelle": "",
+     "aisle": "dry",
+     "packungen": 3,
+     "eur": 2.25,
+     "laden_plan": "edeka",
+     "angebot": {
+      "laden": "Edeka",
+      "produkt": "Reis",
+      "preis": 1.0,
+      "eur_kg": 1.5,
+      "bis": "2026-10-17",
+      "treue": true
+     }
+    },
+    {
+     "zutat": "skyr",
+     "name": "S",
+     "g": 900,
+     "pack_g": 450,
+     "eur_kg": 4.0,
+     "laden": "",
+     "quelle": "",
+     "aisle": "chilled",
+     "packungen": 2,
+     "eur": 3.6,
+     "laden_plan": "lidl",
+     "angebot": null
+    },
+    {
+     "zutat": "unbekannt",
+     "name": "U",
+     "g": 123,
+     "pack_g": 100,
+     "eur_kg": 3.33,
+     "laden": "X",
+     "quelle": "",
+     "aisle": "other",
+     "packungen": 2,
+     "eur": 0.67,
+     "laden_plan": "lidl",
+     "angebot": null
+    }
+   ]
+  },
+  "1.0": {
+   "stores": [
+    "lidl",
+    "edeka"
+   ],
+   "total": 28.52,
+   "rows": [
+    {
+     "zutat": "haehnchenbrust",
+     "name": "H",
+     "g": 3100,
+     "pack_g": 1000,
+     "eur_kg": 6.0,
+     "laden": "",
+     "quelle": "",
+     "aisle": "chilled",
+     "packungen": 4,
+     "eur": 22.0,
+     "laden_plan": "lidl",
+     "angebot": {
+      "laden": "Lidl",
+      "produkt": "Brust",
+      "preis": 5.0,
+      "eur_kg": 5.5,
+      "bis": "2026-10-17",
+      "treue": false
+     }
+    },
+    {
+     "zutat": "reis",
+     "name": "R",
+     "g": 1234,
+     "pack_g": 500,
+     "eur_kg": 2.0,
+     "laden": "",
+     "quelle": "",
+     "aisle": "dry",
+     "packungen": 3,
+     "eur": 2.25,
+     "laden_plan": "edeka",
+     "angebot": {
+      "laden": "Edeka",
+      "produkt": "Reis",
+      "preis": 1.0,
+      "eur_kg": 1.5,
+      "bis": "2026-10-17",
+      "treue": true
+     }
+    },
+    {
+     "zutat": "skyr",
+     "name": "S",
+     "g": 900,
+     "pack_g": 450,
+     "eur_kg": 4.0,
+     "laden": "",
+     "quelle": "",
+     "aisle": "chilled",
+     "packungen": 2,
+     "eur": 3.6,
+     "laden_plan": "lidl",
+     "angebot": null
+    },
+    {
+     "zutat": "unbekannt",
+     "name": "U",
+     "g": 123,
+     "pack_g": 100,
+     "eur_kg": 3.33,
+     "laden": "X",
+     "quelle": "",
+     "aisle": "other",
+     "packungen": 2,
+     "eur": 0.67,
+     "laden_plan": "lidl",
+     "angebot": null
+    }
+   ]
+  },
+  "3.0": {
+   "stores": [
+    "lidl"
+   ],
+   "total": 29.87,
+   "rows": [
+    {
+     "zutat": "haehnchenbrust",
+     "name": "H",
+     "g": 3100,
+     "pack_g": 1000,
+     "eur_kg": 6.0,
+     "laden": "",
+     "quelle": "",
+     "aisle": "chilled",
+     "packungen": 4,
+     "eur": 22.0,
+     "laden_plan": "lidl",
+     "angebot": {
+      "laden": "Lidl",
+      "produkt": "Brust",
+      "preis": 5.0,
+      "eur_kg": 5.5,
+      "bis": "2026-10-17",
+      "treue": false
+     }
+    },
+    {
+     "zutat": "reis",
+     "name": "R",
+     "g": 1234,
+     "pack_g": 500,
+     "eur_kg": 2.0,
+     "laden": "",
+     "quelle": "",
+     "aisle": "dry",
+     "packungen": 3,
+     "eur": 3.6,
+     "laden_plan": "lidl",
+     "angebot": null
+    },
+    {
+     "zutat": "skyr",
+     "name": "S",
+     "g": 900,
+     "pack_g": 450,
+     "eur_kg": 4.0,
+     "laden": "",
+     "quelle": "",
+     "aisle": "chilled",
+     "packungen": 2,
+     "eur": 3.6,
+     "laden_plan": "lidl",
+     "angebot": null
+    },
+    {
+     "zutat": "unbekannt",
+     "name": "U",
+     "g": 123,
+     "pack_g": 100,
+     "eur_kg": 3.33,
+     "laden": "X",
+     "quelle": "",
+     "aisle": "other",
+     "packungen": 2,
+     "eur": 0.67,
+     "laden_plan": "lidl",
+     "angebot": null
+    }
+   ]
+  },
+  "50.0": {
+   "stores": [
+    "lidl"
+   ],
+   "total": 29.87,
+   "rows": [
+    {
+     "zutat": "haehnchenbrust",
+     "name": "H",
+     "g": 3100,
+     "pack_g": 1000,
+     "eur_kg": 6.0,
+     "laden": "",
+     "quelle": "",
+     "aisle": "chilled",
+     "packungen": 4,
+     "eur": 22.0,
+     "laden_plan": "lidl",
+     "angebot": {
+      "laden": "Lidl",
+      "produkt": "Brust",
+      "preis": 5.0,
+      "eur_kg": 5.5,
+      "bis": "2026-10-17",
+      "treue": false
+     }
+    },
+    {
+     "zutat": "reis",
+     "name": "R",
+     "g": 1234,
+     "pack_g": 500,
+     "eur_kg": 2.0,
+     "laden": "",
+     "quelle": "",
+     "aisle": "dry",
+     "packungen": 3,
+     "eur": 3.6,
+     "laden_plan": "lidl",
+     "angebot": null
+    },
+    {
+     "zutat": "skyr",
+     "name": "S",
+     "g": 900,
+     "pack_g": 450,
+     "eur_kg": 4.0,
+     "laden": "",
+     "quelle": "",
+     "aisle": "chilled",
+     "packungen": 2,
+     "eur": 3.6,
+     "laden_plan": "lidl",
+     "angebot": null
+    },
+    {
+     "zutat": "unbekannt",
+     "name": "U",
+     "g": 123,
+     "pack_g": 100,
+     "eur_kg": 3.33,
+     "laden": "X",
+     "quelle": "",
+     "aisle": "other",
+     "packungen": 2,
+     "eur": 0.67,
+     "laden_plan": "lidl",
+     "angebot": null
+    }
+   ]
+  }
+ },
+ "plan_noprices": {
+  "stores": [],
+  "total": 31.27,
+  "rows": [
+   {
+    "zutat": "haehnchenbrust",
+    "name": "H",
+    "g": 3100,
+    "pack_g": 1000,
+    "eur_kg": 6.0,
+    "laden": "",
+    "quelle": "",
+    "aisle": "chilled",
+    "packungen": 4,
+    "eur": 24.0,
+    "laden_plan": null,
+    "angebot": null
+   },
+   {
+    "zutat": "reis",
+    "name": "R",
+    "g": 1234,
+    "pack_g": 500,
+    "eur_kg": 2.0,
+    "laden": "",
+    "quelle": "",
+    "aisle": "dry",
+    "packungen": 3,
+    "eur": 3.0,
+    "laden_plan": null,
+    "angebot": null
+   },
+   {
+    "zutat": "skyr",
+    "name": "S",
+    "g": 900,
+    "pack_g": 450,
+    "eur_kg": 4.0,
+    "laden": "",
+    "quelle": "",
+    "aisle": "chilled",
+    "packungen": 2,
+    "eur": 3.6,
+    "laden_plan": null,
+    "angebot": null
+   },
+   {
+    "zutat": "unbekannt",
+    "name": "U",
+    "g": 123,
+    "pack_g": 100,
+    "eur_kg": 3.33,
+    "laden": "X",
+    "quelle": "",
+    "aisle": "other",
+    "packungen": 2,
+    "eur": 0.67,
+    "laden_plan": null,
+    "angebot": null
+   }
+  ]
+ },
+ "plan_single": {
+  "stores": [
+   "lidl"
+  ],
+  "total": 29.87,
+  "rows": [
+   {
+    "zutat": "haehnchenbrust",
+    "name": "H",
+    "g": 3100,
+    "pack_g": 1000,
+    "eur_kg": 6.0,
+    "laden": "",
+    "quelle": "",
+    "aisle": "chilled",
+    "packungen": 4,
+    "eur": 22.0,
+    "laden_plan": "lidl",
+    "angebot": {
+     "laden": "Lidl",
+     "produkt": "Brust",
+     "preis": 5.0,
+     "eur_kg": 5.5,
+     "bis": "2026-10-17",
+     "treue": false
+    }
+   },
+   {
+    "zutat": "reis",
+    "name": "R",
+    "g": 1234,
+    "pack_g": 500,
+    "eur_kg": 2.0,
+    "laden": "",
+    "quelle": "",
+    "aisle": "dry",
+    "packungen": 3,
+    "eur": 3.6,
+    "laden_plan": "lidl",
+    "angebot": null
+   },
+   {
+    "zutat": "skyr",
+    "name": "S",
+    "g": 900,
+    "pack_g": 450,
+    "eur_kg": 4.0,
+    "laden": "",
+    "quelle": "",
+    "aisle": "chilled",
+    "packungen": 2,
+    "eur": 3.6,
+    "laden_plan": "lidl",
+    "angebot": null
+   },
+   {
+    "zutat": "unbekannt",
+    "name": "U",
+    "g": 123,
+    "pack_g": 100,
+    "eur_kg": 3.33,
+    "laden": "X",
+    "quelle": "",
+    "aisle": "other",
+    "packungen": 2,
+    "eur": 0.67,
+    "laden_plan": "lidl",
+    "angebot": null
+   }
+  ]
+ }
+}

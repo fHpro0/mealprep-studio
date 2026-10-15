@@ -1,0 +1,26 @@
+{
+ "en": {
+  "stdout": "household: Meal Prep Studio · 2 persons · meals ['lunch', 'dinner'] · 4 days\n  lunch: a 735 kcal, b 567 kcal\n  dinner: a 1015 kcal, b 783 kcal\ningredients: 48 (ok)\nclaude cli: 9.9.9 (Claude Code)\noffers: disabled\n",
+  "code": 0,
+  "net": {
+   "requests": [],
+   "sleeps": []
+  }
+ },
+ "custom": {
+  "stdout": "household: Küche Müller · 3 persons · meals ['mittag', 'abend'] · 6 days\n  mittag: a 800 kcal, b 950 kcal, c 500 kcal\n  abend: a 875 kcal, b 1075 kcal, c 475 kcal\ningredients: 51 (incomplete: kaputt)\nclaude cli: NOT FOUND — install Claude Code (https://claude.com/claude-code) and log in\noffers: marktguru reachable, zip 10115, retailers ['lidl', 'rewe', 'edeka', 'aldi-sued']\n",
+  "code": 1,
+  "net": {
+   "requests": [
+    {
+     "url": "https://marktguru.de",
+     "headers": {
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+     },
+     "timeout": 30
+    }
+   ],
+   "sleeps": []
+  }
+ }
+}

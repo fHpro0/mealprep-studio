@@ -1,0 +1,4 @@
+# Vorrat
+
+- Olivenöl
+- Salz, Pfeffer

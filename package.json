@@ -1,0 +1,26 @@
+{
+  "name": "mealprep-studio",
+  "version": "1.0.0",
+  "description": "Your own meal-kit service for the food you cook at home: Claude suggests dishes, you pick them on your phone, you get recipes, a priced shopping list and a prep timeline.",
+  "type": "module",
+  "bin": {
+    "mealprep-studio": "dist/cli.js",
+    "mealprep": "dist/cli.js"
+  },
+  "files": ["dist", "web", "prompts", "data", "examples", "skills", ".claude-plugin", "README.md", "LICENSE"],
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && node -e \"require('fs').chmodSync('dist/cli.js',0o755)\"",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import ./test/no-network.ts --test test/*.test.ts",
+    "prepack": "npm run build"
+  },
+  "repository": { "type": "git", "url": "git+https://github.com/fHpro0/mealprep-studio.git" },
+  "homepage": "https://github.com/fHpro0/mealprep-studio#readme",
+  "bugs": { "url": "https://github.com/fHpro0/mealprep-studio/issues" },
+  "license": "MIT",
+  "author": "fHpro0",
+  "keywords": ["meal-prep", "meal-planning", "shopping-list", "claude", "claude-code", "claude-code-plugin", "recipes", "cli"],
+  "dependencies": { "smol-toml": "^1.9.1" },
+  "devDependencies": { "@types/node": "^22.20.5", "typescript": "^7.0.2" }
+}

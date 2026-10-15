@@ -1,0 +1,6 @@
+{
+ "_info": "test household ingredients",
+ "haehnchenbrust": {"eur_kg": 6.5, "regulaer_eur_kg": 10.5, "laden": "Lidl"},
+ "testfisch": {"name": "Testfisch", "name_en": "Test fish", "kcal": 120, "p": 20, "kh": 0, "eur_kg": 14.5, "pack_g": 300, "laden": "Edeka", "quelle": "kassenbon", "aisle": "frozen", "suche": "fisch", "muss": "fisch", "nicht": "stäbchen"},
+ "haselnuss": {"name": "Haselnüsse", "kcal": 650, "p": 15, "kh": 10, "eur_kg": 12, "pack_g": 200}
+}

@@ -1,0 +1,3926 @@
+{
+ "results": [
+  {
+   "name": "root",
+   "status": 200,
+   "headers": {
+    "content-type": "text/html",
+    "content-length": "1508",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "sha256": "ca9979f55aa2e40315d4644d248a26a1f8ddf4f73352513b682b30fb78818431",
+    "size": 1508
+   }
+  },
+  {
+   "name": "index_html",
+   "status": 200,
+   "headers": {
+    "content-type": "text/html",
+    "content-length": "1508",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "sha256": "ca9979f55aa2e40315d4644d248a26a1f8ddf4f73352513b682b30fb78818431",
+    "size": 1508
+   }
+  },
+  {
+   "name": "app_js",
+   "status": 200,
+   "headers": {
+    "content-type": "text/javascript",
+    "content-length": "47727",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "sha256": "1ad15361964faabb1949939ce73646a532adbb550cb23c2b8d22acee334c219e",
+    "size": 47727
+   }
+  },
+  {
+   "name": "style",
+   "status": 200,
+   "headers": {
+    "content-type": "text/css",
+    "content-length": "26003",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "sha256": "311a55011a338735a1b31748368167bb5bdf53b3dd1dfeadad5c49011a51c442",
+    "size": 26003
+   }
+  },
+  {
+   "name": "favicon",
+   "status": 200,
+   "headers": {
+    "content-type": "image/svg+xml",
+    "content-length": "521",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "sha256": "0500dcc7fd0164dae27f883ae112694960c38860bb3c1c79ce5938faaee648f0",
+    "size": 521
+   }
+  },
+  {
+   "name": "i18n",
+   "status": 200,
+   "headers": {
+    "content-type": "text/javascript",
+    "content-length": "13307",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "sha256": "2aa108d41e2b137afc9c7561c27fa1be1709bec2caadde425a43fef9d266eec7",
+    "size": 13307
+   }
+  },
+  {
+   "name": "robots",
+   "status": 200,
+   "headers": {
+    "content-type": "text/plain",
+    "content-length": "26",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1",
+    "size": 26
+   }
+  },
+  {
+   "name": "robots_bot",
+   "status": 200,
+   "headers": {
+    "content-type": "text/plain",
+    "content-length": "26",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1",
+    "size": 26
+   }
+  },
+  {
+   "name": "bot_root",
+   "status": 403,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "20",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "private"
+   }
+  },
+  {
+   "name": "bot_api",
+   "status": 403,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "20",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "private"
+   }
+  },
+  {
+   "name": "curl_ua",
+   "status": 403,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "20",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "private"
+   }
+  },
+  {
+   "name": "whatsapp_ua",
+   "status": 403,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "20",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "private"
+   }
+  },
+  {
+   "name": "python_requests_ua",
+   "status": 403,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "20",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "private"
+   }
+  },
+  {
+   "name": "claudebot",
+   "status": 403,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "20",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "private"
+   }
+  },
+  {
+   "name": "browser_ua",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "785",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "name": "Küche Müller",
+    "language": "de",
+    "persons": [
+     {
+      "id": "a",
+      "label": "Anna",
+      "name": "Anna",
+      "kcal": 2300,
+      "protein": 140
+     },
+     {
+      "id": "b",
+      "label": "Ben",
+      "name": "Ben",
+      "kcal": 2700,
+      "protein": 170
+     },
+     {
+      "id": "c",
+      "label": "Cleo",
+      "kcal": 1500
+     }
+    ],
+    "meals": [
+     {
+      "id": "mittag",
+      "label": "Mittag · kalt",
+      "cold": true,
+      "targets": {
+       "a": 800,
+       "b": 950,
+       "c": 500
+      }
+     },
+     {
+      "id": "abend",
+      "label": "Abendessen",
+      "share": 0.5
+     }
+    ],
+    "fixed_meals": [
+     {
+      "name": "Frühstück",
+      "text": "Müsli mit Quark",
+      "kcal": 400,
+      "protein": 30,
+      "carbs": 50
+     },
+     {
+      "name": "Snack",
+      "kcal": 150
+     }
+    ],
+    "days": 6,
+    "freeze_days": 2,
+    "budget": 72.5,
+    "currency": "€",
+    "offers": {
+     "enabled": true,
+     "zip": "10115"
+    },
+    "pin": true,
+    "meal_targets": {
+     "mittag": {
+      "a": 800,
+      "b": 950,
+      "c": 500
+     },
+     "abend": {
+      "a": 875,
+      "b": 1075,
+      "c": 475
+     }
+    }
+   }
+  },
+  {
+   "name": "config",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "785",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "name": "Küche Müller",
+    "language": "de",
+    "persons": [
+     {
+      "id": "a",
+      "label": "Anna",
+      "name": "Anna",
+      "kcal": 2300,
+      "protein": 140
+     },
+     {
+      "id": "b",
+      "label": "Ben",
+      "name": "Ben",
+      "kcal": 2700,
+      "protein": 170
+     },
+     {
+      "id": "c",
+      "label": "Cleo",
+      "kcal": 1500
+     }
+    ],
+    "meals": [
+     {
+      "id": "mittag",
+      "label": "Mittag · kalt",
+      "cold": true,
+      "targets": {
+       "a": 800,
+       "b": 950,
+       "c": 500
+      }
+     },
+     {
+      "id": "abend",
+      "label": "Abendessen",
+      "share": 0.5
+     }
+    ],
+    "fixed_meals": [
+     {
+      "name": "Frühstück",
+      "text": "Müsli mit Quark",
+      "kcal": 400,
+      "protein": 30,
+      "carbs": 50
+     },
+     {
+      "name": "Snack",
+      "kcal": 150
+     }
+    ],
+    "days": 6,
+    "freeze_days": 2,
+    "budget": 72.5,
+    "currency": "€",
+    "offers": {
+     "enabled": true,
+     "zip": "10115"
+    },
+    "pin": true,
+    "meal_targets": {
+     "mittag": {
+      "a": 800,
+      "b": 950,
+      "c": 500
+     },
+     "abend": {
+      "a": 875,
+      "b": 1075,
+      "c": 475
+     }
+    }
+   }
+  },
+  {
+   "name": "index",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "79",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "weeks": [
+     "2026-10-18"
+    ],
+    "rounds": [
+     "2026-10-18",
+     "2026-11-01",
+     "2026-11-02"
+    ]
+   }
+  },
+  {
+   "name": "status0",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "running": false
+   }
+  },
+  {
+   "name": "kitchen",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "201",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "items": [
+     {
+      "name": "Backblech",
+      "anz": 1,
+      "notiz": "nur 2 cm Rand – keine flüssige Sauce"
+     },
+     {
+      "name": "Große Pfanne",
+      "anz": 2,
+      "notiz": ""
+     },
+     {
+      "name": "Ausgemustert",
+      "anz": 0,
+      "notiz": "defekt"
+     }
+    ]
+   }
+  },
+  {
+   "name": "mailbox_get",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "59",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "auswahl": {
+     "mittag": "mittag-bowl"
+    },
+    "aktualisiert": "x"
+   }
+  },
+  {
+   "name": "mailbox_empty",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "2",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {}
+  },
+  {
+   "name": "mailbox_bad",
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "21",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "bad name"
+   }
+  },
+  {
+   "name": "mailbox_dots",
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "21",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "bad name"
+   }
+  },
+  {
+   "name": "mailbox_dotdot",
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "21",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "bad name"
+   }
+  },
+  {
+   "name": "mailbox_json_ext",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "59",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "auswahl": {
+     "mittag": "mittag-bowl"
+    },
+    "aktualisiert": "x"
+   }
+  },
+  {
+   "name": "mailbox_toolong",
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "21",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "bad name"
+   }
+  },
+  {
+   "name": "mailbox_60",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "2",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {}
+  },
+  {
+   "name": "round_file",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json",
+    "content-length": "86",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "id": "2026-11-01",
+    "kandidaten": [
+     {
+      "id": "nosearch",
+      "slot": "mittag",
+      "bild": ""
+     }
+    ]
+   }
+  },
+  {
+   "name": "week_file",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json",
+    "content-length": "5497",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "id": "2026-10-18",
+    "titel": "Chicken & stew week",
+    "zeitraum": "So 18.10. – Fr 23.10.2026",
+    "einkaufstag": "Fr 16.10. · Lidl + Edeka",
+    "preptag": "Sa 17.10. · ~60 Min",
+    "budget": {
+     "summe": 102.76,
+     "limit": 72.5
+    },
+    "hero": "img/kandidaten/mittag-bowl.jpg",
+    "personen": {
+     "a": {
+      "label": "Anna",
+      "wer": "Anna",
+      "ziel": 2300
+     },
+     "b": {
+      "label": "Ben",
+      "wer": "Ben",
+      "ziel": 2700
+     },
+     "c": {
+      "label": "Cleo",
+      "wer": "",
+      "ziel": 1500
+     }
+    },
+    "fruehstueck": {
+     "name": "Frühstück",
+     "text": "Müsli mit Quark",
+     "kcal": 400,
+     "p": 30,
+     "kh": 50
+    },
+    "rezepte": [
+     {
+      "id": "mittag-bowl",
+      "slot": "Mittag · kalt",
+      "titel": "Hähnchen-Bowl",
+      "kurz": "Bowl",
+      "untertitel": "sub mittag-bowl",
+      "bild": "img/kandidaten/mittag-bowl.jpg",
+      "tags": [
+       "quick"
+      ],
+      "aktiv": 25,
+      "portionen": 18,
+      "makros": {
+       "a": {
+        "kcal": 800,
+        "p": 106,
+        "kh": 57
+       },
+       "b": {
+        "kcal": 950,
+        "p": 133,
+        "kh": 58
+       },
+       "c": {
+        "kcal": 500,
+        "p": 51,
+        "kh": 56
+       }
+      },
+      "zutaten": [
+       {
+        "gruppe": "Fleisch",
+        "items": [
+         "2,4 kg Hähnchen"
+        ]
+       }
+      ],
+      "schritte": [
+       "Braten"
+      ],
+      "kipppunkt": "Trocken?",
+      "anrichten": [
+       "Dose"
+      ],
+      "portion": {
+       "a": [
+        "x"
+       ],
+       "b": [
+        "y"
+       ],
+       "c": [
+        "z"
+       ]
+      },
+      "reihenfolge": false
+     },
+     {
+      "id": "abend-skyr",
+      "slot": "Abendessen",
+      "titel": "Skyr-Auflauf",
+      "kurz": "",
+      "untertitel": "sub abend-skyr",
+      "bild": "",
+      "tags": [
+       "quick"
+      ],
+      "aktiv": 25,
+      "portionen": 18,
+      "makros": {
+       "a": {
+        "kcal": 875,
+        "p": 74,
+        "kh": 127
+       },
+       "b": {
+        "kcal": 1075,
+        "p": 91,
+        "kh": 158
+       },
+       "c": {
+        "kcal": 475,
+        "p": 40,
+        "kh": 65
+       }
+      },
+      "zutaten": [],
+      "schritte": [],
+      "kipppunkt": "k",
+      "anrichten": [],
+      "portion": {},
+      "reihenfolge": false
+     }
+    ],
+    "extras": [
+     {
+      "id": "pickles",
+      "titel": "Pickles",
+      "zutaten": [
+       {
+        "gruppe": "G",
+        "items": [
+         "1 Gurke"
+        ]
+       }
+      ],
+      "schritte": [
+       "Hobeln"
+      ],
+      "haltbar": "7 Tage"
+     }
+    ],
+    "einkauf": [
+     {
+      "bereich": "Kühlung",
+      "items": [
+       {
+        "name": "Hähnchenbrustfilet (6.100 g)",
+        "anz": 7,
+        "preis": 5.99,
+        "a": true,
+        "laden": "Lidl"
+       },
+       {
+        "name": "Eier (Stück ≈ 60 g) (1.530 g)",
+        "anz": 3,
+        "preis": 2.69,
+        "a": false,
+        "laden": "Lidl"
+       },
+       {
+        "name": "Skyr natur (8.910 g)",
+        "anz": 20,
+        "preis": 1.49,
+        "a": true,
+        "laden": "Lidl"
+       },
+       {
+        "name": "Reibekäse Gouda (270 g)",
+        "anz": 1,
+        "preis": 2.99,
+        "a": false,
+        "laden": "Lidl"
+       }
+      ]
+     },
+     {
+      "bereich": "Obst & Gemüse",
+      "items": [
+       {
+        "name": "Eisbergsalat (Kopf ≈ 550 g) (2.290 g) · ca. 4 Stück",
+        "anz": 5,
+        "preis": 0.99,
+        "a": false,
+        "laden": "Lidl"
+       },
+       {
+        "name": "Tomaten (2.850 g) · ca. 24 Stück",
+        "anz": 6,
+        "preis": 0.99,
+        "a": true,
+        "laden": "Lidl"
+       }
+      ]
+     },
+     {
+      "bereich": "Konserven & Trocken",
+      "items": [
+       {
+        "name": "Parboiled-Reis (roh) (3.400 g)",
+        "anz": 7,
+        "preis": 0.8,
+        "a": true,
+        "laden": "Edeka"
+       }
+      ]
+     },
+     {
+      "bereich": "Dazu kaufen",
+      "items": [
+       {
+        "name": "Essig (1 Flasche (1 l))",
+        "anz": 1,
+        "preis": 1.05,
+        "a": false,
+        "laden": ""
+       },
+       {
+        "name": "Basilikum (200 g)",
+        "anz": 1,
+        "preis": 2.45,
+        "a": false,
+        "laden": ""
+       }
+      ]
+     }
+    ],
+    "vorrat": [
+     "Olivenöl"
+    ],
+    "nicht_kaufen": [
+     "Brühe"
+    ],
+    "geraete": [
+     "Backblech: Hähnchen"
+    ],
+    "prep": [
+     {
+      "t": "0:00",
+      "titel": "Ofen an",
+      "text": "200 °C",
+      "gericht": "",
+      "timer": 15
+     },
+     {
+      "t": "0:10",
+      "titel": "Reis",
+      "text": "kochen",
+      "neben": true,
+      "wichtig": true
+     }
+    ],
+    "warum": [
+     {
+      "titel": "Satt",
+      "text": "Protein"
+     }
+    ],
+    "feedback": [
+     "Zu trocken?"
+    ],
+    "lagerung": "Kühlschrank.",
+    "behaelter": [
+     {
+      "name": "Große Dose (750 ml)",
+      "anzahl": 8,
+      "inhalt": "Bowl",
+      "hinweis": "pro Person"
+     }
+    ],
+    "vorbereitung": [
+     {
+      "datum": "2026-10-16",
+      "wann": "after shopping",
+      "text": "Fleisch in den Kühlschrank"
+     },
+     {
+      "datum": "2026-10-21",
+      "wann": "",
+      "text": "Boxen umlagern"
+     },
+     {
+      "datum": "2026-10-17",
+      "wann": "evening",
+      "text": "Ofen prüfen"
+     }
+    ],
+    "erstellt": "2026-10-14T10:30:45"
+   }
+  },
+  {
+   "name": "img_file",
+   "status": 200,
+   "headers": {
+    "content-type": "image/jpeg",
+    "content-length": "10",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "sha256": "90962b733d78e0b1efa39995b7fd6eeb12f82440b719477de9e00452819d1567",
+    "size": 10
+   }
+  },
+  {
+   "name": "credits",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json",
+    "content-length": "2",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {}
+  },
+  {
+   "name": "md_plan_not_served",
+   "status": 404,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "round_missing",
+   "status": 404,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "rounds_dir",
+   "status": 404,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "img_dir_noslash",
+   "status": 301,
+   "headers": {
+    "content-length": "0",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "location": "/img/kandidaten/"
+   },
+   "body": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size": 0
+   }
+  },
+  {
+   "name": "api_unknown",
+   "status": 404,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "trav_1",
+   "status": 404,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "trav_2",
+   "status": 404,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "trav_3",
+   "status": 404,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "trav_4",
+   "status": 404,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "trav_5",
+   "status": 404,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "trav_6",
+   "status": 404,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "trav_7",
+   "status": 404,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "trav_8",
+   "status": 404,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "trav_9",
+   "status": 404,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "trav_10",
+   "status": 404,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "trav_11",
+   "status": 404,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "trav_12",
+   "status": 404,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "trav_13",
+   "status": 404,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "trav_14",
+   "status": 404,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "trav_15",
+   "status": 404,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "trav_16",
+   "status": 404,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "inside_dot",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json",
+    "content-length": "86",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "id": "2026-11-01",
+    "kandidaten": [
+     {
+      "id": "nosearch",
+      "slot": "mittag",
+      "bild": ""
+     }
+    ]
+   }
+  },
+  {
+   "name": "inside_updir",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json",
+    "content-length": "86",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "id": "2026-11-01",
+    "kandidaten": [
+     {
+      "id": "nosearch",
+      "slot": "mittag",
+      "bild": ""
+     }
+    ]
+   }
+  },
+  {
+   "name": "inside_updir_img",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json",
+    "content-length": "2",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {}
+  },
+  {
+   "name": "file_trailing_slash",
+   "status": 404,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "head_root",
+   "status": 200,
+   "headers": {
+    "content-type": "text/html",
+    "content-length": "1508",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size": 0
+   }
+  },
+  {
+   "name": "head_app",
+   "status": 200,
+   "headers": {
+    "content-type": "text/javascript",
+    "content-length": "47727",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size": 0
+   }
+  },
+  {
+   "name": "delete",
+   "status": 501,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "options",
+   "status": 501,
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "put_mb_nopin",
+   "status": 401,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "16",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "pin"
+   }
+  },
+  {
+   "name": "put_mb_wrongpin",
+   "status": 401,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "16",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "pin"
+   }
+  },
+  {
+   "name": "put_mb_emptypin",
+   "status": 401,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "16",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "pin"
+   }
+  },
+  {
+   "name": "put_mb_longpin",
+   "status": 401,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "16",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "pin"
+   }
+  },
+  {
+   "name": "put_mb_ok",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "51",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "ok": true,
+    "aktualisiert": "2026-10-14T10:30:45"
+   }
+  },
+  {
+   "name": "get_mb_after",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "59",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "a": 1,
+    "ä": "ü",
+    "aktualisiert": "2026-10-14T10:30:45"
+   }
+  },
+  {
+   "name": "put_mb_badname",
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "21",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "bad name"
+   }
+  },
+  {
+   "name": "put_mb_empty_body",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "51",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "ok": true,
+    "aktualisiert": "2026-10-14T10:30:45"
+   }
+  },
+  {
+   "name": "get_mb2_after",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "39",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "aktualisiert": "2026-10-14T10:30:45"
+   }
+  },
+  {
+   "name": "put_mb_badjson",
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "put_unknown",
+   "status": 404,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "2",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {}
+  },
+  {
+   "name": "put_unknown_nopin",
+   "status": 404,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "2",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {}
+  },
+  {
+   "name": "put_kitchen_nopin",
+   "status": 401,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "16",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "pin"
+   }
+  },
+  {
+   "name": "put_kitchen_ok",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "51",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "ok": true,
+    "aktualisiert": "2026-10-14T10:30:45"
+   }
+  },
+  {
+   "name": "get_kitchen_after",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "139",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "items": [
+     {
+      "name": "Topf",
+      "anz": 2,
+      "notiz": "gross"
+     },
+     {
+      "name": "Pfanne",
+      "anz": 0,
+      "notiz": ""
+     }
+    ],
+    "aktualisiert": "2026-10-14T10:30:45"
+   }
+  },
+  {
+   "name": "put_kitchen_bad_1",
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "35",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "items: list of max 100"
+   }
+  },
+  {
+   "name": "put_kitchen_bad_2",
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "34",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "name: 1-80 characters"
+   }
+  },
+  {
+   "name": "put_kitchen_bad_3",
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "30",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "anz: integer 0-99"
+   }
+  },
+  {
+   "name": "put_kitchen_bad_4",
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "30",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "anz: integer 0-99"
+   }
+  },
+  {
+   "name": "put_kitchen_bad_5",
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "30",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "anz: integer 0-99"
+   }
+  },
+  {
+   "name": "put_kitchen_bad_6",
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "35",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "items: list of max 100"
+   }
+  },
+  {
+   "name": "put_kitchen_bad_7",
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "38",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "notiz: max 200 characters"
+   }
+  },
+  {
+   "name": "put_kitchen_bad_8",
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "35",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "item must be an object"
+   }
+  },
+  {
+   "name": "put_kitchen_badjson",
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "post_nopin",
+   "status": 401,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "16",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "pin"
+   }
+  },
+  {
+   "name": "post_wrongpin",
+   "status": 401,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "16",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "pin"
+   }
+  },
+  {
+   "name": "post_unknown_nopin",
+   "status": 401,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "16",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "pin"
+   }
+  },
+  {
+   "name": "post_unknown",
+   "status": 404,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "2",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {}
+  },
+  {
+   "name": "post_badaction",
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "33",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "unknown action or id"
+   }
+  },
+  {
+   "name": "post_noaction",
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "33",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "unknown action or id"
+   }
+  },
+  {
+   "name": "post_badid",
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "33",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "unknown action or id"
+   }
+  },
+  {
+   "name": "post_null_id",
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "33",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "unknown action or id"
+   }
+  },
+  {
+   "name": "post_num_id",
+   "status": 202,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "12",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "ok": true
+   }
+  },
+  {
+   "name": "post_badjson",
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": null
+  },
+  {
+   "name": "post_run_path_query",
+   "status": 404,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "2",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {}
+  },
+  {
+   "name": "img_badid",
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "19",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "bad id"
+   }
+  },
+  {
+   "name": "img_noids",
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "19",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "bad id"
+   }
+  },
+  {
+   "name": "img_noround",
+   "status": 404,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "18",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "round"
+   }
+  },
+  {
+   "name": "img_nodish",
+   "status": 404,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "41",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "no image query for this dish"
+   }
+  },
+  {
+   "name": "img_nosearch",
+   "status": 404,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "41",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "no image query for this dish"
+   }
+  },
+  {
+   "name": "img_nopin",
+   "status": 401,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "16",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "pin"
+   }
+  },
+  {
+   "name": "img_swap1",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "66",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "ok": true,
+    "bild": "img/kandidaten/withsearch.jpg?v=T"
+   }
+  },
+  {
+   "name": "img_swap2",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "66",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "ok": true,
+    "bild": "img/kandidaten/withsearch.jpg?v=T"
+   }
+  },
+  {
+   "name": "img_swap3",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "66",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "ok": true,
+    "bild": "img/kandidaten/withsearch.jpg?v=T"
+   }
+  },
+  {
+   "name": "img_swap4_wraps",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "66",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "ok": true,
+    "bild": "img/kandidaten/withsearch.jpg?v=T"
+   }
+  },
+  {
+   "name": "img_get_after",
+   "status": 200,
+   "headers": {
+    "content-type": "image/jpeg",
+    "content-length": "27",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "sha256": "b87ad8e8d4093d9130d7fe23edb4d3f609f35582cb471e1776251ab29374a701",
+    "size": 27
+   }
+  },
+  {
+   "name": "credits_after",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json",
+    "content-length": "301",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "kandidaten/withsearch.jpg": {
+     "title": "Chicken bowl.jpg",
+     "creator": "Jane Doe",
+     "license": "CC0",
+     "license_url": "https://lic/x",
+     "source_url": "https://commons.wikimedia.org/wiki/File:chicken-bowl-jpg",
+     "query": "chicken bowl",
+     "nr": 1,
+     "file": "kandidaten/withsearch.jpg"
+    }
+   }
+  },
+  {
+   "name": "round_after",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json",
+    "content-length": "205",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "id": "2026-11-02",
+    "kandidaten": [
+     {
+      "id": "withsearch",
+      "slot": "mittag",
+      "bild": "img/kandidaten/withsearch.jpg?v=T",
+      "bild_suche": "chicken bowl"
+     }
+    ]
+   }
+  },
+  {
+   "gate": "close"
+  },
+  {
+   "name": "run_ok",
+   "status": 202,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "12",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "ok": true
+   }
+  },
+  {
+   "gate": "wait_thinking"
+  },
+  {
+   "name": "status_running",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "running": true,
+    "action": "neue_runde",
+    "id": "",
+    "phase": "thinking",
+    "start": "2026-10-14T10:30:45",
+    "end": null,
+    "ok": null,
+    "summary": ""
+   }
+  },
+  {
+   "name": "run_busy",
+   "status": 409,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "17",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "error": "busy"
+   }
+  },
+  {
+   "gate": "open"
+  },
+  {
+   "gate": "wait_idle"
+  },
+  {
+   "name": "status_done",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "running": false,
+    "action": "neue_runde",
+    "id": "",
+    "phase": "done",
+    "start": "2026-10-14T10:30:45",
+    "end": "2026-10-14T10:30:45",
+    "ok": true,
+    "summary": "Job done"
+   }
+  },
+  {
+   "name": "index_after",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "93",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "weeks": [
+     "2026-10-18"
+    ],
+    "rounds": [
+     "2026-10-18",
+     "2026-11-01",
+     "2026-11-02",
+     "2026-11-08"
+    ]
+   }
+  },
+  {
+   "name": "run_failing",
+   "status": 202,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "12",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "ok": true
+   }
+  },
+  {
+   "gate": "wait_idle"
+  },
+  {
+   "name": "status_error",
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "cache-control": "no-store",
+    "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
+    "referrer-policy": "no-referrer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+   },
+   "body": {
+    "running": false,
+    "action": "plan_erstellen",
+    "id": "2099-01-01",
+    "phase": "error",
+    "start": "2026-10-14T10:30:45",
+    "end": "2026-10-14T10:30:45",
+    "ok": false,
+    "summary": "<error text differs: Python TypeError vs. a clear message>"
+   }
+  }
+ ],
+ "final": {
+  "feedback.md": "# Geschmacks-Log\n\nClaude lernt aus dieser Datei. Die Webseite trägt Bewertungen automatisch ein; von Hand ergänzen geht auch.\n\n## Bewertungen\n\n| Woche | Gericht | Note | Kommentar |\n|---|---|---|---|\n| So 18.10. – Fr 23.10.2026 | Hähnchen-Bowl | **offen** | neu im Plan |\n| So 18.10. – Fr 23.10.2026 | Skyr-Auflauf | **offen** | neu im Plan |\n\n## Gesperrt — nicht mehr vorschlagen\n\n## Abgeleitete Regeln\n\n## Was funktioniert hat\n",
+  "household.toml": "# Test household: German, three persons, freezer, offers, PIN, custom paths.\nname = \"Küche Müller\"\nlanguage = \"de\"\nexclusions = [\"Nuss\", \"erdnuss\"]\n\n[schedule]\ndays = 6\nfreeze_days = 2\nshopping_day = \"fri\"\nprep_day = \"sat\"\nfirst_day = \"sun\"\n\n[budget]\nper_round = 72.5\ncurrency = \"€\"\n\n[[persons]]\nid = \"a\"\nlabel = \"Anna\"\nname = \"Anna\"\nkcal = 2300\nprotein = 140\n\n[[persons]]\nid = \"b\"\nlabel = \"Ben\"\nname = \"Ben\"\nkcal = 2700\nprotein = 170\n\n[[persons]]\nid = \"c\"\nlabel = \"Cleo\"\nkcal = 1500\n\n[[fixed_meals]]\nname = \"Frühstück\"\ntext = \"Müsli mit Quark\"\nkcal = 400\nprotein = 30\ncarbs = 50\n\n[[fixed_meals]]\nname = \"Snack\"\nkcal = 150\n\n[[meals]]\nid = \"mittag\"\nlabel = \"Mittag · kalt\"\ncold = true\ntargets = { a = 800, b = 950, c = 500 }\n\n[[meals]]\nid = \"abend\"\nlabel = \"Abendessen\"\nshare = 0.5\n\n[offers]\nenabled = true\nzip = \"10115\"\nretailers = [\"lidl\", \"rewe\", \"edeka\", \"aldi-sued\"]\nmarkup = { rewe = 1.15, edeka = 1.2 }\nsecond_store_min_saving = 0.5\n\n[agent]\ncommand = \"nonexistent-claude-xyz\"\nmodel = \"opus\"\neffort = \"high\"\ntimeout_min = 3\ncandidates_per_meal = 2\n\n[server]\nhost = \"127.0.0.1\"\nport = 18090\npin = \"4711\"\n\n[paths]\nplans = \"meine-plaene\"\n",
+  "img/credits.json": {
+   "kandidaten/withsearch.jpg": {
+    "title": "Chicken bowl.jpg",
+    "creator": "Jane Doe",
+    "license": "CC0",
+    "license_url": "https://lic/x",
+    "source_url": "https://commons.wikimedia.org/wiki/File:chicken-bowl-jpg",
+    "query": "chicken bowl",
+    "nr": 1,
+    "file": "kandidaten/withsearch.jpg"
+   }
+  },
+  "img/kandidaten/abend-quark.jpg": "sha256:75a608aa1dba3141afc9421d8f2afae22bcf49fcaea853900c988c994b793d45",
+  "img/kandidaten/mittag-bowl.jpg": "sha256:b87ad8e8d4093d9130d7fe23edb4d3f609f35582cb471e1776251ab29374a701",
+  "img/kandidaten/mittag-fisch.jpg": "sha256:80c6121366480370fa42f44b2c4aca69109613a4033842e1f2aa90fd56e09a74",
+  "img/kandidaten/nosearch.jpg": "sha256:90962b733d78e0b1efa39995b7fd6eeb12f82440b719477de9e00452819d1567",
+  "img/kandidaten/withsearch.jpg": "sha256:b87ad8e8d4093d9130d7fe23edb4d3f609f35582cb471e1776251ab29374a701",
+  "ingredients.json": {
+   "_info": "test household ingredients",
+   "haehnchenbrust": {
+    "eur_kg": 6.5,
+    "regulaer_eur_kg": 10.5,
+    "laden": "Lidl"
+   },
+   "testfisch": {
+    "name": "Testfisch",
+    "name_en": "Test fish",
+    "kcal": 120,
+    "p": 20,
+    "kh": 0,
+    "eur_kg": 14.5,
+    "pack_g": 300,
+    "laden": "Edeka",
+    "quelle": "kassenbon",
+    "aisle": "frozen",
+    "suche": "fisch",
+    "muss": "fisch",
+    "nicht": "stäbchen"
+   },
+   "haselnuss": {
+    "name": "Haselnüsse",
+    "kcal": 650,
+    "p": 15,
+    "kh": 10,
+    "eur_kg": 12,
+    "pack_g": 200
+   }
+  },
+  "jobs/status.json": {
+   "running": false,
+   "action": "plan_erstellen",
+   "id": "2099-01-01",
+   "phase": "error",
+   "start": "2026-10-14T10:30:45",
+   "end": "2026-10-14T10:30:45",
+   "ok": false,
+   "summary": "<error text differs>"
+  },
+  "kitchen.json": {
+   "items": [
+    {
+     "name": "Topf",
+     "anz": 2,
+     "notiz": "gross"
+    },
+    {
+     "name": "Pfanne",
+     "anz": 0,
+     "notiz": ""
+    }
+   ],
+   "aktualisiert": "2026-10-14T10:30:45"
+  },
+  "mailbox/2026-10-18.json": {
+   "auswahl": {
+    "mittag": "mittag-bowl"
+   },
+   "aktualisiert": "x"
+  },
+  "mailbox/test1.json": {
+   "a": 1,
+   "ä": "ü",
+   "aktualisiert": "2026-10-14T10:30:45"
+  },
+  "mailbox/test2.json": {
+   "aktualisiert": "2026-10-14T10:30:45"
+  },
+  "meine-plaene/woche-2026-10-18.md": "# Chicken & stew week — So 18.10. – Fr 23.10.2026\n\n**Einkauf:** Fr 16.10. · Lidl + Edeka · **Prep:** Sa 17.10. · ~60 Min · **Summe:** 102.76 € / Budget 72 €\n\n| | Hähnchen-Bowl | Skyr-Auflauf | kcal/Tag |\n|---|---|---|---|\n| **Anna** | 800 kcal · 106 g P | 875 kcal · 74 g P | 2075 |\n| **Ben** | 950 kcal · 133 g P | 1075 kcal · 91 g P | 2425 |\n| **Cleo** | 500 kcal · 51 g P | 475 kcal · 40 g P | 1375 |\n\n## Rezepte\n\n### Hähnchen-Bowl (Mittag · kalt, 18 Portionen)\n\n*sub mittag-bowl*\n\n**Fleisch**\n- 2,4 kg Hähnchen\n\n**So geht's**\n1. Braten\n\n> **Hier kippt es:** Trocken?\n\n**Täglich anrichten**\n1. Dose\n\n- **Portion Anna:** x\n- **Portion Ben:** y\n- **Portion Cleo:** z\n\n### Skyr-Auflauf (Abendessen, 18 Portionen)\n\n*sub abend-skyr*\n\n> **Hier kippt es:** k\n\n**Täglich anrichten**\n\n\n### Pickles\n\n**G**\n- 1 Gurke\n\n1. Hobeln\n\n*7 Tage*\n\n## Einkaufsliste\n\n### Kühlung\n\n| | Artikel | Preis | |\n|---|---|---|---|\n| 7 × | Hähnchenbrustfilet (6.100 g) · Lidl | 41.93 € | Angebot |\n| 3 × | Eier (Stück ≈ 60 g) (1.530 g) · Lidl | 8.07 € | ~ |\n| 20 × | Skyr natur (8.910 g) · Lidl | 29.80 € | Angebot |\n| 1 × | Reibekäse Gouda (270 g) · Lidl | 2.99 € | ~ |\n\n### Obst & Gemüse\n\n| | Artikel | Preis | |\n|---|---|---|---|\n| 5 × | Eisbergsalat (Kopf ≈ 550 g) (2.290 g) · ca. 4 Stück · Lidl | 4.95 € | ~ |\n| 6 × | Tomaten (2.850 g) · ca. 24 Stück · Lidl | 5.94 € | Angebot |\n\n### Konserven & Trocken\n\n| | Artikel | Preis | |\n|---|---|---|---|\n| 7 × | Parboiled-Reis (roh) (3.400 g) · Edeka | 5.60 € | Angebot |\n\n### Dazu kaufen\n\n| | Artikel | Preis | |\n|---|---|---|---|\n| 1 × | Essig (1 Flasche (1 l)) | 1.05 € | ~ |\n| 1 × | Basilikum (200 g) | 2.45 € | ~ |\n\n**Vorher im Schrank nachsehen:** Olivenöl\n\n**Nicht kaufen:** Brühe\n\n## Was benötigt wird\n\n- Backblech: Hähnchen\n\n## Ablauf am Prep-Tag\n\n| | | ⏱ |\n|---|---|---|\n| 0:00 | **Ofen an** — 200 °C | 15 min |\n| ↳ | **Reis — kochen** |  |\n\n## Vorbereiten & täglich zusammenbauen\n\n- **16.10. · after shopping:** Fleisch in den Kühlschrank\n- **17.10. · evening:** Ofen prüfen\n- **21.10.:** Boxen umlagern\n- **Hähnchen-Bowl zusammenbauen** (Mittag · kalt): Dose\n- **Skyr-Auflauf zusammenbauen** (Abendessen): \n\n## Lagerung\n\nKühlschrank.\n\n## Warum dieser Plan\n\n- **Satt:** Protein\n\n## Feedback-Fragen\n\n1. Zu trocken?\n",
+  "pantry.md": "# Vorrat\n\n- Olivenöl\n- Salz, Pfeffer\n",
+  "profile.md": "# Haushaltsprofil\n\n## Wer isst\n- Anna, Ben und Cleo (Kind).\n\n## Mögen wir nicht\n- Nüsse (niemals), Pilze.\n\nUmlaut-Test: äöüß – Emoji 🍝\n",
+  "rounds/2026-10-18-preise.json": {
+   "stichtag": "2026-10-16",
+   "plz": "10115",
+   "laeden": {
+    "lidl": "Lidl",
+    "rewe": "Rewe",
+    "edeka": "Edeka",
+    "aldi-sued": "Aldi Süd"
+   },
+   "aufschlag": {
+    "rewe": 1.15,
+    "edeka": 1.2
+   },
+   "zweiter_laden_ab": 0.5,
+   "zutaten": {
+    "ei": {
+     "name": "Eier (Stück ≈ 60 g)",
+     "standard_eur_kg": 4.48,
+     "regulaer_eur_kg": 4.48,
+     "pack_g": 600,
+     "angebote": {}
+    },
+    "eisberg": {
+     "name": "Eisbergsalat (Kopf ≈ 550 g)",
+     "standard_eur_kg": 1.8,
+     "regulaer_eur_kg": 1.8,
+     "pack_g": 550,
+     "angebote": {}
+    },
+    "haehnchenbrust": {
+     "name": "Hähnchenbrustfilet",
+     "standard_eur_kg": 6.5,
+     "regulaer_eur_kg": 10.5,
+     "pack_g": 1000,
+     "angebote": {
+      "lidl": {
+       "laden": "Lidl",
+       "produkt": "Mastery Hähnchenbrustfilet frisch",
+       "preis": 7.99,
+       "eur_kg": 5.99,
+       "bis": "2026-10-17",
+       "treue": false
+      },
+      "rewe": {
+       "laden": "Rewe",
+       "produkt": "Hähnchenbrust",
+       "preis": 6.5,
+       "eur_kg": 6.5,
+       "bis": "2026-10-17",
+       "treue": true
+      },
+      "edeka": {
+       "laden": "Edeka",
+       "produkt": "Hähnchenbrust",
+       "preis": 6.5,
+       "eur_kg": 6.5,
+       "bis": "2026-10-17",
+       "treue": true
+      }
+     }
+    },
+    "kartoffeln": {
+     "name": "Kartoffeln",
+     "standard_eur_kg": 1.0,
+     "regulaer_eur_kg": 1.0,
+     "pack_g": 2000,
+     "angebote": {}
+    },
+    "magerquark": {
+     "name": "Magerquark",
+     "standard_eur_kg": 2.38,
+     "regulaer_eur_kg": 2.38,
+     "pack_g": 500,
+     "angebote": {}
+    },
+    "reibekaese": {
+     "name": "Reibekäse Gouda",
+     "standard_eur_kg": 5.98,
+     "regulaer_eur_kg": 5.98,
+     "pack_g": 500,
+     "angebote": {}
+    },
+    "reis": {
+     "name": "Parboiled-Reis (roh)",
+     "standard_eur_kg": 2.38,
+     "regulaer_eur_kg": 2.38,
+     "pack_g": 500,
+     "angebote": {
+      "edeka": {
+       "laden": "Edeka",
+       "produkt": "Reis-Fit Parboiled Reis",
+       "preis": 1.59,
+       "eur_kg": 1.59,
+       "bis": "2026-10-17",
+       "treue": false
+      }
+     }
+    },
+    "skyr": {
+     "name": "Skyr natur",
+     "standard_eur_kg": 3.98,
+     "regulaer_eur_kg": 3.98,
+     "pack_g": 450,
+     "angebote": {
+      "lidl": {
+       "laden": "Lidl",
+       "produkt": "Milbona Skyr natur",
+       "preis": 1.49,
+       "eur_kg": 3.31,
+       "bis": "2026-10-17",
+       "treue": false
+      },
+      "aldi-sued": {
+       "laden": "Aldi Süd",
+       "produkt": "Milbona Skyr natur",
+       "preis": 1.49,
+       "eur_kg": 3.31,
+       "bis": "2026-10-17",
+       "treue": false
+      }
+     }
+    },
+    "testfisch": {
+     "name": "Testfisch",
+     "standard_eur_kg": 14.5,
+     "regulaer_eur_kg": 14.5,
+     "pack_g": 300,
+     "angebote": {
+      "edeka": {
+       "laden": "Edeka",
+       "produkt": "Fischfilet",
+       "preis": 9.99,
+       "eur_kg": 14.99,
+       "bis": "2026-10-17",
+       "treue": false
+      }
+     }
+    },
+    "tomaten": {
+     "name": "Tomaten",
+     "standard_eur_kg": 2.49,
+     "regulaer_eur_kg": 2.49,
+     "pack_g": 500,
+     "angebote": {
+      "lidl": {
+       "laden": "Lidl",
+       "produkt": "Tomaten Rispe",
+       "preis": 1.99,
+       "eur_kg": 1.99,
+       "bis": "2026-10-17",
+       "treue": false
+      },
+      "rewe": {
+       "laden": "Rewe",
+       "produkt": "Tomaten-Schalen",
+       "preis": 0.99,
+       "eur_kg": 1.98,
+       "bis": "2026-10-17",
+       "treue": false
+      }
+     }
+    },
+    "zwiebel": {
+     "name": "Zwiebeln",
+     "standard_eur_kg": 1.19,
+     "regulaer_eur_kg": 1.19,
+     "pack_g": 1000,
+     "angebote": {}
+    }
+   }
+  },
+  "rounds/2026-10-18.json": {
+   "id": "2026-10-18",
+   "titel": "So 18.10. – Fr 23.10.2026",
+   "zeitraum": "So 18.10. – Fr 23.10.2026",
+   "einkaufstag": "Fr 16.10.",
+   "einkauf_iso": "2026-10-16",
+   "preptag": "Sa 17.10.",
+   "status": "geplant",
+   "erstellt": "2026-10-14T10:30:45",
+   "nachricht": "Neue Runde!",
+   "verlauf": [
+    {
+     "zeit": "2026-10-14T10:30:45",
+     "von": "claude",
+     "text": "Neue Runde!"
+    },
+    {
+     "zeit": "2026-10-14T10:30:45",
+     "von": "claude",
+     "text": "Plan steht: Hähnchen-Bowl + Skyr-Auflauf · 102.76 €"
+    }
+   ],
+   "kandidaten": [
+    {
+     "id": "mittag-bowl",
+     "slot": "mittag",
+     "titel": "Hähnchen-Bowl",
+     "untertitel": "sub mittag-bowl",
+     "tags": [
+      "quick"
+     ],
+     "aktiv": 25,
+     "pitch": "pitch mittag-bowl",
+     "warum": "because",
+     "risiko": "risk mittag-bowl",
+     "rechnung": {
+      "haupt": {
+       "haehnchenbrust": 2000,
+       "eisberg": 900,
+       "ei": 600
+      },
+      "pro_portion": {
+       "reis": 70
+      },
+      "slot": "mittag"
+     },
+     "bild_suche": "chicken bowl",
+     "berechnet": {
+      "mengen": {
+       "haehnchenbrust": 5760,
+       "eisberg": 2590,
+       "ei": 1730
+      },
+      "anteil": {
+       "a": 0.061,
+       "b": 0.0775,
+       "c": 0.028
+      },
+      "makros": {
+       "a": {
+        "kcal": 800,
+        "p": 103,
+        "kh": 58
+       },
+       "b": {
+        "kcal": 950,
+        "p": 129,
+        "kh": 59
+       },
+       "c": {
+        "kcal": 500,
+        "p": 50,
+        "kh": 56
+       }
+      },
+      "kosten": {
+       "einkauf": 55.58
+      },
+      "einkaufsliste": [
+       {
+        "zutat": "haehnchenbrust",
+        "name": "Hähnchenbrustfilet",
+        "g": 5760,
+        "pack_g": 1000,
+        "eur_kg": 6.5,
+        "laden": "Lidl",
+        "quelle": "schaetzung",
+        "aisle": "chilled",
+        "packungen": 6,
+        "eur": 39.0
+       },
+       {
+        "zutat": "eisberg",
+        "name": "Eisbergsalat (Kopf ≈ 550 g)",
+        "g": 2590,
+        "pack_g": 550,
+        "eur_kg": 1.8,
+        "laden": "",
+        "quelle": "schaetzung",
+        "aisle": "produce",
+        "packungen": 5,
+        "eur": 4.95
+       },
+       {
+        "zutat": "ei",
+        "name": "Eier (Stück ≈ 60 g)",
+        "g": 1730,
+        "pack_g": 600,
+        "eur_kg": 4.48,
+        "laden": "",
+        "quelle": "schaetzung",
+        "aisle": "chilled",
+        "packungen": 3,
+        "eur": 8.06
+       },
+       {
+        "zutat": "reis",
+        "name": "Parboiled-Reis (roh)",
+        "g": 1260,
+        "pack_g": 500,
+        "eur_kg": 2.38,
+        "laden": "",
+        "quelle": "schaetzung",
+        "aisle": "dry",
+        "packungen": 3,
+        "eur": 3.57
+       }
+      ],
+      "skalierung": 2.88,
+      "warnungen": [
+       "main quantities scaled +188 %"
+      ]
+     },
+     "makros": {
+      "a": {
+       "kcal": 800,
+       "p": 103,
+       "kh": 58
+      },
+      "b": {
+       "kcal": 950,
+       "p": 129,
+       "kh": 59
+      },
+      "c": {
+       "kcal": 500,
+       "p": 50,
+       "kh": 56
+      }
+     },
+     "kosten": 55.58,
+     "neu": true,
+     "bild": "img/kandidaten/mittag-bowl.jpg"
+    },
+    {
+     "id": "mittag-fisch",
+     "slot": "mittag",
+     "titel": "Fisch mit Kartoffeln",
+     "untertitel": "sub mittag-fisch",
+     "tags": [
+      "quick"
+     ],
+     "aktiv": 25,
+     "pitch": "pitch mittag-fisch",
+     "warum": "because",
+     "risiko": "risk mittag-fisch",
+     "rechnung": {
+      "haupt": {
+       "testfisch": 1800,
+       "kartoffeln": 3000
+      },
+      "pro_portion": {},
+      "slot": "mittag"
+     },
+     "bild_suche": "fish potatoes plate",
+     "berechnet": {
+      "mengen": {
+       "testfisch": 5620,
+       "kartoffeln": 9380
+      },
+      "anteil": {
+       "a": 0.0593,
+       "b": 0.0704,
+       "c": 0.037
+      },
+      "makros": {
+       "a": {
+        "kcal": 800,
+        "p": 78,
+        "kh": 83
+       },
+       "b": {
+        "kcal": 950,
+        "p": 92,
+        "kh": 99
+       },
+       "c": {
+        "kcal": 500,
+        "p": 49,
+        "kh": 52
+       }
+      },
+      "kosten": {
+       "einkauf": 92.65
+      },
+      "einkaufsliste": [
+       {
+        "zutat": "testfisch",
+        "name": "Testfisch",
+        "g": 5620,
+        "pack_g": 300,
+        "eur_kg": 14.5,
+        "laden": "Edeka",
+        "quelle": "kassenbon",
+        "aisle": "frozen",
+        "packungen": 19,
+        "eur": 82.65
+       },
+       {
+        "zutat": "kartoffeln",
+        "name": "Kartoffeln",
+        "g": 9380,
+        "pack_g": 2000,
+        "eur_kg": 1.0,
+        "laden": "",
+        "quelle": "schaetzung",
+        "aisle": "produce",
+        "packungen": 5,
+        "eur": 10.0
+       }
+      ],
+      "skalierung": 3.125,
+      "warnungen": [
+       "main quantities scaled +212 %"
+      ]
+     },
+     "makros": {
+      "a": {
+       "kcal": 800,
+       "p": 78,
+       "kh": 83
+      },
+      "b": {
+       "kcal": 950,
+       "p": 92,
+       "kh": 99
+      },
+      "c": {
+       "kcal": 500,
+       "p": 49,
+       "kh": 52
+      }
+     },
+     "kosten": 92.65,
+     "neu": true,
+     "bild": "img/kandidaten/mittag-fisch.jpg"
+    },
+    {
+     "id": "abend-skyr",
+     "slot": "abend",
+     "titel": "Skyr-Auflauf",
+     "untertitel": "sub abend-skyr",
+     "tags": [
+      "quick"
+     ],
+     "aktiv": 25,
+     "pitch": "pitch abend-skyr",
+     "warum": "because",
+     "risiko": "risk abend-skyr",
+     "rechnung": {
+      "haupt": {
+       "skyr": 2500,
+       "reis": 600,
+       "tomaten": 800
+      },
+      "pro_portion": {
+       "reibekaese": 15
+      },
+      "slot": "abend"
+     },
+     "bild_suche": "tomato bake",
+     "berechnet": {
+      "mengen": {
+       "skyr": 8910,
+       "reis": 2140,
+       "tomaten": 2850
+      },
+      "anteil": {
+       "a": 0.0604,
+       "b": 0.0751,
+       "c": 0.031
+      },
+      "makros": {
+       "a": {
+        "kcal": 875,
+        "p": 74,
+        "kh": 127
+       },
+       "b": {
+        "kcal": 1075,
+        "p": 91,
+        "kh": 158
+       },
+       "c": {
+        "kcal": 475,
+        "p": 40,
+        "kh": 65
+       }
+      },
+      "kosten": {
+       "einkauf": 52.23
+      },
+      "einkaufsliste": [
+       {
+        "zutat": "skyr",
+        "name": "Skyr natur",
+        "g": 8910,
+        "pack_g": 450,
+        "eur_kg": 3.98,
+        "laden": "",
+        "quelle": "schaetzung",
+        "aisle": "chilled",
+        "packungen": 20,
+        "eur": 35.82
+       },
+       {
+        "zutat": "reis",
+        "name": "Parboiled-Reis (roh)",
+        "g": 2140,
+        "pack_g": 500,
+        "eur_kg": 2.38,
+        "laden": "",
+        "quelle": "schaetzung",
+        "aisle": "dry",
+        "packungen": 5,
+        "eur": 5.95
+       },
+       {
+        "zutat": "tomaten",
+        "name": "Tomaten",
+        "g": 2850,
+        "pack_g": 500,
+        "eur_kg": 2.49,
+        "laden": "",
+        "quelle": "schaetzung",
+        "aisle": "produce",
+        "packungen": 6,
+        "eur": 7.47
+       },
+       {
+        "zutat": "reibekaese",
+        "name": "Reibekäse Gouda",
+        "g": 270,
+        "pack_g": 500,
+        "eur_kg": 5.98,
+        "laden": "",
+        "quelle": "schaetzung",
+        "aisle": "chilled",
+        "packungen": 1,
+        "eur": 2.99
+       }
+      ],
+      "skalierung": 3.562,
+      "warnungen": [
+       "main quantities scaled +256 %"
+      ]
+     },
+     "makros": {
+      "a": {
+       "kcal": 875,
+       "p": 74,
+       "kh": 127
+      },
+      "b": {
+       "kcal": 1075,
+       "p": 91,
+       "kh": 158
+      },
+      "c": {
+       "kcal": 475,
+       "p": 40,
+       "kh": 65
+      }
+     },
+     "kosten": 52.23,
+     "neu": true,
+     "bild": ""
+    },
+    {
+     "id": "abend-quark",
+     "slot": "abend",
+     "titel": "Quark-Kartoffeln",
+     "untertitel": "sub abend-quark",
+     "tags": [
+      "quick"
+     ],
+     "aktiv": 25,
+     "pitch": "pitch abend-quark",
+     "warum": "because",
+     "risiko": "risk abend-quark",
+     "rechnung": {
+      "haupt": {
+       "magerquark": 1500,
+       "kartoffeln": 3000,
+       "zwiebel": 300
+      },
+      "pro_portion": {},
+      "slot": "abend"
+     },
+     "bild_suche": "potato quark",
+     "berechnet": {
+      "mengen": {
+       "magerquark": 6610,
+       "kartoffeln": 13230,
+       "zwiebel": 1320
+      },
+      "anteil": {
+       "a": 0.0601,
+       "b": 0.0739,
+       "c": 0.0326
+      },
+      "makros": {
+       "a": {
+        "kcal": 875,
+        "p": 65,
+        "kh": 142
+       },
+       "b": {
+        "kcal": 1075,
+        "p": 79,
+        "kh": 174
+       },
+       "c": {
+        "kcal": 475,
+        "p": 35,
+        "kh": 77
+       }
+      },
+      "kosten": {
+       "einkauf": 33.04
+      },
+      "einkaufsliste": [
+       {
+        "zutat": "magerquark",
+        "name": "Magerquark",
+        "g": 6610,
+        "pack_g": 500,
+        "eur_kg": 2.38,
+        "laden": "",
+        "quelle": "schaetzung",
+        "aisle": "chilled",
+        "packungen": 14,
+        "eur": 16.66
+       },
+       {
+        "zutat": "kartoffeln",
+        "name": "Kartoffeln",
+        "g": 13230,
+        "pack_g": 2000,
+        "eur_kg": 1.0,
+        "laden": "",
+        "quelle": "schaetzung",
+        "aisle": "produce",
+        "packungen": 7,
+        "eur": 14.0
+       },
+       {
+        "zutat": "zwiebel",
+        "name": "Zwiebeln",
+        "g": 1320,
+        "pack_g": 1000,
+        "eur_kg": 1.19,
+        "laden": "",
+        "quelle": "schaetzung",
+        "aisle": "produce",
+        "packungen": 2,
+        "eur": 2.38
+       }
+      ],
+      "skalierung": 4.409,
+      "warnungen": [
+       "main quantities scaled +341 %"
+      ]
+     },
+     "makros": {
+      "a": {
+       "kcal": 875,
+       "p": 65,
+       "kh": 142
+      },
+      "b": {
+       "kcal": 1075,
+       "p": 79,
+       "kh": 174
+      },
+      "c": {
+       "kcal": 475,
+       "p": 35,
+       "kh": 77
+      }
+     },
+     "kosten": 33.04,
+     "neu": true,
+     "bild": "img/kandidaten/abend-quark.jpg"
+    }
+   ],
+   "hinweise": [
+    "dropped Haselnuss-Salat: contains excluded nuss"
+   ]
+  },
+  "rounds/2026-11-01.json": {
+   "id": "2026-11-01",
+   "kandidaten": [
+    {
+     "id": "nosearch",
+     "slot": "mittag",
+     "bild": ""
+    }
+   ]
+  },
+  "rounds/2026-11-02.json": {
+   "id": "2026-11-02",
+   "kandidaten": [
+    {
+     "id": "withsearch",
+     "slot": "mittag",
+     "bild": "img/kandidaten/withsearch.jpg?v=T",
+     "bild_suche": "chicken bowl"
+    }
+   ]
+  },
+  "rounds/2026-11-08-preise.json": {
+   "stichtag": "2026-11-06",
+   "plz": "10115",
+   "laeden": {
+    "lidl": "Lidl",
+    "rewe": "Rewe",
+    "edeka": "Edeka",
+    "aldi-sued": "Aldi Süd"
+   },
+   "aufschlag": {
+    "rewe": 1.15,
+    "edeka": 1.2
+   },
+   "zweiter_laden_ab": 0.5,
+   "zutaten": {}
+  },
+  "rounds/2026-11-08.json": {
+   "id": "2026-11-08",
+   "titel": "So 08.11. – Fr 13.11.2026",
+   "zeitraum": "So 08.11. – Fr 13.11.2026",
+   "einkaufstag": "Fr 06.11.",
+   "einkauf_iso": "2026-11-06",
+   "preptag": "Sa 07.11.",
+   "status": "offen",
+   "erstellt": "2026-10-14T10:30:45",
+   "nachricht": "Job done",
+   "verlauf": [
+    {
+     "zeit": "2026-10-14T10:30:45",
+     "von": "claude",
+     "text": "Job done"
+    }
+   ],
+   "kandidaten": [],
+   "hinweise": []
+  },
+  "weeks/2026-10-18.json": {
+   "id": "2026-10-18",
+   "titel": "Chicken & stew week",
+   "zeitraum": "So 18.10. – Fr 23.10.2026",
+   "einkaufstag": "Fr 16.10. · Lidl + Edeka",
+   "preptag": "Sa 17.10. · ~60 Min",
+   "budget": {
+    "summe": 102.76,
+    "limit": 72.5
+   },
+   "hero": "img/kandidaten/mittag-bowl.jpg",
+   "personen": {
+    "a": {
+     "label": "Anna",
+     "wer": "Anna",
+     "ziel": 2300
+    },
+    "b": {
+     "label": "Ben",
+     "wer": "Ben",
+     "ziel": 2700
+    },
+    "c": {
+     "label": "Cleo",
+     "wer": "",
+     "ziel": 1500
+    }
+   },
+   "fruehstueck": {
+    "name": "Frühstück",
+    "text": "Müsli mit Quark",
+    "kcal": 400,
+    "p": 30,
+    "kh": 50
+   },
+   "rezepte": [
+    {
+     "id": "mittag-bowl",
+     "slot": "Mittag · kalt",
+     "titel": "Hähnchen-Bowl",
+     "kurz": "Bowl",
+     "untertitel": "sub mittag-bowl",
+     "bild": "img/kandidaten/mittag-bowl.jpg",
+     "tags": [
+      "quick"
+     ],
+     "aktiv": 25,
+     "portionen": 18,
+     "makros": {
+      "a": {
+       "kcal": 800,
+       "p": 106,
+       "kh": 57
+      },
+      "b": {
+       "kcal": 950,
+       "p": 133,
+       "kh": 58
+      },
+      "c": {
+       "kcal": 500,
+       "p": 51,
+       "kh": 56
+      }
+     },
+     "zutaten": [
+      {
+       "gruppe": "Fleisch",
+       "items": [
+        "2,4 kg Hähnchen"
+       ]
+      }
+     ],
+     "schritte": [
+      "Braten"
+     ],
+     "kipppunkt": "Trocken?",
+     "anrichten": [
+      "Dose"
+     ],
+     "portion": {
+      "a": [
+       "x"
+      ],
+      "b": [
+       "y"
+      ],
+      "c": [
+       "z"
+      ]
+     },
+     "reihenfolge": false
+    },
+    {
+     "id": "abend-skyr",
+     "slot": "Abendessen",
+     "titel": "Skyr-Auflauf",
+     "kurz": "",
+     "untertitel": "sub abend-skyr",
+     "bild": "",
+     "tags": [
+      "quick"
+     ],
+     "aktiv": 25,
+     "portionen": 18,
+     "makros": {
+      "a": {
+       "kcal": 875,
+       "p": 74,
+       "kh": 127
+      },
+      "b": {
+       "kcal": 1075,
+       "p": 91,
+       "kh": 158
+      },
+      "c": {
+       "kcal": 475,
+       "p": 40,
+       "kh": 65
+      }
+     },
+     "zutaten": [],
+     "schritte": [],
+     "kipppunkt": "k",
+     "anrichten": [],
+     "portion": {},
+     "reihenfolge": false
+    }
+   ],
+   "extras": [
+    {
+     "id": "pickles",
+     "titel": "Pickles",
+     "zutaten": [
+      {
+       "gruppe": "G",
+       "items": [
+        "1 Gurke"
+       ]
+      }
+     ],
+     "schritte": [
+      "Hobeln"
+     ],
+     "haltbar": "7 Tage"
+    }
+   ],
+   "einkauf": [
+    {
+     "bereich": "Kühlung",
+     "items": [
+      {
+       "name": "Hähnchenbrustfilet (6.100 g)",
+       "anz": 7,
+       "preis": 5.99,
+       "a": true,
+       "laden": "Lidl"
+      },
+      {
+       "name": "Eier (Stück ≈ 60 g) (1.530 g)",
+       "anz": 3,
+       "preis": 2.69,
+       "a": false,
+       "laden": "Lidl"
+      },
+      {
+       "name": "Skyr natur (8.910 g)",
+       "anz": 20,
+       "preis": 1.49,
+       "a": true,
+       "laden": "Lidl"
+      },
+      {
+       "name": "Reibekäse Gouda (270 g)",
+       "anz": 1,
+       "preis": 2.99,
+       "a": false,
+       "laden": "Lidl"
+      }
+     ]
+    },
+    {
+     "bereich": "Obst & Gemüse",
+     "items": [
+      {
+       "name": "Eisbergsalat (Kopf ≈ 550 g) (2.290 g) · ca. 4 Stück",
+       "anz": 5,
+       "preis": 0.99,
+       "a": false,
+       "laden": "Lidl"
+      },
+      {
+       "name": "Tomaten (2.850 g) · ca. 24 Stück",
+       "anz": 6,
+       "preis": 0.99,
+       "a": true,
+       "laden": "Lidl"
+      }
+     ]
+    },
+    {
+     "bereich": "Konserven & Trocken",
+     "items": [
+      {
+       "name": "Parboiled-Reis (roh) (3.400 g)",
+       "anz": 7,
+       "preis": 0.8,
+       "a": true,
+       "laden": "Edeka"
+      }
+     ]
+    },
+    {
+     "bereich": "Dazu kaufen",
+     "items": [
+      {
+       "name": "Essig (1 Flasche (1 l))",
+       "anz": 1,
+       "preis": 1.05,
+       "a": false,
+       "laden": ""
+      },
+      {
+       "name": "Basilikum (200 g)",
+       "anz": 1,
+       "preis": 2.45,
+       "a": false,
+       "laden": ""
+      }
+     ]
+    }
+   ],
+   "vorrat": [
+    "Olivenöl"
+   ],
+   "nicht_kaufen": [
+    "Brühe"
+   ],
+   "geraete": [
+    "Backblech: Hähnchen"
+   ],
+   "prep": [
+    {
+     "t": "0:00",
+     "titel": "Ofen an",
+     "text": "200 °C",
+     "gericht": "",
+     "timer": 15
+    },
+    {
+     "t": "0:10",
+     "titel": "Reis",
+     "text": "kochen",
+     "neben": true,
+     "wichtig": true
+    }
+   ],
+   "warum": [
+    {
+     "titel": "Satt",
+     "text": "Protein"
+    }
+   ],
+   "feedback": [
+    "Zu trocken?"
+   ],
+   "lagerung": "Kühlschrank.",
+   "behaelter": [
+    {
+     "name": "Große Dose (750 ml)",
+     "anzahl": 8,
+     "inhalt": "Bowl",
+     "hinweis": "pro Person"
+    }
+   ],
+   "vorbereitung": [
+    {
+     "datum": "2026-10-16",
+     "wann": "after shopping",
+     "text": "Fleisch in den Kühlschrank"
+    },
+    {
+     "datum": "2026-10-21",
+     "wann": "",
+     "text": "Boxen umlagern"
+    },
+    {
+     "datum": "2026-10-17",
+     "wann": "evening",
+     "text": "Ofen prüfen"
+    }
+   ],
+   "erstellt": "2026-10-14T10:30:45"
+  }
+ },
+ "net": {
+  "requests": [
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=aubergine&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=brokkoli&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=cherrytomaten&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=eier&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=eisbergsalat&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=erdn%C3%BCsse&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=feta&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=fisch&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=frischk%C3%A4se&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=getrocknete+tomaten&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=h%C3%A4hnchen+hack&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=h%C3%A4hnchenbrust&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=hackfleisch+gemischt&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=hokkaido&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=kartoffeln&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=kartoffeln&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=kichererbsen&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=magerquark&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=magerquark&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=minigurken&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=mozzarella&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=naturjoghurt&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=oliven%C3%B6l&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=paprika&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=parmesan&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=passierte+tomaten&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=putenbrust&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=reibek%C3%A4se&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=reis&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=romana&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=rote+zwiebeln&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=schmand&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=skyr&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=spitzpaprika&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=tomaten&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=tomatenmark&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=zucchini&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=zwiebeln&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=zwiebeln&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=1600&gsrsearch=chicken%20bowl%20filetype%3Abitmap",
+    "headers": {
+     "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=1600&gsrsearch=chicken%20bowl%20filetype%3Abitmap",
+    "headers": {
+     "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=1600&gsrsearch=chicken%20bowl%20filetype%3Abitmap",
+    "headers": {
+     "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=1600&gsrsearch=chicken%20bowl%20filetype%3Abitmap",
+    "headers": {
+     "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=1600&gsrsearch=chicken%20bowl%20filetype%3Abitmap",
+    "headers": {
+     "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://marktguru.de",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://marktguru.de",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://upload.wikimedia.org/thumb/chicken-bowl-jpg.jpg",
+    "headers": {
+     "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://upload.wikimedia.org/thumb/chicken-bowl-jpg.jpg",
+    "headers": {
+     "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://upload.wikimedia.org/thumb/ratelimited.jpg",
+    "headers": {
+     "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://upload.wikimedia.org/thumb/ratelimited.jpg",
+    "headers": {
+     "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://upload.wikimedia.org/thumb/ratelimited.jpg",
+    "headers": {
+     "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://upload.wikimedia.org/thumb/roast-chicken-rice-jpg.jpg",
+    "headers": {
+     "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+    },
+    "timeout": 30
+   }
+  ],
+  "sleeps": [
+   2,
+   6
+  ]
+ },
+ "claude_calls": 1
+}

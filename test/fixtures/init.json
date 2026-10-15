@@ -1,0 +1,128 @@
+{
+ "en": {
+  "stdout": "Created <dir>. Edit household.toml and profile.md, then:  mealprep serve <dir>\n",
+  "again": "<dir>/household.toml already exists — nothing overwritten.",
+  "tree": {
+   "feedback.md": "# Feedback log\n\nClaude learns from this file. The web app appends ratings automatically; you can edit by hand.\n\n## Ratings\n\n| Week | Dish | Score | Comment |\n|---|---|---|---|\n\n## Blocked — never suggest again\n\n## Rules\n\n## What worked\n",
+   "household.toml": "# Meal Prep Studio — household configuration.\n# Everything personal lives in this folder; the tool itself stays generic.\nname = \"Meal Prep Studio\"\nlanguage = \"en\"            # \"en\" or \"de\" (UI + everything Claude writes)\n\n# Never suggested — checked in titles and ingredients (\"without X\" is fine).\nexclusions = [\"mushroom\"]\n\n[schedule]\ndays = 4                   # eating days per prep round\n# freeze_days = 2           # optional: freeze the last N days on prep day\nshopping_day = \"sat\"\nprep_day = \"sun\"\nfirst_day = \"mon\"\n\n[budget]\nper_round = 60\ncurrency = \"€\"\n\n# One entry per person. kcal = daily target, protein in g/day.\n[[persons]]\nid = \"a\"\nlabel = \"Alex\"\nname = \"Alex\"\nkcal = 2200\nprotein = 150\n\n[[persons]]\nid = \"b\"\nlabel = \"Sam\"\nname = \"Sam\"\nkcal = 1800\nprotein = 120\n\n# Meals that are NOT planned (fixed breakfast, shake …) — subtracted from the daily target.\n[[fixed_meals]]\nname = \"Breakfast\"\ntext = \"Oats with yogurt and berries\"\nkcal = 450\nprotein = 25\ncarbs = 55\n\n# Meals Claude plans. Either `share` of what is left after fixed meals,\n# or exact `targets = { a = 700, b = 560 }` per person.\n[[meals]]\nid = \"lunch\"\nlabel = \"Lunch · cold\"\ncold = true\nshare = 0.42\n\n[[meals]]\nid = \"dinner\"\nlabel = \"Dinner · warm\"\nshare = 0.58\n\n# Supermarket offers (Germany/Austria via marktguru). Set enabled = false elsewhere.\n[offers]\nenabled = false\nzip = \"\"\nretailers = [\"aldi-sued\", \"lidl\", \"netto-marken-discount\", \"kaufland\", \"rewe\", \"edeka\"]\nmarkup = { rewe = 1.15, edeka = 1.15 }   # regular-price surcharge vs. discounters\nsecond_store_min_saving = 3.0            # only suggest a second store if it saves this much\n\n[agent]\ncommand = \"claude\"         # Claude Code CLI, logged in\nmodel = \"sonnet\"           # sonnet = fast & good; opus = slower, more careful\ncandidates_per_meal = 4\n\n[server]\nport = 8090\npin = \"\"                   # set a PIN if other people use your Wi-Fi\n",
+   "ingredients.json": {
+    "_info": "Your own ingredients and real prices (from receipts). Same keys override the defaults."
+   },
+   "kitchen.json": {
+    "items": [
+     {
+      "name": "Baking tray",
+      "anz": 1,
+      "notiz": "only ~2 cm rim – no liquid sauce"
+     },
+     {
+      "name": "Casserole dish",
+      "anz": 1,
+      "notiz": "about 10 × 14 in, 2.5 in deep – for sauces and bakes"
+     },
+     {
+      "name": "Large pot",
+      "anz": 1,
+      "notiz": "5 l, for rice, pasta, stews"
+     },
+     {
+      "name": "Medium pot",
+      "anz": 1,
+      "notiz": "3 l"
+     },
+     {
+      "name": "Frying pan",
+      "anz": 2,
+      "notiz": "11 in, non-stick"
+     },
+     {
+      "name": "Oven",
+      "anz": 1,
+      "notiz": "one tray or dish per rack, 2 racks"
+     },
+     {
+      "name": "Cutting board",
+      "anz": 2,
+      "notiz": "large"
+     },
+     {
+      "name": "Kitchen scale",
+      "anz": 1,
+      "notiz": "up to 5 kg"
+     },
+     {
+      "name": "Food containers",
+      "anz": 8,
+      "notiz": "750 ml, microwave safe"
+     }
+    ],
+    "aktualisiert": "2026-10-11T12:00:00"
+   },
+   "pantry.md": "# Pantry\n\nLong-life items you have at home (spices, oil, canned goods).\n\n- olive oil\n- salt, pepper, paprika, cumin, oregano\n",
+   "profile.md": "# Household profile\n\nWrite freely — Claude reads this whole file before every suggestion.\n\n## Who eats\n- Two adults, office jobs, little exercise.\n\n## Goals\n- Lose weight slowly, stay full. Enough protein.\n\n## Medical / intolerances (always wins)\n- (e.g. lactose intolerance, insulin resistance: low GI, starch last)\n\n## Likes\n- Cheesy bakes, Mediterranean food, spicy is fine.\n\n## Dislikes\n- Mushrooms (never).\n\n## Kitchen\n- 1 oven with 2 racks, 1 sheet pan, 2 baking dishes, 1 large non-stick pan, pots.\n- Prep day may take about 75 minutes.\n\n## Shopping\n- Prefer one store. Budget see household.toml.\n"
+  }
+ },
+ "de": {
+  "stdout": "Created <dir>. Edit household.toml and profile.md, then:  mealprep serve <dir>\n",
+  "again": "<dir>/household.toml already exists — nothing overwritten.",
+  "tree": {
+   "feedback.md": "# Geschmacks-Log\n\nClaude lernt aus dieser Datei. Die Webseite trägt Bewertungen automatisch ein; von Hand ergänzen geht auch.\n\n## Bewertungen\n\n| Woche | Gericht | Note | Kommentar |\n|---|---|---|---|\n\n## Gesperrt — nicht mehr vorschlagen\n\n## Abgeleitete Regeln\n\n## Was funktioniert hat\n",
+   "household.toml": "# Meal Prep Studio — household configuration.\n# Everything personal lives in this folder; the tool itself stays generic.\nname = \"Unsere Küche\"\nlanguage = \"de\"            # \"en\" oder \"de\" (Oberfläche + alles, was Claude schreibt)\n\n# Never suggested — checked in titles and ingredients (\"without X\" is fine).\nexclusions = [\"pilz\", \"champignon\"]\n\n[schedule]\ndays = 4                   # eating days per prep round\n# freeze_days = 2           # optional: freeze the last N days on prep day\nshopping_day = \"sat\"\nprep_day = \"sun\"\nfirst_day = \"mon\"\n\n[budget]\nper_round = 60\ncurrency = \"€\"\n\n# One entry per person. kcal = daily target, protein in g/day.\n[[persons]]\nid = \"a\"\nlabel = \"Alex\"\nname = \"Alex\"\nkcal = 2200\nprotein = 150\n\n[[persons]]\nid = \"b\"\nlabel = \"Sam\"\nname = \"Sam\"\nkcal = 1800\nprotein = 120\n\n# Meals that are NOT planned (fixed breakfast, shake …) — subtracted from the daily target.\n[[fixed_meals]]\nname = \"Frühstück\"\ntext = \"Haferflocken mit Joghurt und Beeren\"\nkcal = 450\nprotein = 25\ncarbs = 55\n\n# Meals Claude plans. Either `share` of what is left after fixed meals,\n# or exact `targets = { a = 700, b = 560 }` per person.\n[[meals]]\nid = \"mittag\"\nlabel = \"Mittag · kalt\"\ncold = true\nshare = 0.42\n\n[[meals]]\nid = \"abend\"\nlabel = \"Abend · warm\"\nshare = 0.58\n\n# Supermarket offers (Germany/Austria via marktguru). Set enabled = false elsewhere.\n[offers]\nenabled = true\nzip = \"10115\"            # Postleitzahl für Angebote\nretailers = [\"aldi-sued\", \"lidl\", \"netto-marken-discount\", \"kaufland\", \"rewe\", \"edeka\"]\nmarkup = { rewe = 1.15, edeka = 1.15 }   # regular-price surcharge vs. discounters\nsecond_store_min_saving = 3.0            # only suggest a second store if it saves this much\n\n[agent]\ncommand = \"claude\"         # Claude Code CLI, logged in\nmodel = \"sonnet\"           # sonnet = fast & good; opus = slower, more careful\ncandidates_per_meal = 4\n\n[server]\nport = 8090\npin = \"\"                   # set a PIN if other people use your Wi-Fi\n",
+   "ingredients.json": {
+    "_info": "Your own ingredients and real prices (from receipts). Same keys override the defaults."
+   },
+   "kitchen.json": {
+    "items": [
+     {
+      "name": "Backblech / Fettpfanne",
+      "anz": 1,
+      "notiz": "nur ca. 2 cm Rand – keine flüssige Sauce"
+     },
+     {
+      "name": "Auflaufform",
+      "anz": 1,
+      "notiz": "ca. 25 × 35 cm, 6 cm tief – für Saucen und Aufläufe"
+     },
+     {
+      "name": "Topf groß",
+      "anz": 1,
+      "notiz": "5 l, für Reis, Nudeln, Eintöpfe"
+     },
+     {
+      "name": "Topf mittel",
+      "anz": 1,
+      "notiz": "3 l"
+     },
+     {
+      "name": "Pfanne",
+      "anz": 2,
+      "notiz": "28 cm, beschichtet"
+     },
+     {
+      "name": "Backofen",
+      "anz": 1,
+      "notiz": "ein Blech oder eine Form pro Ebene, 2 Ebenen"
+     },
+     {
+      "name": "Schneidebrett",
+      "anz": 2,
+      "notiz": "groß"
+     },
+     {
+      "name": "Messbecher / Waage",
+      "anz": 1,
+      "notiz": "Küchenwaage bis 5 kg"
+     },
+     {
+      "name": "Frischhaltedosen",
+      "anz": 8,
+      "notiz": "750 ml, mikrowellengeeignet"
+     }
+    ],
+    "aktualisiert": "2026-10-11T12:00:00"
+   },
+   "pantry.md": "# Vorrat\n\nHaltbares, das da ist (Gewürze, Öl, Konserven).\n\n- Olivenöl\n- Salz, Pfeffer, Paprika, Kreuzkümmel, Oregano\n",
+   "profile.md": "# Haushaltsprofil\n\nFrei schreiben — Claude liest die ganze Datei vor jedem Vorschlag.\n\n## Wer isst\n- Zwei Erwachsene, Bürojobs, wenig Bewegung.\n\n## Ziele\n- Langsam abnehmen, satt bleiben, genug Protein.\n\n## Medizinisch / Unverträglichkeiten (hat immer Vorrang)\n- (z. B. Laktoseintoleranz, Insulinresistenz: niedriger GI, Beilage zuletzt)\n\n## Mögen wir\n- Überbackenes mit Käse, mediterran, darf scharf sein.\n\n## Mögen wir nicht\n- Pilze (niemals).\n\n## Küche\n- Backofen mit 2 Schienen, 1 Backblech, 2 Auflaufformen, 1 große beschichtete Pfanne, Töpfe.\n- Prep-Tag darf ca. 75 Minuten dauern.\n\n## Einkauf\n- Am liebsten ein Laden. Budget siehe household.toml.\n"
+  }
+ }
+}

@@ -12,8 +12,8 @@ at the supermarkets near you, and a prep-day timeline.
 
 <br>
 
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-0f3d2e?style=flat-square&logo=python&logoColor=white)](#requirements)
-[![No dependencies](https://img.shields.io/badge/dependencies-none-8cc63f?style=flat-square)](#requirements)
+[![Node 22+](https://img.shields.io/badge/node-22+-0f3d2e?style=flat-square&logo=nodedotjs&logoColor=white)](#requirements)
+[![One dependency](https://img.shields.io/badge/dependencies-1%20(smol--toml)-8cc63f?style=flat-square)](#requirements)
 [![Claude Code](https://img.shields.io/badge/planned%20by-Claude-e8792b?style=flat-square)](https://claude.com/claude-code)
 [![Languages](https://img.shields.io/badge/UI-English%20%C2%B7%20Deutsch-0f3d2e?style=flat-square)](#configuration)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1d2a24?style=flat-square)](LICENSE)
@@ -36,7 +36,7 @@ few nice-looking dishes and everything arrives sorted. They're also expensive.
   price and active cooking time. Give a thumbs up or down, add a note like "no feta" or "cheaper",
   and Claude revises the round in about 30 seconds.
 - **The numbers are calculated.** Claude writes the recipes. Macros, portion splits, pack sizes
-  and prices are calculated in Python from an ingredient database.
+  and prices are calculated in code from an ingredient database.
 - **It learns your household.** Rate each week per person. Failures block a whole *category*,
   not just one recipe, and successes become rules for the next round.
 
@@ -110,41 +110,53 @@ as a printable Markdown file.
 ## Quick start
 
 ```bash
-git clone https://github.com/fHpro0/mealprep-studio.git
-cd mealprep-studio
-
-./mealprep init ~/my-kitchen --lang en     # or --lang de
-$EDITOR ~/my-kitchen/household.toml        # people, calorie targets, budget, postcode
-$EDITOR ~/my-kitchen/profile.md            # likes, dislikes, intolerances, kitchen equipment
-./mealprep check ~/my-kitchen              # checks config, Claude CLI and offers
-./mealprep serve ~/my-kitchen
+npx mealprep-studio init ~/my-kitchen --lang en     # or --lang de
+$EDITOR ~/my-kitchen/household.toml                 # people, calorie targets, budget, postcode
+$EDITOR ~/my-kitchen/profile.md                     # likes, dislikes, intolerances, kitchen equipment
+npx mealprep-studio check ~/my-kitchen              # checks config, Claude CLI and offers
+npx mealprep-studio serve ~/my-kitchen
 ```
 
 Open the printed address on your phone (it must be on the same Wi-Fi) and tap **Get new suggestions**.
 
+Prefer Bun? Use `bunx mealprep-studio …` instead of `npx mealprep-studio …`. To get a permanent
+command, install it once with `npm i -g mealprep-studio`. Then `mealprep-studio …` (or the short
+alias `mealprep …`) works everywhere.
+
+### Use it from Claude Code
+
+Meal Prep Studio is also a Claude Code plugin. Claude then runs the commands for you: it sets up the
+household folder, starts a round, shows you the dishes and writes the plan.
+
+```
+/plugin marketplace add fHpro0/mealprep-studio
+/plugin install mealprep-studio@mealprep-studio
+```
+
+Then ask for "a meal prep plan for next week" or "rate last week's food". Your data stays in your
+household folder, as always.
+
 ### Requirements
 
-- **Python 3.11+**. Only the standard library is needed.
+- **Node.js 22+** (or Bun). The only dependency is `smol-toml`, which reads `household.toml`.
 - **[Claude Code](https://claude.com/claude-code)**, installed and logged in. The app calls the `claude`
   CLI in the background and uses your Claude subscription or API key.
-- *Optional:* `pip install pillow` stores photos as compact **WebP**. Without it, the original
-  JPEGs are kept.
 
 ### From the terminal
 
 Every button is also a command:
 
 ```bash
-./mealprep run ~/my-kitchen neue_runde                     # new round of suggestions
-./mealprep run ~/my-kitchen ueberarbeiten 2026-10-12       # revise using your reactions
-./mealprep run ~/my-kitchen plan_erstellen 2026-10-12      # write the week plan
-./mealprep run ~/my-kitchen feedback_uebernehmen 2026-10-12
-./mealprep calc ~/my-kitchen 2026-10-12                    # recalculate after editing by hand
+npx mealprep-studio run ~/my-kitchen neue_runde                     # new round of suggestions
+npx mealprep-studio run ~/my-kitchen ueberarbeiten 2026-10-12       # revise using your reactions
+npx mealprep-studio run ~/my-kitchen plan_erstellen 2026-10-12      # write the week plan
+npx mealprep-studio run ~/my-kitchen feedback_uebernehmen 2026-10-12
+npx mealprep-studio calc ~/my-kitchen 2026-10-12                    # recalculate after editing by hand
 ```
 
 ## Configuration
 
-Everything personal lives in your household folder. The repository stays generic.
+Everything personal lives in your household folder. The package stays generic.
 
 | File | Purpose |
 |---|---|
@@ -224,7 +236,7 @@ Already have notes and plans in your own folder structure? Point the app at them
 Each action is **one structured Claude call** with no tools, no MCP servers and no file browsing.
 The server puts the profile, feedback log, offers, ingredient list and your reactions into one
 prompt and asks for JSON that matches a schema (`claude -p --json-schema`). Everything else runs
-in Python.
+in the app.
 
 | Action | Typical time |
 |---|---|
@@ -286,20 +298,22 @@ not necessarily your recipe. Tap **Another photo** if one doesn't fit.
 <summary><b>Can I edit a plan by hand?</b></summary>
 
 Yes. Everything is JSON and Markdown. After changing ingredient amounts in a round, run
-`./mealprep calc <dir> <round>` to recalculate macros and prices. Before the app overwrites a plan,
+`npx mealprep-studio calc <dir> <round>` to recalculate macros and prices. Before the app overwrites a plan,
 it saves a backup in `jobs/backups/`.
 </details>
 
 ## Project layout
 
 ```
-mealprep              launcher (./mealprep init|serve|run|calc|check)
-mealprep_studio/      server · actions · Claude call · calculator · prices · offers · images · markdown
+src/                  TypeScript: server · actions · Claude call · calculator · prices · offers · images · markdown
+dist/                 compiled JavaScript that npm installs (built by `npm run build`, not in git)
+test/                 tests, including parity fixtures recorded from the original Python version
+skills/               the Claude Code skill (with .claude-plugin/ it makes the repo a plugin)
 web/                  the app: plain HTML/CSS/JS, English + German, no build step
 prompts/rules.md      general cooking rules every plan follows
 data/ingredients.json default ingredients: nutrients, typical prices, offer search terms
 examples/             starter household folders (en, de)
-docs/                 data formats, README graphics (make_images.py)
+docs/                 data formats, README graphics (make_images.py, needs Pillow)
 ```
 
 ## License

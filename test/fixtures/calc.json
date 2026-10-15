@@ -1,0 +1,688 @@
+{
+ "calculated": [
+  {
+   "id": "t-ok",
+   "slot": "lunch",
+   "titel": "Hähnchen-Reis-Bowl",
+   "untertitel": "x",
+   "rechnung": {
+    "slot": "lunch",
+    "haupt": {
+     "haehnchenbrust": 1500,
+     "minigurken": 800,
+     "tomaten": 500
+    },
+    "pro_portion": {
+     "reis": 60
+    }
+   },
+   "berechnet": {
+    "mengen": {
+     "haehnchenbrust": 2980,
+     "minigurken": 1590,
+     "tomaten": 990
+    },
+    "anteil": {
+     "a": 0.1487,
+     "b": 0.1011
+    },
+    "makros": {
+     "a": {
+      "kcal": 735,
+      "p": 111,
+      "kh": 55
+     },
+     "b": {
+      "kcal": 567,
+      "p": 77,
+      "kh": 53
+     }
+    },
+    "kosten": {
+     "einkauf": 41.75
+    },
+    "einkaufsliste": [
+     {
+      "zutat": "haehnchenbrust",
+      "name": "Chicken breast",
+      "g": 2980,
+      "pack_g": 1000,
+      "eur_kg": 9.9,
+      "laden": "",
+      "quelle": "schaetzung",
+      "aisle": "chilled",
+      "packungen": 3,
+      "eur": 29.7
+     },
+     {
+      "zutat": "minigurken",
+      "name": "Mini cucumbers",
+      "g": 1590,
+      "pack_g": 750,
+      "eur_kg": 3.72,
+      "laden": "",
+      "quelle": "schaetzung",
+      "aisle": "produce",
+      "packungen": 3,
+      "eur": 8.37
+     },
+     {
+      "zutat": "tomaten",
+      "name": "Tomatoes",
+      "g": 990,
+      "pack_g": 500,
+      "eur_kg": 2.49,
+      "laden": "",
+      "quelle": "schaetzung",
+      "aisle": "produce",
+      "packungen": 2,
+      "eur": 2.49
+     },
+     {
+      "zutat": "reis",
+      "name": "Parboiled rice (dry)",
+      "g": 480,
+      "pack_g": 500,
+      "eur_kg": 2.38,
+      "laden": "",
+      "quelle": "schaetzung",
+      "aisle": "dry",
+      "packungen": 1,
+      "eur": 1.19
+     }
+    ],
+    "skalierung": 1.985,
+    "warnungen": [
+     "main quantities scaled +99 %"
+    ]
+   },
+   "makros": {
+    "a": {
+     "kcal": 735,
+     "p": 111,
+     "kh": 55
+    },
+    "b": {
+     "kcal": 567,
+     "p": 77,
+     "kh": 53
+    }
+   },
+   "kosten": 41.75
+  },
+  {
+   "id": "t-scale-up",
+   "slot": "dinner",
+   "rechnung": {
+    "slot": "dinner",
+    "haupt": {
+     "haehnchenbrust": 700,
+     "kartoffeln": 800
+    }
+   },
+   "berechnet": {
+    "mengen": {
+     "haehnchenbrust": 3840,
+     "kartoffeln": 4390
+    },
+    "anteil": {
+     "a": 0.1411,
+     "b": 0.1089
+    },
+    "makros": {
+     "a": {
+      "kcal": 1015,
+      "p": 140,
+      "kh": 93
+     },
+     "b": {
+      "kcal": 783,
+      "p": 108,
+      "kh": 72
+     }
+    },
+    "kosten": {
+     "einkauf": 45.6
+    },
+    "einkaufsliste": [
+     {
+      "zutat": "haehnchenbrust",
+      "name": "Chicken breast",
+      "g": 3840,
+      "pack_g": 1000,
+      "eur_kg": 9.9,
+      "laden": "",
+      "quelle": "schaetzung",
+      "aisle": "chilled",
+      "packungen": 4,
+      "eur": 39.6
+     },
+     {
+      "zutat": "kartoffeln",
+      "name": "Potatoes",
+      "g": 4390,
+      "pack_g": 2000,
+      "eur_kg": 1.0,
+      "laden": "",
+      "quelle": "schaetzung",
+      "aisle": "produce",
+      "packungen": 3,
+      "eur": 6.0
+     }
+    ],
+    "skalierung": 5.486,
+    "warnungen": [
+     "main quantities scaled +449 %"
+    ]
+   },
+   "makros": {
+    "a": {
+     "kcal": 1015,
+     "p": 140,
+     "kh": 93
+    },
+    "b": {
+     "kcal": 783,
+     "p": 108,
+     "kh": 72
+    }
+   },
+   "kosten": 45.6
+  },
+  {
+   "id": "t-scale-down",
+   "slot": "dinner",
+   "rechnung": {
+    "slot": "dinner",
+    "haupt": {
+     "hack_gemischt": 3000,
+     "reis": 1500
+    },
+    "pro_portion": {
+     "olivenoel": 10,
+     "senf": 5
+    }
+   },
+   "berechnet": {
+    "mengen": {
+     "hack_gemischt": 1520,
+     "reis": 760
+    },
+    "anteil": {
+     "a": 0.1427,
+     "b": 0.1068
+    },
+    "makros": {
+     "a": {
+      "kcal": 1015,
+      "p": 47,
+      "kh": 85
+     },
+     "b": {
+      "kcal": 783,
+      "p": 35,
+      "kh": 64
+     }
+    },
+    "kosten": {
+     "einkauf": 18.34
+    },
+    "einkaufsliste": [
+     {
+      "zutat": "hack_gemischt",
+      "name": "Ground beef & pork",
+      "g": 1520,
+      "pack_g": 1000,
+      "eur_kg": 7.98,
+      "laden": "",
+      "quelle": "schaetzung",
+      "aisle": "chilled",
+      "packungen": 2,
+      "eur": 15.96
+     },
+     {
+      "zutat": "reis",
+      "name": "Parboiled rice (dry)",
+      "g": 760,
+      "pack_g": 500,
+      "eur_kg": 2.38,
+      "laden": "",
+      "quelle": "schaetzung",
+      "aisle": "dry",
+      "packungen": 2,
+      "eur": 2.38
+     },
+     {
+      "zutat": "olivenoel",
+      "name": "Olive oil",
+      "g": 80,
+      "pack_g": 500,
+      "eur_kg": 11.98,
+      "laden": "Vorrat",
+      "quelle": "schaetzung",
+      "aisle": "pantry",
+      "packungen": 0,
+      "eur": 0
+     },
+     {
+      "zutat": "senf",
+      "name": "Mustard",
+      "g": 40,
+      "pack_g": 200,
+      "eur_kg": 4.0,
+      "laden": "Vorrat",
+      "quelle": "schaetzung",
+      "aisle": "pantry",
+      "packungen": 0,
+      "eur": 0
+     }
+    ],
+    "skalierung": 0.506,
+    "warnungen": [
+     "main quantities scaled -49 %"
+    ]
+   },
+   "makros": {
+    "a": {
+     "kcal": 1015,
+     "p": 47,
+     "kh": 85
+    },
+    "b": {
+     "kcal": 783,
+     "p": 35,
+     "kh": 64
+    }
+   },
+   "kosten": 18.34
+  },
+  {
+   "id": "t-pantry",
+   "slot": "lunch",
+   "rechnung": {
+    "slot": "lunch",
+    "haupt": {
+     "eisberg": 1000,
+     "ei": 600,
+     "hokkaido": 500,
+     "zucchini": 700,
+     "kraeuter": 17
+    },
+    "pro_portion": {
+     "olivenoel": 15
+    }
+   },
+   "berechnet": {
+    "mengen": {
+     "eisberg": 2720,
+     "ei": 1630,
+     "hokkaido": 1360,
+     "zucchini": 1900,
+     "kraeuter": 50
+    },
+    "anteil": {
+     "a": 0.1453,
+     "b": 0.1048
+    },
+    "makros": {
+     "a": {
+      "kcal": 735,
+      "p": 43,
+      "kh": 39
+     },
+     "b": {
+      "kcal": 567,
+      "p": 31,
+      "kh": 28
+     }
+    },
+    "kosten": {
+     "einkauf": 24.75
+    },
+    "einkaufsliste": [
+     {
+      "zutat": "eisberg",
+      "name": "Iceberg lettuce (head ≈ 550 g)",
+      "g": 2720,
+      "pack_g": 550,
+      "eur_kg": 1.8,
+      "laden": "",
+      "quelle": "schaetzung",
+      "aisle": "produce",
+      "packungen": 5,
+      "eur": 4.95
+     },
+     {
+      "zutat": "ei",
+      "name": "Eggs (1 egg ≈ 60 g)",
+      "g": 1630,
+      "pack_g": 600,
+      "eur_kg": 4.48,
+      "laden": "",
+      "quelle": "schaetzung",
+      "aisle": "chilled",
+      "packungen": 3,
+      "eur": 8.06
+     },
+     {
+      "zutat": "hokkaido",
+      "name": "Hokkaido pumpkin",
+      "g": 1360,
+      "pack_g": 1200,
+      "eur_kg": 1.99,
+      "laden": "",
+      "quelle": "schaetzung",
+      "aisle": "produce",
+      "packungen": 2,
+      "eur": 4.78
+     },
+     {
+      "zutat": "zucchini",
+      "name": "Zucchini",
+      "g": 1900,
+      "pack_g": 500,
+      "eur_kg": 2.49,
+      "laden": "",
+      "quelle": "schaetzung",
+      "aisle": "produce",
+      "packungen": 4,
+      "eur": 4.98
+     },
+     {
+      "zutat": "kraeuter",
+      "name": "Fresh herbs",
+      "g": 50,
+      "pack_g": 30,
+      "eur_kg": 33.0,
+      "laden": "",
+      "quelle": "schaetzung",
+      "aisle": "produce",
+      "packungen": 2,
+      "eur": 1.98
+     },
+     {
+      "zutat": "olivenoel",
+      "name": "Olive oil",
+      "g": 120,
+      "pack_g": 500,
+      "eur_kg": 11.98,
+      "laden": "Vorrat",
+      "quelle": "schaetzung",
+      "aisle": "pantry",
+      "packungen": 0,
+      "eur": 0
+     }
+    ],
+    "skalierung": 2.72,
+    "warnungen": [
+     "main quantities scaled +172 %"
+    ]
+   },
+   "makros": {
+    "a": {
+     "kcal": 735,
+     "p": 43,
+     "kh": 39
+    },
+    "b": {
+     "kcal": 567,
+     "p": 31,
+     "kh": 28
+    }
+   },
+   "kosten": 24.75
+  },
+  {
+   "id": "t-tiny",
+   "slot": "lunch",
+   "rechnung": {
+    "slot": "lunch",
+    "haupt": {
+     "kraeuter": 2
+    }
+   },
+   "berechnet": {
+    "mengen": {
+     "kraeuter": 13020
+    },
+    "anteil": {
+     "a": 0.1411,
+     "b": 0.1089
+    },
+    "makros": {
+     "a": {
+      "kcal": 735,
+      "p": 55,
+      "kh": 92
+     },
+     "b": {
+      "kcal": 567,
+      "p": 43,
+      "kh": 71
+     }
+    },
+    "kosten": {
+     "einkauf": 429.66
+    },
+    "einkaufsliste": [
+     {
+      "zutat": "kraeuter",
+      "name": "Fresh herbs",
+      "g": 13020,
+      "pack_g": 30,
+      "eur_kg": 33.0,
+      "laden": "",
+      "quelle": "schaetzung",
+      "aisle": "produce",
+      "packungen": 434,
+      "eur": 429.66
+     }
+    ],
+    "skalierung": 6510.0,
+    "warnungen": [
+     "main quantities scaled +650900 %"
+    ]
+   },
+   "makros": {
+    "a": {
+     "kcal": 735,
+     "p": 55,
+     "kh": 92
+    },
+    "b": {
+     "kcal": 567,
+     "p": 43,
+     "kh": 71
+    }
+   },
+   "kosten": 429.66
+  }
+ ],
+ "errors": [
+  {
+   "id": "e1",
+   "type": "KeyError",
+   "str": "'unobtainium'"
+  },
+  {
+   "id": "e2",
+   "type": "ZeroDivisionError",
+   "str": "division by zero"
+  },
+  {
+   "id": "e3",
+   "type": "KeyError",
+   "str": "'nope'"
+  }
+ ],
+ "packs": [
+  [
+   1010,
+   1000,
+   1
+  ],
+  [
+   1030,
+   1000,
+   1
+  ],
+  [
+   1031,
+   1000,
+   2
+  ],
+  [
+   1,
+   500,
+   1
+  ],
+  [
+   0,
+   500,
+   1
+  ],
+  [
+   999.9,
+   250,
+   4
+  ],
+  [
+   2000,
+   2000,
+   1
+  ],
+  [
+   60,
+   60,
+   1
+  ],
+  [
+   61.9,
+   60,
+   2
+  ],
+  [
+   62,
+   60,
+   2
+  ]
+ ],
+ "macros": {
+  "kcal": 621.5999999999999,
+  "p": 83.69399999999999,
+  "kh": 60.606
+ },
+ "exclusions": [
+  [
+   "mushroom"
+  ],
+  [],
+  [
+   "mushroom"
+  ],
+  [
+   "feta"
+  ],
+  [],
+  [
+   "mushroom",
+   "feta"
+  ],
+  [
+   "feta"
+  ]
+ ],
+ "exclusion_inputs": [
+  {
+   "titel": "Mushroom risotto",
+   "untertitel": "",
+   "rechnung": {
+    "haupt": {
+     "reis": 1
+    }
+   }
+  },
+  {
+   "titel": "Risotto without mushroom",
+   "rechnung": {
+    "haupt": {
+     "reis": 1
+    }
+   }
+  },
+  {
+   "titel": "Pasta",
+   "untertitel": "no-feta, mushroom-free",
+   "rechnung": {
+    "haupt": {
+     "reis": 1
+    }
+   }
+  },
+  {
+   "titel": "Salat",
+   "rechnung": {
+    "haupt": {
+     "feta": 100
+    },
+    "pro_portion": {
+     "reis": 5
+    }
+   }
+  },
+  {
+   "titel": "Salat",
+   "rechnung": {
+    "haupt": {
+     "zwiebel": 100
+    }
+   }
+  },
+  {
+   "titel": "Plain",
+   "untertitel": "feta and mushroom both",
+   "rechnung": {
+    "haupt": {
+     "reis": 1
+    }
+   }
+  },
+  {
+   "titel": "kein  Feta, keine Pilze, mit feta",
+   "rechnung": {
+    "haupt": {
+     "reis": 1
+    }
+   }
+  }
+ ],
+ "added": [
+  "dinkelnudeln",
+  "keks"
+ ],
+ "added_again": [],
+ "added_file": {
+  "_info": "Your own ingredients and real prices (from receipts). Same keys override the defaults.",
+  "dinkelnudeln": {
+   "name": "Dinkelnudeln",
+   "kcal": 350,
+   "p": 12,
+   "kh": 70,
+   "eur_kg": 3.5,
+   "pack_g": 500,
+   "laden": "",
+   "aisle": "dry",
+   "quelle": "schaetzung"
+  },
+  "keks": {
+   "name": "Keks",
+   "kcal": 450,
+   "p": 5,
+   "kh": 70,
+   "eur_kg": 6,
+   "pack_g": 200,
+   "quelle": "kassenbon"
+  }
+ },
+ "added_text": "{\n \"_info\": \"Your own ingredients and real prices (from receipts). Same keys override the defaults.\",\n \"dinkelnudeln\": {\n  \"name\": \"Dinkelnudeln\",\n  \"kcal\": 350,\n  \"p\": 12,\n  \"kh\": 70,\n  \"eur_kg\": 3.5,\n  \"pack_g\": 500,\n  \"laden\": \"\",\n  \"aisle\": \"dry\",\n  \"quelle\": \"schaetzung\"\n },\n \"keks\": {\n  \"name\": \"Keks\",\n  \"kcal\": 450,\n  \"p\": 5,\n  \"kh\": 70,\n  \"eur_kg\": 6,\n  \"pack_g\": 200,\n  \"quelle\": \"kassenbon\"\n }\n}\n"
+}

@@ -1,0 +1,2462 @@
+[
+ {
+  "lang": "en",
+  "sched": {},
+  "today": [
+   2026,
+   10,
+   14
+  ],
+  "existing": [],
+  "result": {
+   "id": "2026-10-19",
+   "zeitraum": "Mon 19.10. – Thu 22.10.2026",
+   "einkaufstag": "Sat 17.10.",
+   "einkauf_iso": "2026-10-17",
+   "preptag": "Sun 18.10."
+  },
+  "ids": [
+   [],
+   []
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {},
+  "today": [
+   2026,
+   10,
+   14
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-26",
+   "zeitraum": "Mon 26.10. – Thu 29.10.2026",
+   "einkaufstag": "Sat 24.10.",
+   "einkauf_iso": "2026-10-24",
+   "preptag": "Sun 25.10."
+  },
+  "ids": [
+   [],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {},
+  "today": [
+   2026,
+   10,
+   14
+  ],
+  "existing": [
+   [
+    "weeks",
+    "2026-11-02"
+   ],
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-11-09",
+   "zeitraum": "Mon 09.11. – Thu 12.11.2026",
+   "einkaufstag": "Sat 07.11.",
+   "einkauf_iso": "2026-11-07",
+   "preptag": "Sun 08.11."
+  },
+  "ids": [
+   [
+    "2026-11-02"
+   ],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {},
+  "today": [
+   2026,
+   10,
+   14
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2025-01-06"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-19",
+   "zeitraum": "Mon 19.10. – Thu 22.10.2026",
+   "einkaufstag": "Sat 17.10.",
+   "einkauf_iso": "2026-10-17",
+   "preptag": "Sun 18.10."
+  },
+  "ids": [
+   [],
+   [
+    "2025-01-06"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {},
+  "today": [
+   2026,
+   10,
+   12
+  ],
+  "existing": [],
+  "result": {
+   "id": "2026-10-19",
+   "zeitraum": "Mon 19.10. – Thu 22.10.2026",
+   "einkaufstag": "Sat 17.10.",
+   "einkauf_iso": "2026-10-17",
+   "preptag": "Sun 18.10."
+  },
+  "ids": [
+   [],
+   []
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {},
+  "today": [
+   2026,
+   10,
+   12
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-26",
+   "zeitraum": "Mon 26.10. – Thu 29.10.2026",
+   "einkaufstag": "Sat 24.10.",
+   "einkauf_iso": "2026-10-24",
+   "preptag": "Sun 25.10."
+  },
+  "ids": [
+   [],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {},
+  "today": [
+   2026,
+   10,
+   12
+  ],
+  "existing": [
+   [
+    "weeks",
+    "2026-11-02"
+   ],
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-11-09",
+   "zeitraum": "Mon 09.11. – Thu 12.11.2026",
+   "einkaufstag": "Sat 07.11.",
+   "einkauf_iso": "2026-11-07",
+   "preptag": "Sun 08.11."
+  },
+  "ids": [
+   [
+    "2026-11-02"
+   ],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {},
+  "today": [
+   2026,
+   10,
+   12
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2025-01-06"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-12",
+   "zeitraum": "Mon 12.10. – Thu 15.10.2026",
+   "einkaufstag": "Sat 10.10.",
+   "einkauf_iso": "2026-10-10",
+   "preptag": "Sun 11.10."
+  },
+  "ids": [
+   [],
+   [
+    "2025-01-06"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {},
+  "today": [
+   2026,
+   10,
+   18
+  ],
+  "existing": [],
+  "result": {
+   "id": "2026-10-19",
+   "zeitraum": "Mon 19.10. – Thu 22.10.2026",
+   "einkaufstag": "Sat 17.10.",
+   "einkauf_iso": "2026-10-17",
+   "preptag": "Sun 18.10."
+  },
+  "ids": [
+   [],
+   []
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {},
+  "today": [
+   2026,
+   10,
+   18
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-26",
+   "zeitraum": "Mon 26.10. – Thu 29.10.2026",
+   "einkaufstag": "Sat 24.10.",
+   "einkauf_iso": "2026-10-24",
+   "preptag": "Sun 25.10."
+  },
+  "ids": [
+   [],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {},
+  "today": [
+   2026,
+   10,
+   18
+  ],
+  "existing": [
+   [
+    "weeks",
+    "2026-11-02"
+   ],
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-11-09",
+   "zeitraum": "Mon 09.11. – Thu 12.11.2026",
+   "einkaufstag": "Sat 07.11.",
+   "einkauf_iso": "2026-11-07",
+   "preptag": "Sun 08.11."
+  },
+  "ids": [
+   [
+    "2026-11-02"
+   ],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {},
+  "today": [
+   2026,
+   10,
+   18
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2025-01-06"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-19",
+   "zeitraum": "Mon 19.10. – Thu 22.10.2026",
+   "einkaufstag": "Sat 17.10.",
+   "einkauf_iso": "2026-10-17",
+   "preptag": "Sun 18.10."
+  },
+  "ids": [
+   [],
+   [
+    "2025-01-06"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {},
+  "today": [
+   2026,
+   12,
+   30
+  ],
+  "existing": [],
+  "result": {
+   "id": "2027-01-04",
+   "zeitraum": "Mon 04.01. – Thu 07.01.2027",
+   "einkaufstag": "Sat 02.01.",
+   "einkauf_iso": "2027-01-02",
+   "preptag": "Sun 03.01."
+  },
+  "ids": [
+   [],
+   []
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {},
+  "today": [
+   2026,
+   12,
+   30
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2027-01-04",
+   "zeitraum": "Mon 04.01. – Thu 07.01.2027",
+   "einkaufstag": "Sat 02.01.",
+   "einkauf_iso": "2027-01-02",
+   "preptag": "Sun 03.01."
+  },
+  "ids": [
+   [],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {},
+  "today": [
+   2026,
+   12,
+   30
+  ],
+  "existing": [
+   [
+    "weeks",
+    "2026-11-02"
+   ],
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2027-01-04",
+   "zeitraum": "Mon 04.01. – Thu 07.01.2027",
+   "einkaufstag": "Sat 02.01.",
+   "einkauf_iso": "2027-01-02",
+   "preptag": "Sun 03.01."
+  },
+  "ids": [
+   [
+    "2026-11-02"
+   ],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {},
+  "today": [
+   2026,
+   12,
+   30
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2025-01-06"
+   ]
+  ],
+  "result": {
+   "id": "2027-01-04",
+   "zeitraum": "Mon 04.01. – Thu 07.01.2027",
+   "einkaufstag": "Sat 02.01.",
+   "einkauf_iso": "2027-01-02",
+   "preptag": "Sun 03.01."
+  },
+  "ids": [
+   [],
+   [
+    "2025-01-06"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {},
+  "today": [
+   2027,
+   1,
+   1
+  ],
+  "existing": [],
+  "result": {
+   "id": "2027-01-04",
+   "zeitraum": "Mon 04.01. – Thu 07.01.2027",
+   "einkaufstag": "Sat 02.01.",
+   "einkauf_iso": "2027-01-02",
+   "preptag": "Sun 03.01."
+  },
+  "ids": [
+   [],
+   []
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {},
+  "today": [
+   2027,
+   1,
+   1
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2027-01-04",
+   "zeitraum": "Mon 04.01. – Thu 07.01.2027",
+   "einkaufstag": "Sat 02.01.",
+   "einkauf_iso": "2027-01-02",
+   "preptag": "Sun 03.01."
+  },
+  "ids": [
+   [],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {},
+  "today": [
+   2027,
+   1,
+   1
+  ],
+  "existing": [
+   [
+    "weeks",
+    "2026-11-02"
+   ],
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2027-01-04",
+   "zeitraum": "Mon 04.01. – Thu 07.01.2027",
+   "einkaufstag": "Sat 02.01.",
+   "einkauf_iso": "2027-01-02",
+   "preptag": "Sun 03.01."
+  },
+  "ids": [
+   [
+    "2026-11-02"
+   ],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {},
+  "today": [
+   2027,
+   1,
+   1
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2025-01-06"
+   ]
+  ],
+  "result": {
+   "id": "2027-01-04",
+   "zeitraum": "Mon 04.01. – Thu 07.01.2027",
+   "einkaufstag": "Sat 02.01.",
+   "einkauf_iso": "2027-01-02",
+   "preptag": "Sun 03.01."
+  },
+  "ids": [
+   [],
+   [
+    "2025-01-06"
+   ]
+  ]
+ },
+ {
+  "lang": "de",
+  "sched": {
+   "first_day": "wed",
+   "shopping_day": "mon",
+   "prep_day": "tue"
+  },
+  "today": [
+   2026,
+   10,
+   14
+  ],
+  "existing": [],
+  "result": {
+   "id": "2026-10-21",
+   "zeitraum": "Mi 21.10. – Sa 24.10.2026",
+   "einkaufstag": "Mo 19.10.",
+   "einkauf_iso": "2026-10-19",
+   "preptag": "Di 20.10."
+  },
+  "ids": [
+   [],
+   []
+  ]
+ },
+ {
+  "lang": "de",
+  "sched": {
+   "first_day": "wed",
+   "shopping_day": "mon",
+   "prep_day": "tue"
+  },
+  "today": [
+   2026,
+   10,
+   14
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-21",
+   "zeitraum": "Mi 21.10. – Sa 24.10.2026",
+   "einkaufstag": "Mo 19.10.",
+   "einkauf_iso": "2026-10-19",
+   "preptag": "Di 20.10."
+  },
+  "ids": [
+   [],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "de",
+  "sched": {
+   "first_day": "wed",
+   "shopping_day": "mon",
+   "prep_day": "tue"
+  },
+  "today": [
+   2026,
+   10,
+   14
+  ],
+  "existing": [
+   [
+    "weeks",
+    "2026-11-02"
+   ],
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-11-04",
+   "zeitraum": "Mi 04.11. – Sa 07.11.2026",
+   "einkaufstag": "Mo 02.11.",
+   "einkauf_iso": "2026-11-02",
+   "preptag": "Di 03.11."
+  },
+  "ids": [
+   [
+    "2026-11-02"
+   ],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "de",
+  "sched": {
+   "first_day": "wed",
+   "shopping_day": "mon",
+   "prep_day": "tue"
+  },
+  "today": [
+   2026,
+   10,
+   14
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2025-01-06"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-14",
+   "zeitraum": "Mi 14.10. – Sa 17.10.2026",
+   "einkaufstag": "Mo 12.10.",
+   "einkauf_iso": "2026-10-12",
+   "preptag": "Di 13.10."
+  },
+  "ids": [
+   [],
+   [
+    "2025-01-06"
+   ]
+  ]
+ },
+ {
+  "lang": "de",
+  "sched": {
+   "first_day": "wed",
+   "shopping_day": "mon",
+   "prep_day": "tue"
+  },
+  "today": [
+   2026,
+   10,
+   12
+  ],
+  "existing": [],
+  "result": {
+   "id": "2026-10-14",
+   "zeitraum": "Mi 14.10. – Sa 17.10.2026",
+   "einkaufstag": "Mo 12.10.",
+   "einkauf_iso": "2026-10-12",
+   "preptag": "Di 13.10."
+  },
+  "ids": [
+   [],
+   []
+  ]
+ },
+ {
+  "lang": "de",
+  "sched": {
+   "first_day": "wed",
+   "shopping_day": "mon",
+   "prep_day": "tue"
+  },
+  "today": [
+   2026,
+   10,
+   12
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-21",
+   "zeitraum": "Mi 21.10. – Sa 24.10.2026",
+   "einkaufstag": "Mo 19.10.",
+   "einkauf_iso": "2026-10-19",
+   "preptag": "Di 20.10."
+  },
+  "ids": [
+   [],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "de",
+  "sched": {
+   "first_day": "wed",
+   "shopping_day": "mon",
+   "prep_day": "tue"
+  },
+  "today": [
+   2026,
+   10,
+   12
+  ],
+  "existing": [
+   [
+    "weeks",
+    "2026-11-02"
+   ],
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-11-04",
+   "zeitraum": "Mi 04.11. – Sa 07.11.2026",
+   "einkaufstag": "Mo 02.11.",
+   "einkauf_iso": "2026-11-02",
+   "preptag": "Di 03.11."
+  },
+  "ids": [
+   [
+    "2026-11-02"
+   ],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "de",
+  "sched": {
+   "first_day": "wed",
+   "shopping_day": "mon",
+   "prep_day": "tue"
+  },
+  "today": [
+   2026,
+   10,
+   12
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2025-01-06"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-14",
+   "zeitraum": "Mi 14.10. – Sa 17.10.2026",
+   "einkaufstag": "Mo 12.10.",
+   "einkauf_iso": "2026-10-12",
+   "preptag": "Di 13.10."
+  },
+  "ids": [
+   [],
+   [
+    "2025-01-06"
+   ]
+  ]
+ },
+ {
+  "lang": "de",
+  "sched": {
+   "first_day": "wed",
+   "shopping_day": "mon",
+   "prep_day": "tue"
+  },
+  "today": [
+   2026,
+   10,
+   18
+  ],
+  "existing": [],
+  "result": {
+   "id": "2026-10-21",
+   "zeitraum": "Mi 21.10. – Sa 24.10.2026",
+   "einkaufstag": "Mo 19.10.",
+   "einkauf_iso": "2026-10-19",
+   "preptag": "Di 20.10."
+  },
+  "ids": [
+   [],
+   []
+  ]
+ },
+ {
+  "lang": "de",
+  "sched": {
+   "first_day": "wed",
+   "shopping_day": "mon",
+   "prep_day": "tue"
+  },
+  "today": [
+   2026,
+   10,
+   18
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-21",
+   "zeitraum": "Mi 21.10. – Sa 24.10.2026",
+   "einkaufstag": "Mo 19.10.",
+   "einkauf_iso": "2026-10-19",
+   "preptag": "Di 20.10."
+  },
+  "ids": [
+   [],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "de",
+  "sched": {
+   "first_day": "wed",
+   "shopping_day": "mon",
+   "prep_day": "tue"
+  },
+  "today": [
+   2026,
+   10,
+   18
+  ],
+  "existing": [
+   [
+    "weeks",
+    "2026-11-02"
+   ],
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-11-04",
+   "zeitraum": "Mi 04.11. – Sa 07.11.2026",
+   "einkaufstag": "Mo 02.11.",
+   "einkauf_iso": "2026-11-02",
+   "preptag": "Di 03.11."
+  },
+  "ids": [
+   [
+    "2026-11-02"
+   ],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "de",
+  "sched": {
+   "first_day": "wed",
+   "shopping_day": "mon",
+   "prep_day": "tue"
+  },
+  "today": [
+   2026,
+   10,
+   18
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2025-01-06"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-21",
+   "zeitraum": "Mi 21.10. – Sa 24.10.2026",
+   "einkaufstag": "Mo 19.10.",
+   "einkauf_iso": "2026-10-19",
+   "preptag": "Di 20.10."
+  },
+  "ids": [
+   [],
+   [
+    "2025-01-06"
+   ]
+  ]
+ },
+ {
+  "lang": "de",
+  "sched": {
+   "first_day": "wed",
+   "shopping_day": "mon",
+   "prep_day": "tue"
+  },
+  "today": [
+   2026,
+   12,
+   30
+  ],
+  "existing": [],
+  "result": {
+   "id": "2027-01-06",
+   "zeitraum": "Mi 06.01. – Sa 09.01.2027",
+   "einkaufstag": "Mo 04.01.",
+   "einkauf_iso": "2027-01-04",
+   "preptag": "Di 05.01."
+  },
+  "ids": [
+   [],
+   []
+  ]
+ },
+ {
+  "lang": "de",
+  "sched": {
+   "first_day": "wed",
+   "shopping_day": "mon",
+   "prep_day": "tue"
+  },
+  "today": [
+   2026,
+   12,
+   30
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-12-30",
+   "zeitraum": "Mi 30.12. – Sa 02.01.2027",
+   "einkaufstag": "Mo 28.12.",
+   "einkauf_iso": "2026-12-28",
+   "preptag": "Di 29.12."
+  },
+  "ids": [
+   [],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "de",
+  "sched": {
+   "first_day": "wed",
+   "shopping_day": "mon",
+   "prep_day": "tue"
+  },
+  "today": [
+   2026,
+   12,
+   30
+  ],
+  "existing": [
+   [
+    "weeks",
+    "2026-11-02"
+   ],
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-12-30",
+   "zeitraum": "Mi 30.12. – Sa 02.01.2027",
+   "einkaufstag": "Mo 28.12.",
+   "einkauf_iso": "2026-12-28",
+   "preptag": "Di 29.12."
+  },
+  "ids": [
+   [
+    "2026-11-02"
+   ],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "de",
+  "sched": {
+   "first_day": "wed",
+   "shopping_day": "mon",
+   "prep_day": "tue"
+  },
+  "today": [
+   2026,
+   12,
+   30
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2025-01-06"
+   ]
+  ],
+  "result": {
+   "id": "2026-12-30",
+   "zeitraum": "Mi 30.12. – Sa 02.01.2027",
+   "einkaufstag": "Mo 28.12.",
+   "einkauf_iso": "2026-12-28",
+   "preptag": "Di 29.12."
+  },
+  "ids": [
+   [],
+   [
+    "2025-01-06"
+   ]
+  ]
+ },
+ {
+  "lang": "de",
+  "sched": {
+   "first_day": "wed",
+   "shopping_day": "mon",
+   "prep_day": "tue"
+  },
+  "today": [
+   2027,
+   1,
+   1
+  ],
+  "existing": [],
+  "result": {
+   "id": "2027-01-06",
+   "zeitraum": "Mi 06.01. – Sa 09.01.2027",
+   "einkaufstag": "Mo 04.01.",
+   "einkauf_iso": "2027-01-04",
+   "preptag": "Di 05.01."
+  },
+  "ids": [
+   [],
+   []
+  ]
+ },
+ {
+  "lang": "de",
+  "sched": {
+   "first_day": "wed",
+   "shopping_day": "mon",
+   "prep_day": "tue"
+  },
+  "today": [
+   2027,
+   1,
+   1
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2027-01-06",
+   "zeitraum": "Mi 06.01. – Sa 09.01.2027",
+   "einkaufstag": "Mo 04.01.",
+   "einkauf_iso": "2027-01-04",
+   "preptag": "Di 05.01."
+  },
+  "ids": [
+   [],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "de",
+  "sched": {
+   "first_day": "wed",
+   "shopping_day": "mon",
+   "prep_day": "tue"
+  },
+  "today": [
+   2027,
+   1,
+   1
+  ],
+  "existing": [
+   [
+    "weeks",
+    "2026-11-02"
+   ],
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2027-01-06",
+   "zeitraum": "Mi 06.01. – Sa 09.01.2027",
+   "einkaufstag": "Mo 04.01.",
+   "einkauf_iso": "2027-01-04",
+   "preptag": "Di 05.01."
+  },
+  "ids": [
+   [
+    "2026-11-02"
+   ],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "de",
+  "sched": {
+   "first_day": "wed",
+   "shopping_day": "mon",
+   "prep_day": "tue"
+  },
+  "today": [
+   2027,
+   1,
+   1
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2025-01-06"
+   ]
+  ],
+  "result": {
+   "id": "2027-01-06",
+   "zeitraum": "Mi 06.01. – Sa 09.01.2027",
+   "einkaufstag": "Mo 04.01.",
+   "einkauf_iso": "2027-01-04",
+   "preptag": "Di 05.01."
+  },
+  "ids": [
+   [],
+   [
+    "2025-01-06"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "sun",
+   "shopping_day": "fri",
+   "prep_day": "sat"
+  },
+  "today": [
+   2026,
+   10,
+   14
+  ],
+  "existing": [],
+  "result": {
+   "id": "2026-10-18",
+   "zeitraum": "Sun 18.10. – Wed 21.10.2026",
+   "einkaufstag": "Fri 16.10.",
+   "einkauf_iso": "2026-10-16",
+   "preptag": "Sat 17.10."
+  },
+  "ids": [
+   [],
+   []
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "sun",
+   "shopping_day": "fri",
+   "prep_day": "sat"
+  },
+  "today": [
+   2026,
+   10,
+   14
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-25",
+   "zeitraum": "Sun 25.10. – Wed 28.10.2026",
+   "einkaufstag": "Fri 23.10.",
+   "einkauf_iso": "2026-10-23",
+   "preptag": "Sat 24.10."
+  },
+  "ids": [
+   [],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "sun",
+   "shopping_day": "fri",
+   "prep_day": "sat"
+  },
+  "today": [
+   2026,
+   10,
+   14
+  ],
+  "existing": [
+   [
+    "weeks",
+    "2026-11-02"
+   ],
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-11-08",
+   "zeitraum": "Sun 08.11. – Wed 11.11.2026",
+   "einkaufstag": "Fri 06.11.",
+   "einkauf_iso": "2026-11-06",
+   "preptag": "Sat 07.11."
+  },
+  "ids": [
+   [
+    "2026-11-02"
+   ],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "sun",
+   "shopping_day": "fri",
+   "prep_day": "sat"
+  },
+  "today": [
+   2026,
+   10,
+   14
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2025-01-06"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-18",
+   "zeitraum": "Sun 18.10. – Wed 21.10.2026",
+   "einkaufstag": "Fri 16.10.",
+   "einkauf_iso": "2026-10-16",
+   "preptag": "Sat 17.10."
+  },
+  "ids": [
+   [],
+   [
+    "2025-01-06"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "sun",
+   "shopping_day": "fri",
+   "prep_day": "sat"
+  },
+  "today": [
+   2026,
+   10,
+   12
+  ],
+  "existing": [],
+  "result": {
+   "id": "2026-10-18",
+   "zeitraum": "Sun 18.10. – Wed 21.10.2026",
+   "einkaufstag": "Fri 16.10.",
+   "einkauf_iso": "2026-10-16",
+   "preptag": "Sat 17.10."
+  },
+  "ids": [
+   [],
+   []
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "sun",
+   "shopping_day": "fri",
+   "prep_day": "sat"
+  },
+  "today": [
+   2026,
+   10,
+   12
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-25",
+   "zeitraum": "Sun 25.10. – Wed 28.10.2026",
+   "einkaufstag": "Fri 23.10.",
+   "einkauf_iso": "2026-10-23",
+   "preptag": "Sat 24.10."
+  },
+  "ids": [
+   [],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "sun",
+   "shopping_day": "fri",
+   "prep_day": "sat"
+  },
+  "today": [
+   2026,
+   10,
+   12
+  ],
+  "existing": [
+   [
+    "weeks",
+    "2026-11-02"
+   ],
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-11-08",
+   "zeitraum": "Sun 08.11. – Wed 11.11.2026",
+   "einkaufstag": "Fri 06.11.",
+   "einkauf_iso": "2026-11-06",
+   "preptag": "Sat 07.11."
+  },
+  "ids": [
+   [
+    "2026-11-02"
+   ],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "sun",
+   "shopping_day": "fri",
+   "prep_day": "sat"
+  },
+  "today": [
+   2026,
+   10,
+   12
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2025-01-06"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-18",
+   "zeitraum": "Sun 18.10. – Wed 21.10.2026",
+   "einkaufstag": "Fri 16.10.",
+   "einkauf_iso": "2026-10-16",
+   "preptag": "Sat 17.10."
+  },
+  "ids": [
+   [],
+   [
+    "2025-01-06"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "sun",
+   "shopping_day": "fri",
+   "prep_day": "sat"
+  },
+  "today": [
+   2026,
+   10,
+   18
+  ],
+  "existing": [],
+  "result": {
+   "id": "2026-10-25",
+   "zeitraum": "Sun 25.10. – Wed 28.10.2026",
+   "einkaufstag": "Fri 23.10.",
+   "einkauf_iso": "2026-10-23",
+   "preptag": "Sat 24.10."
+  },
+  "ids": [
+   [],
+   []
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "sun",
+   "shopping_day": "fri",
+   "prep_day": "sat"
+  },
+  "today": [
+   2026,
+   10,
+   18
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-25",
+   "zeitraum": "Sun 25.10. – Wed 28.10.2026",
+   "einkaufstag": "Fri 23.10.",
+   "einkauf_iso": "2026-10-23",
+   "preptag": "Sat 24.10."
+  },
+  "ids": [
+   [],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "sun",
+   "shopping_day": "fri",
+   "prep_day": "sat"
+  },
+  "today": [
+   2026,
+   10,
+   18
+  ],
+  "existing": [
+   [
+    "weeks",
+    "2026-11-02"
+   ],
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-11-08",
+   "zeitraum": "Sun 08.11. – Wed 11.11.2026",
+   "einkaufstag": "Fri 06.11.",
+   "einkauf_iso": "2026-11-06",
+   "preptag": "Sat 07.11."
+  },
+  "ids": [
+   [
+    "2026-11-02"
+   ],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "sun",
+   "shopping_day": "fri",
+   "prep_day": "sat"
+  },
+  "today": [
+   2026,
+   10,
+   18
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2025-01-06"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-18",
+   "zeitraum": "Sun 18.10. – Wed 21.10.2026",
+   "einkaufstag": "Fri 16.10.",
+   "einkauf_iso": "2026-10-16",
+   "preptag": "Sat 17.10."
+  },
+  "ids": [
+   [],
+   [
+    "2025-01-06"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "sun",
+   "shopping_day": "fri",
+   "prep_day": "sat"
+  },
+  "today": [
+   2026,
+   12,
+   30
+  ],
+  "existing": [],
+  "result": {
+   "id": "2027-01-03",
+   "zeitraum": "Sun 03.01. – Wed 06.01.2027",
+   "einkaufstag": "Fri 01.01.",
+   "einkauf_iso": "2027-01-01",
+   "preptag": "Sat 02.01."
+  },
+  "ids": [
+   [],
+   []
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "sun",
+   "shopping_day": "fri",
+   "prep_day": "sat"
+  },
+  "today": [
+   2026,
+   12,
+   30
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2027-01-03",
+   "zeitraum": "Sun 03.01. – Wed 06.01.2027",
+   "einkaufstag": "Fri 01.01.",
+   "einkauf_iso": "2027-01-01",
+   "preptag": "Sat 02.01."
+  },
+  "ids": [
+   [],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "sun",
+   "shopping_day": "fri",
+   "prep_day": "sat"
+  },
+  "today": [
+   2026,
+   12,
+   30
+  ],
+  "existing": [
+   [
+    "weeks",
+    "2026-11-02"
+   ],
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2027-01-03",
+   "zeitraum": "Sun 03.01. – Wed 06.01.2027",
+   "einkaufstag": "Fri 01.01.",
+   "einkauf_iso": "2027-01-01",
+   "preptag": "Sat 02.01."
+  },
+  "ids": [
+   [
+    "2026-11-02"
+   ],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "sun",
+   "shopping_day": "fri",
+   "prep_day": "sat"
+  },
+  "today": [
+   2026,
+   12,
+   30
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2025-01-06"
+   ]
+  ],
+  "result": {
+   "id": "2027-01-03",
+   "zeitraum": "Sun 03.01. – Wed 06.01.2027",
+   "einkaufstag": "Fri 01.01.",
+   "einkauf_iso": "2027-01-01",
+   "preptag": "Sat 02.01."
+  },
+  "ids": [
+   [],
+   [
+    "2025-01-06"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "sun",
+   "shopping_day": "fri",
+   "prep_day": "sat"
+  },
+  "today": [
+   2027,
+   1,
+   1
+  ],
+  "existing": [],
+  "result": {
+   "id": "2027-01-03",
+   "zeitraum": "Sun 03.01. – Wed 06.01.2027",
+   "einkaufstag": "Fri 01.01.",
+   "einkauf_iso": "2027-01-01",
+   "preptag": "Sat 02.01."
+  },
+  "ids": [
+   [],
+   []
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "sun",
+   "shopping_day": "fri",
+   "prep_day": "sat"
+  },
+  "today": [
+   2027,
+   1,
+   1
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2027-01-03",
+   "zeitraum": "Sun 03.01. – Wed 06.01.2027",
+   "einkaufstag": "Fri 01.01.",
+   "einkauf_iso": "2027-01-01",
+   "preptag": "Sat 02.01."
+  },
+  "ids": [
+   [],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "sun",
+   "shopping_day": "fri",
+   "prep_day": "sat"
+  },
+  "today": [
+   2027,
+   1,
+   1
+  ],
+  "existing": [
+   [
+    "weeks",
+    "2026-11-02"
+   ],
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2027-01-03",
+   "zeitraum": "Sun 03.01. – Wed 06.01.2027",
+   "einkaufstag": "Fri 01.01.",
+   "einkauf_iso": "2027-01-01",
+   "preptag": "Sat 02.01."
+  },
+  "ids": [
+   [
+    "2026-11-02"
+   ],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "sun",
+   "shopping_day": "fri",
+   "prep_day": "sat"
+  },
+  "today": [
+   2027,
+   1,
+   1
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2025-01-06"
+   ]
+  ],
+  "result": {
+   "id": "2027-01-03",
+   "zeitraum": "Sun 03.01. – Wed 06.01.2027",
+   "einkaufstag": "Fri 01.01.",
+   "einkauf_iso": "2027-01-01",
+   "preptag": "Sat 02.01."
+  },
+  "ids": [
+   [],
+   [
+    "2025-01-06"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "mon",
+   "shopping_day": "mon",
+   "prep_day": "mon"
+  },
+  "today": [
+   2026,
+   10,
+   14
+  ],
+  "existing": [],
+  "result": {
+   "id": "2026-10-19",
+   "zeitraum": "Mon 19.10. – Thu 22.10.2026",
+   "einkaufstag": "Mon 12.10.",
+   "einkauf_iso": "2026-10-12",
+   "preptag": "Mon 12.10."
+  },
+  "ids": [
+   [],
+   []
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "mon",
+   "shopping_day": "mon",
+   "prep_day": "mon"
+  },
+  "today": [
+   2026,
+   10,
+   14
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-26",
+   "zeitraum": "Mon 26.10. – Thu 29.10.2026",
+   "einkaufstag": "Mon 19.10.",
+   "einkauf_iso": "2026-10-19",
+   "preptag": "Mon 19.10."
+  },
+  "ids": [
+   [],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "mon",
+   "shopping_day": "mon",
+   "prep_day": "mon"
+  },
+  "today": [
+   2026,
+   10,
+   14
+  ],
+  "existing": [
+   [
+    "weeks",
+    "2026-11-02"
+   ],
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-11-09",
+   "zeitraum": "Mon 09.11. – Thu 12.11.2026",
+   "einkaufstag": "Mon 02.11.",
+   "einkauf_iso": "2026-11-02",
+   "preptag": "Mon 02.11."
+  },
+  "ids": [
+   [
+    "2026-11-02"
+   ],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "mon",
+   "shopping_day": "mon",
+   "prep_day": "mon"
+  },
+  "today": [
+   2026,
+   10,
+   14
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2025-01-06"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-19",
+   "zeitraum": "Mon 19.10. – Thu 22.10.2026",
+   "einkaufstag": "Mon 12.10.",
+   "einkauf_iso": "2026-10-12",
+   "preptag": "Mon 12.10."
+  },
+  "ids": [
+   [],
+   [
+    "2025-01-06"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "mon",
+   "shopping_day": "mon",
+   "prep_day": "mon"
+  },
+  "today": [
+   2026,
+   10,
+   12
+  ],
+  "existing": [],
+  "result": {
+   "id": "2026-10-19",
+   "zeitraum": "Mon 19.10. – Thu 22.10.2026",
+   "einkaufstag": "Mon 12.10.",
+   "einkauf_iso": "2026-10-12",
+   "preptag": "Mon 12.10."
+  },
+  "ids": [
+   [],
+   []
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "mon",
+   "shopping_day": "mon",
+   "prep_day": "mon"
+  },
+  "today": [
+   2026,
+   10,
+   12
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-26",
+   "zeitraum": "Mon 26.10. – Thu 29.10.2026",
+   "einkaufstag": "Mon 19.10.",
+   "einkauf_iso": "2026-10-19",
+   "preptag": "Mon 19.10."
+  },
+  "ids": [
+   [],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "mon",
+   "shopping_day": "mon",
+   "prep_day": "mon"
+  },
+  "today": [
+   2026,
+   10,
+   12
+  ],
+  "existing": [
+   [
+    "weeks",
+    "2026-11-02"
+   ],
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-11-09",
+   "zeitraum": "Mon 09.11. – Thu 12.11.2026",
+   "einkaufstag": "Mon 02.11.",
+   "einkauf_iso": "2026-11-02",
+   "preptag": "Mon 02.11."
+  },
+  "ids": [
+   [
+    "2026-11-02"
+   ],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "mon",
+   "shopping_day": "mon",
+   "prep_day": "mon"
+  },
+  "today": [
+   2026,
+   10,
+   12
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2025-01-06"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-12",
+   "zeitraum": "Mon 12.10. – Thu 15.10.2026",
+   "einkaufstag": "Mon 05.10.",
+   "einkauf_iso": "2026-10-05",
+   "preptag": "Mon 05.10."
+  },
+  "ids": [
+   [],
+   [
+    "2025-01-06"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "mon",
+   "shopping_day": "mon",
+   "prep_day": "mon"
+  },
+  "today": [
+   2026,
+   10,
+   18
+  ],
+  "existing": [],
+  "result": {
+   "id": "2026-10-19",
+   "zeitraum": "Mon 19.10. – Thu 22.10.2026",
+   "einkaufstag": "Mon 12.10.",
+   "einkauf_iso": "2026-10-12",
+   "preptag": "Mon 12.10."
+  },
+  "ids": [
+   [],
+   []
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "mon",
+   "shopping_day": "mon",
+   "prep_day": "mon"
+  },
+  "today": [
+   2026,
+   10,
+   18
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-26",
+   "zeitraum": "Mon 26.10. – Thu 29.10.2026",
+   "einkaufstag": "Mon 19.10.",
+   "einkauf_iso": "2026-10-19",
+   "preptag": "Mon 19.10."
+  },
+  "ids": [
+   [],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "mon",
+   "shopping_day": "mon",
+   "prep_day": "mon"
+  },
+  "today": [
+   2026,
+   10,
+   18
+  ],
+  "existing": [
+   [
+    "weeks",
+    "2026-11-02"
+   ],
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2026-11-09",
+   "zeitraum": "Mon 09.11. – Thu 12.11.2026",
+   "einkaufstag": "Mon 02.11.",
+   "einkauf_iso": "2026-11-02",
+   "preptag": "Mon 02.11."
+  },
+  "ids": [
+   [
+    "2026-11-02"
+   ],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "mon",
+   "shopping_day": "mon",
+   "prep_day": "mon"
+  },
+  "today": [
+   2026,
+   10,
+   18
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2025-01-06"
+   ]
+  ],
+  "result": {
+   "id": "2026-10-19",
+   "zeitraum": "Mon 19.10. – Thu 22.10.2026",
+   "einkaufstag": "Mon 12.10.",
+   "einkauf_iso": "2026-10-12",
+   "preptag": "Mon 12.10."
+  },
+  "ids": [
+   [],
+   [
+    "2025-01-06"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "mon",
+   "shopping_day": "mon",
+   "prep_day": "mon"
+  },
+  "today": [
+   2026,
+   12,
+   30
+  ],
+  "existing": [],
+  "result": {
+   "id": "2027-01-04",
+   "zeitraum": "Mon 04.01. – Thu 07.01.2027",
+   "einkaufstag": "Mon 28.12.",
+   "einkauf_iso": "2026-12-28",
+   "preptag": "Mon 28.12."
+  },
+  "ids": [
+   [],
+   []
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "mon",
+   "shopping_day": "mon",
+   "prep_day": "mon"
+  },
+  "today": [
+   2026,
+   12,
+   30
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2027-01-04",
+   "zeitraum": "Mon 04.01. – Thu 07.01.2027",
+   "einkaufstag": "Mon 28.12.",
+   "einkauf_iso": "2026-12-28",
+   "preptag": "Mon 28.12."
+  },
+  "ids": [
+   [],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "mon",
+   "shopping_day": "mon",
+   "prep_day": "mon"
+  },
+  "today": [
+   2026,
+   12,
+   30
+  ],
+  "existing": [
+   [
+    "weeks",
+    "2026-11-02"
+   ],
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2027-01-04",
+   "zeitraum": "Mon 04.01. – Thu 07.01.2027",
+   "einkaufstag": "Mon 28.12.",
+   "einkauf_iso": "2026-12-28",
+   "preptag": "Mon 28.12."
+  },
+  "ids": [
+   [
+    "2026-11-02"
+   ],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "mon",
+   "shopping_day": "mon",
+   "prep_day": "mon"
+  },
+  "today": [
+   2026,
+   12,
+   30
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2025-01-06"
+   ]
+  ],
+  "result": {
+   "id": "2027-01-04",
+   "zeitraum": "Mon 04.01. – Thu 07.01.2027",
+   "einkaufstag": "Mon 28.12.",
+   "einkauf_iso": "2026-12-28",
+   "preptag": "Mon 28.12."
+  },
+  "ids": [
+   [],
+   [
+    "2025-01-06"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "mon",
+   "shopping_day": "mon",
+   "prep_day": "mon"
+  },
+  "today": [
+   2027,
+   1,
+   1
+  ],
+  "existing": [],
+  "result": {
+   "id": "2027-01-04",
+   "zeitraum": "Mon 04.01. – Thu 07.01.2027",
+   "einkaufstag": "Mon 28.12.",
+   "einkauf_iso": "2026-12-28",
+   "preptag": "Mon 28.12."
+  },
+  "ids": [
+   [],
+   []
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "mon",
+   "shopping_day": "mon",
+   "prep_day": "mon"
+  },
+  "today": [
+   2027,
+   1,
+   1
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2027-01-04",
+   "zeitraum": "Mon 04.01. – Thu 07.01.2027",
+   "einkaufstag": "Mon 28.12.",
+   "einkauf_iso": "2026-12-28",
+   "preptag": "Mon 28.12."
+  },
+  "ids": [
+   [],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "mon",
+   "shopping_day": "mon",
+   "prep_day": "mon"
+  },
+  "today": [
+   2027,
+   1,
+   1
+  ],
+  "existing": [
+   [
+    "weeks",
+    "2026-11-02"
+   ],
+   [
+    "rounds",
+    "2026-10-19"
+   ]
+  ],
+  "result": {
+   "id": "2027-01-04",
+   "zeitraum": "Mon 04.01. – Thu 07.01.2027",
+   "einkaufstag": "Mon 28.12.",
+   "einkauf_iso": "2026-12-28",
+   "preptag": "Mon 28.12."
+  },
+  "ids": [
+   [
+    "2026-11-02"
+   ],
+   [
+    "2026-10-19"
+   ]
+  ]
+ },
+ {
+  "lang": "en",
+  "sched": {
+   "first_day": "mon",
+   "shopping_day": "mon",
+   "prep_day": "mon"
+  },
+  "today": [
+   2027,
+   1,
+   1
+  ],
+  "existing": [
+   [
+    "rounds",
+    "2025-01-06"
+   ]
+  ],
+  "result": {
+   "id": "2027-01-04",
+   "zeitraum": "Mon 04.01. – Thu 07.01.2027",
+   "einkaufstag": "Mon 28.12.",
+   "einkauf_iso": "2026-12-28",
+   "preptag": "Mon 28.12."
+  },
+  "ids": [
+   [],
+   [
+    "2025-01-06"
+   ]
+  ]
+ }
+]

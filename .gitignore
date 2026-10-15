@@ -1,6 +1,9 @@
 __pycache__/
 *.pyc
 .DS_Store
+node_modules/
+dist/
+*.tgz
 # household data never belongs in the repo
 /household/
 /my-*/
@@ -8,3 +11,6 @@ __pycache__/
 
 # fonts downloaded by docs/make_images.py
 docs/.fonts/
+
+# Claude Code session state
+/.claude/

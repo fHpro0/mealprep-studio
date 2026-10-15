@@ -1,0 +1,510 @@
+{
+  "id": "2026-10-18",
+  "titel": "So 18.10. – Fr 23.10.2026",
+  "zeitraum": "So 18.10. – Fr 23.10.2026",
+  "einkaufstag": "Fr 16.10.",
+  "einkauf_iso": "2026-10-16",
+  "preptag": "Sa 17.10.",
+  "status": "geplant",
+  "erstellt": "2026-10-14T10:30:45",
+  "nachricht": "Neue Runde!",
+  "verlauf": [
+    {
+      "zeit": "2026-10-14T10:30:45",
+      "von": "claude",
+      "text": "Neue Runde!"
+    },
+    {
+      "zeit": "2026-10-14T10:30:45",
+      "von": "claude",
+      "text": "Plan steht: Hähnchen-Bowl + Skyr-Auflauf · 102.76 €"
+    }
+  ],
+  "kandidaten": [
+    {
+      "id": "mittag-bowl",
+      "slot": "mittag",
+      "titel": "Hähnchen-Bowl",
+      "untertitel": "sub mittag-bowl",
+      "tags": [
+        "quick"
+      ],
+      "aktiv": 25,
+      "pitch": "pitch mittag-bowl",
+      "warum": "because",
+      "risiko": "risk mittag-bowl",
+      "rechnung": {
+        "haupt": {
+          "haehnchenbrust": 2000,
+          "eisberg": 900,
+          "ei": 600
+        },
+        "pro_portion": {
+          "reis": 70
+        },
+        "slot": "mittag"
+      },
+      "bild_suche": "chicken bowl",
+      "berechnet": {
+        "mengen": {
+          "haehnchenbrust": 5760,
+          "eisberg": 2590,
+          "ei": 1730
+        },
+        "anteil": {
+          "a": 0.061,
+          "b": 0.0775,
+          "c": 0.028
+        },
+        "makros": {
+          "a": {
+            "kcal": 800,
+            "p": 103,
+            "kh": 58
+          },
+          "b": {
+            "kcal": 950,
+            "p": 129,
+            "kh": 59
+          },
+          "c": {
+            "kcal": 500,
+            "p": 50,
+            "kh": 56
+          }
+        },
+        "kosten": {
+          "einkauf": 55.58
+        },
+        "einkaufsliste": [
+          {
+            "zutat": "haehnchenbrust",
+            "name": "Hähnchenbrustfilet",
+            "g": 5760,
+            "pack_g": 1000,
+            "eur_kg": 6.5,
+            "laden": "Lidl",
+            "quelle": "schaetzung",
+            "aisle": "chilled",
+            "packungen": 6,
+            "eur": 39.0
+          },
+          {
+            "zutat": "eisberg",
+            "name": "Eisbergsalat (Kopf ≈ 550 g)",
+            "g": 2590,
+            "pack_g": 550,
+            "eur_kg": 1.8,
+            "laden": "",
+            "quelle": "schaetzung",
+            "aisle": "produce",
+            "packungen": 5,
+            "eur": 4.95
+          },
+          {
+            "zutat": "ei",
+            "name": "Eier (Stück ≈ 60 g)",
+            "g": 1730,
+            "pack_g": 600,
+            "eur_kg": 4.48,
+            "laden": "",
+            "quelle": "schaetzung",
+            "aisle": "chilled",
+            "packungen": 3,
+            "eur": 8.06
+          },
+          {
+            "zutat": "reis",
+            "name": "Parboiled-Reis (roh)",
+            "g": 1260,
+            "pack_g": 500,
+            "eur_kg": 2.38,
+            "laden": "",
+            "quelle": "schaetzung",
+            "aisle": "dry",
+            "packungen": 3,
+            "eur": 3.57
+          }
+        ],
+        "skalierung": 2.88,
+        "warnungen": [
+          "main quantities scaled +188 %"
+        ]
+      },
+      "makros": {
+        "a": {
+          "kcal": 800,
+          "p": 103,
+          "kh": 58
+        },
+        "b": {
+          "kcal": 950,
+          "p": 129,
+          "kh": 59
+        },
+        "c": {
+          "kcal": 500,
+          "p": 50,
+          "kh": 56
+        }
+      },
+      "kosten": 55.58,
+      "neu": true,
+      "bild": "img/kandidaten/mittag-bowl.jpg"
+    },
+    {
+      "id": "mittag-fisch",
+      "slot": "mittag",
+      "titel": "Fisch mit Kartoffeln",
+      "untertitel": "sub mittag-fisch",
+      "tags": [
+        "quick"
+      ],
+      "aktiv": 25,
+      "pitch": "pitch mittag-fisch",
+      "warum": "because",
+      "risiko": "risk mittag-fisch",
+      "rechnung": {
+        "haupt": {
+          "testfisch": 1800,
+          "kartoffeln": 3000
+        },
+        "pro_portion": {},
+        "slot": "mittag"
+      },
+      "bild_suche": "fish potatoes plate",
+      "berechnet": {
+        "mengen": {
+          "testfisch": 5620,
+          "kartoffeln": 9380
+        },
+        "anteil": {
+          "a": 0.0593,
+          "b": 0.0704,
+          "c": 0.037
+        },
+        "makros": {
+          "a": {
+            "kcal": 800,
+            "p": 78,
+            "kh": 83
+          },
+          "b": {
+            "kcal": 950,
+            "p": 92,
+            "kh": 99
+          },
+          "c": {
+            "kcal": 500,
+            "p": 49,
+            "kh": 52
+          }
+        },
+        "kosten": {
+          "einkauf": 92.65
+        },
+        "einkaufsliste": [
+          {
+            "zutat": "testfisch",
+            "name": "Testfisch",
+            "g": 5620,
+            "pack_g": 300,
+            "eur_kg": 14.5,
+            "laden": "Edeka",
+            "quelle": "kassenbon",
+            "aisle": "frozen",
+            "packungen": 19,
+            "eur": 82.65
+          },
+          {
+            "zutat": "kartoffeln",
+            "name": "Kartoffeln",
+            "g": 9380,
+            "pack_g": 2000,
+            "eur_kg": 1.0,
+            "laden": "",
+            "quelle": "schaetzung",
+            "aisle": "produce",
+            "packungen": 5,
+            "eur": 10.0
+          }
+        ],
+        "skalierung": 3.125,
+        "warnungen": [
+          "main quantities scaled +212 %"
+        ]
+      },
+      "makros": {
+        "a": {
+          "kcal": 800,
+          "p": 78,
+          "kh": 83
+        },
+        "b": {
+          "kcal": 950,
+          "p": 92,
+          "kh": 99
+        },
+        "c": {
+          "kcal": 500,
+          "p": 49,
+          "kh": 52
+        }
+      },
+      "kosten": 92.65,
+      "neu": true,
+      "bild": "img/kandidaten/mittag-fisch.jpg"
+    },
+    {
+      "id": "abend-skyr",
+      "slot": "abend",
+      "titel": "Skyr-Auflauf",
+      "untertitel": "sub abend-skyr",
+      "tags": [
+        "quick"
+      ],
+      "aktiv": 25,
+      "pitch": "pitch abend-skyr",
+      "warum": "because",
+      "risiko": "risk abend-skyr",
+      "rechnung": {
+        "haupt": {
+          "skyr": 2500,
+          "reis": 600,
+          "tomaten": 800
+        },
+        "pro_portion": {
+          "reibekaese": 15
+        },
+        "slot": "abend"
+      },
+      "bild_suche": "tomato bake",
+      "berechnet": {
+        "mengen": {
+          "skyr": 8910,
+          "reis": 2140,
+          "tomaten": 2850
+        },
+        "anteil": {
+          "a": 0.0604,
+          "b": 0.0751,
+          "c": 0.031
+        },
+        "makros": {
+          "a": {
+            "kcal": 875,
+            "p": 74,
+            "kh": 127
+          },
+          "b": {
+            "kcal": 1075,
+            "p": 91,
+            "kh": 158
+          },
+          "c": {
+            "kcal": 475,
+            "p": 40,
+            "kh": 65
+          }
+        },
+        "kosten": {
+          "einkauf": 52.23
+        },
+        "einkaufsliste": [
+          {
+            "zutat": "skyr",
+            "name": "Skyr natur",
+            "g": 8910,
+            "pack_g": 450,
+            "eur_kg": 3.98,
+            "laden": "",
+            "quelle": "schaetzung",
+            "aisle": "chilled",
+            "packungen": 20,
+            "eur": 35.82
+          },
+          {
+            "zutat": "reis",
+            "name": "Parboiled-Reis (roh)",
+            "g": 2140,
+            "pack_g": 500,
+            "eur_kg": 2.38,
+            "laden": "",
+            "quelle": "schaetzung",
+            "aisle": "dry",
+            "packungen": 5,
+            "eur": 5.95
+          },
+          {
+            "zutat": "tomaten",
+            "name": "Tomaten",
+            "g": 2850,
+            "pack_g": 500,
+            "eur_kg": 2.49,
+            "laden": "",
+            "quelle": "schaetzung",
+            "aisle": "produce",
+            "packungen": 6,
+            "eur": 7.47
+          },
+          {
+            "zutat": "reibekaese",
+            "name": "Reibekäse Gouda",
+            "g": 270,
+            "pack_g": 500,
+            "eur_kg": 5.98,
+            "laden": "",
+            "quelle": "schaetzung",
+            "aisle": "chilled",
+            "packungen": 1,
+            "eur": 2.99
+          }
+        ],
+        "skalierung": 3.562,
+        "warnungen": [
+          "main quantities scaled +256 %"
+        ]
+      },
+      "makros": {
+        "a": {
+          "kcal": 875,
+          "p": 74,
+          "kh": 127
+        },
+        "b": {
+          "kcal": 1075,
+          "p": 91,
+          "kh": 158
+        },
+        "c": {
+          "kcal": 475,
+          "p": 40,
+          "kh": 65
+        }
+      },
+      "kosten": 52.23,
+      "neu": true,
+      "bild": ""
+    },
+    {
+      "id": "abend-quark",
+      "slot": "abend",
+      "titel": "Quark-Kartoffeln",
+      "untertitel": "sub abend-quark",
+      "tags": [
+        "quick"
+      ],
+      "aktiv": 25,
+      "pitch": "pitch abend-quark",
+      "warum": "because",
+      "risiko": "risk abend-quark",
+      "rechnung": {
+        "haupt": {
+          "magerquark": 1500,
+          "kartoffeln": 3000,
+          "zwiebel": 300
+        },
+        "pro_portion": {},
+        "slot": "abend"
+      },
+      "bild_suche": "potato quark",
+      "berechnet": {
+        "mengen": {
+          "magerquark": 6610,
+          "kartoffeln": 13230,
+          "zwiebel": 1320
+        },
+        "anteil": {
+          "a": 0.0601,
+          "b": 0.0739,
+          "c": 0.0326
+        },
+        "makros": {
+          "a": {
+            "kcal": 875,
+            "p": 65,
+            "kh": 142
+          },
+          "b": {
+            "kcal": 1075,
+            "p": 79,
+            "kh": 174
+          },
+          "c": {
+            "kcal": 475,
+            "p": 35,
+            "kh": 77
+          }
+        },
+        "kosten": {
+          "einkauf": 33.04
+        },
+        "einkaufsliste": [
+          {
+            "zutat": "magerquark",
+            "name": "Magerquark",
+            "g": 6610,
+            "pack_g": 500,
+            "eur_kg": 2.38,
+            "laden": "",
+            "quelle": "schaetzung",
+            "aisle": "chilled",
+            "packungen": 14,
+            "eur": 16.66
+          },
+          {
+            "zutat": "kartoffeln",
+            "name": "Kartoffeln",
+            "g": 13230,
+            "pack_g": 2000,
+            "eur_kg": 1.0,
+            "laden": "",
+            "quelle": "schaetzung",
+            "aisle": "produce",
+            "packungen": 7,
+            "eur": 14.0
+          },
+          {
+            "zutat": "zwiebel",
+            "name": "Zwiebeln",
+            "g": 1320,
+            "pack_g": 1000,
+            "eur_kg": 1.19,
+            "laden": "",
+            "quelle": "schaetzung",
+            "aisle": "produce",
+            "packungen": 2,
+            "eur": 2.38
+          }
+        ],
+        "skalierung": 4.409,
+        "warnungen": [
+          "main quantities scaled +341 %"
+        ]
+      },
+      "makros": {
+        "a": {
+          "kcal": 875,
+          "p": 65,
+          "kh": 142
+        },
+        "b": {
+          "kcal": 1075,
+          "p": 79,
+          "kh": 174
+        },
+        "c": {
+          "kcal": 475,
+          "p": 35,
+          "kh": 77
+        }
+      },
+      "kosten": 33.04,
+      "neu": true,
+      "bild": "img/kandidaten/abend-quark.jpg"
+    }
+  ],
+  "hinweise": [
+    "dropped Haselnuss-Salat: contains excluded nuss"
+  ]
+}

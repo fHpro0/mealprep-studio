@@ -1,0 +1,171 @@
+{
+  "stichtag": "2026-10-16",
+  "plz": "10115",
+  "laeden": {
+    "lidl": "Lidl",
+    "rewe": "Rewe",
+    "edeka": "Edeka",
+    "aldi-sued": "Aldi Süd"
+  },
+  "aufschlag": {
+    "rewe": 1.15,
+    "edeka": 1.2
+  },
+  "zweiter_laden_ab": 0.5,
+  "zutaten": {
+    "ei": {
+      "name": "Eier (Stück ≈ 60 g)",
+      "standard_eur_kg": 4.48,
+      "regulaer_eur_kg": 4.48,
+      "pack_g": 600,
+      "angebote": {}
+    },
+    "eisberg": {
+      "name": "Eisbergsalat (Kopf ≈ 550 g)",
+      "standard_eur_kg": 1.8,
+      "regulaer_eur_kg": 1.8,
+      "pack_g": 550,
+      "angebote": {}
+    },
+    "haehnchenbrust": {
+      "name": "Hähnchenbrustfilet",
+      "standard_eur_kg": 6.5,
+      "regulaer_eur_kg": 10.5,
+      "pack_g": 1000,
+      "angebote": {
+        "lidl": {
+          "laden": "Lidl",
+          "produkt": "Mastery Hähnchenbrustfilet frisch",
+          "preis": 7.99,
+          "eur_kg": 5.99,
+          "bis": "2026-10-17",
+          "treue": false
+        },
+        "rewe": {
+          "laden": "Rewe",
+          "produkt": "Hähnchenbrust",
+          "preis": 6.5,
+          "eur_kg": 6.5,
+          "bis": "2026-10-17",
+          "treue": true
+        },
+        "edeka": {
+          "laden": "Edeka",
+          "produkt": "Hähnchenbrust",
+          "preis": 6.5,
+          "eur_kg": 6.5,
+          "bis": "2026-10-17",
+          "treue": true
+        }
+      }
+    },
+    "kartoffeln": {
+      "name": "Kartoffeln",
+      "standard_eur_kg": 1.0,
+      "regulaer_eur_kg": 1.0,
+      "pack_g": 2000,
+      "angebote": {}
+    },
+    "magerquark": {
+      "name": "Magerquark",
+      "standard_eur_kg": 2.38,
+      "regulaer_eur_kg": 2.38,
+      "pack_g": 500,
+      "angebote": {}
+    },
+    "reibekaese": {
+      "name": "Reibekäse Gouda",
+      "standard_eur_kg": 5.98,
+      "regulaer_eur_kg": 5.98,
+      "pack_g": 500,
+      "angebote": {}
+    },
+    "reis": {
+      "name": "Parboiled-Reis (roh)",
+      "standard_eur_kg": 2.38,
+      "regulaer_eur_kg": 2.38,
+      "pack_g": 500,
+      "angebote": {
+        "edeka": {
+          "laden": "Edeka",
+          "produkt": "Reis-Fit Parboiled Reis",
+          "preis": 1.59,
+          "eur_kg": 1.59,
+          "bis": "2026-10-17",
+          "treue": false
+        }
+      }
+    },
+    "skyr": {
+      "name": "Skyr natur",
+      "standard_eur_kg": 3.98,
+      "regulaer_eur_kg": 3.98,
+      "pack_g": 450,
+      "angebote": {
+        "lidl": {
+          "laden": "Lidl",
+          "produkt": "Milbona Skyr natur",
+          "preis": 1.49,
+          "eur_kg": 3.31,
+          "bis": "2026-10-17",
+          "treue": false
+        },
+        "aldi-sued": {
+          "laden": "Aldi Süd",
+          "produkt": "Milbona Skyr natur",
+          "preis": 1.49,
+          "eur_kg": 3.31,
+          "bis": "2026-10-17",
+          "treue": false
+        }
+      }
+    },
+    "testfisch": {
+      "name": "Testfisch",
+      "standard_eur_kg": 14.5,
+      "regulaer_eur_kg": 14.5,
+      "pack_g": 300,
+      "angebote": {
+        "edeka": {
+          "laden": "Edeka",
+          "produkt": "Fischfilet",
+          "preis": 9.99,
+          "eur_kg": 14.99,
+          "bis": "2026-10-17",
+          "treue": false
+        }
+      }
+    },
+    "tomaten": {
+      "name": "Tomaten",
+      "standard_eur_kg": 2.49,
+      "regulaer_eur_kg": 2.49,
+      "pack_g": 500,
+      "angebote": {
+        "lidl": {
+          "laden": "Lidl",
+          "produkt": "Tomaten Rispe",
+          "preis": 1.99,
+          "eur_kg": 1.99,
+          "bis": "2026-10-17",
+          "treue": false
+        },
+        "rewe": {
+          "laden": "Rewe",
+          "produkt": "Tomaten-Schalen",
+          "preis": 0.99,
+          "eur_kg": 1.98,
+          "bis": "2026-10-17",
+          "treue": false
+        }
+      }
+    },
+    "zwiebel": {
+      "name": "Zwiebeln",
+      "standard_eur_kg": 1.19,
+      "regulaer_eur_kg": 1.19,
+      "pack_g": 1000,
+      "angebote": {}
+    }
+  }
+}

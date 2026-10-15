@@ -1,0 +1,15 @@
+{
+  "name": "mealprep-studio",
+  "owner": { "name": "fHpro0", "url": "https://github.com/fHpro0" },
+  "metadata": { "description": "Meal Prep Studio: weekly meal-prep planning with Claude" },
+  "plugins": [
+    {
+      "name": "mealprep-studio",
+      "source": "./",
+      "description": "Plan a week of meal prep: dishes you pick, recipes, a priced shopping list and a prep-day timeline.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "keywords": ["meal-prep", "meal-planning", "shopping-list"]
+    }
+  ]
+}

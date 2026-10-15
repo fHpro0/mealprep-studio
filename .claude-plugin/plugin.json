@@ -1,0 +1,10 @@
+{
+  "name": "mealprep-studio",
+  "version": "1.0.0",
+  "description": "Plan a week of meal prep with Claude: dishes you pick, recipes, a priced shopping list and a prep-day timeline. Runs the mealprep-studio npm package for you.",
+  "author": { "name": "fHpro0", "url": "https://github.com/fHpro0" },
+  "homepage": "https://github.com/fHpro0/mealprep-studio",
+  "repository": "https://github.com/fHpro0/mealprep-studio",
+  "license": "MIT",
+  "keywords": ["meal-prep", "meal-planning", "shopping-list", "recipes"]
+}

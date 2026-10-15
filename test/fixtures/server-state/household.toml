@@ -1,0 +1,78 @@
+# Test household: German, three persons, freezer, offers, PIN, custom paths.
+name = "Küche Müller"
+language = "de"
+exclusions = ["Nuss", "erdnuss"]
+
+[schedule]
+days = 6
+freeze_days = 2
+shopping_day = "fri"
+prep_day = "sat"
+first_day = "sun"
+
+[budget]
+per_round = 72.5
+currency = "€"
+
+[[persons]]
+id = "a"
+label = "Anna"
+name = "Anna"
+kcal = 2300
+protein = 140
+
+[[persons]]
+id = "b"
+label = "Ben"
+name = "Ben"
+kcal = 2700
+protein = 170
+
+[[persons]]
+id = "c"
+label = "Cleo"
+kcal = 1500
+
+[[fixed_meals]]
+name = "Frühstück"
+text = "Müsli mit Quark"
+kcal = 400
+protein = 30
+carbs = 50
+
+[[fixed_meals]]
+name = "Snack"
+kcal = 150
+
+[[meals]]
+id = "mittag"
+label = "Mittag · kalt"
+cold = true
+targets = { a = 800, b = 950, c = 500 }
+
+[[meals]]
+id = "abend"
+label = "Abendessen"
+share = 0.5
+
+[offers]
+enabled = true
+zip = "10115"
+retailers = ["lidl", "rewe", "edeka", "aldi-sued"]
+markup = { rewe = 1.15, edeka = 1.2 }
+second_store_min_saving = 0.5
+
+[agent]
+command = "nonexistent-claude-xyz"
+model = "opus"
+effort = "high"
+timeout_min = 3
+candidates_per_meal = 2
+
+[server]
+host = "127.0.0.1"
+port = 18090
+pin = "4711"
+
+[paths]
+plans = "meine-plaene"

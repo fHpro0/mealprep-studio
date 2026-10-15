@@ -1,0 +1,727 @@
+{
+ "keys": [
+  "KEY-A",
+  "CLIENT-B"
+ ],
+ "keys_net": {
+  "requests": [
+   {
+    "url": "https://marktguru.de",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+    },
+    "timeout": 30
+   }
+  ],
+  "sleeps": []
+ },
+ "search": [
+  {
+   "produkt": "Hähnchenbrustfilet frisch",
+   "marke": "Mastery",
+   "laden": "Lidl",
+   "laden_id": "lidl",
+   "preis": 7.99,
+   "grundpreis": 5.99,
+   "einheit": "kg",
+   "gueltig_von": "2026-10-12",
+   "gueltig_bis": "2026-10-17",
+   "treueprogramm": false,
+   "id": 1
+  },
+  {
+   "produkt": "Hähnchenbrust Curry mariniert",
+   "marke": "",
+   "laden": "Lidl",
+   "laden_id": "lidl",
+   "preis": 3.99,
+   "grundpreis": 2.5,
+   "einheit": "kg",
+   "gueltig_von": "2026-10-12",
+   "gueltig_bis": "2026-10-17",
+   "treueprogramm": false,
+   "id": 2
+  },
+  {
+   "produkt": "Hähnchenbrust",
+   "marke": "",
+   "laden": "Rewe, Edeka",
+   "laden_id": "rewe,edeka",
+   "preis": 6.5,
+   "grundpreis": 6.5,
+   "einheit": "kg",
+   "gueltig_von": "2026-10-12",
+   "gueltig_bis": "2026-10-17",
+   "treueprogramm": true,
+   "id": 3
+  },
+  {
+   "produkt": "Bio Hähnchenbrust",
+   "marke": "",
+   "laden": "Lidl",
+   "laden_id": "lidl",
+   "preis": 9.9,
+   "grundpreis": null,
+   "einheit": "kg",
+   "gueltig_von": "2026-10-12",
+   "gueltig_bis": "2026-10-17",
+   "treueprogramm": false,
+   "id": 6
+  }
+ ],
+ "search_all": [
+  {
+   "produkt": "Eier 10er",
+   "marke": "Landfein",
+   "laden": "Lidl",
+   "laden_id": "lidl",
+   "preis": 2.2,
+   "grundpreis": 0.22,
+   "einheit": "Stk",
+   "gueltig_von": "2026-10-12",
+   "gueltig_bis": "2026-10-17",
+   "treueprogramm": false,
+   "id": 12
+  },
+  {
+   "produkt": "Eier Bio",
+   "marke": "",
+   "laden": "Rewe",
+   "laden_id": "rewe",
+   "preis": 3.0,
+   "grundpreis": 0.5,
+   "einheit": "Stück",
+   "gueltig_von": "2026-10-12",
+   "gueltig_bis": "2026-10-17",
+   "treueprogramm": false,
+   "id": 13
+  },
+  {
+   "produkt": "Eierlikör",
+   "marke": "",
+   "laden": "Rewe",
+   "laden_id": "rewe",
+   "preis": 5.0,
+   "grundpreis": 7.0,
+   "einheit": "l",
+   "gueltig_von": "2026-10-12",
+   "gueltig_bis": "2026-10-17",
+   "treueprogramm": false,
+   "id": 14
+  },
+  {
+   "produkt": "Eier Pack",
+   "marke": "",
+   "laden": "Edeka",
+   "laden_id": "edeka",
+   "preis": 2.0,
+   "grundpreis": 1.0,
+   "einheit": "Pack",
+   "gueltig_von": "2026-10-12",
+   "gueltig_bis": "2026-10-17",
+   "treueprogramm": false,
+   "id": 15
+  }
+ ],
+ "search_net": {
+  "requests": [
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=eier&zipCode=10+115&limit=5&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   },
+   {
+    "url": "https://api.marktguru.de/api/v1/offers/search?as=web&q=h%C3%A4hnchenbrust&zipCode=10115&limit=40&offset=0",
+    "headers": {
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+     "x-apikey": "KEY-A",
+     "x-clientkey": "CLIENT-B",
+     "accept": "application/json"
+    },
+    "timeout": 30
+   }
+  ],
+  "sleeps": []
+ },
+ "err_magerquark": [
+  "OffersError",
+  "HTTP 503 from api.marktguru.de"
+ ],
+ "err_kartoffeln": [
+  "OffersError",
+  "marktguru answer was not JSON"
+ ],
+ "err_zwiebeln": [
+  "OffersError",
+  "network error: Name or service not known"
+ ],
+ "commons_search": [
+  {
+   "title": "Chicken bowl.jpg",
+   "thumb": "https://upload.wikimedia.org/thumb/chicken-bowl-jpg.jpg",
+   "license": "CC0",
+   "license_url": "https://lic/x",
+   "creator": "Jane Doe",
+   "source_url": "https://commons.wikimedia.org/wiki/File:chicken-bowl-jpg"
+  },
+  {
+   "title": "Roast chicken rice.jpg",
+   "thumb": "https://upload.wikimedia.org/thumb/roast-chicken-rice-jpg.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://lic/x",
+   "creator": "Jane Doe",
+   "source_url": "https://commons.wikimedia.org/wiki/File:roast-chicken-rice-jpg"
+  },
+  {
+   "title": "Chicken ratelimited.jpg",
+   "thumb": "https://upload.wikimedia.org/thumb/ratelimited.jpg",
+   "license": "Public domain",
+   "license_url": "https://lic/x",
+   "creator": "Jane Doe",
+   "source_url": "https://commons.wikimedia.org/wiki/File:ratelimited"
+  }
+ ],
+ "commons_search_net": {
+  "requests": [
+   {
+    "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=1600&gsrsearch=Roasted%20chicken%20rice%20filetype%3Abitmap",
+    "headers": {
+     "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+    },
+    "timeout": 30
+   }
+  ],
+  "sleeps": []
+ },
+ "fetches": [
+  {
+   "args": [
+    "roasted chicken rice bowl",
+    "kandidaten/old-dish",
+    1
+   ],
+   "result": {
+    "title": "Chicken bowl.jpg",
+    "creator": "Jane Doe",
+    "license": "CC0",
+    "license_url": "https://lic/x",
+    "source_url": "https://commons.wikimedia.org/wiki/File:chicken-bowl-jpg",
+    "query": "roasted chicken rice bowl",
+    "nr": 1,
+    "file": "kandidaten/old-dish.jpg"
+   },
+   "net": {
+    "requests": [
+     {
+      "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=1600&gsrsearch=roasted%20chicken%20rice%20bowl%20filetype%3Abitmap",
+      "headers": {
+       "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+      },
+      "timeout": 30
+     },
+     {
+      "url": "https://upload.wikimedia.org/thumb/chicken-bowl-jpg.jpg",
+      "headers": {
+       "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+      },
+      "timeout": 30
+     }
+    ],
+    "sleeps": []
+   }
+  },
+  {
+   "args": [
+    "chicken bowl",
+    "kandidaten/c2",
+    2
+   ],
+   "result": {
+    "title": "Roast chicken rice.jpg",
+    "creator": "Jane Doe",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://lic/x",
+    "source_url": "https://commons.wikimedia.org/wiki/File:roast-chicken-rice-jpg",
+    "query": "chicken bowl",
+    "nr": 2,
+    "file": "kandidaten/c2.jpg"
+   },
+   "net": {
+    "requests": [
+     {
+      "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=1600&gsrsearch=chicken%20bowl%20filetype%3Abitmap",
+      "headers": {
+       "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+      },
+      "timeout": 30
+     },
+     {
+      "url": "https://upload.wikimedia.org/thumb/roast-chicken-rice-jpg.jpg",
+      "headers": {
+       "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+      },
+      "timeout": 30
+     }
+    ],
+    "sleeps": []
+   }
+  },
+  {
+   "args": [
+    "chicken bowl",
+    "kandidaten/c3",
+    9
+   ],
+   "result": null,
+   "net": {
+    "requests": [
+     {
+      "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=1600&gsrsearch=chicken%20bowl%20filetype%3Abitmap",
+      "headers": {
+       "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+      },
+      "timeout": 30
+     }
+    ],
+    "sleeps": []
+   }
+  },
+  {
+   "args": [
+    "fresh green salad bowl",
+    "kandidaten/s1",
+    1
+   ],
+   "result": {
+    "title": "Fresh Green plate.jpg",
+    "creator": "Jane Doe",
+    "license": "CC BY 4.0",
+    "license_url": "https://lic/x",
+    "source_url": "https://commons.wikimedia.org/wiki/File:fresh-green-plate-jpg",
+    "query": "fresh green salad bowl",
+    "nr": 1,
+    "file": "kandidaten/s1.jpg"
+   },
+   "net": {
+    "requests": [
+     {
+      "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=1600&gsrsearch=fresh%20green%20filetype%3Abitmap",
+      "headers": {
+       "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+      },
+      "timeout": 30
+     },
+     {
+      "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=1600&gsrsearch=fresh%20green%20salad%20bowl%20filetype%3Abitmap",
+      "headers": {
+       "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+      },
+      "timeout": 30
+     },
+     {
+      "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=1600&gsrsearch=fresh%20green%20salad%20filetype%3Abitmap",
+      "headers": {
+       "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+      },
+      "timeout": 30
+     },
+     {
+      "url": "https://upload.wikimedia.org/thumb/fresh-green-plate-jpg.jpg",
+      "headers": {
+       "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+      },
+      "timeout": 30
+     }
+    ],
+    "sleeps": []
+   }
+  },
+  {
+   "args": [
+    "tomato pasta sauce red",
+    "kandidaten/t1",
+    1
+   ],
+   "result": {
+    "title": "Pasta pomodoro.jpg",
+    "creator": "Jane Doe",
+    "license": "CC BY 2.0",
+    "license_url": "https://lic/x",
+    "source_url": "https://commons.wikimedia.org/wiki/File:pasta-pomodoro-jpg",
+    "query": "tomato pasta sauce red",
+    "nr": 1,
+    "file": "kandidaten/t1.jpg"
+   },
+   "net": {
+    "requests": [
+     {
+      "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=1600&gsrsearch=tomato%20pasta%20sauce%20red%20filetype%3Abitmap",
+      "headers": {
+       "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+      },
+      "timeout": 30
+     },
+     {
+      "url": "https://upload.wikimedia.org/thumb/pasta-pomodoro-jpg.jpg",
+      "headers": {
+       "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+      },
+      "timeout": 30
+     }
+    ],
+    "sleeps": []
+   }
+  },
+  {
+   "args": [
+    "tomato  pasta",
+    "kandidaten/t1",
+    1
+   ],
+   "result": {
+    "title": "Pasta pomodoro.jpg",
+    "creator": "Jane Doe",
+    "license": "CC BY 2.0",
+    "license_url": "https://lic/x",
+    "source_url": "https://commons.wikimedia.org/wiki/File:pasta-pomodoro-jpg",
+    "query": "tomato  pasta",
+    "nr": 1,
+    "file": "kandidaten/t1.jpg"
+   },
+   "net": {
+    "requests": [
+     {
+      "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=1600&gsrsearch=tomato%20%20pasta%20filetype%3Abitmap",
+      "headers": {
+       "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+      },
+      "timeout": 30
+     },
+     {
+      "url": "https://upload.wikimedia.org/thumb/pasta-pomodoro-jpg.jpg",
+      "headers": {
+       "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+      },
+      "timeout": 30
+     }
+    ],
+    "sleeps": []
+   }
+  },
+  {
+   "args": [
+    "nothing found here",
+    "kandidaten/n1",
+    1
+   ],
+   "result": null,
+   "net": {
+    "requests": [
+     {
+      "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=1600&gsrsearch=nothing%20found%20filetype%3Abitmap",
+      "headers": {
+       "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+      },
+      "timeout": 30
+     },
+     {
+      "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=1600&gsrsearch=nothing%20found%20here%20filetype%3Abitmap",
+      "headers": {
+       "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+      },
+      "timeout": 30
+     }
+    ],
+    "sleeps": []
+   }
+  },
+  {
+   "args": [
+    "chicken ratelimited",
+    "kandidaten/rl",
+    3
+   ],
+   "result": {
+    "title": "Chicken ratelimited.jpg",
+    "creator": "Jane Doe",
+    "license": "Public domain",
+    "license_url": "https://lic/x",
+    "source_url": "https://commons.wikimedia.org/wiki/File:ratelimited",
+    "query": "chicken ratelimited",
+    "nr": 3,
+    "file": "kandidaten/rl.jpg"
+   },
+   "net": {
+    "requests": [
+     {
+      "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=1600&gsrsearch=chicken%20ratelimited%20filetype%3Abitmap",
+      "headers": {
+       "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+      },
+      "timeout": 30
+     },
+     {
+      "url": "https://upload.wikimedia.org/thumb/ratelimited.jpg",
+      "headers": {
+       "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+      },
+      "timeout": 30
+     },
+     {
+      "url": "https://upload.wikimedia.org/thumb/ratelimited.jpg",
+      "headers": {
+       "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+      },
+      "timeout": 30
+     },
+     {
+      "url": "https://upload.wikimedia.org/thumb/ratelimited.jpg",
+      "headers": {
+       "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+      },
+      "timeout": 30
+     }
+    ],
+    "sleeps": [
+     2,
+     6
+    ]
+   }
+  },
+  {
+   "args": [
+    "veg stew",
+    "a.b/c",
+    1
+   ],
+   "result": {
+    "title": "Vegetable stew.jpg",
+    "creator": "Jane Doe",
+    "license": "cc-by-3.0",
+    "license_url": "https://lic/x",
+    "source_url": "https://commons.wikimedia.org/wiki/File:vegetable-stew-jpg",
+    "query": "veg stew",
+    "nr": 1,
+    "file": "a.jpg"
+   },
+   "net": {
+    "requests": [
+     {
+      "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=1600&gsrsearch=veg%20stew%20filetype%3Abitmap",
+      "headers": {
+       "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+      },
+      "timeout": 30
+     },
+     {
+      "url": "https://upload.wikimedia.org/thumb/vegetable-stew-jpg.jpg",
+      "headers": {
+       "user-agent": "mealprep-studio/1.0 (https://github.com/fHpro0/mealprep-studio; personal meal planning)"
+      },
+      "timeout": 30
+     }
+    ],
+    "sleeps": []
+   }
+  }
+ ],
+ "images_tree": {
+  "feedback.md": "# Feedback log\n\nClaude learns from this file. The web app appends ratings automatically; you can edit by hand.\n\n## Ratings\n\n| Week | Dish | Score | Comment |\n|---|---|---|---|\n\n## Blocked — never suggest again\n\n## Rules\n\n## What worked\n",
+  "household.toml": "# Meal Prep Studio — household configuration.\n# Everything personal lives in this folder; the tool itself stays generic.\nname = \"Meal Prep Studio\"\nlanguage = \"en\"            # \"en\" or \"de\" (UI + everything Claude writes)\n\n# Never suggested — checked in titles and ingredients (\"without X\" is fine).\nexclusions = [\"mushroom\"]\n\n[schedule]\ndays = 4                   # eating days per prep round\n# freeze_days = 2           # optional: freeze the last N days on prep day\nshopping_day = \"sat\"\nprep_day = \"sun\"\nfirst_day = \"mon\"\n\n[budget]\nper_round = 60\ncurrency = \"€\"\n\n# One entry per person. kcal = daily target, protein in g/day.\n[[persons]]\nid = \"a\"\nlabel = \"Alex\"\nname = \"Alex\"\nkcal = 2200\nprotein = 150\n\n[[persons]]\nid = \"b\"\nlabel = \"Sam\"\nname = \"Sam\"\nkcal = 1800\nprotein = 120\n\n# Meals that are NOT planned (fixed breakfast, shake …) — subtracted from the daily target.\n[[fixed_meals]]\nname = \"Breakfast\"\ntext = \"Oats with yogurt and berries\"\nkcal = 450\nprotein = 25\ncarbs = 55\n\n# Meals Claude plans. Either `share` of what is left after fixed meals,\n# or exact `targets = { a = 700, b = 560 }` per person.\n[[meals]]\nid = \"lunch\"\nlabel = \"Lunch · cold\"\ncold = true\nshare = 0.42\n\n[[meals]]\nid = \"dinner\"\nlabel = \"Dinner · warm\"\nshare = 0.58\n\n# Supermarket offers (Germany/Austria via marktguru). Set enabled = false elsewhere.\n[offers]\nenabled = false\nzip = \"\"\nretailers = [\"aldi-sued\", \"lidl\", \"netto-marken-discount\", \"kaufland\", \"rewe\", \"edeka\"]\nmarkup = { rewe = 1.15, edeka = 1.15 }   # regular-price surcharge vs. discounters\nsecond_store_min_saving = 3.0            # only suggest a second store if it saves this much\n\n[agent]\ncommand = \"claude\"         # Claude Code CLI, logged in\nmodel = \"sonnet\"           # sonnet = fast & good; opus = slower, more careful\ncandidates_per_meal = 4\n\n[server]\nport = 8090\npin = \"\"                   # set a PIN if other people use your Wi-Fi\n",
+  "img/a.jpg": "sha256:670329dc7ef055728d183936429e9b5fd2140e7fb52696f4b8f55ad4477d028a",
+  "img/credits.json": {
+   "other": {
+    "nr": 3
+   },
+   "kandidaten/old-dish.jpg": {
+    "title": "Chicken bowl.jpg",
+    "creator": "Jane Doe",
+    "license": "CC0",
+    "license_url": "https://lic/x",
+    "source_url": "https://commons.wikimedia.org/wiki/File:chicken-bowl-jpg",
+    "query": "roasted chicken rice bowl",
+    "nr": 1,
+    "file": "kandidaten/old-dish.jpg"
+   },
+   "kandidaten/c2.jpg": {
+    "title": "Roast chicken rice.jpg",
+    "creator": "Jane Doe",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://lic/x",
+    "source_url": "https://commons.wikimedia.org/wiki/File:roast-chicken-rice-jpg",
+    "query": "chicken bowl",
+    "nr": 2,
+    "file": "kandidaten/c2.jpg"
+   },
+   "kandidaten/s1.jpg": {
+    "title": "Fresh Green plate.jpg",
+    "creator": "Jane Doe",
+    "license": "CC BY 4.0",
+    "license_url": "https://lic/x",
+    "source_url": "https://commons.wikimedia.org/wiki/File:fresh-green-plate-jpg",
+    "query": "fresh green salad bowl",
+    "nr": 1,
+    "file": "kandidaten/s1.jpg"
+   },
+   "kandidaten/t1.jpg": {
+    "title": "Pasta pomodoro.jpg",
+    "creator": "Jane Doe",
+    "license": "CC BY 2.0",
+    "license_url": "https://lic/x",
+    "source_url": "https://commons.wikimedia.org/wiki/File:pasta-pomodoro-jpg",
+    "query": "tomato  pasta",
+    "nr": 1,
+    "file": "kandidaten/t1.jpg"
+   },
+   "kandidaten/rl.jpg": {
+    "title": "Chicken ratelimited.jpg",
+    "creator": "Jane Doe",
+    "license": "Public domain",
+    "license_url": "https://lic/x",
+    "source_url": "https://commons.wikimedia.org/wiki/File:ratelimited",
+    "query": "chicken ratelimited",
+    "nr": 3,
+    "file": "kandidaten/rl.jpg"
+   },
+   "a.jpg": {
+    "title": "Vegetable stew.jpg",
+    "creator": "Jane Doe",
+    "license": "cc-by-3.0",
+    "license_url": "https://lic/x",
+    "source_url": "https://commons.wikimedia.org/wiki/File:vegetable-stew-jpg",
+    "query": "veg stew",
+    "nr": 1,
+    "file": "a.jpg"
+   }
+  },
+  "img/kandidaten/c2.jpg": "sha256:6f63debfd859a1730980d60cc937f758b31690016044dc58ed8dcc0964837c2b",
+  "img/kandidaten/old-dish.jpg": "sha256:b87ad8e8d4093d9130d7fe23edb4d3f609f35582cb471e1776251ab29374a701",
+  "img/kandidaten/rl.jpg": "sha256:87c857314107e9e63d523ea4fcc9b8d5990d09a9483d71ff8470bc2a9ad9a864",
+  "img/kandidaten/s1.jpg": "sha256:fe5664fa07a45ce6aa5bb295fdcd56c721c008a78a9acc98e4d2987cb6de695d",
+  "img/kandidaten/t1.jpg": "sha256:b65d3077448cb48d56e5bc8ee7a01eccb71f42f138945e68887af34e031d8d73",
+  "ingredients.json": {
+   "_info": "Your own ingredients and real prices (from receipts). Same keys override the defaults."
+  },
+  "kitchen.json": {
+   "items": [
+    {
+     "name": "Baking tray",
+     "anz": 1,
+     "notiz": "only ~2 cm rim – no liquid sauce"
+    },
+    {
+     "name": "Casserole dish",
+     "anz": 1,
+     "notiz": "about 10 × 14 in, 2.5 in deep – for sauces and bakes"
+    },
+    {
+     "name": "Large pot",
+     "anz": 1,
+     "notiz": "5 l, for rice, pasta, stews"
+    },
+    {
+     "name": "Medium pot",
+     "anz": 1,
+     "notiz": "3 l"
+    },
+    {
+     "name": "Frying pan",
+     "anz": 2,
+     "notiz": "11 in, non-stick"
+    },
+    {
+     "name": "Oven",
+     "anz": 1,
+     "notiz": "one tray or dish per rack, 2 racks"
+    },
+    {
+     "name": "Cutting board",
+     "anz": 2,
+     "notiz": "large"
+    },
+    {
+     "name": "Kitchen scale",
+     "anz": 1,
+     "notiz": "up to 5 kg"
+    },
+    {
+     "name": "Food containers",
+     "anz": 8,
+     "notiz": "750 ml, microwave safe"
+    }
+   ],
+   "aktualisiert": "2026-10-11T12:00:00"
+  },
+  "pantry.md": "# Pantry\n\nLong-life items you have at home (spices, oil, canned goods).\n\n- olive oil\n- salt, pepper, paprika, cumin, oregano\n",
+  "profile.md": "# Household profile\n\nWrite freely — Claude reads this whole file before every suggestion.\n\n## Who eats\n- Two adults, office jobs, little exercise.\n\n## Goals\n- Lose weight slowly, stay full. Enough protein.\n\n## Medical / intolerances (always wins)\n- (e.g. lactose intolerance, insulin resistance: low GI, starch last)\n\n## Likes\n- Cheesy bakes, Mediterranean food, spicy is fine.\n\n## Dislikes\n- Mushrooms (never).\n\n## Kitchen\n- 1 oven with 2 racks, 1 sheet pan, 2 baking dishes, 1 large non-stick pan, pots.\n- Prep day may take about 75 minutes.\n\n## Shopping\n- Prefer one store. Budget see household.toml.\n"
+ },
+ "credits_after": {
+  "kandidaten/old-dish.jpg": {
+   "title": "Chicken bowl.jpg",
+   "creator": "Jane Doe",
+   "license": "CC0",
+   "license_url": "https://lic/x",
+   "source_url": "https://commons.wikimedia.org/wiki/File:chicken-bowl-jpg",
+   "query": "roasted chicken rice bowl",
+   "nr": 1,
+   "file": "kandidaten/old-dish.jpg"
+  },
+  "kandidaten/c2.jpg": {
+   "title": "Roast chicken rice.jpg",
+   "creator": "Jane Doe",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://lic/x",
+   "source_url": "https://commons.wikimedia.org/wiki/File:roast-chicken-rice-jpg",
+   "query": "chicken bowl",
+   "nr": 2,
+   "file": "kandidaten/c2.jpg"
+  },
+  "kandidaten/s1.jpg": {
+   "title": "Fresh Green plate.jpg",
+   "creator": "Jane Doe",
+   "license": "CC BY 4.0",
+   "license_url": "https://lic/x",
+   "source_url": "https://commons.wikimedia.org/wiki/File:fresh-green-plate-jpg",
+   "query": "fresh green salad bowl",
+   "nr": 1,
+   "file": "kandidaten/s1.jpg"
+  },
+  "kandidaten/t1.jpg": {
+   "title": "Pasta pomodoro.jpg",
+   "creator": "Jane Doe",
+   "license": "CC BY 2.0",
+   "license_url": "https://lic/x",
+   "source_url": "https://commons.wikimedia.org/wiki/File:pasta-pomodoro-jpg",
+   "query": "tomato  pasta",
+   "nr": 1,
+   "file": "kandidaten/t1.jpg"
+  },
+  "kandidaten/rl.jpg": {
+   "title": "Chicken ratelimited.jpg",
+   "creator": "Jane Doe",
+   "license": "Public domain",
+   "license_url": "https://lic/x",
+   "source_url": "https://commons.wikimedia.org/wiki/File:ratelimited",
+   "query": "chicken ratelimited",
+   "nr": 3,
+   "file": "kandidaten/rl.jpg"
+  },
+  "a.jpg": {
+   "title": "Vegetable stew.jpg",
+   "creator": "Jane Doe",
+   "license": "cc-by-3.0",
+   "license_url": "https://lic/x",
+   "source_url": "https://commons.wikimedia.org/wiki/File:vegetable-stew-jpg",
+   "query": "veg stew",
+   "nr": 1,
+   "file": "a.jpg"
+  }
+ },
+ "credits_text": "{\n \"kandidaten/old-dish.jpg\": {\n  \"title\": \"Chicken bowl.jpg\",\n  \"creator\": \"Jane Doe\",\n  \"license\": \"CC0\",\n  \"license_url\": \"https://lic/x\",\n  \"source_url\": \"https://commons.wikimedia.org/wiki/File:chicken-bowl-jpg\",\n  \"query\": \"roasted chicken rice bowl\",\n  \"nr\": 1,\n  \"file\": \"kandidaten/old-dish.jpg\"\n },\n \"kandidaten/c2.jpg\": {\n  \"title\": \"Roast chicken rice.jpg\",\n  \"creator\": \"Jane Doe\",\n  \"license\": \"CC BY-SA 4.0\",\n  \"license_url\": \"https://lic/x\",\n  \"source_url\": \"https://commons.wikimedia.org/wiki/File:roast-chicken-rice-jpg\",\n  \"query\": \"chicken bowl\",\n  \"nr\": 2,\n  \"file\": \"kandidaten/c2.jpg\"\n },\n \"kandidaten/s1.jpg\": {\n  \"title\": \"Fresh Green plate.jpg\",\n  \"creator\": \"Jane Doe\",\n  \"license\": \"CC BY 4.0\",\n  \"license_url\": \"https://lic/x\",\n  \"source_url\": \"https://commons.wikimedia.org/wiki/File:fresh-green-plate-jpg\",\n  \"query\": \"fresh green salad bowl\",\n  \"nr\": 1,\n  \"file\": \"kandidaten/s1.jpg\"\n },\n \"kandidaten/t1.jpg\": {\n  \"title\": \"Pasta pomodoro.jpg\",\n  \"creator\": \"Jane Doe\",\n  \"license\": \"CC BY 2.0\",\n  \"license_url\": \"https://lic/x\",\n  \"source_url\": \"https://commons.wikimedia.org/wiki/File:pasta-pomodoro-jpg\",\n  \"query\": \"tomato  pasta\",\n  \"nr\": 1,\n  \"file\": \"kandidaten/t1.jpg\"\n },\n \"kandidaten/rl.jpg\": {\n  \"title\": \"Chicken ratelimited.jpg\",\n  \"creator\": \"Jane Doe\",\n  \"license\": \"Public domain\",\n  \"license_url\": \"https://lic/x\",\n  \"source_url\": \"https://commons.wikimedia.org/wiki/File:ratelimited\",\n  \"query\": \"chicken ratelimited\",\n  \"nr\": 3,\n  \"file\": \"kandidaten/rl.jpg\"\n },\n \"a.jpg\": {\n  \"title\": \"Vegetable stew.jpg\",\n  \"creator\": \"Jane Doe\",\n  \"license\": \"cc-by-3.0\",\n  \"license_url\": \"https://lic/x\",\n  \"source_url\": \"https://commons.wikimedia.org/wiki/File:vegetable-stew-jpg\",\n  \"query\": \"veg stew\",\n  \"nr\": 1,\n  \"file\": \"a.jpg\"\n }\n}\n",
+ "http404": 404
+}

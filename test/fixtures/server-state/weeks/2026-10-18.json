@@ -1,0 +1,295 @@
+{
+  "id": "2026-10-18",
+  "titel": "Chicken & stew week",
+  "zeitraum": "So 18.10. – Fr 23.10.2026",
+  "einkaufstag": "Fr 16.10. · Lidl + Edeka",
+  "preptag": "Sa 17.10. · ~60 Min",
+  "budget": {
+    "summe": 102.76,
+    "limit": 72.5
+  },
+  "hero": "img/kandidaten/mittag-bowl.jpg",
+  "personen": {
+    "a": {
+      "label": "Anna",
+      "wer": "Anna",
+      "ziel": 2300
+    },
+    "b": {
+      "label": "Ben",
+      "wer": "Ben",
+      "ziel": 2700
+    },
+    "c": {
+      "label": "Cleo",
+      "wer": "",
+      "ziel": 1500
+    }
+  },
+  "fruehstueck": {
+    "name": "Frühstück",
+    "text": "Müsli mit Quark",
+    "kcal": 400,
+    "p": 30,
+    "kh": 50
+  },
+  "rezepte": [
+    {
+      "id": "mittag-bowl",
+      "slot": "Mittag · kalt",
+      "titel": "Hähnchen-Bowl",
+      "kurz": "Bowl",
+      "untertitel": "sub mittag-bowl",
+      "bild": "img/kandidaten/mittag-bowl.jpg",
+      "tags": [
+        "quick"
+      ],
+      "aktiv": 25,
+      "portionen": 18,
+      "makros": {
+        "a": {
+          "kcal": 800,
+          "p": 106,
+          "kh": 57
+        },
+        "b": {
+          "kcal": 950,
+          "p": 133,
+          "kh": 58
+        },
+        "c": {
+          "kcal": 500,
+          "p": 51,
+          "kh": 56
+        }
+      },
+      "zutaten": [
+        {
+          "gruppe": "Fleisch",
+          "items": [
+            "2,4 kg Hähnchen"
+          ]
+        }
+      ],
+      "schritte": [
+        "Braten"
+      ],
+      "kipppunkt": "Trocken?",
+      "anrichten": [
+        "Dose"
+      ],
+      "portion": {
+        "a": [
+          "x"
+        ],
+        "b": [
+          "y"
+        ],
+        "c": [
+          "z"
+        ]
+      },
+      "reihenfolge": false
+    },
+    {
+      "id": "abend-skyr",
+      "slot": "Abendessen",
+      "titel": "Skyr-Auflauf",
+      "kurz": "",
+      "untertitel": "sub abend-skyr",
+      "bild": "",
+      "tags": [
+        "quick"
+      ],
+      "aktiv": 25,
+      "portionen": 18,
+      "makros": {
+        "a": {
+          "kcal": 875,
+          "p": 74,
+          "kh": 127
+        },
+        "b": {
+          "kcal": 1075,
+          "p": 91,
+          "kh": 158
+        },
+        "c": {
+          "kcal": 475,
+          "p": 40,
+          "kh": 65
+        }
+      },
+      "zutaten": [],
+      "schritte": [],
+      "kipppunkt": "k",
+      "anrichten": [],
+      "portion": {},
+      "reihenfolge": false
+    }
+  ],
+  "extras": [
+    {
+      "id": "pickles",
+      "titel": "Pickles",
+      "zutaten": [
+        {
+          "gruppe": "G",
+          "items": [
+            "1 Gurke"
+          ]
+        }
+      ],
+      "schritte": [
+        "Hobeln"
+      ],
+      "haltbar": "7 Tage"
+    }
+  ],
+  "einkauf": [
+    {
+      "bereich": "Kühlung",
+      "items": [
+        {
+          "name": "Hähnchenbrustfilet (6.100 g)",
+          "anz": 7,
+          "preis": 5.99,
+          "a": true,
+          "laden": "Lidl"
+        },
+        {
+          "name": "Eier (Stück ≈ 60 g) (1.530 g)",
+          "anz": 3,
+          "preis": 2.69,
+          "a": false,
+          "laden": "Lidl"
+        },
+        {
+          "name": "Skyr natur (8.910 g)",
+          "anz": 20,
+          "preis": 1.49,
+          "a": true,
+          "laden": "Lidl"
+        },
+        {
+          "name": "Reibekäse Gouda (270 g)",
+          "anz": 1,
+          "preis": 2.99,
+          "a": false,
+          "laden": "Lidl"
+        }
+      ]
+    },
+    {
+      "bereich": "Obst & Gemüse",
+      "items": [
+        {
+          "name": "Eisbergsalat (Kopf ≈ 550 g) (2.290 g) · ca. 4 Stück",
+          "anz": 5,
+          "preis": 0.99,
+          "a": false,
+          "laden": "Lidl"
+        },
+        {
+          "name": "Tomaten (2.850 g) · ca. 24 Stück",
+          "anz": 6,
+          "preis": 0.99,
+          "a": true,
+          "laden": "Lidl"
+        }
+      ]
+    },
+    {
+      "bereich": "Konserven & Trocken",
+      "items": [
+        {
+          "name": "Parboiled-Reis (roh) (3.400 g)",
+          "anz": 7,
+          "preis": 0.8,
+          "a": true,
+          "laden": "Edeka"
+        }
+      ]
+    },
+    {
+      "bereich": "Dazu kaufen",
+      "items": [
+        {
+          "name": "Essig (1 Flasche (1 l))",
+          "anz": 1,
+          "preis": 1.05,
+          "a": false,
+          "laden": ""
+        },
+        {
+          "name": "Basilikum (200 g)",
+          "anz": 1,
+          "preis": 2.45,
+          "a": false,
+          "laden": ""
+        }
+      ]
+    }
+  ],
+  "vorrat": [
+    "Olivenöl"
+  ],
+  "nicht_kaufen": [
+    "Brühe"
+  ],
+  "geraete": [
+    "Backblech: Hähnchen"
+  ],
+  "prep": [
+    {
+      "t": "0:00",
+      "titel": "Ofen an",
+      "text": "200 °C",
+      "gericht": "",
+      "timer": 15
+    },
+    {
+      "t": "0:10",
+      "titel": "Reis",
+      "text": "kochen",
+      "neben": true,
+      "wichtig": true
+    }
+  ],
+  "warum": [
+    {
+      "titel": "Satt",
+      "text": "Protein"
+    }
+  ],
+  "feedback": [
+    "Zu trocken?"
+  ],
+  "lagerung": "Kühlschrank.",
+  "behaelter": [
+    {
+      "name": "Große Dose (750 ml)",
+      "anzahl": 8,
+      "inhalt": "Bowl",
+      "hinweis": "pro Person"
+    }
+  ],
+  "vorbereitung": [
+    {
+      "datum": "2026-10-16",
+      "wann": "after shopping",
+      "text": "Fleisch in den Kühlschrank"
+    },
+    {
+      "datum": "2026-10-21",
+      "wann": "",
+      "text": "Boxen umlagern"
+    },
+    {
+      "datum": "2026-10-17",
+      "wann": "evening",
+      "text": "Ofen prüfen"
+    }
+  ],
+  "erstellt": "2026-10-14T10:30:45"
+}

@@ -1,0 +1,457 @@
+{
+ "inputs": {
+  "week": {
+   "id": "2026-10-19",
+   "titel": "Hähnchen & Hokkaido",
+   "zeitraum": "Mo 19.10. – Do 22.10.2026",
+   "einkaufstag": "Sa 17.10. · Lidl + Rewe",
+   "preptag": "So 18.10. · ~95 Min",
+   "budget": {
+    "summe": 58.4,
+    "limit": 60.0
+   },
+   "personen": {
+    "a": {
+     "label": "Alex",
+     "wer": "Alex",
+     "ziel": 2200
+    },
+    "b": {
+     "label": "Sam",
+     "wer": "Sam",
+     "ziel": 1800
+    }
+   },
+   "fruehstueck": {
+    "name": "Frühstück",
+    "text": "Müsli",
+    "kcal": 450,
+    "p": 25,
+    "kh": 55
+   },
+   "rezepte": [
+    {
+     "id": "r1",
+     "slot": "Mittag",
+     "titel": "Bowl",
+     "untertitel": "kalt",
+     "portionen": 8,
+     "makros": {
+      "a": {
+       "kcal": 735,
+       "p": 55,
+       "kh": 60
+      },
+      "b": {
+       "kcal": 567,
+       "p": 41,
+       "kh": 48
+      }
+     },
+     "zutaten": [
+      {
+       "gruppe": "Fleisch",
+       "items": [
+        "1,5 kg Hähnchen",
+        "2 Eier"
+       ]
+      },
+      {
+       "gruppe": "Rest",
+       "items": [
+        "Salz"
+       ]
+      }
+     ],
+     "schritte": [
+      "Anbraten",
+      "Würzen"
+     ],
+     "kipppunkt": "Nicht übergaren",
+     "anrichten": [
+      "Dose nehmen",
+      "Reis rein"
+     ],
+     "portion": {
+      "a": [
+       "300 g Hähnchen",
+       "60 g Reis"
+      ],
+      "zz": [
+       "unknown person"
+      ]
+     },
+     "zusammenbau": {
+      "wann": "morgens",
+      "min": 3,
+      "packen": []
+     }
+    },
+    {
+     "id": "r2",
+     "slot": "Abend",
+     "titel": "Gulasch",
+     "untertitel": "warm",
+     "portionen": 8,
+     "makros": {
+      "a": {
+       "kcal": 1015,
+       "p": 60,
+       "kh": 90
+      },
+      "b": {
+       "kcal": 783,
+       "p": 44,
+       "kh": 70
+      }
+     },
+     "zutaten": [
+      {
+       "gruppe": "Alles",
+       "items": [
+        "1 kg Gulasch"
+       ]
+      }
+     ],
+     "schritte": [],
+     "kipppunkt": "Schmoren",
+     "anrichten": [
+      "Teller"
+     ],
+     "portion": {}
+    }
+   ],
+   "extras": [
+    {
+     "titel": "Gurkensalat",
+     "untertitel": "eingelegt",
+     "zutaten": [
+      {
+       "gruppe": "G",
+       "items": [
+        "1 Gurke"
+       ]
+      }
+     ],
+     "schritte": [
+      "Hobeln",
+      "Ziehen lassen"
+     ],
+     "haltbar": "7 Tage"
+    },
+    {
+     "titel": "Dip",
+     "zutaten": [],
+     "schritte": []
+    }
+   ],
+   "einkauf": [
+    {
+     "bereich": "Kühlung",
+     "items": [
+      {
+       "name": "Hähnchen (3.100 g)",
+       "anz": 4,
+       "preis": 6.5,
+       "a": true,
+       "laden": "Lidl"
+      },
+      {
+       "name": "Skyr",
+       "anz": 2,
+       "preis": 1.99,
+       "a": false,
+       "laden": ""
+      }
+     ]
+    },
+    {
+     "bereich": "Dazu kaufen",
+     "items": [
+      {
+       "name": "Essig (1 Fl.)",
+       "anz": 1,
+       "preis": 0.125,
+       "a": false
+      }
+     ]
+    }
+   ],
+   "vorrat": [
+    "Öl",
+    "Salz"
+   ],
+   "nicht_kaufen": [
+    "Brühe",
+    "Senf"
+   ],
+   "geraete": [
+    "Backblech: Hähnchen",
+    "Topf: Reis"
+   ],
+   "prep": [
+    {
+     "t": "0:00",
+     "titel": "Ofen",
+     "text": "vorheizen",
+     "timer": 15
+    },
+    {
+     "t": "0:05",
+     "titel": "Reis",
+     "text": "kochen",
+     "neben": true,
+     "wichtig": true,
+     "timer": 12
+    },
+    {
+     "t": "0:20",
+     "text": "Ohne Titel"
+    },
+    {
+     "t": "0:25",
+     "text": "Ohne Titel wichtig",
+     "wichtig": true
+    },
+    {
+     "t": "0:30",
+     "titel": "Wichtig",
+     "text": "Titel und wichtig",
+     "wichtig": true,
+     "timer": 0
+    }
+   ],
+   "warum": [
+    {
+     "titel": "Satt",
+     "text": "viel Protein"
+    }
+   ],
+   "feedback": [
+    "Zu trocken?",
+    "Satt geworden?"
+   ],
+   "lagerung": "Alles in den Kühlschrank.",
+   "vorbereitung": [
+    {
+     "datum": "2026-10-21",
+     "wann": "abends",
+     "text": "Boxen in den Kühlschrank"
+    },
+    {
+     "datum": "2026-10-17",
+     "wann": "",
+     "text": "Fleisch wegräumen"
+    },
+    {
+     "datum": "2026-10-17",
+     "text": "zweiter Eintrag"
+    }
+   ]
+  },
+  "week2": {
+   "id": "2026-10-19",
+   "titel": "Chicken & squash",
+   "zeitraum": "Mo 19.10. – Do 22.10.2026",
+   "einkaufstag": "Sa 17.10. · Lidl + Rewe",
+   "preptag": "So 18.10. · ~95 Min",
+   "budget": {
+    "summe": 58.4,
+    "limit": 60.0
+   },
+   "personen": {
+    "a": {
+     "label": "Alex",
+     "wer": "Alex",
+     "ziel": 2200
+    },
+    "b": {
+     "label": "Sam",
+     "wer": "Sam",
+     "ziel": 1800
+    }
+   },
+   "fruehstueck": null,
+   "rezepte": [
+    {
+     "id": "r1",
+     "slot": "Mittag",
+     "titel": "Bowl",
+     "untertitel": "kalt",
+     "portionen": 8,
+     "makros": {
+      "a": {
+       "kcal": 735,
+       "p": 55,
+       "kh": 60
+      },
+      "b": {
+       "kcal": 567,
+       "p": 41,
+       "kh": 48
+      }
+     },
+     "zutaten": [
+      {
+       "gruppe": "Fleisch",
+       "items": [
+        "1,5 kg Hähnchen",
+        "2 Eier"
+       ]
+      },
+      {
+       "gruppe": "Rest",
+       "items": [
+        "Salz"
+       ]
+      }
+     ],
+     "schritte": [
+      "Anbraten",
+      "Würzen"
+     ],
+     "kipppunkt": "Nicht übergaren",
+     "anrichten": [
+      "Dose nehmen",
+      "Reis rein"
+     ],
+     "portion": {
+      "a": [
+       "300 g Hähnchen",
+       "60 g Reis"
+      ],
+      "zz": [
+       "unknown person"
+      ]
+     },
+     "zusammenbau": {
+      "wann": "morgens",
+      "min": 3,
+      "packen": []
+     }
+    },
+    {
+     "id": "r2",
+     "slot": "Abend",
+     "titel": "Gulasch",
+     "untertitel": "warm",
+     "portionen": 8,
+     "makros": {
+      "a": {
+       "kcal": 1015,
+       "p": 60,
+       "kh": 90
+      },
+      "b": {
+       "kcal": 783,
+       "p": 44,
+       "kh": 70
+      }
+     },
+     "zutaten": [
+      {
+       "gruppe": "Alles",
+       "items": [
+        "1 kg Gulasch"
+       ]
+      }
+     ],
+     "schritte": [],
+     "kipppunkt": "Schmoren",
+     "anrichten": [
+      "Teller"
+     ],
+     "portion": {}
+    }
+   ],
+   "extras": [],
+   "einkauf": [
+    {
+     "bereich": "Kühlung",
+     "items": [
+      {
+       "name": "Hähnchen (3.100 g)",
+       "anz": 4,
+       "preis": 6.5,
+       "a": true,
+       "laden": "Lidl"
+      },
+      {
+       "name": "Skyr",
+       "anz": 2,
+       "preis": 1.99,
+       "a": false,
+       "laden": ""
+      }
+     ]
+    },
+    {
+     "bereich": "Dazu kaufen",
+     "items": [
+      {
+       "name": "Essig (1 Fl.)",
+       "anz": 1,
+       "preis": 0.125,
+       "a": false
+      }
+     ]
+    }
+   ],
+   "vorrat": [],
+   "nicht_kaufen": [],
+   "geraete": [
+    "Backblech: Hähnchen",
+    "Topf: Reis"
+   ],
+   "prep": [
+    {
+     "t": "0:00",
+     "titel": "Ofen",
+     "text": "vorheizen",
+     "timer": 15
+    },
+    {
+     "t": "0:05",
+     "titel": "Reis",
+     "text": "kochen",
+     "neben": true,
+     "wichtig": true,
+     "timer": 12
+    },
+    {
+     "t": "0:20",
+     "text": "Ohne Titel"
+    },
+    {
+     "t": "0:25",
+     "text": "Ohne Titel wichtig",
+     "wichtig": true
+    },
+    {
+     "t": "0:30",
+     "titel": "Wichtig",
+     "text": "Titel und wichtig",
+     "wichtig": true,
+     "timer": 0
+    }
+   ],
+   "warum": [
+    {
+     "titel": "Satt",
+     "text": "viel Protein"
+    }
+   ],
+   "feedback": [
+    "Zu trocken?",
+    "Satt geworden?"
+   ],
+   "lagerung": ""
+  }
+ },
+ "outputs": {
+  "de": "# Hähnchen & Hokkaido — Mo 19.10. – Do 22.10.2026\n\n**Einkauf:** Sa 17.10. · Lidl + Rewe · **Prep:** So 18.10. · ~95 Min · **Summe:** 58.40 CHF / Budget 60 CHF\n\n| | Bowl | Gulasch | kcal/Tag |\n|---|---|---|---|\n| **Alex** | 735 kcal · 55 g P | 1015 kcal · 60 g P | 2200 |\n| **Sam** | 567 kcal · 41 g P | 783 kcal · 44 g P | 1800 |\n\n## Rezepte\n\n### Bowl (Mittag, 8 Portionen)\n\n*kalt*\n\n**Fleisch**\n- 1,5 kg Hähnchen\n- 2 Eier\n\n**Rest**\n- Salz\n\n**So geht's**\n1. Anbraten\n2. Würzen\n\n> **Hier kippt es:** Nicht übergaren\n\n**Täglich anrichten**\n1. Dose nehmen\n2. Reis rein\n\n- **Portion Alex:** 300 g Hähnchen; 60 g Reis\n- **Portion zz:** unknown person\n\n### Gulasch (Abend, 8 Portionen)\n\n*warm*\n\n**Alles**\n- 1 kg Gulasch\n\n> **Hier kippt es:** Schmoren\n\n**Täglich anrichten**\n1. Teller\n\n\n### Gurkensalat\n\n*eingelegt*\n\n**G**\n- 1 Gurke\n\n1. Hobeln\n2. Ziehen lassen\n\n*7 Tage*\n\n### Dip\n\n\n## Einkaufsliste\n\n### Kühlung\n\n| | Artikel | Preis | |\n|---|---|---|---|\n| 4 × | Hähnchen (3.100 g) · Lidl | 26.00 CHF | Angebot |\n| 2 × | Skyr | 3.98 CHF | ~ |\n\n### Dazu kaufen\n\n| | Artikel | Preis | |\n|---|---|---|---|\n| 1 × | Essig (1 Fl.) | 0.12 CHF | ~ |\n\n**Vorher im Schrank nachsehen:** Öl, Salz\n\n**Nicht kaufen:** Brühe; Senf\n\n## Was benötigt wird\n\n- Backblech: Hähnchen\n- Topf: Reis\n\n## Ablauf am Prep-Tag\n\n| | | ⏱ |\n|---|---|---|\n| 0:00 | **Ofen** — vorheizen | 15 min |\n| ↳ | **Reis — kochen** | 12 min |\n| 0:20 | Ohne Titel |  |\n| 0:25 | **Ohne Titel wichtig** |  |\n| 0:30 | **Wichtig — Titel und wichtig** |  |\n\n## Vorbereiten & täglich zusammenbauen\n\n- **17.10.:** Fleisch wegräumen\n- **17.10.:** zweiter Eintrag\n- **21.10. · abends:** Boxen in den Kühlschrank\n- **Bowl zusammenbauen** (morgens, 3 Min): Dose nehmen → Reis rein\n- **Gulasch zusammenbauen** (Abend): Teller\n\n## Lagerung\n\nAlles in den Kühlschrank.\n\n## Warum dieser Plan\n\n- **Satt:** viel Protein\n\n## Feedback-Fragen\n\n1. Zu trocken?\n2. Satt geworden?\n",
+  "en": "# Hähnchen & Hokkaido — Mo 19.10. – Do 22.10.2026\n\n**Shopping:** Sa 17.10. · Lidl + Rewe · **Prep:** So 18.10. · ~95 Min · **Total:** 58.40 CHF / Budget 60 CHF\n\n| | Bowl | Gulasch | kcal/Tag |\n|---|---|---|---|\n| **Alex** | 735 kcal · 55 g P | 1015 kcal · 60 g P | 2200 |\n| **Sam** | 567 kcal · 41 g P | 783 kcal · 44 g P | 1800 |\n\n## Recipes\n\n### Bowl (Mittag, 8 portions)\n\n*kalt*\n\n**Fleisch**\n- 1,5 kg Hähnchen\n- 2 Eier\n\n**Rest**\n- Salz\n\n**How to cook**\n1. Anbraten\n2. Würzen\n\n> **Make-or-break step:** Nicht übergaren\n\n**Plate it daily**\n1. Dose nehmen\n2. Reis rein\n\n- **Portion Alex:** 300 g Hähnchen; 60 g Reis\n- **Portion zz:** unknown person\n\n### Gulasch (Abend, 8 portions)\n\n*warm*\n\n**Alles**\n- 1 kg Gulasch\n\n> **Make-or-break step:** Schmoren\n\n**Plate it daily**\n1. Teller\n\n\n### Gurkensalat\n\n*eingelegt*\n\n**G**\n- 1 Gurke\n\n1. Hobeln\n2. Ziehen lassen\n\n*7 Tage*\n\n### Dip\n\n\n## Shopping list\n\n### Kühlung\n\n| | Artikel | Preis | |\n|---|---|---|---|\n| 4 × | Hähnchen (3.100 g) · Lidl | 26.00 CHF | offer |\n| 2 × | Skyr | 3.98 CHF | ~ |\n\n### Dazu kaufen\n\n| | Artikel | Preis | |\n|---|---|---|---|\n| 1 × | Essig (1 Fl.) | 0.12 CHF | ~ |\n\n**Check the pantry first:** Öl, Salz\n\n**Don't buy:** Brühe; Senf\n\n## What you need\n\n- Backblech: Hähnchen\n- Topf: Reis\n\n## Prep-day timeline\n\n| | | ⏱ |\n|---|---|---|\n| 0:00 | **Ofen** — vorheizen | 15 min |\n| ↳ | **Reis — kochen** | 12 min |\n| 0:20 | Ohne Titel |  |\n| 0:25 | **Ohne Titel wichtig** |  |\n| 0:30 | **Wichtig — Titel und wichtig** |  |\n\n## Prepare & assemble daily\n\n- **17.10.:** Fleisch wegräumen\n- **17.10.:** zweiter Eintrag\n- **21.10. · abends:** Boxen in den Kühlschrank\n- **Bowl assemble** (morgens, 3 min): Dose nehmen → Reis rein\n- **Gulasch assemble** (Abend): Teller\n\n## Storage\n\nAlles in den Kühlschrank.\n\n## Why this plan\n\n- **Satt:** viel Protein\n\n## Feedback questions\n\n1. Zu trocken?\n2. Satt geworden?\n",
+  "xx": "# Hähnchen & Hokkaido — Mo 19.10. – Do 22.10.2026\n\n**Shopping:** Sa 17.10. · Lidl + Rewe · **Prep:** So 18.10. · ~95 Min · **Total:** 58.40 CHF / Budget 60 CHF\n\n| | Bowl | Gulasch | kcal/Tag |\n|---|---|---|---|\n| **Alex** | 735 kcal · 55 g P | 1015 kcal · 60 g P | 2200 |\n| **Sam** | 567 kcal · 41 g P | 783 kcal · 44 g P | 1800 |\n\n## Recipes\n\n### Bowl (Mittag, 8 portions)\n\n*kalt*\n\n**Fleisch**\n- 1,5 kg Hähnchen\n- 2 Eier\n\n**Rest**\n- Salz\n\n**How to cook**\n1. Anbraten\n2. Würzen\n\n> **Make-or-break step:** Nicht übergaren\n\n**Plate it daily**\n1. Dose nehmen\n2. Reis rein\n\n- **Portion Alex:** 300 g Hähnchen; 60 g Reis\n- **Portion zz:** unknown person\n\n### Gulasch (Abend, 8 portions)\n\n*warm*\n\n**Alles**\n- 1 kg Gulasch\n\n> **Make-or-break step:** Schmoren\n\n**Plate it daily**\n1. Teller\n\n\n### Gurkensalat\n\n*eingelegt*\n\n**G**\n- 1 Gurke\n\n1. Hobeln\n2. Ziehen lassen\n\n*7 Tage*\n\n### Dip\n\n\n## Shopping list\n\n### Kühlung\n\n| | Artikel | Preis | |\n|---|---|---|---|\n| 4 × | Hähnchen (3.100 g) · Lidl | 26.00 CHF | offer |\n| 2 × | Skyr | 3.98 CHF | ~ |\n\n### Dazu kaufen\n\n| | Artikel | Preis | |\n|---|---|---|---|\n| 1 × | Essig (1 Fl.) | 0.12 CHF | ~ |\n\n**Check the pantry first:** Öl, Salz\n\n**Don't buy:** Brühe; Senf\n\n## What you need\n\n- Backblech: Hähnchen\n- Topf: Reis\n\n## Prep-day timeline\n\n| | | ⏱ |\n|---|---|---|\n| 0:00 | **Ofen** — vorheizen | 15 min |\n| ↳ | **Reis — kochen** | 12 min |\n| 0:20 | Ohne Titel |  |\n| 0:25 | **Ohne Titel wichtig** |  |\n| 0:30 | **Wichtig — Titel und wichtig** |  |\n\n## Prepare & assemble daily\n\n- **17.10.:** Fleisch wegräumen\n- **17.10.:** zweiter Eintrag\n- **21.10. · abends:** Boxen in den Kühlschrank\n- **Bowl assemble** (morgens, 3 min): Dose nehmen → Reis rein\n- **Gulasch assemble** (Abend): Teller\n\n## Storage\n\nAlles in den Kühlschrank.\n\n## Why this plan\n\n- **Satt:** viel Protein\n\n## Feedback questions\n\n1. Zu trocken?\n2. Satt geworden?\n",
+  "minimal": "# Chicken & squash — Mo 19.10. – Do 22.10.2026\n\n**Shopping:** Sa 17.10. · Lidl + Rewe · **Prep:** So 18.10. · ~95 Min · **Total:** 58.40 € / Budget 60 €\n\n| | Bowl | Gulasch | kcal/Tag |\n|---|---|---|---|\n| **Alex** | 735 kcal · 55 g P | 1015 kcal · 60 g P | 1750 |\n| **Sam** | 567 kcal · 41 g P | 783 kcal · 44 g P | 1350 |\n\n## Recipes\n\n### Bowl (Mittag, 8 portions)\n\n*kalt*\n\n**Fleisch**\n- 1,5 kg Hähnchen\n- 2 Eier\n\n**Rest**\n- Salz\n\n**How to cook**\n1. Anbraten\n2. Würzen\n\n> **Make-or-break step:** Nicht übergaren\n\n**Plate it daily**\n1. Dose nehmen\n2. Reis rein\n\n- **Portion Alex:** 300 g Hähnchen; 60 g Reis\n- **Portion zz:** unknown person\n\n### Gulasch (Abend, 8 portions)\n\n*warm*\n\n**Alles**\n- 1 kg Gulasch\n\n> **Make-or-break step:** Schmoren\n\n**Plate it daily**\n1. Teller\n\n\n## Shopping list\n\n### Kühlung\n\n| | Artikel | Preis | |\n|---|---|---|---|\n| 4 × | Hähnchen (3.100 g) · Lidl | 26.00 € | offer |\n| 2 × | Skyr | 3.98 € | ~ |\n\n### Dazu kaufen\n\n| | Artikel | Preis | |\n|---|---|---|---|\n| 1 × | Essig (1 Fl.) | 0.12 € | ~ |\n\n## What you need\n\n- Backblech: Hähnchen\n- Topf: Reis\n\n## Prep-day timeline\n\n| | | ⏱ |\n|---|---|---|\n| 0:00 | **Ofen** — vorheizen | 15 min |\n| ↳ | **Reis — kochen** | 12 min |\n| 0:20 | Ohne Titel |  |\n| 0:25 | **Ohne Titel wichtig** |  |\n| 0:30 | **Wichtig — Titel und wichtig** |  |\n\n## Prepare & assemble daily\n\n- **Bowl assemble** (morgens, 3 min): Dose nehmen → Reis rein\n- **Gulasch assemble** (Abend): Teller\n\n## Why this plan\n\n- **Satt:** viel Protein\n\n## Feedback questions\n\n1. Zu trocken?\n2. Satt geworden?\n"
+ }
+}

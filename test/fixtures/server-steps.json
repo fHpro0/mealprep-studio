@@ -1,0 +1,909 @@
+[
+ {
+  "name": "root",
+  "method": "GET",
+  "path": "/"
+ },
+ {
+  "name": "index_html",
+  "method": "GET",
+  "path": "/index.html"
+ },
+ {
+  "name": "app_js",
+  "method": "GET",
+  "path": "/app.js?v=3"
+ },
+ {
+  "name": "style",
+  "method": "GET",
+  "path": "/style.css"
+ },
+ {
+  "name": "favicon",
+  "method": "GET",
+  "path": "/favicon.svg"
+ },
+ {
+  "name": "i18n",
+  "method": "GET",
+  "path": "/i18n.js"
+ },
+ {
+  "name": "robots",
+  "method": "GET",
+  "path": "/robots.txt"
+ },
+ {
+  "name": "robots_bot",
+  "method": "GET",
+  "path": "/robots.txt",
+  "headers": {
+   "User-Agent": "Googlebot/2.1"
+  }
+ },
+ {
+  "name": "bot_root",
+  "method": "GET",
+  "path": "/",
+  "headers": {
+   "User-Agent": "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+  }
+ },
+ {
+  "name": "bot_api",
+  "method": "GET",
+  "path": "/api/config",
+  "headers": {
+   "User-Agent": "GPTBot/1.0"
+  }
+ },
+ {
+  "name": "curl_ua",
+  "method": "GET",
+  "path": "/api/config",
+  "headers": {
+   "User-Agent": "curl/8.4.0"
+  }
+ },
+ {
+  "name": "whatsapp_ua",
+  "method": "GET",
+  "path": "/",
+  "headers": {
+   "User-Agent": "WhatsApp/2.23"
+  }
+ },
+ {
+  "name": "python_requests_ua",
+  "method": "GET",
+  "path": "/api/index",
+  "headers": {
+   "User-Agent": "python-requests/2.31"
+  }
+ },
+ {
+  "name": "claudebot",
+  "method": "GET",
+  "path": "/rounds/2026-11-01.json",
+  "headers": {
+   "User-Agent": "ClaudeBot"
+  }
+ },
+ {
+  "name": "browser_ua",
+  "method": "GET",
+  "path": "/api/config",
+  "headers": {
+   "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) Safari/604.1"
+  }
+ },
+ {
+  "name": "config",
+  "method": "GET",
+  "path": "/api/config"
+ },
+ {
+  "name": "index",
+  "method": "GET",
+  "path": "/api/index?x=1"
+ },
+ {
+  "name": "status0",
+  "method": "GET",
+  "path": "/api/status"
+ },
+ {
+  "name": "kitchen",
+  "method": "GET",
+  "path": "/api/kitchen"
+ },
+ {
+  "name": "mailbox_get",
+  "method": "GET",
+  "path": "/api/mailbox/2026-10-18"
+ },
+ {
+  "name": "mailbox_empty",
+  "method": "GET",
+  "path": "/api/mailbox/nope"
+ },
+ {
+  "name": "mailbox_bad",
+  "method": "GET",
+  "path": "/api/mailbox/Bad_Name"
+ },
+ {
+  "name": "mailbox_dots",
+  "method": "GET",
+  "path": "/api/mailbox/..%2fhousehold"
+ },
+ {
+  "name": "mailbox_dotdot",
+  "method": "GET",
+  "path": "/api/mailbox/../x"
+ },
+ {
+  "name": "mailbox_json_ext",
+  "method": "GET",
+  "path": "/api/mailbox/2026-10-18.json?y=1"
+ },
+ {
+  "name": "mailbox_toolong",
+  "method": "GET",
+  "path": "/api/mailbox/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+ },
+ {
+  "name": "mailbox_60",
+  "method": "GET",
+  "path": "/api/mailbox/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+ },
+ {
+  "name": "round_file",
+  "method": "GET",
+  "path": "/rounds/2026-11-01.json"
+ },
+ {
+  "name": "week_file",
+  "method": "GET",
+  "path": "/weeks/2026-10-18.json"
+ },
+ {
+  "name": "img_file",
+  "method": "GET",
+  "path": "/img/kandidaten/nosearch.jpg"
+ },
+ {
+  "name": "credits",
+  "method": "GET",
+  "path": "/img/credits.json"
+ },
+ {
+  "name": "md_plan_not_served",
+  "method": "GET",
+  "path": "/plans/woche-2026-10-18.md"
+ },
+ {
+  "name": "round_missing",
+  "method": "GET",
+  "path": "/rounds/none.json"
+ },
+ {
+  "name": "rounds_dir",
+  "method": "GET",
+  "path": "/rounds/"
+ },
+ {
+  "name": "img_dir_noslash",
+  "method": "GET",
+  "path": "/img/kandidaten"
+ },
+ {
+  "name": "api_unknown",
+  "method": "GET",
+  "path": "/api/unknown"
+ },
+ {
+  "name": "trav_1",
+  "method": "GET",
+  "path": "/img/../rounds/2026-11-01.json"
+ },
+ {
+  "name": "trav_2",
+  "method": "GET",
+  "path": "/img/%2e%2e/household.toml"
+ },
+ {
+  "name": "trav_3",
+  "method": "GET",
+  "path": "/rounds/%2e%2e/household.toml"
+ },
+ {
+  "name": "trav_4",
+  "method": "GET",
+  "path": "/rounds/..%2fhousehold.toml"
+ },
+ {
+  "name": "trav_5",
+  "method": "GET",
+  "path": "/rounds//etc/passwd"
+ },
+ {
+  "name": "trav_6",
+  "method": "GET",
+  "path": "/img/..%2f..%2f..%2f..%2fetc/passwd"
+ },
+ {
+  "name": "trav_7",
+  "method": "GET",
+  "path": "/../../etc/passwd"
+ },
+ {
+  "name": "trav_8",
+  "method": "GET",
+  "path": "/%2e%2e/%2e%2e/etc/hosts"
+ },
+ {
+  "name": "trav_9",
+  "method": "GET",
+  "path": "//etc/hosts"
+ },
+ {
+  "name": "trav_10",
+  "method": "GET",
+  "path": "/rounds/%252e%252e/household.toml"
+ },
+ {
+  "name": "trav_11",
+  "method": "GET",
+  "path": "/web/../household.toml"
+ },
+ {
+  "name": "trav_12",
+  "method": "GET",
+  "path": "/img/kandidaten/..%2f..%2fhousehold.toml"
+ },
+ {
+  "name": "trav_13",
+  "method": "GET",
+  "path": "/weeks/../mailbox/2026-10-18.json"
+ },
+ {
+  "name": "trav_14",
+  "method": "GET",
+  "path": "/household.toml"
+ },
+ {
+  "name": "trav_15",
+  "method": "GET",
+  "path": "/ingredients.json"
+ },
+ {
+  "name": "trav_16",
+  "method": "GET",
+  "path": "/img/%2e%2e%2fhousehold.toml"
+ },
+ {
+  "name": "inside_dot",
+  "method": "GET",
+  "path": "/rounds/./2026-11-01.json"
+ },
+ {
+  "name": "inside_updir",
+  "method": "GET",
+  "path": "/rounds/x/../2026-11-01.json"
+ },
+ {
+  "name": "inside_updir_img",
+  "method": "GET",
+  "path": "/img/kandidaten/../credits.json"
+ },
+ {
+  "name": "file_trailing_slash",
+  "method": "GET",
+  "path": "/app.js/"
+ },
+ {
+  "name": "head_root",
+  "method": "HEAD",
+  "path": "/"
+ },
+ {
+  "name": "head_app",
+  "method": "HEAD",
+  "path": "/app.js"
+ },
+ {
+  "name": "delete",
+  "method": "DELETE",
+  "path": "/"
+ },
+ {
+  "name": "options",
+  "method": "OPTIONS",
+  "path": "/"
+ },
+ {
+  "name": "put_mb_nopin",
+  "method": "PUT",
+  "path": "/api/mailbox/test1",
+  "body": {
+   "a": 1
+  }
+ },
+ {
+  "name": "put_mb_wrongpin",
+  "method": "PUT",
+  "path": "/api/mailbox/test1",
+  "headers": {
+   "X-Pin": "4712"
+  },
+  "body": {
+   "a": 1
+  }
+ },
+ {
+  "name": "put_mb_emptypin",
+  "method": "PUT",
+  "path": "/api/mailbox/test1",
+  "headers": {
+   "X-Pin": ""
+  },
+  "body": {
+   "a": 1
+  }
+ },
+ {
+  "name": "put_mb_longpin",
+  "method": "PUT",
+  "path": "/api/mailbox/test1",
+  "headers": {
+   "X-Pin": "47114711471147114711471147114711471147114711471147114711471147114711471147114711471147114711471147114711471147114711471147114711471147114711471147114711471147114711471147114711471147114711471147114711"
+  },
+  "body": {
+   "a": 1
+  }
+ },
+ {
+  "name": "put_mb_ok",
+  "method": "PUT",
+  "path": "/api/mailbox/test1",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "a": 1,
+   "ä": "ü"
+  }
+ },
+ {
+  "name": "get_mb_after",
+  "method": "GET",
+  "path": "/api/mailbox/test1"
+ },
+ {
+  "name": "put_mb_badname",
+  "method": "PUT",
+  "path": "/api/mailbox/Bad_Name",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "a": 1
+  }
+ },
+ {
+  "name": "put_mb_empty_body",
+  "method": "PUT",
+  "path": "/api/mailbox/test2",
+  "headers": {
+   "X-Pin": "4711"
+  }
+ },
+ {
+  "name": "get_mb2_after",
+  "method": "GET",
+  "path": "/api/mailbox/test2"
+ },
+ {
+  "name": "put_mb_badjson",
+  "method": "PUT",
+  "path": "/api/mailbox/test3",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": "{",
+  "ignore_body": true
+ },
+ {
+  "name": "put_unknown",
+  "method": "PUT",
+  "path": "/api/other",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "a": 1
+  }
+ },
+ {
+  "name": "put_unknown_nopin",
+  "method": "PUT",
+  "path": "/api/other",
+  "body": {
+   "a": 1
+  }
+ },
+ {
+  "name": "put_kitchen_nopin",
+  "method": "PUT",
+  "path": "/api/kitchen",
+  "body": {
+   "items": []
+  }
+ },
+ {
+  "name": "put_kitchen_ok",
+  "method": "PUT",
+  "path": "/api/kitchen",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "items": [
+    {
+     "name": " Topf ",
+     "anz": 2,
+     "notiz": " gross "
+    },
+    {
+     "name": "Pfanne",
+     "anz": 0
+    }
+   ]
+  }
+ },
+ {
+  "name": "get_kitchen_after",
+  "method": "GET",
+  "path": "/api/kitchen"
+ },
+ {
+  "name": "put_kitchen_bad_1",
+  "method": "PUT",
+  "path": "/api/kitchen",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "items": "x"
+  }
+ },
+ {
+  "name": "put_kitchen_bad_2",
+  "method": "PUT",
+  "path": "/api/kitchen",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "items": [
+    {
+     "name": "",
+     "anz": 1
+    }
+   ]
+  }
+ },
+ {
+  "name": "put_kitchen_bad_3",
+  "method": "PUT",
+  "path": "/api/kitchen",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "items": [
+    {
+     "name": "x",
+     "anz": 1.5
+    }
+   ]
+  }
+ },
+ {
+  "name": "put_kitchen_bad_4",
+  "method": "PUT",
+  "path": "/api/kitchen",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "items": [
+    {
+     "name": "x",
+     "anz": true
+    }
+   ]
+  }
+ },
+ {
+  "name": "put_kitchen_bad_5",
+  "method": "PUT",
+  "path": "/api/kitchen",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "items": [
+    {
+     "name": "x",
+     "anz": 100
+    }
+   ]
+  }
+ },
+ {
+  "name": "put_kitchen_bad_6",
+  "method": "PUT",
+  "path": "/api/kitchen",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": [
+   1,
+   2
+  ]
+ },
+ {
+  "name": "put_kitchen_bad_7",
+  "method": "PUT",
+  "path": "/api/kitchen",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "items": [
+    {
+     "name": "x",
+     "anz": 1,
+     "notiz": "nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+    }
+   ]
+  }
+ },
+ {
+  "name": "put_kitchen_bad_8",
+  "method": "PUT",
+  "path": "/api/kitchen",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "items": [
+    "s"
+   ]
+  }
+ },
+ {
+  "name": "put_kitchen_badjson",
+  "method": "PUT",
+  "path": "/api/kitchen",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": "nope",
+  "ignore_body": true
+ },
+ {
+  "name": "post_nopin",
+  "method": "POST",
+  "path": "/api/run",
+  "body": {
+   "action": "neue_runde"
+  }
+ },
+ {
+  "name": "post_wrongpin",
+  "method": "POST",
+  "path": "/api/run",
+  "headers": {
+   "X-Pin": "x"
+  },
+  "body": {
+   "action": "neue_runde"
+  }
+ },
+ {
+  "name": "post_unknown_nopin",
+  "method": "POST",
+  "path": "/api/nothing",
+  "body": {}
+ },
+ {
+  "name": "post_unknown",
+  "method": "POST",
+  "path": "/api/nothing",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {}
+ },
+ {
+  "name": "post_badaction",
+  "method": "POST",
+  "path": "/api/run",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "action": "rm_rf"
+  }
+ },
+ {
+  "name": "post_noaction",
+  "method": "POST",
+  "path": "/api/run",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {}
+ },
+ {
+  "name": "post_badid",
+  "method": "POST",
+  "path": "/api/run",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "action": "plan_erstellen",
+   "id": "../etc"
+  }
+ },
+ {
+  "name": "post_null_id",
+  "method": "POST",
+  "path": "/api/run",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "action": "plan_erstellen",
+   "id": null
+  }
+ },
+ {
+  "name": "post_num_id",
+  "method": "POST",
+  "path": "/api/run",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "action": "feedback_uebernehmen",
+   "id": 5
+  }
+ },
+ {
+  "name": "post_badjson",
+  "method": "POST",
+  "path": "/api/run",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": "{{",
+  "ignore_body": true
+ },
+ {
+  "name": "post_run_path_query",
+  "method": "POST",
+  "path": "/api/run?x=1",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "action": "neue_runde"
+  }
+ },
+ {
+  "name": "img_badid",
+  "method": "POST",
+  "path": "/api/image",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "round": "Bad",
+   "id": "x"
+  }
+ },
+ {
+  "name": "img_noids",
+  "method": "POST",
+  "path": "/api/image",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {}
+ },
+ {
+  "name": "img_noround",
+  "method": "POST",
+  "path": "/api/image",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "round": "2030-01-01",
+   "id": "x"
+  }
+ },
+ {
+  "name": "img_nodish",
+  "method": "POST",
+  "path": "/api/image",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "round": "2026-11-01",
+   "id": "other"
+  }
+ },
+ {
+  "name": "img_nosearch",
+  "method": "POST",
+  "path": "/api/image",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "round": "2026-11-01",
+   "id": "nosearch"
+  }
+ },
+ {
+  "name": "img_nopin",
+  "method": "POST",
+  "path": "/api/image",
+  "body": {
+   "round": "2026-11-02",
+   "id": "withsearch"
+  }
+ },
+ {
+  "name": "img_swap1",
+  "method": "POST",
+  "path": "/api/image",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "round": "2026-11-02",
+   "id": "withsearch"
+  }
+ },
+ {
+  "name": "img_swap2",
+  "method": "POST",
+  "path": "/api/image",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "round": "2026-11-02",
+   "id": "withsearch"
+  }
+ },
+ {
+  "name": "img_swap3",
+  "method": "POST",
+  "path": "/api/image",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "round": "2026-11-02",
+   "id": "withsearch"
+  }
+ },
+ {
+  "name": "img_swap4_wraps",
+  "method": "POST",
+  "path": "/api/image",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "round": "2026-11-02",
+   "id": "withsearch"
+  }
+ },
+ {
+  "name": "img_get_after",
+  "method": "GET",
+  "path": "/img/kandidaten/withsearch.jpg"
+ },
+ {
+  "name": "credits_after",
+  "method": "GET",
+  "path": "/img/credits.json"
+ },
+ {
+  "name": "round_after",
+  "method": "GET",
+  "path": "/rounds/2026-11-02.json"
+ },
+ {
+  "gate": "close"
+ },
+ {
+  "name": "run_ok",
+  "method": "POST",
+  "path": "/api/run",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "action": "neue_runde",
+   "id": ""
+  }
+ },
+ {
+  "gate": "wait_thinking"
+ },
+ {
+  "name": "status_running",
+  "method": "GET",
+  "path": "/api/status"
+ },
+ {
+  "name": "run_busy",
+  "method": "POST",
+  "path": "/api/run",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "action": "ueberarbeiten",
+   "id": "2026-10-18"
+  }
+ },
+ {
+  "gate": "open"
+ },
+ {
+  "gate": "wait_idle"
+ },
+ {
+  "name": "status_done",
+  "method": "GET",
+  "path": "/api/status"
+ },
+ {
+  "name": "index_after",
+  "method": "GET",
+  "path": "/api/index"
+ },
+ {
+  "name": "run_failing",
+  "method": "POST",
+  "path": "/api/run",
+  "headers": {
+   "X-Pin": "4711"
+  },
+  "body": {
+   "action": "plan_erstellen",
+   "id": "2099-01-01"
+  }
+ },
+ {
+  "gate": "wait_idle"
+ },
+ {
+  "name": "status_error",
+  "method": "GET",
+  "path": "/api/status"
+ }
+]
