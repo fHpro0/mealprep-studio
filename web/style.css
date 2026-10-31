@@ -378,3 +378,5 @@ details.box[open] summary{margin-bottom:8px}
 .improve .quick{display:flex;flex-wrap:wrap;gap:6px}
 .improve .quick .wish{font-size:12.5px;padding:5px 10px;min-height:32px}
 .improve [data-improve]{align-self:flex-start;min-height:40px}
+.row label .verdict{display:inline-block}
+.decision p{margin:0}

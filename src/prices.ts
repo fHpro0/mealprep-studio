@@ -195,6 +195,13 @@ export async function browse_digest(hh: Household, day: string, only: string[] =
   return { text: blocks.join("\n"), stores };
 }
 
+/** A trustworthy normal price per kg: an explicit regular price, or one from a receipt / the base list —
+ * not an estimate and not an earlier offer price (an offer would be compared with itself). 0 = unknown. */
+export function normal_eur_kg(z: Obj): number {
+  const q = String(z?.quelle ?? "");
+  return Number(z?.regulaer_eur_kg ?? (q.startsWith("schaetzung") || q.startsWith("angebot") ? 0 : z?.eur_kg ?? 0)) || 0;
+}
+
 /** Is the offer really cheaper? Compared with the household's own normal price per kg of the matching ingredient
  * (`muss`/`nicht` patterns of the ingredient list) and, when the store gives one, its "instead of" price. */
 export function verdict(db: Obj, r: Obj): Obj {
@@ -206,10 +213,7 @@ export function verdict(db: Obj, r: Obj): Obj {
     && words(String(db[k].suche)).every((w) => nameWords.some((n) => n.startsWith(w))) && (!db[k].muss || new RegExp(db[k].muss).test(name))
     && !(db[k].nicht && new RegExp(db[k].nicht).test(name)))
     .sort((a, b) => words(String(db[b].suche)).length - words(String(db[a].suche)).length)[0];
-  // only a trustworthy normal price: an explicit regular price, or one from a receipt / the base list —
-  // not an estimate and not an earlier offer price (an offer would be compared with itself)
-  const z = key ? db[key] : {}, q = String(z.quelle ?? "");
-  const normal = Number(z.regulaer_eur_kg ?? (q.startsWith("schaetzung") || q.startsWith("angebot") ? 0 : z.eur_kg ?? 0));
+  const z = key ? db[key] : {}, normal = normal_eur_kg(z);
   const out: Obj = { zutat: key ? db[key].name : null, normal_eur_kg: normal || null };
   if (r.alter_preis > r.preis) out.laden_rabatt = Math.round((1 - r.preis / r.alter_preis) * 100);
   const vs = normal && r.grundpreis && (unit === "kg" || unit === "l") ? Math.round((r.grundpreis / normal - 1) * 100) : null;

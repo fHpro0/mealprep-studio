@@ -3305,7 +3305,7 @@
       "preptag": "Sun 18.10. · ~75 Min",
       "budget": {
        "summe": 64.44,
-       "limit": 60.0
+       "limit": 60
       },
       "hero": "img/kandidaten/lunch-chicken-bowl.jpg",
       "personen": {
@@ -3477,14 +3477,18 @@
           "anz": 3,
           "preis": 9.9,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "1 kg",
+          "kurz": "Chicken breast"
          },
          {
           "name": "Plain yogurt 3.5 % (240 g)",
           "anz": 1,
           "preis": 0.79,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "500 g",
+          "kurz": "Plain yogurt 3.5 %"
          }
         ]
        },
@@ -3496,28 +3500,36 @@
           "anz": 3,
           "preis": 2.79,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "750 g",
+          "kurz": "Mini cucumbers"
          },
          {
           "name": "Tomatoes (1,060 g) · ca. 9 pcs",
           "anz": 3,
           "preis": 1.25,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "500 g",
+          "kurz": "Tomatoes"
          },
          {
           "name": "Potatoes (4,380 g)",
           "anz": 3,
-          "preis": 2.0,
+          "preis": 2,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "2 kg",
+          "kurz": "Potatoes"
          },
          {
           "name": "Hokkaido pumpkin (2,190 g) · ca. 2 pcs",
           "anz": 2,
           "preis": 2.39,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "1.2 kg",
+          "kurz": "Hokkaido pumpkin"
          }
         ]
        },
@@ -3529,21 +3541,27 @@
           "anz": 1,
           "preis": 1.19,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "500 g",
+          "kurz": "Parboiled rice"
          },
          {
           "name": "Chickpeas (canned, drained) (1,820 g)",
           "anz": 7,
           "preis": 0.74,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "265 g",
+          "kurz": "Chickpeas"
          },
          {
           "name": "Passata (910 g)",
           "anz": 2,
           "preis": 0.59,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "500 g",
+          "kurz": "Passata"
          }
         ]
        },
@@ -3857,7 +3875,7 @@
       "preptag": "Sun 18.10. · ~75 Min",
       "budget": {
        "summe": 64.44,
-       "limit": 60.0
+       "limit": 60
       },
       "hero": "img/kandidaten/lunch-chicken-bowl.jpg",
       "personen": {
@@ -4029,14 +4047,18 @@
           "anz": 3,
           "preis": 9.9,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "1 kg",
+          "kurz": "Chicken breast"
          },
          {
           "name": "Plain yogurt 3.5 % (240 g)",
           "anz": 1,
           "preis": 0.79,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "500 g",
+          "kurz": "Plain yogurt 3.5 %"
          }
         ]
        },
@@ -4048,28 +4070,36 @@
           "anz": 3,
           "preis": 2.79,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "750 g",
+          "kurz": "Mini cucumbers"
          },
          {
           "name": "Tomatoes (1,060 g) · ca. 9 pcs",
           "anz": 3,
           "preis": 1.25,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "500 g",
+          "kurz": "Tomatoes"
          },
          {
           "name": "Potatoes (4,380 g)",
           "anz": 3,
-          "preis": 2.0,
+          "preis": 2,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "2 kg",
+          "kurz": "Potatoes"
          },
          {
           "name": "Hokkaido pumpkin (2,190 g) · ca. 2 pcs",
           "anz": 2,
           "preis": 2.39,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "1.2 kg",
+          "kurz": "Hokkaido pumpkin"
          }
         ]
        },
@@ -4081,21 +4111,27 @@
           "anz": 1,
           "preis": 1.19,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "500 g",
+          "kurz": "Parboiled rice"
          },
          {
           "name": "Chickpeas (canned, drained) (1,820 g)",
           "anz": 7,
           "preis": 0.74,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "265 g",
+          "kurz": "Chickpeas"
          },
          {
           "name": "Passata (910 g)",
           "anz": 2,
           "preis": 0.59,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "500 g",
+          "kurz": "Passata"
          }
         ]
        },
@@ -5111,7 +5147,7 @@
       "preptag": "Sun 18.10. · ~75 Min",
       "budget": {
        "summe": 64.44,
-       "limit": 60.0
+       "limit": 60
       },
       "hero": "img/kandidaten/lunch-chicken-bowl.jpg",
       "personen": {
@@ -5283,14 +5319,18 @@
           "anz": 3,
           "preis": 9.9,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "1 kg",
+          "kurz": "Chicken breast"
          },
          {
           "name": "Plain yogurt 3.5 % (240 g)",
           "anz": 1,
           "preis": 0.79,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "500 g",
+          "kurz": "Plain yogurt 3.5 %"
          }
         ]
        },
@@ -5302,28 +5342,36 @@
           "anz": 3,
           "preis": 2.79,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "750 g",
+          "kurz": "Mini cucumbers"
          },
          {
           "name": "Tomatoes (1,060 g) · ca. 9 pcs",
           "anz": 3,
           "preis": 1.25,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "500 g",
+          "kurz": "Tomatoes"
          },
          {
           "name": "Potatoes (4,380 g)",
           "anz": 3,
-          "preis": 2.0,
+          "preis": 2,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "2 kg",
+          "kurz": "Potatoes"
          },
          {
           "name": "Hokkaido pumpkin (2,190 g) · ca. 2 pcs",
           "anz": 2,
           "preis": 2.39,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "1.2 kg",
+          "kurz": "Hokkaido pumpkin"
          }
         ]
        },
@@ -5335,21 +5383,27 @@
           "anz": 1,
           "preis": 1.19,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "500 g",
+          "kurz": "Parboiled rice"
          },
          {
           "name": "Chickpeas (canned, drained) (1,820 g)",
           "anz": 7,
           "preis": 0.74,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "265 g",
+          "kurz": "Chickpeas"
          },
          {
           "name": "Passata (910 g)",
           "anz": 2,
           "preis": 0.59,
           "a": false,
-          "laden": ""
+          "laden": "",
+          "pack": "500 g",
+          "kurz": "Passata"
          }
         ]
        },
@@ -7148,7 +7202,7 @@
      "total_cost_usd": 0.0421
     }
    ],
-   "message": "Chicken & stew week — 102.76 €",
+   "message": "Chicken & stew week — 101.58 €",
    "phases": [
     "thinking",
     "calculating"
@@ -7195,7 +7249,7 @@
        "abend": "abend-skyr"
       }
      },
-     "meine-plaene/woche-2026-10-18.md": "# Chicken & stew week — So 18.10. – Fr 23.10.2026\n\n**Einkauf:** Fr 16.10. · Lidl + Edeka · **Prep:** Sa 17.10. · ~60 Min · **Summe:** 102.76 € / Budget 72 €\n\n| | Hähnchen-Bowl | Skyr-Auflauf | kcal/Tag |\n|---|---|---|---|\n| **Anna** | 800 kcal · 106 g P | 875 kcal · 74 g P | 2075 |\n| **Ben** | 950 kcal · 133 g P | 1075 kcal · 91 g P | 2425 |\n| **Cleo** | 500 kcal · 51 g P | 475 kcal · 40 g P | 1375 |\n\n## Rezepte\n\n### Hähnchen-Bowl (Mittag · kalt, 18 Portionen)\n\n*sub mittag-bowl*\n\n**Fleisch**\n- 2,4 kg Hähnchen\n\n**So geht's**\n1. Braten\n\n> **Hier kippt es:** Trocken?\n\n**Täglich anrichten**\n1. Dose\n\n- **Portion Anna:** x\n- **Portion Ben:** y\n- **Portion Cleo:** z\n\n### Skyr-Auflauf (Abendessen, 18 Portionen)\n\n*sub abend-skyr*\n\n> **Hier kippt es:** k\n\n**Täglich anrichten**\n\n\n### Pickles\n\n**G**\n- 1 Gurke\n\n1. Hobeln\n\n*7 Tage*\n\n## Einkaufsliste\n\n### Kühlung\n\n| | Artikel | Preis | |\n|---|---|---|---|\n| 7 × | Hähnchenbrustfilet (6.100 g) · Lidl | 41.93 € | Angebot |\n| 3 × | Eier (Stück ≈ 60 g) (1.530 g) · Lidl | 8.07 € | ~ |\n| 20 × | Skyr natur (8.910 g) · Lidl | 29.80 € | Angebot |\n| 1 × | Reibekäse Gouda (270 g) · Lidl | 2.99 € | ~ |\n\n### Obst & Gemüse\n\n| | Artikel | Preis | |\n|---|---|---|---|\n| 5 × | Eisbergsalat (Kopf ≈ 550 g) (2.290 g) · ca. 4 Stück · Lidl | 4.95 € | ~ |\n| 6 × | Tomaten (2.850 g) · ca. 24 Stück · Lidl | 5.94 € | Angebot |\n\n### Konserven & Trocken\n\n| | Artikel | Preis | |\n|---|---|---|---|\n| 7 × | Parboiled-Reis (roh) (3.400 g) · Edeka | 5.60 € | Angebot |\n\n### Dazu kaufen\n\n| | Artikel | Preis | |\n|---|---|---|---|\n| 1 × | Essig (1 Flasche (1 l)) | 1.05 € | ~ |\n| 1 × | Basilikum (200 g) | 2.45 € | ~ |\n\n**Vorher im Schrank nachsehen:** Olivenöl\n\n**Nicht kaufen:** Brühe\n\n## Was benötigt wird\n\n- Backblech: Hähnchen\n\n## Ablauf am Prep-Tag\n\n| | | ⏱ |\n|---|---|---|\n| 0:00 | **Ofen an** — 200 °C | 15 min |\n| ↳ | **Reis — kochen** |  |\n\n## Vorbereiten & täglich zusammenbauen\n\n- **16.10. · after shopping:** Fleisch in den Kühlschrank\n- **17.10. · evening:** Ofen prüfen\n- **21.10.:** Boxen umlagern\n- **Hähnchen-Bowl zusammenbauen** (Mittag · kalt): Dose\n- **Skyr-Auflauf zusammenbauen** (Abendessen): \n\n## Lagerung\n\nKühlschrank.\n\n## Warum dieser Plan\n\n- **Satt:** Protein\n\n## Feedback-Fragen\n\n1. Zu trocken?\n",
+     "meine-plaene/woche-2026-10-18.md": "# Chicken & stew week — So 18.10. – Fr 23.10.2026\n\n**Einkauf:** Fr 16.10. · Lidl + Edeka · **Prep:** Sa 17.10. · ~60 Min · **Summe:** 101.58 € / Budget 72 €\n\n| | Hähnchen-Bowl | Skyr-Auflauf | kcal/Tag |\n|---|---|---|---|\n| **Anna** | 800 kcal · 106 g P | 875 kcal · 74 g P | 2075 |\n| **Ben** | 950 kcal · 133 g P | 1075 kcal · 91 g P | 2425 |\n| **Cleo** | 500 kcal · 51 g P | 475 kcal · 40 g P | 1375 |\n\n## Rezepte\n\n### Hähnchen-Bowl (Mittag · kalt, 18 Portionen)\n\n*sub mittag-bowl*\n\n**Fleisch**\n- 2,4 kg Hähnchen\n\n**So geht's**\n1. Braten\n\n> **Hier kippt es:** Trocken?\n\n**Täglich anrichten**\n1. Dose\n\n- **Portion Anna:** x\n- **Portion Ben:** y\n- **Portion Cleo:** z\n\n### Skyr-Auflauf (Abendessen, 18 Portionen)\n\n*sub abend-skyr*\n\n> **Hier kippt es:** k\n\n**Täglich anrichten**\n\n\n### Pickles\n\n**G**\n- 1 Gurke\n\n1. Hobeln\n\n*7 Tage*\n\n## Einkaufsliste\n\n### Kühlung\n\n| | Artikel | Preis | |\n|---|---|---|---|\n| 5 × | Hähnchenbrustfilet (6.100 g) · Lidl | 39.95 € | Angebot |\n| 3 × | Eier (Stück ≈ 60 g) (1.530 g) · Lidl | 8.07 € | ~ |\n| 20 × | Skyr natur (8.910 g) · Lidl | 29.80 € | Angebot |\n| 1 × | Reibekäse Gouda (270 g) · Lidl | 2.99 € | ~ |\n\n### Obst & Gemüse\n\n| | Artikel | Preis | |\n|---|---|---|---|\n| 5 × | Eisbergsalat (Kopf ≈ 550 g) (2.290 g) · ca. 4 Stück · Lidl | 4.95 € | ~ |\n| 3 × | Tomaten (2.850 g) · ca. 24 Stück · Lidl | 5.97 € | Angebot |\n\n### Konserven & Trocken\n\n| | Artikel | Preis | |\n|---|---|---|---|\n| 4 × | Parboiled-Reis (roh) (3.400 g) · Edeka | 6.36 € | Angebot |\n\n### Dazu kaufen\n\n| | Artikel | Preis | |\n|---|---|---|---|\n| 1 × | Essig (1 Flasche (1 l)) | 1.05 € | ~ |\n| 1 × | Basilikum (200 g) | 2.45 € | ~ |\n\n**Vorher im Schrank nachsehen:** Olivenöl\n\n**Nicht kaufen:** Brühe\n\n## Was benötigt wird\n\n- Backblech: Hähnchen\n\n## Ablauf am Prep-Tag\n\n| | | ⏱ |\n|---|---|---|\n| 0:00 | **Ofen an** — 200 °C | 15 min |\n| ↳ | **Reis — kochen** |  |\n\n## Vorbereiten & täglich zusammenbauen\n\n- **16.10. · after shopping:** Fleisch in den Kühlschrank\n- **17.10. · evening:** Ofen prüfen\n- **21.10.:** Boxen umlagern\n- **Hähnchen-Bowl zusammenbauen** (Mittag · kalt): Dose\n- **Skyr-Auflauf zusammenbauen** (Abendessen): \n\n## Lagerung\n\nKühlschrank.\n\n## Warum dieser Plan\n\n- **Satt:** Protein\n\n## Feedback-Fragen\n\n1. Zu trocken?\n",
      "rounds/2026-10-18.json": {
       "id": "2026-10-18",
       "titel": "So 18.10. – Fr 23.10.2026",
@@ -7215,7 +7269,7 @@
        {
         "zeit": "2026-10-14T10:30:45",
         "von": "claude",
-        "text": "Plan steht: Hähnchen-Bowl + Skyr-Auflauf · 102.76 €"
+        "text": "Plan steht: Hähnchen-Bowl + Skyr-Auflauf · 101.58 €"
        }
       ],
       "kandidaten": [
@@ -7419,12 +7473,12 @@
            "name": "Kartoffeln",
            "g": 9380,
            "pack_g": 2000,
-           "eur_kg": 1.0,
+           "eur_kg": 1,
            "laden": "",
            "quelle": "schaetzung",
            "aisle": "produce",
            "packungen": 5,
-           "eur": 10.0
+           "eur": 10
           }
          ],
          "skalierung": 3.125,
@@ -7655,12 +7709,12 @@
            "name": "Kartoffeln",
            "g": 13230,
            "pack_g": 2000,
-           "eur_kg": 1.0,
+           "eur_kg": 1,
            "laden": "",
            "quelle": "schaetzung",
            "aisle": "produce",
            "packungen": 7,
-           "eur": 14.0
+           "eur": 14
           },
           {
            "zutat": "zwiebel",
@@ -7713,8 +7767,24 @@
       "einkaufstag": "Fr 16.10. · Lidl + Edeka",
       "preptag": "Sa 17.10. · ~60 Min",
       "budget": {
-       "summe": 102.76,
+       "summe": 101.58,
        "limit": 72.5
+      },
+      "laeden_vergleich": {
+       "allein": {
+        "laeden": [
+         "Lidl"
+        ],
+        "summe": 102.02
+       },
+       "zwei": {
+        "laeden": [
+         "Lidl",
+         "Edeka"
+        ],
+        "summe": 99.26
+       },
+       "grenze": 0.5
       },
       "hero": "img/kandidaten/mittag-bowl.jpg",
       "personen": {
@@ -7860,31 +7930,55 @@
         "items": [
          {
           "name": "Hähnchenbrustfilet (6.100 g)",
-          "anz": 7,
-          "preis": 5.99,
+          "anz": 5,
+          "preis": 7.99,
           "a": true,
-          "laden": "Lidl"
+          "laden": "Lidl",
+          "pack": "1,33 kg",
+          "kurz": "Hähnchenbrustfilet",
+          "angebot": {
+           "laden": "Lidl",
+           "produkt": "Mastery Hähnchenbrustfilet frisch",
+           "preis": 7.99,
+           "eur_kg": 5.99,
+           "bis": "2026-10-17",
+           "vs_normal": -43,
+           "normal_eur_kg": 10.5
+          }
          },
          {
           "name": "Eier (Stück ≈ 60 g) (1.530 g)",
           "anz": 3,
           "preis": 2.69,
           "a": false,
-          "laden": "Lidl"
+          "laden": "Lidl",
+          "pack": "10 Stück",
+          "kurz": "Eier"
          },
          {
           "name": "Skyr natur (8.910 g)",
           "anz": 20,
           "preis": 1.49,
           "a": true,
-          "laden": "Lidl"
+          "laden": "Lidl",
+          "pack": "450 g",
+          "kurz": "Skyr natur",
+          "angebot": {
+           "laden": "Lidl",
+           "produkt": "Milbona Skyr natur",
+           "preis": 1.49,
+           "eur_kg": 3.31,
+           "bis": "2026-10-17"
+          }
          },
          {
           "name": "Reibekäse Gouda (270 g)",
           "anz": 1,
           "preis": 2.99,
           "a": false,
-          "laden": "Lidl"
+          "laden": "Lidl",
+          "pack": "500 g",
+          "kurz": "Reibekäse Gouda"
          }
         ]
        },
@@ -7896,14 +7990,25 @@
           "anz": 5,
           "preis": 0.99,
           "a": false,
-          "laden": "Lidl"
+          "laden": "Lidl",
+          "pack": "550 g",
+          "kurz": "Eisbergsalat"
          },
          {
           "name": "Tomaten (2.850 g) · ca. 24 Stück",
-          "anz": 6,
-          "preis": 0.99,
+          "anz": 3,
+          "preis": 1.99,
           "a": true,
-          "laden": "Lidl"
+          "laden": "Lidl",
+          "pack": "1 kg",
+          "kurz": "Tomaten",
+          "angebot": {
+           "laden": "Lidl",
+           "produkt": "Tomaten Rispe",
+           "preis": 1.99,
+           "eur_kg": 1.99,
+           "bis": "2026-10-17"
+          }
          }
         ]
        },
@@ -7912,10 +8017,19 @@
         "items": [
          {
           "name": "Parboiled-Reis (roh) (3.400 g)",
-          "anz": 7,
-          "preis": 0.8,
+          "anz": 4,
+          "preis": 1.59,
           "a": true,
-          "laden": "Edeka"
+          "laden": "Edeka",
+          "pack": "1 kg",
+          "kurz": "Parboiled-Reis",
+          "angebot": {
+           "laden": "Edeka",
+           "produkt": "Reis-Fit Parboiled Reis",
+           "preis": 1.59,
+           "eur_kg": 1.59,
+           "bis": "2026-10-17"
+          }
          }
         ]
        },

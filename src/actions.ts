@@ -461,10 +461,52 @@ or preheat before the prep starts, and freezer reminders (e.g. "evening of day 4
   return `${week.titel} — ${fmtFixed(week.budget.summe, 2)} ${hh.currency}`;
 }
 
-const AISLES: Record<string, string> = { chilled: "Kühlung", produce: "Obst & Gemüse", dry: "Konserven & Trocken", frozen: "Tiefkühl", other: "Sonstiges" };
-const AISLES_EN: Record<string, string> = { chilled: "Chilled", produce: "Produce", dry: "Dry goods", frozen: "Frozen", other: "Other" };
+const AISLES: Record<string, string> = { chilled: "Kühlung", produce: "Obst & Gemüse", dry: "Konserven & Trocken", frozen: "Tiefkühl", other: "Sonstiges", pantry: "Erst zu Hause nachsehen" };
+const AISLES_EN: Record<string, string> = { chilled: "Chilled", produce: "Produce", dry: "Dry goods", frozen: "Frozen", other: "Other", pantry: "Check at home first" };
 
-export function build_week(hh: Household, db: Obj, r: Obj, chosen: Obj[], res: Obj): Obj {
+/** "400 g", "1 kg", "1,5 kg" */
+const packText = (g: number, de: boolean) => g >= 1000 ? `${String(pyRound(g / 1000, 2)).replace(".", de ? "," : ".")} kg` : `${pyRound(g)} g`;
+
+/** Rebuild the shopping list of a planned week from the current offers, without Claude: real packs, where each
+ * offer was found, one or two stores. Recipes, substitutes and extras stay as planned. */
+export async function refresh_shopping(hh: Household, rid: string, progress: Progress): Promise<string> {
+  const db = calc.load_ingredients(hh);
+  const r = read(path.join(hh.paths.rounds, `${rid}.json`)), wp = path.join(hh.paths.weeks, `${rid}.json`), w = read(wp);
+  if (!r || !w) throw new Error(`week ${rid} not found`);
+  const chosen: Obj[] = w.rezepte.map((x: Obj) => r.kandidaten.find((c: Obj) => c.id === x.id)).filter(Boolean);
+  progress("prices");
+  const pr = await prices.compare(hh, db, r, r.einkauf_iso || iso(today()));
+  if (pr) write(path.join(hh.paths.rounds, `${rid}-preise.json`), pr);
+  // keep the substitutes the plan named, matched by ingredient name
+  const old: Obj[] = w.einkauf.flatMap((g: Obj) => g.items), alt: Obj = {};
+  for (const c of chosen) for (const l of c.berechnet.einkaufsliste) {
+    const it = old.find((i) => i.kurz === l.name || String(i.name).startsWith(`${l.name} (`));
+    if (it?.ersatz) alt[l.zutat] = { kaufen: it.ersatz, aenderung: it.ersatz_aenderung ?? "" };
+  }
+  const { groups, storePlan, one, two } = shopping(hh, db, r, chosen, alt);
+  const extras = w.einkauf.filter((g: Obj) => g.bereich === (hh.language === "de" ? "Dazu kaufen" : "Also buy"));
+  const named = (p: Obj) => ({ laeden: (p.stores as string[]).map((s) => pr?.laeden?.[s] ?? s), summe: p.total });
+  const stores = (storePlan.stores as string[]).map((s) => pr?.laeden?.[s] ?? s);
+  Object.assign(w, {
+    einkauf: [...[...groups].map(([k, v]) => ({ bereich: k, items: v })), ...extras],
+    einkaufstag: `${r.einkaufstag} · ${stores.join(" + ") || "–"}`,
+    budget: { ...w.budget, summe: pyRound(storePlan.total + pySum(extras.flatMap((g: Obj) => g.items).map((i: Obj) => i.preis * i.anz)), 2) },
+    ...(one && two ? { laeden_vergleich: { allein: named(one), zwei: named(two), grenze: hh.offers.second_store_min_saving } } : {}),
+  });
+  const backups = path.join(hh.paths.jobs, "backups");
+  write(wp, w, backups);
+  const md = path.join(hh.paths.plans, `woche-${rid}.md`);
+  if (fs.existsSync(md)) {
+    mkdirp(backups);
+    fs.copyFileSync(md, path.join(backups, `${path.parse(md).name}.${stamp()}.md`));
+  }
+  fs.writeFileSync(md, week_markdown(hh, w), "utf-8");
+  return `${w.einkaufstag} — ${fmtFixed(w.budget.summe, 2)} ${hh.currency}`;
+}
+
+/** The shopping list for the chosen dishes: rows by aisle with real offer packs, where each offer was found,
+ * substitutes (`alt`, by ingredient key) and what one store vs. the best two stores cost. */
+function shopping(hh: Household, db: Obj, r: Obj, chosen: Obj[], alt: Obj): Obj {
   const pr = read(path.join(hh.paths.rounds, `${r.id}-preise.json`)) ?? null;
   const items = new Map<string, Obj>();
   for (const c of chosen) {
@@ -475,22 +517,48 @@ export function build_week(hh: Household, db: Obj, r: Obj, chosen: Obj[], res: O
     }
   }
   const storePlan = prices.plan_stores(pr, [...items.values()], hh.offers.second_store_min_saving);
-  const names = hh.language === "de" ? AISLES : AISLES_EN;
+  // for the shopping view: what one store costs and what the best second store would save
+  const one = pr ? prices.plan_stores(pr, [...items.values()], Infinity) : null, two = pr ? prices.plan_stores(pr, [...items.values()], 0) : null;
+  const names = hh.language === "de" ? AISLES : AISLES_EN, de = hh.language === "de";
   const groups = new Map<string, Obj[]>();
-  const alt: Obj = Object.fromEntries((Array.isArray(res.ersatz) ? res.ersatz : []).map((e: Obj) => [e.zutat, e]));
   for (const row of storePlan.rows as Obj[]) {
     const a = db[row.zutat]?.aisle || row.aisle || "other";
     const sg = db[row.zutat]?.stueck_g;
     const pcs = a === "produce" && sg ? ` · ca. ${Math.max(1, pyRound(row.g / sg))} ${hh.language === "de" ? "Stück" : "pcs"}` : "";
     const key = names[a] ?? a;
     if (!groups.has(key)) groups.set(key, []);
+    // on offer at the chosen store: buy the offer's real pack, up to 3 % short is fine. An offer at exactly the
+    // planned price counts too; a dearer one (premium brand, tiny pack, another rice) does not
+    const fb = row.laden_plan ? pr?.zutaten?.[row.zutat]?.angebote?.[row.laden_plan] : undefined;
+    const o = row.angebot ?? (fb && fb.eur_kg <= Number(row.eur_kg) ? fb : undefined);
+    const offerPack = o?.preis && o?.eur_kg ? pyRound((o.preis / o.eur_kg) * 1000) : 0;
+    if (offerPack) {
+      let n = Math.max(1, Math.ceil(row.g / offerPack));
+      if (n > 1 && (n - 1) * offerPack >= row.g * 0.97) n--;
+      storePlan.total += n * o.preis - row.eur;
+      Object.assign(row, { packungen: n, eur: pyRound(n * o.preis, 2) });
+    }
+    const normal = prices.normal_eur_kg(db[row.zutat]);
     groups.get(key)!.push({
-      name: `${row.name} (${fmtThousands(row.g)} g)`.replaceAll(",", hh.language === "de" ? "." : ",") + pcs, anz: row.packungen,
-      preis: pyRound(row.eur / row.packungen, 2), a: truthy(row.angebot),
+      name: `${row.name} (${fmtThousands(row.g)} g)`.replaceAll(",", de ? "." : ",") + pcs, anz: row.packungen,
+      preis: pyRound(row.eur / row.packungen, 2), a: truthy(o),
       laden: pr ? pr.laeden?.[row.laden_plan] ?? "" : row.laden ?? "",
+      ...(row.pack_g || offerPack ? {
+        // eggs and the like in pieces, everything else by weight; the name without its "(Stück ≈ 60 g)" note
+        pack: sg && a !== "produce" ? `${Math.max(1, pyRound((offerPack || row.pack_g) / sg))} ${de ? "Stück" : "pcs"}` : packText(offerPack || row.pack_g, de),
+        kurz: String(row.name).replace(/\s*\([^)]*\)\s*$/, ""),
+      } : {}),
+      ...(o ? { angebot: { laden: o.laden, produkt: o.produkt, preis: o.preis, eur_kg: o.eur_kg, bis: o.bis ?? null,
+        ...(normal ? { vs_normal: Math.round((o.eur_kg / normal - 1) * 100), normal_eur_kg: normal } : {}) } } : {}),
       ...(alt[row.zutat]?.kaufen ? { ersatz: String(alt[row.zutat].kaufen), ersatz_aenderung: String(alt[row.zutat].aenderung ?? "") } : {}),
     });
   }
+  return { groups, storePlan, one, two, pr, items };
+}
+
+export function build_week(hh: Household, db: Obj, r: Obj, chosen: Obj[], res: Obj): Obj {
+  const alt: Obj = Object.fromEntries((Array.isArray(res.ersatz) ? res.ersatz : []).map((e: Obj) => [e.zutat, e]));
+  const { groups, storePlan, one, two, pr, items } = shopping(hh, db, r, chosen, alt);
   const byId: Obj = Object.fromEntries(need(res, "rezepte").map((x: Obj) => [x.id, x]));
   const rezepte: Obj[] = [];
   chosen.forEach((c, i) => {
@@ -520,12 +588,14 @@ export function build_week(hh: Household, db: Obj, r: Obj, chosen: Obj[], res: O
   }));
   if (extraItems.length) einkauf.push({ bereich: hh.language === "de" ? "Dazu kaufen" : "Also buy", items: extraItems });
   const summe = pyRound(storePlan.total + pySum(extraItems.map((i) => i.preis)), 2);
+  const named = (p: Obj) => ({ laeden: (p.stores as string[]).map((s) => pr?.laeden?.[s] ?? s), summe: p.total });
   const f0 = hh.fixed_meals[0];
   return {
     id: r.id, titel: need(res, "titel"), zeitraum: r.zeitraum,
     einkaufstag: `${r.einkaufstag} · ${stores.join(" + ") || "–"}`,
     preptag: `${r.preptag} · ~${pySum(rezepte.map((x) => x.aktiv)) + 10} Min`,
     budget: { summe, limit: hh.budget },
+    ...(one && two ? { laeden_vergleich: { allein: named(one), zwei: named(two), grenze: hh.offers.second_store_min_saving } } : {}),
     hero: rezepte.find((x) => truthy(x.bild))?.bild ?? "",
     personen: Object.fromEntries(hh.persons.map((p) => [p.id, { label: p.label ?? p.id, wer: p.name ?? "", ziel: p.kcal }])),
     fruehstueck: f0 ? { name: f0.name, text: f0.text ?? "", kcal: f0.kcal ?? 0, p: f0.protein ?? 0, kh: f0.carbs ?? 0 } : null,
@@ -627,4 +697,5 @@ export function append_bullets(hh: Household, headingRe: string, bullets: string
 
 export const ACTIONS: Record<string, (hh: Household, ident: string, progress: Progress) => Promise<string>> = {
   neue_runde: new_round, ueberarbeiten: revise, plan_erstellen: plan, feedback_uebernehmen: feedback, optimieren: optimize,
+  einkauf_aktualisieren: refresh_shopping,
 };

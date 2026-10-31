@@ -75,7 +75,8 @@ async function loadRound() {
   if (!id) { R = null; return }
   [R, PF, PR] = await Promise.all([getJSON(`rounds/${id}.json`), getJSON(`api/mailbox/${id}`), getJSON(`rounds/${id}-preise.json`)]);
   PF ||= {};
-  PF.auswahl ||= {}; PF.reaktionen ||= {}; PF.wuensche ||= []; PF.nachrichten ||= [];
+  PF.auswahl ||= {}; PF.reaktionen ||= {}; PF.nachrichten ||= [];
+  PF.wuensche = (PF.wuensche || []).filter(w => typeof w === 'string'); // an empty entry once broke the offers tab
 }
 
 /* ---------------- Mailbox ---------------- */
@@ -408,7 +409,7 @@ function bindPick() {
     PF.optimieren = { id, text };
     run('optimieren', R.id, `${k?.titel || id}: ${text}`);
   });
-  $$('.wish').forEach(b => b.onclick = () => {
+  $$('[data-w]').forEach(b => b.onclick = () => { // only the wish buttons, not the quick or store buttons that share the style
     const w = b.dataset.w;
     PF.wuensche = PF.wuensche.includes(w) ? PF.wuensche.filter(x => x !== w) : [...PF.wuensche, w];
     b.setAttribute('aria-pressed', PF.wuensche.includes(w)); save();
@@ -577,16 +578,50 @@ function shopView() {
   let total = 0, open = 0;
   const groups = W.einkauf.map(g => `<div class="panel"><h3>${esc(g.bereich)}</h3>${g.items.map((it, i) => {
     const id = `e-${g.bereich}-${i}`, s = it.anz * it.preis; total += s; if (!done[id]) open += s;
+    const o = it.angebot, v = o?.vs_normal;
+    const real = v == null ? '' : v <= -10 ? `<span class="verdict ok">✓ ${v} % ${T.vs_normal}</span>` : v < 0 ? `<span class="verdict meh">${v} % ${T.vs_normal}</span>` : `<span class="verdict bad">✕ ${T.not_real}</span>`;
     return `<div class="row ${done[id] ? 'done' : ''}"><input type="checkbox" id="${esc(id)}" data-k="shop" ${done[id] ? 'checked' : ''}>
-      <label for="${esc(id)}">${it.anz > 1 ? `<b>${it.anz} ×</b> ` : ''}${esc(it.name)}${it.a ? '<span class="badge">%</span>' : ''}${it.laden ? ` <span class="est">· ${esc(it.laden)}</span>` : ''}${it.ersatz ? `<small class="alt">↳ ${T.instead}: <b>${esc(it.ersatz)}</b>${it.ersatz_aenderung ? ` · ${esc(it.ersatz_aenderung)}` : ''}</small>` : ''}</label>
+      <label for="${esc(id)}"><b>${it.anz} × ${it.pack ? esc(it.pack) + ' ' : ''}</b>${esc(it.kurz || it.name)}${it.laden ? ` <span class="est">· ${esc(it.laden)}</span>` : ''}
+        ${it.kurz ? `<small class="alt">${T.needed}: ${esc([...it.name.matchAll(/\(([\d.,]+ g)\)/g)].pop()?.[1] || '')}</small>` : ''}
+        ${o ? `<small class="alt">${T.found_at} ${esc(o.laden)}: „${esc(o.produkt)}“ · ${money(o.preis)} ${T.per} ${esc(it.pack || '')}${o.bis ? ` · ${T.until} ${esc(o.bis.split('-').reverse().slice(0, 2).join('.'))}.` : ''}</small>${real}` : it.kurz ? `<small class="alt">${T.no_offer}</small>` : ''}
+        ${it.ersatz ? `<small class="alt">↳ ${T.instead}: <b>${esc(it.ersatz)}</b>${it.ersatz_aenderung ? ` · ${esc(it.ersatz_aenderung)}` : ''}</small>` : ''}</label>
       <span class="price">${it.a ? '' : '<span class="est">~</span>'}${money(s)}</span></div>`;
   }).join('')}</div>`).join('');
   return `<h2>${T.shop_list}</h2>
     <p class="sub">${esc(W.einkaufstag)} · ${T.card_hint} · <span class="est">${T.est}</span></p>
+    ${storeDecision()}
+    <div class="actions"><button class="big plan" id="copyList"><span>📋 ${T.copy_list}<small>${T.copy_sub}</small></span></button>
+      <button class="ghost" id="refreshShop">🔄 ${T.refresh_shop}</button></div>
     ${groups}
     ${W.vorrat?.length ? `<div class="panel"><h3>${T.check_pantry}</h3>${W.vorrat.map(v => `<div class="row"><label>${esc(v)}</label></div>`).join('')}</div>` : ''}
     ${W.nicht_kaufen?.length ? `<div class="panel"><h3 style="color:#b23b1e">${T.dont_buy}</h3>${W.nicht_kaufen.map(v => `<div class="row"><label>✕ ${esc(v)}</label></div>`).join('')}</div>` : ''}
     <div class="sumbar"><div><small>${T.open} ${money(open)}</small><br><b>${money(total)}</b> <small>${T.of} ${money(W.budget.limit)}</small></div><button class="ghost" id="reset">${T.reset}</button></div>`;
+}
+
+// One store or two? Shows what the second store would save against the household's threshold.
+function storeDecision() {
+  const c = W.laeden_vergleich;
+  if (!c?.allein?.laeden?.length) return '';
+  const save = c.allein.summe - c.zwei.summe, second = c.zwei.laeden.find(l => !c.allein.laeden.includes(l));
+  const text = c.zwei.laeden.length < 2 || save <= 0.005 ? T.one_store(c.allein.laeden[0])
+    : save >= c.grenze ? T.two_stores(c.zwei.laeden.join(' + '), money(save))
+    : T.second_not_worth(c.allein.laeden[0], second, money(save), money(c.grenze));
+  return `<div class="box ok decision"><p>${text}</p></div>`;
+}
+
+// A plain list for a reminders app: one line per item still to buy.
+function shopText() {
+  const done = local.get(key('shop'), {}), stores = new Set(W.einkauf.flatMap(g => g.items.map(i => i.laden)).filter(Boolean));
+  return W.einkauf.flatMap(g => g.items.map((it, i) => done[`e-${g.bereich}-${i}`] ? '' :
+    `- ${it.anz}× ${it.pack ? it.pack + ' ' : ''}${it.kurz || it.name.replace(/^(.*?) \((.*)\)$/, '$1 $2')}${stores.size > 1 && it.laden ? ` (${it.laden})` : ''}`)).filter(Boolean).join('\n');
+}
+async function copyText(text) {
+  try { await navigator.clipboard.writeText(text); return true } catch { }
+  // http on the phone has no clipboard API: fall back to a selected textarea
+  const t = Object.assign(document.createElement('textarea'), { value: text });
+  t.setAttribute('readonly', ''); t.style.cssText = 'position:fixed;top:0;opacity:0';
+  document.body.append(t); t.select(); t.setSelectionRange(0, text.length);
+  const ok = document.execCommand('copy'); t.remove(); return ok;
 }
 
 // Recipes and extras share one colour each, in the menu and on every prep step.
@@ -627,6 +662,11 @@ function bindChecks() {
     cb.closest('.row').classList.toggle('done', cb.checked);
   });
   $('#reset') && ($('#reset').onclick = () => { local.set(key('shop'), {}); render() });
+  $('#refreshShop') && ($('#refreshShop').onclick = () => run('einkauf_aktualisieren', W.id));
+  $('#copyList') && ($('#copyList').onclick = async () => {
+    const text = shopText(), ok = await copyText(text);
+    bar(ok ? 'done' : 'err', ok ? T.copied : `${T.copy_fail}\n${text}`);
+  });
   $('#resetp') && ($('#resetp').onclick = () => { local.set(key('prep'), {}); render() });
 }
 

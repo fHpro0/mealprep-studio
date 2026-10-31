@@ -252,3 +252,19 @@ test("improve one dish: only that dish changes, the request is used up", async (
   assert.deepStrictEqual(actions.read(path.join(hh.paths.mailbox, `${rid}.json`)), { reaktionen: { [target.id]: { daumen: 1 } } });
   await assert.rejects(actions.optimize(hh, "2026-10-19", () => {}), /already planned/);
 });
+
+test("refresh the shopping list of a planned week: packs and names redone, extras and substitutes kept", async () => {
+  const { hh } = await replay("en");
+  const wp = path.join(hh.paths.weeks, "2026-10-19.json"), w = actions.read(wp);
+  const first = w.einkauf[0].items[0];
+  delete first.pack; delete first.kurz; first.ersatz = "turkey instead";
+  fs.writeFileSync(wp, JSON.stringify(w));
+  const msg = await actions.refresh_shopping(hh, "2026-10-19", () => {});
+  const after = actions.read(wp), items = after.einkauf.flatMap((g: any) => g.items);
+  assert.ok(items.every((i: any) => i.bereich === undefined));
+  assert.equal(items.find((i: any) => i.kurz === first.name.split(" (")[0])?.ersatz, "turkey instead");
+  assert.ok(items.filter((i: any) => i.kurz).every((i: any) => i.pack), "every bought item names its pack");
+  assert.deepStrictEqual(after.einkauf.filter((g: any) => g.bereich === "Also buy"), w.einkauf.filter((g: any) => g.bereich === "Also buy"));
+  assert.match(msg, / — \d+\.\d\d €$/);
+  assert.ok(fs.readFileSync(path.join(hh.paths.plans, "woche-2026-10-19.md"), "utf-8").includes(after.titel));
+});
