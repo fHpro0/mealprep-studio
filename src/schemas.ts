@@ -70,7 +70,7 @@ export const ROUND_SCHEMA = {
           },
           "bild_prompt": {
             "type": "string",
-            "description": "always for a new or changed dish: English photo description of ONE serving exactly as served, 40–80 words. Every visible ingredient with its cooked look (browned, seared, glazed, melted, crispy), cut size, sauce colour and thickness, cheese, toppings, garnish and how it sits on the plate. Only what the recipe really contains; no brands, no text"
+            "description": "always for a new or changed dish: English photo description of ONE serving exactly as served, 40–80 words. Every visible ingredient with its cooked look (browned, seared, glazed, melted, crispy), cut size, sauce colour and thickness, cheese, toppings, garnish and how it sits on the plate. Only what the recipe really contains, in plain visual words: never the name of a dish it imitates (pizza, lasagne, burger) and never a missing part (\"no dough\") — the image model draws every food word it reads. No brands, no text"
           },
           "teller": {
             "type": "array",
