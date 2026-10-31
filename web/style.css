@@ -374,3 +374,7 @@ details.box[open] summary{margin-bottom:8px}
 .wishes.filters{margin-top:8px}
 .row label .alt{display:block;margin-top:3px;font-size:12.5px;color:var(--muted)}
 .row label .alt b{color:var(--ink);font-weight:600}
+.improve{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.improve .quick{display:flex;flex-wrap:wrap;gap:6px}
+.improve .quick .wish{font-size:12.5px;padding:5px 10px;min-height:32px}
+.improve [data-improve]{align-self:flex-start;min-height:40px}

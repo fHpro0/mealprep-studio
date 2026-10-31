@@ -343,6 +343,55 @@ Revise the round. Return the full list again, ${hh.agent.candidates_per_meal} pe
   return res.nachricht;
 }
 
+/** Improve one dish of an open round (mailbox \`optimieren\`: {id, text}); every other dish stays exactly as it is. */
+export async function optimize(hh: Household, rid: string, progress: Progress): Promise<string> {
+  let db = calc.load_ingredients(hh);
+  const p = path.join(hh.paths.rounds, `${rid}.json`);
+  const r = read(p);
+  if (!r) throw new Error(`round ${rid} not found`);
+  if (r.status === "geplant") throw new Error(`round ${rid} is already planned`);
+  const mp = path.join(hh.paths.mailbox, `${rid}.json`), mb = mailbox(hh, rid), want = mb.optimieren ?? {};
+  const c = r.kandidaten.find((k: Obj) => k.id === want.id);
+  if (!c) throw new Error("pick the dish to improve first");
+  progress("offers");
+  const lf = await prices.browse_digest(hh, r.einkauf_iso || iso(today()), mb.laeden?.length ? mb.laeden : r.einkauf_laeden ?? []);
+  const deals = await prices.deals_digest(hh, db, r.einkauf_iso || iso(today()), undefined, lf.stores);
+  progress("thinking");
+  const res = await agent.run(hh, agent.household_context(hh, db, deals) + browse_section(lf) + `
+# The dish to improve
+${dumps({ ...brief(c), pitch: c.pitch, risiko: c.risiko, teller: c.teller, bild_prompt: c.bild_prompt })}
+
+# What the household wants for this dish
+${dumps(String(want.text ?? "").slice(0, 600))}
+Standing wishes for the round: ${dumps(mb.wuensche ?? [])}
+
+# The other dishes of the round (leave them alone, do not copy them)
+${r.kandidaten.filter((k: Obj) => k.id !== c.id).map((k: Obj) => `- ${k.slot}: ${k.titel}`).join("\n")}
+
+# Task
+Improve ONLY this dish. Return exactly one candidate: id "${c.id}", slot "${c.slot}", the full dish (never \`keep\`).
+Keep what already works about it and apply the household's request; stay within every rule, exclusion, blocked
+category and the slot's constraints. Recalculate \`rechnung\` for all portions, and rewrite \`pitch\`, \`teller\` and
+\`bild_prompt\` for the new version. \`antwort\`: 1–2 sentences on what you changed. \`nachricht\`: one sentence.
+`, agent.ROUND_SCHEMA, hh.root);
+  progress("calculating");
+  calc.add_ingredients(hh, res.neue_zutaten ?? {});
+  db = calc.load_ingredients(hh);
+  const got = (need(res, "kandidaten") as Obj[]).filter((k) => k.id === c.id && k.slot === c.slot && !truthy(k.keep)).slice(0, 1);
+  const [cands, notes] = process_candidates(hh, db, got, { [c.id]: c });
+  if (!cands.length) throw new Error(notes[0] ?? "Claude did not return the improved dish");
+  r.kandidaten = r.kandidaten.map((k: Obj) => (k.id === c.id ? cands[0] : k));
+  r.nachricht = res.nachricht ?? r.nachricht;
+  (r.verlauf ??= []).push({ zeit: now(), von: "claude", text: `${c.titel}: ${cands[0].antwort || res.nachricht || ""}`.trim() });
+  if (fs.existsSync(mp)) { // the request is done: it must not be applied again by the next revision
+    delete mb.optimieren;
+    if (mb.reaktionen?.[c.id]) delete mb.reaktionen[c.id].notiz;
+    write(mp, mb);
+  }
+  await finish_round(hh, db, r, p, progress);
+  return `${cands[0].titel}: ${cands[0].antwort || res.nachricht || ""}`.trim();
+}
+
 export async function plan(hh: Household, rid: string, progress: Progress): Promise<string> {
   const db = calc.load_ingredients(hh);
   const p = path.join(hh.paths.rounds, `${rid}.json`);
@@ -577,5 +626,5 @@ export function append_bullets(hh: Household, headingRe: string, bullets: string
 }
 
 export const ACTIONS: Record<string, (hh: Household, ident: string, progress: Progress) => Promise<string>> = {
-  neue_runde: new_round, ueberarbeiten: revise, plan_erstellen: plan, feedback_uebernehmen: feedback,
+  neue_runde: new_round, ueberarbeiten: revise, plan_erstellen: plan, feedback_uebernehmen: feedback, optimieren: optimize,
 };

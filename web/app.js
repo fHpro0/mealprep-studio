@@ -238,6 +238,8 @@ function candCard(k) {
         <button class="ib" data-open="${k.id}" aria-label="${T.details}">${ICON.info}</button>
       </div>
       <textarea class="note" data-note="${k.id}" rows="1" placeholder="${esc(T.note_ph)}">${esc(re.notiz || '')}</textarea>
+      ${R.status === 'geplant' ? '' : `<div class="improve"><div class="quick">${T.quick.map(q => `<button class="wish" data-quick="${esc(k.id)}" data-q="${esc(q)}">${esc(q)}</button>`).join('')}</div>
+        <button class="ghost" data-improve="${esc(k.id)}">✨ ${T.improve}</button></div>`}
     </div></article>`;
 }
 
@@ -394,6 +396,18 @@ function bindPick() {
   });
   $$('[data-open]').forEach(b => b.onclick = () => openCand(b.dataset.open));
   $$('[data-note]').forEach(t => t.oninput = () => { (PF.reaktionen[t.dataset.note] ||= {}).notiz = t.value; save() });
+  // improve one dish: quick buttons add to its note, the button sends the note for this dish only
+  $$('[data-quick]').forEach(b => b.onclick = () => {
+    const t = $(`[data-note="${CSS.escape(b.dataset.quick)}"]`), q = b.dataset.q;
+    t.value = t.value.includes(q) ? t.value : [t.value.trim(), q].filter(Boolean).join(', ');
+    t.dispatchEvent(new Event('input'));
+  });
+  $$('[data-improve]').forEach(b => b.onclick = () => {
+    const id = b.dataset.improve, text = (PF.reaktionen[id]?.notiz || '').trim(), k = R.kandidaten.find(x => x.id === id);
+    if (!text) { $(`[data-note="${CSS.escape(id)}"]`).focus(); return bar('err', T.improve_need) }
+    PF.optimieren = { id, text };
+    run('optimieren', R.id, `${k?.titel || id}: ${text}`);
+  });
   $$('.wish').forEach(b => b.onclick = () => {
     const w = b.dataset.w;
     PF.wuensche = PF.wuensche.includes(w) ? PF.wuensche.filter(x => x !== w) : [...PF.wuensche, w];

@@ -226,3 +226,29 @@ test("shopping list: a substitute for a sold-out main ingredient sits on its row
   assert.equal(items.find((i: any) => i.name.startsWith("chicken_mince")).ersatz, "1.4 kg turkey mince");
   assert.equal(items.find((i: any) => i.name.startsWith("cheese")).ersatz, undefined);
 });
+
+test("improve one dish: only that dish changes, the request is used up", async () => {
+  const { hh } = await replay("en");
+  const old = actions.read(path.join(hh.paths.rounds, "2026-10-19.json"));
+  const rid = "2026-11-09", p = path.join(hh.paths.rounds, `${rid}.json`);
+  fs.writeFileSync(p, JSON.stringify({ ...old, id: rid, status: "offen" }));
+  const [target, other] = old.kandidaten;
+  fs.writeFileSync(path.join(hh.paths.mailbox, `${rid}.json`), JSON.stringify({
+    optimieren: { id: target.id, text: "only meat and sauce, add peppers" }, reaktionen: { [target.id]: { notiz: "only meat and sauce, add peppers", daumen: 1 } } }));
+  const better = { ...target, titel: target.titel + " with peppers", antwort: "Added peppers.", rechnung: { haupt: target.rechnung.haupt } };
+  delete better.berechnet; delete better.makros;
+  const reply = { nachricht: "Done.", kandidaten: [better, { ...other, titel: "should be ignored" }] };
+  const net = installFakeNet(fixture("net")), fake = installFakeClaude([JSON.stringify({ is_error: false, structured_output: reply, duration_ms: 1, total_cost_usd: 0 })]);
+  try {
+    const msg = await actions.optimize(hh, rid, () => {});
+    while (actions.BACKGROUND.size) await Promise.all([...actions.BACKGROUND]);
+    assert.match(msg, /with peppers: Added peppers\./);
+    assert.match(fake.calls[0].args[2], /only meat and sauce, add peppers[\s\S]*Improve ONLY this dish/);
+  } finally { fake.restore(); net.restore(); }
+  const after = actions.read(p).kandidaten;
+  assert.equal(after.length, old.kandidaten.length);
+  assert.equal(after[0].titel, target.titel + " with peppers");
+  assert.deepStrictEqual(after.slice(1).map((k: any) => k.titel), old.kandidaten.slice(1).map((k: any) => k.titel));
+  assert.deepStrictEqual(actions.read(path.join(hh.paths.mailbox, `${rid}.json`)), { reaktionen: { [target.id]: { daumen: 1 } } });
+  await assert.rejects(actions.optimize(hh, "2026-10-19", () => {}), /already planned/);
+});
