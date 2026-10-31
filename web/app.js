@@ -12,7 +12,7 @@ const ICON = {
   info: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>'
 };
 
-let CFG, T, weeks = [], rounds = [], W = null, R = null, PF = {}, PR = null, FB = {}, credits = {};
+let CFG, T, weeks = [], rounds = [], W = null, R = null, PF = {}, PR = null, FB = {}, credits = {}, EX = []; // EX: own shopping items
 let portion, tab = local.get('tab', 'pick');
 const cur = () => CFG.currency || '€';
 const money = n => n.toFixed(2).replace('.', CFG.language === 'de' ? ',' : '.') + ' ' + cur();
@@ -68,6 +68,7 @@ async function loadAll() {
 async function loadWeek(id) {
   W = await getJSON(`weeks/${id}.json`);
   FB = (await getJSON(`api/mailbox/feedback-${id}`)) || {};
+  EX = (await getJSON(`api/mailbox/einkauf-${id}`))?.artikel || [];
 }
 
 async function loadRound() {
@@ -593,6 +594,8 @@ function shopView() {
     <div class="actions"><button class="big plan" id="copyList"><span>📋 ${T.copy_list}<small>${T.copy_sub}</small></span></button>
       <button class="ghost" id="refreshShop">🔄 ${T.refresh_shop}</button></div>
     ${groups}
+    <div class="panel"><h3>${T.own_items}</h3>${EX.map((x, i) => `<div class="row"><label>${esc(x)}</label><button class="ghost" data-rmx="${i}" aria-label="${T.remove}">✕</button></div>`).join('')}
+      <div class="row"><input class="note" id="exNew" placeholder="${esc(T.own_ph)}" enterkeyhint="done"><button class="ghost" id="exAdd">${T.add}</button></div></div>
     ${W.vorrat?.length ? `<div class="panel"><h3>${T.check_pantry}</h3>${W.vorrat.map(v => `<div class="row"><label>${esc(v)}</label></div>`).join('')}</div>` : ''}
     ${W.nicht_kaufen?.length ? `<div class="panel"><h3 style="color:#b23b1e">${T.dont_buy}</h3>${W.nicht_kaufen.map(v => `<div class="row"><label>✕ ${esc(v)}</label></div>`).join('')}</div>` : ''}
     <div class="sumbar"><div><small>${T.open} ${money(open)}</small><br><b>${money(total)}</b> <small>${T.of} ${money(W.budget.limit)}</small></div><button class="ghost" id="reset">${T.reset}</button></div>`;
@@ -613,7 +616,7 @@ function storeDecision() {
 function shopText() {
   const done = local.get(key('shop'), {}), stores = new Set(W.einkauf.flatMap(g => g.items.map(i => i.laden)).filter(Boolean));
   return W.einkauf.flatMap(g => g.items.map((it, i) => done[`e-${g.bereich}-${i}`] ? '' :
-    `${it.anz}× ${it.pack ? it.pack + ' ' : ''}${it.kurz || it.name.replace(/^(.*?) \((.*)\)$/, '$1 $2')}${stores.size > 1 && it.laden ? ` (${it.laden})` : ''}`)).filter(Boolean).join('\n');
+    `${it.anz}× ${it.pack ? it.pack + ' ' : ''}${it.kurz || it.name.replace(/^(.*?) \((.*)\)$/, '$1 $2')}${stores.size > 1 && it.laden ? ` (${it.laden})` : ''}`)).concat(EX).filter(Boolean).join('\n');
 }
 async function copyText(text) {
   try { await navigator.clipboard.writeText(text); return true } catch { }
@@ -669,6 +672,12 @@ function bindChecks() {
   });
   $('#reset') && ($('#reset').onclick = () => { local.set(key('shop'), {}); render() });
   $('#refreshShop') && ($('#refreshShop').onclick = () => run('einkauf_aktualisieren', W.id));
+  // own items (detergent, …): saved in the mailbox so both phones see them, copied with the list
+  const saveEX = () => send('PUT', `api/mailbox/einkauf-${W.id}`, { artikel: EX }).then(render);
+  const addEX = () => { const v = $('#exNew').value.trim(); if (v) { EX = [...EX, v]; saveEX() } };
+  $('#exAdd') && ($('#exAdd').onclick = addEX);
+  $('#exNew') && ($('#exNew').onkeydown = e => e.key === 'Enter' && addEX());
+  $$('[data-rmx]').forEach(b => b.onclick = () => { EX = EX.filter((_, i) => i !== +b.dataset.rmx); saveEX() });
   $('#copyList') && ($('#copyList').onclick = async () => {
     const text = shopText(), ok = await copyText(text);
     bar(ok ? 'done' : 'err', ok ? T.copied : `${T.copy_fail}\n${text}`);

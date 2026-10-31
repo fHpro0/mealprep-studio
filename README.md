@@ -91,7 +91,7 @@ price per kg (from your ingredient list and receipts) and the store's "instead o
 deals are marked. Star offers to make Claude use them. The shopping list names a substitute from the
 same store for every main ingredient, in case it is sold out. Each row names the real pack to grab
 ("6 × 400 g"), where the offer was found and whether it is a real deal; *Copy as list* puts the open
-items on the clipboard for your reminders app, and *Update prices & packs* redoes the list from the
+items (plus your own, like detergent) on the clipboard for your reminders app, and *Update prices & packs* redoes the list from the
 current offers without asking Claude.
 
 **A prep timeline with timers**<br>
