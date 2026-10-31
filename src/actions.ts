@@ -554,7 +554,8 @@ function shopping(hh: Household, db: Obj, r: Obj, chosen: Obj[], alt: Obj): Obj 
   const items = new Map<string, Obj>();
   for (const c of chosen) {
     for (const l of c.berechnet.einkaufsliste) {
-      const it = items.get(l.zutat) ?? { ...l, g: 0 };
+      // pack sizes from today's ingredient list: a corrected size also fixes weeks already planned
+      const it = items.get(l.zutat) ?? { ...l, g: 0, ...(db[l.zutat]?.pack_g ? { pack_g: db[l.zutat].pack_g } : {}) };
       items.set(l.zutat, it);
       it.g += l.g;
     }
@@ -573,8 +574,22 @@ function shopping(hh: Household, db: Obj, r: Obj, chosen: Obj[], alt: Obj): Obj 
     // on offer at the chosen store: buy the offer's real pack, up to 3 % short is fine. An offer at exactly the
     // planned price counts too; a dearer one (premium brand, tiny pack, another rice) does not
     const fb = row.laden_plan ? pr?.zutaten?.[row.zutat]?.angebote?.[row.laden_plan] : undefined;
-    const o = row.angebot ?? (fb && fb.eur_kg <= Number(row.eur_kg) ? fb : undefined);
-    const offerPack = o?.preis && o?.eur_kg ? pyRound((o.preis / o.eur_kg) * 1000) : 0;
+    const cand = row.angebot ?? (fb && fb.eur_kg <= Number(row.eur_kg) ? fb : undefined);
+    const candPack = cand?.preis && cand?.eur_kg ? pyRound((cand.preis / cand.eur_kg) * 1000) : 0;
+    // an offer pack over twice the need and bigger than the usual pack (15 eggs for 2) is waste, not a saving
+    const waste = candPack > 2 * row.g && candPack > Number(row.pack_g);
+    const o = waste ? undefined : cand, offerPack = waste ? 0 : candPack;
+    if (waste && row.angebot) {
+      const eur = pyRound((row.packungen * row.pack_g) / 1000 * Number(row.eur_kg), 2);
+      storePlan.total += eur - row.eur;
+      row.eur = eur;
+    }
+    // calc.packs allows 3 % of one pack short; on the list 3 % of the need counts (760 g from 3 × 250 g)
+    if (!offerPack && row.packungen > 1 && (row.packungen - 1) * row.pack_g >= row.g * 0.97) {
+      const eur = pyRound(row.eur * (row.packungen - 1) / row.packungen, 2);
+      storePlan.total += eur - row.eur;
+      Object.assign(row, { packungen: row.packungen - 1, eur });
+    }
     if (offerPack) {
       let n = Math.max(1, Math.ceil(row.g / offerPack));
       if (n > 1 && (n - 1) * offerPack >= row.g * 0.97) n--;

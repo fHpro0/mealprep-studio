@@ -227,6 +227,23 @@ test("shopping list: a substitute for a sold-out main ingredient sits on its row
   assert.equal(items.find((i: any) => i.name.startsWith("cheese")).ersatz, undefined);
 });
 
+test("shopping list: sensible packs (no 15 eggs for 2, 3 % short of the need is fine), a fitting offer pack is bought", async () => {
+  const root = path.join(tmpDir(), "k");
+  await captured(() => cmd_init([root, "--lang", "en"]));
+  const hh = config.load(root);
+  const offer = (preis: number, eur_kg: number) => ({ regulaer_eur_kg: 9, angebote: { s: { laden: "S", produkt: "x", preis, eur_kg } } });
+  fs.writeFileSync(path.join(hh.paths.rounds, "2026-11-02-preise.json"), JSON.stringify({
+    laeden: { s: "S" }, zutaten: { egg: offer(3.49, 3.83), mince: offer(2.49, 6.23) } }));
+  const row = (zutat: string, g: number, pack_g: number) => ({ zutat, name: zutat, g, pack_g, eur_kg: 9, laden: "", aisle: "chilled" });
+  const chosen = [{ id: "a", titel: "A", berechnet: { einkaufsliste: [row("egg", 130, 360), row("mince", 2180, 500), row("cheese", 760, 250)], anteil: {} }, makros: {} }];
+  const res = { titel: "T", rezepte: [], prep: [], geraete: [], warum: [], feedback: [] };
+  const items = actions.build_week(hh, {}, { id: "2026-11-02", zeitraum: "", einkaufstag: "", preptag: "" }, chosen, res).einkauf.flatMap((g: any) => g.items);
+  const egg = items.find((i: any) => i.kurz === "egg"), mince = items.find((i: any) => i.kurz === "mince");
+  assert.deepStrictEqual([egg.anz, egg.pack, egg.a], [1, "360 g", false]);
+  assert.deepStrictEqual([mince.anz, mince.pack, mince.a], [6, "400 g", true]);
+  assert.equal(items.find((i: any) => i.kurz === "cheese").anz, 3, "10 g short of 3 packs is fine");
+});
+
 test("improve one dish: only that dish changes, the request is used up", async () => {
   const { hh } = await replay("en");
   const old = actions.read(path.join(hh.paths.rounds, "2026-10-19.json"));
