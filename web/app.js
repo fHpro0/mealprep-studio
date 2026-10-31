@@ -134,7 +134,7 @@ async function pollStatus(first) {
 let imgT;
 function watchImages(until = Date.now() + 5 * 60e3, last) {
   clearTimeout(imgT);
-  if (Date.now() > until || !R?.kandidaten?.some(k => /\.svg(\?|$)/.test(k.bild || ''))) return;
+  if (Date.now() > until || !R?.kandidaten?.some(k => k.bild_prompt && k.bild_fuer !== k.bild_prompt)) return;
   imgT = setTimeout(async () => {
     const s = await getJSON('api/status');
     if (s?.running) return;
@@ -359,7 +359,7 @@ function openCand(id) {
     <div class="sheet">
       <div class="kicker" style="color:var(--muted)">${esc(CFG.meals.find(x => x.id === k.slot)?.label || k.slot)} · ${k.aktiv} ${T.active_min} · ~${money(k.kosten || 0)}</div>
       <h2>${esc(k.titel)}</h2><p class="sub" style="margin:0">${esc(k.untertitel)}</p>
-      ${k.bild_suche ? `<button class="ghost swap" id="swap">${T.other_photo}</button>` : ''}${k.bild ? ` <span class="hint">${T.stock_photo}</span>` : ''}
+      ${k.bild_suche || k.bild_prompt ? `<button class="ghost swap" id="swap">${T.other_photo}</button>` : ''}${k.bild ? ` <span class="hint">${T.stock_photo}</span>` : ''}
       ${m ? `<div class="macro"><div><b>${m.kcal}</b><small>kcal</small></div><div><b>${m.p} g</b><small>${T.protein}</small></div><div><b>${m.kh} g</b><small>${T.carbs}</small></div></div>` : ''}
       <p>${esc(k.pitch)}</p>
       ${k.antwort ? `<div class="box ok"><h4>${T.reply}</h4><p>${esc(k.antwort)}</p></div>` : ''}

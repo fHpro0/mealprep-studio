@@ -282,7 +282,7 @@ export function makeHandler(hh: Household, jobs: Jobs): http.RequestListener {
     }
     if (req.url === "/api/image") {
       const rid = Object.hasOwn(data, "round") ? pyStr(data.round) : "", cid = Object.hasOwn(data, "id") ? pyStr(data.id) : "";
-      if (!(NAME.test(rid) && NAME.test(cid))) return json(req, res, 400, { error: "bad id" });
+      if (!(NAME.test(rid) && /^[\p{L}\p{N}-]{1,80}$/u.test(cid))) return json(req, res, 400, { error: "bad id" }); // dish ids may have umlauts
       const [code, obj] = await swap_image(hh, rid, cid);
       return json(req, res, code, obj);
     }
@@ -329,6 +329,13 @@ export async function swap_image(hh: Household, rid: string, cid: string): Promi
   const r = actions.read(p);
   if (!truthy(r)) return [404, { error: "round" }];
   const c = r.kandidaten.find((k: Obj) => k.id === cid);
+  if (c && truthy(hh.raw.images?.ai) && truthy(c.bild_prompt)) { // local AI: paint another take instead of searching photos
+    c.bild_nr = (c.bild_nr ?? 0) + 1;
+    const bild = await actions.ai_photo(hh, c, c.bild_nr);
+    if (bild) Object.assign(c, { bild, bild_fuer: c.bild_prompt });
+    actions.write(p, r);
+    return [200, { ok: !!bild, bild: c.bild }];
+  }
   if (!c || !truthy(c.bild_suche)) return [404, { error: "no image query for this dish" }];
   const cf = path.join(hh.paths.images, "credits.json");
   const credits: Obj = fs.existsSync(cf) ? JSON.parse(readText(cf) || "{}") : {};

@@ -111,6 +111,8 @@ export function process_candidates(hh: Household, db: Obj, cands: Obj[], old: Re
       fs.writeFileSync(path.join(dir, `${c.id}.svg`), svg);
       c.bild = `img/kandidaten/${c.id}.svg?v=${createHash("sha1").update(svg).digest("hex").slice(0, 8)}`;
     }
+    // a revised dish keeps its AI photo only while its photo description is unchanged, otherwise it is painted anew
+    if (prev?.bild_fuer && prev.bild_fuer === c.bild_prompt) Object.assign(c, { bild: prev.bild, bild_fuer: prev.bild_fuer });
     out.push(c);
   }
   return [out, notes];
@@ -122,27 +124,38 @@ const SAFE_ID = /^[\p{L}\p{N}-]{1,80}$/u; // candidate ids are model output and 
 const photo_prompt = (dish: string, warm: boolean) => "Realistic appetizing food photograph, 45-degree angle, one serving on a white "
   + `ceramic plate on a rustic wooden table, soft natural window light, shallow depth of field, high detail${warm ? ", gentle steam rising" : ""}. ${dish}`;
 
-/** Local AI photos (`[images] ai` command, e.g. mflux) replace the drawn plates one at a time, ~15 s each. */
-async function ai_photos(hh: Household, roundPath: string, onChange: () => void): Promise<void> {
+/** One local AI photo (`[images] ai` command, e.g. mflux) of a dish; `variant` 0 = its usual look, more = another take.
+ * Returns the new `bild` path, or null when not configured or the generator failed. */
+export async function ai_photo(hh: Household, c: Obj, variant = 0): Promise<string | null> {
   const [cmd, ...args] = String(hh.raw.images?.ai ?? "").trim().split(/\s+/).filter(Boolean);
-  if (!cmd) return;
+  if (!cmd || !truthy(c.bild_prompt) || !SAFE_ID.test(String(c.id))) return null;
+  const rel = `kandidaten/${c.id}.png`, out = path.join(hh.paths.images, rel);
+  const seed = String(parseInt(createHash("sha1").update(c.id).digest("hex").slice(0, 6), 16) + variant); // same dish, same photo
+  mkdirp(path.dirname(out));
+  const tmp = `${out}.neu.png`; // the old photo stays visible until the new one is done
+  fs.rmSync(tmp, { force: true });
+  try {
+    await agent.runner.exec(cmd, [...args, "--seed", seed, "--output", tmp, "--prompt",
+      photo_prompt(c.bild_prompt, !truthy(hh.meals.find((m) => m.id === c.slot)?.cold))], { cwd: hh.root, timeoutMs: 5 * 60 * 1000 });
+  } catch (e) {
+    console.error(e);
+    return null;
+  }
+  if (!fs.existsSync(tmp)) return null;
+  fs.renameSync(tmp, out);
+  return `img/${rel}?v=${createHash("sha1").update(fs.readFileSync(out)).digest("hex").slice(0, 8)}`;
+}
+
+/** New photos for every dish whose photo description changed (new or revised dishes), one at a time, ~15 s each. */
+async function ai_photos(hh: Household, roundPath: string, onChange: () => void): Promise<void> {
+  if (!String(hh.raw.images?.ai ?? "").trim()) return;
   for (const c of read(roundPath).kandidaten) {
-    if (!truthy(c.bild_prompt) || !/\.svg(\?|$)/.test(c.bild ?? "") || !SAFE_ID.test(String(c.id))) continue;
-    const rel = `kandidaten/${c.id}.png`, out = path.join(hh.paths.images, rel);
-    const seed = String(parseInt(createHash("sha1").update(c.id).digest("hex").slice(0, 6), 16)); // same dish, same photo
-    mkdirp(path.dirname(out));
-    fs.rmSync(out, { force: true });
-    try {
-      await agent.runner.exec(cmd, [...args, "--seed", seed, "--output", out, "--prompt",
-        photo_prompt(c.bild_prompt, !truthy(hh.meals.find((m) => m.id === c.slot)?.cold))], { cwd: hh.root, timeoutMs: 5 * 60 * 1000 });
-    } catch (e) {
-      console.error(e);
-      continue;
-    }
-    if (!fs.existsSync(out)) continue;
+    if (!truthy(c.bild_prompt) || c.bild_fuer === c.bild_prompt) continue;
+    const bild = await ai_photo(hh, c);
+    if (!bild) continue;
     const cur = read(roundPath);
     // only if the dish was not revised meanwhile
-    for (const k of cur.kandidaten) if (k.id === c.id && k.bild === c.bild) k.bild = `img/${rel}?v=${createHash("sha1").update(fs.readFileSync(out)).digest("hex").slice(0, 8)}`;
+    for (const k of cur.kandidaten) if (k.id === c.id && k.bild_prompt === c.bild_prompt) Object.assign(k, { bild, bild_fuer: c.bild_prompt });
     write(roundPath, cur);
     onChange();
   }
@@ -238,7 +251,14 @@ export async function new_round(hh: Household, ident: string, progress: Progress
   const leaflet = browse_section(lf);
   const n = hh.agent.candidates_per_meal;
   progress("thinking");
-  const res = await agent.run(hh, agent.household_context(hh, db, deals) + leaflet + `
+  // what the household did on the site for this round still counts for the fresh ideas
+  const mb0 = ident ? pick(mailbox(hh, ident), ["wuensche", "idee", "nachrichten"]) : {};
+  const wishes = truthy(mb0.wuensche) || truthy(mb0.idee) || truthy(mb0.nachrichten) ? `
+# The household's wishes and messages on the site (apply them to every new dish)
+${dumps({ wuensche: mb0.wuensche ?? [], idee: mb0.idee ?? "" })}
+Latest messages: ${dumps((mb0.nachrichten ?? []).slice(-3))}
+` : "";
+  const res = await agent.run(hh, agent.household_context(hh, db, deals) + leaflet + wishes + `
 # Dishes suggested in the last rounds
 ${recent_dishes(hh)}
 
@@ -298,7 +318,10 @@ Revise the round. Return the full list again, ${hh.agent.candidates_per_meal} pe
 - thumbs up (daumen 1) without a note → {"id": "...", "slot": "...", "keep": true}
 - a note on a dish → same id, change the recipe accordingly, explain in \`antwort\`
 - thumbs down → replace with a new dish (new id) that avoids the reason
-- \`wuensche\` apply to the whole round; \`idee\` becomes its own candidate if it is a dish
+- \`wuensche\` (e.g. faster, cheaper) always apply to the whole round, also when a message asks for something
+  else: every dish you return in full must satisfy them; say in \`antwort\` what you changed for them.
+  \`idee\` becomes its own candidate if it is a dish; otherwise it is feedback or an instruction (e.g. about one slot):
+  follow it like a message and say in \`nachricht\` how you applied it
 - if a wish breaks an exclusion or blocked category, do not do it; say so in one sentence in \`nachricht\`
   and offer the closest safe alternative
 - keep the currently selected dishes unless the household asked to change them

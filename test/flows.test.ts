@@ -94,6 +94,7 @@ test("English household: new round → revise → plan (twice, backups) → feed
     await actions.new_round(hh, open, () => {});
     while (actions.BACKGROUND.size) await Promise.all([...actions.BACKGROUND]);
     assert.ok(fake.calls[0].args[2].includes("# Dishes suggested in the last rounds\n- 2026-10-19 · lunch: Chicken rice bowl\n"));
+    assert.ok(fake.calls[0].args[2].includes('# The household\'s wishes and messages on the site (apply them to every new dish)\n{"wuensche": ["w"]'), "site wishes count");
   } finally { fake.restore(); net.restore(); }
   const after = actions.read(p);
   assert.equal(after.id, open);
@@ -172,7 +173,7 @@ test("store choice: the pair that covers the most categories near the best price
   assert.deepStrictEqual(prices.pick_stores({}, 2), []);
 });
 
-test("local AI photos replace drawn plates, one per dish with a photo description", async () => {
+test("local AI photos: painted for new or changed dishes only, another take on demand", async () => {
   const root = path.join(tmpDir(), "k");
   await captured(() => cmd_init([root, "--lang", "en"]));
   const hh = config.load(root);
@@ -197,6 +198,20 @@ test("local AI photos replace drawn plates, one per dish with a photo descriptio
   const args = fs.readFileSync(log, "utf-8");
   assert.match(args, /^--steps\n8\n--seed\n\d+\n--output\n/);
   assert.match(args, /food photograph.*steam rising\. chili with a bubbly cheese crust/);
+  assert.equal(k[0].bild_fuer, "chili with a bubbly cheese crust");
+  // unchanged description: no new photo; changed description: painted anew
+  await actions.fetch_images_async(hh, p, () => changes++);
+  assert.equal(changes, 1);
+  const r = actions.read(p);
+  r.kandidaten[0].bild_prompt = "chili with sour cream";
+  fs.writeFileSync(p, JSON.stringify(r));
+  await actions.fetch_images_async(hh, p, () => changes++);
+  assert.equal(changes, 2);
+  assert.equal(actions.read(p).kandidaten[0].bild_fuer, "chili with sour cream");
+  // "another photo": a different seed
+  const seeds = () => [...fs.readFileSync(log, "utf-8").matchAll(/--seed\n(\d+)/g)].map((m) => Number(m[1]));
+  assert.ok(await actions.ai_photo(hh, actions.read(p).kandidaten[0], 1));
+  assert.equal(seeds().at(-1), seeds()[0] + 1);
 });
 
 test("shopping list: a substitute for a sold-out main ingredient sits on its row", async () => {
