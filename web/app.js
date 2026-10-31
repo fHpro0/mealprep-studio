@@ -609,11 +609,11 @@ function storeDecision() {
   return `<div class="box ok decision"><p>${text}</p></div>`;
 }
 
-// A plain list for a reminders app: one line per item still to buy.
+// One line per item still to buy, no bullets: pasted into Apple Reminders every line becomes its own reminder.
 function shopText() {
   const done = local.get(key('shop'), {}), stores = new Set(W.einkauf.flatMap(g => g.items.map(i => i.laden)).filter(Boolean));
   return W.einkauf.flatMap(g => g.items.map((it, i) => done[`e-${g.bereich}-${i}`] ? '' :
-    `- ${it.anz}× ${it.pack ? it.pack + ' ' : ''}${it.kurz || it.name.replace(/^(.*?) \((.*)\)$/, '$1 $2')}${stores.size > 1 && it.laden ? ` (${it.laden})` : ''}`)).filter(Boolean).join('\n');
+    `${it.anz}× ${it.pack ? it.pack + ' ' : ''}${it.kurz || it.name.replace(/^(.*?) \((.*)\)$/, '$1 $2')}${stores.size > 1 && it.laden ? ` (${it.laden})` : ''}`)).filter(Boolean).join('\n');
 }
 async function copyText(text) {
   try { await navigator.clipboard.writeText(text); return true } catch { }
