@@ -343,6 +343,49 @@ Revise the round. Return the full list again, ${hh.agent.candidates_per_meal} pe
   return res.nachricht;
 }
 
+/** How the prep-day timeline is ordered (plan and "plan the prep day again"). */
+const PREP_ORDER = `Two phases, in this order. \`phase\` "vorbereiten" first: ALL cutting, weighing and mixing for every dish
+before anything is heated (mise en place); preheating the oven may be its first step. Everything that goes into the
+pan, pot or tray in the same cooking step is collected in ONE bowl with a name (\`schuessel\`, e.g. "Gemüse-Schüssel
+Stroganoff", never a number); a sauce or creme is stirred together completely in the bowl it is used from. Then
+\`phase\` "kochen": one dish after the other; each step names the bowl it empties (\`schuessel\`) and repeats the amounts,
+no more cutting. \`neben\` is only for hands-off time (oven, covered simmering) — never two active hob, stirring or
+mixing steps at once.`;
+
+/** Plan the prep day of a planned week again: only the timeline; recipes, shopping list and boxes stay. */
+export async function replan_prep(hh: Household, rid: string, progress: Progress): Promise<string> {
+  const db = calc.load_ingredients(hh);
+  const wp = path.join(hh.paths.weeks, `${rid}.json`), w = read(wp);
+  if (!w) throw new Error(`week ${rid} not found`);
+  progress("thinking");
+  const res = await agent.run(hh, agent.household_context(hh, db, "(not needed)") + `
+# The week's recipes (amounts for all portions)
+${dumps((w.rezepte as Obj[]).map((x) => pick(x, ["id", "titel", "zutaten", "schritte", "kipppunkt"])))}
+Extras: ${dumps((w.extras ?? []).map((x: Obj) => pick(x, ["id", "titel", "zutaten", "schritte"])))}
+Equipment: ${dumps(w.geraete ?? [])}
+The current timeline (do better): ${dumps(w.prep ?? [])}
+
+# Task
+Write the prep-day timeline for ${w.preptag} again, for both dishes together, offsets from 0:00. Each step is ONE
+action: \`titel\` 2–4 words, \`text\` at most ~20 words incl. the amounts (produce in grams), \`gericht\` = the recipe or
+extra id. Timers in minutes, at most 3 steps \`wichtig\`. ${PREP_ORDER}
+Keep every amount and technique from the recipes; change only the order and grouping.
+`, agent.PREP_SCHEMA, hh.root);
+  const prep = need(res, "prep");
+  if (!Array.isArray(prep) || !prep.length) throw new Error("Claude returned no timeline");
+  w.prep = prep;
+  const backups = path.join(hh.paths.jobs, "backups");
+  write(wp, w, backups);
+  const md = path.join(hh.paths.plans, `woche-${rid}.md`);
+  if (fs.existsSync(md)) {
+    mkdirp(backups);
+    fs.copyFileSync(md, path.join(backups, `${path.parse(md).name}.${stamp()}.md`));
+  }
+  fs.writeFileSync(md, week_markdown(hh, w), "utf-8");
+  const bowls = new Set(prep.map((x: Obj) => x.schuessel).filter(Boolean)).size;
+  return `${w.preptag}: ${prep.length} ${hh.language === "de" ? "Schritte" : "steps"}, ${bowls} ${hh.language === "de" ? "Schüsseln" : "bowls"}`;
+}
+
 /** Improve one dish of an open round (mailbox \`optimieren\`: {id, text}); every other dish stays exactly as it is. */
 export async function optimize(hh: Household, rid: string, progress: Progress): Promise<string> {
   let db = calc.load_ingredients(hh);
@@ -427,7 +470,7 @@ portions and its own steps. Never repeat it inside each recipe's \`zutaten\`.
 
 \`prep\`: one combined timeline for everything, offsets from 0:00, about 10–16 steps. Each step is ONE action:
 \`titel\` 2–4 words ("Bällchen formen"), \`text\` at most ~20 words incl. the amounts (produce in grams, as above), \`gericht\` = the recipe or
-extra id. Timers in minutes, at most 3 steps \`wichtig\`. Order: start the meat that cooks on its own first (oven or covered pot); while it cooks, do ALL the cutting for every dish as \`neben\` steps; then finish one dish completely before starting the next. \`neben\` is only for hands-off time (oven, covered simmering) — never two active hob, stirring or mixing steps at once.
+extra id. Timers in minutes, at most 3 steps \`wichtig\`. ${PREP_ORDER}
 \`ersatz\`: for every main ingredient (meat, fish, cheese, the main vegetable) the substitute to buy if it is sold out:
 in the same store${r.einkauf_laeden?.length ? ` (${r.einkauf_laeden.map((id: string) => RETAILERS[id] ?? id).join(" or ")})` : ""}, same amount, similar macros and price, ready-to-cook, nothing excluded
 or blocked; \`aenderung\` says what changes when cooking ("Pute 2 Min kürzer braten"), or "nichts".
@@ -697,5 +740,5 @@ export function append_bullets(hh: Household, headingRe: string, bullets: string
 
 export const ACTIONS: Record<string, (hh: Household, ident: string, progress: Progress) => Promise<string>> = {
   neue_runde: new_round, ueberarbeiten: revise, plan_erstellen: plan, feedback_uebernehmen: feedback, optimieren: optimize,
-  einkauf_aktualisieren: refresh_shopping,
+  einkauf_aktualisieren: refresh_shopping, ablauf_neu: replan_prep,
 };

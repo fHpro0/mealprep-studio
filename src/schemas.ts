@@ -486,6 +486,18 @@ export const PLAN_SCHEMA = {
           "timer": {
             "type": "integer"
           },
+          "phase": {
+            "type": "string",
+            "enum": [
+              "vorbereiten",
+              "kochen"
+            ],
+            "description": "vorbereiten = cutting, weighing, mixing before any heat; kochen = everything after"
+          },
+          "schuessel": {
+            "type": "string",
+            "description": "the named bowl this step fills (vorbereiten) or empties (kochen), e.g. 'Gemüse-Schüssel Stroganoff'"
+          },
           "neben": {
             "type": "boolean"
           },
@@ -616,5 +628,16 @@ export const FEEDBACK_SCHEMA = {
       "type": "string",
       "description": "2–4 sentences back to the household"
     }
+  }
+};
+
+/** plan the prep day again: only the timeline */
+export const PREP_SCHEMA = {
+  "type": "object",
+  "required": [
+    "prep"
+  ],
+  "properties": {
+    "prep": PLAN_SCHEMA.properties.prep
   }
 };

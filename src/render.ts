@@ -8,7 +8,7 @@ const T: Record<string, Record<string, string>> = {
     plate: "Täglich anrichten", portion: "Portion", list: "Einkaufsliste", sum: "Summe", budget: "Budget",
     pantry: "Vorher im Schrank nachsehen", dont: "Nicht kaufen", need: "Was benötigt wird",
     steps: "Ablauf am Prep-Tag", store: "Lagerung", why: "Warum dieser Plan", fb: "Feedback-Fragen",
-    for: "für alle", portions: "Portionen", offer: "Angebot", est: "~", instead: "falls nicht da",
+    for: "für alle", portions: "Portionen", offer: "Angebot", est: "~", instead: "falls nicht da", phase_prep: "1 · Vorbereiten", phase_cook: "2 · Kochen",
     daily: "Vorbereiten & täglich zusammenbauen", assemble: "zusammenbauen", min: "Min",
     how: "So geht's",
   },
@@ -17,7 +17,7 @@ const T: Record<string, Record<string, string>> = {
     plate: "Plate it daily", portion: "Portion", list: "Shopping list", sum: "Total", budget: "Budget",
     pantry: "Check the pantry first", dont: "Don't buy", need: "What you need",
     steps: "Prep-day timeline", store: "Storage", why: "Why this plan", fb: "Feedback questions",
-    for: "for all", portions: "portions", offer: "offer", est: "~", instead: "if sold out",
+    for: "for all", portions: "portions", offer: "offer", est: "~", instead: "if sold out", phase_prep: "1 · Prepare", phase_cook: "2 · Cook",
     daily: "Prepare & assemble daily", assemble: "assemble", min: "min",
     how: "How to cook",
   },
@@ -72,9 +72,10 @@ export function week_markdown(hh: Household, w: Obj): string {
   if (truthy(w.vorrat)) out.push(`**${t.pantry}:** ` + w.vorrat.join(", "), "");
   if (truthy(w.nicht_kaufen)) out.push(`**${t.dont}:** ` + w.nicht_kaufen.join("; "), "");
   out.push(`## ${t.need}`, "", ...w.geraete.map((g: string) => `- ${g}`), "", `## ${t.steps}`, "", "| | | ⏱ |", "|---|---|---|");
-  for (const s of w.prep) {
-    out.push(`| ${truthy(s.neben) ? "↳" : s.t} | ${step_cell(s)} | ${truthy(s.timer) ? String(s.timer) + " min" : ""} |`);
-  }
+  w.prep.forEach((s: Obj, i: number) => {
+    if (truthy(s.phase) && s.phase !== w.prep[i - 1]?.phase) out.push(`| | **${s.phase === "vorbereiten" ? t.phase_prep : t.phase_cook}** | |`);
+    out.push(`| ${truthy(s.neben) ? "↳" : s.t} | ${step_cell(s)}${truthy(s.schuessel) ? ` · 🥣 ${s.schuessel}` : ""} | ${truthy(s.timer) ? String(s.timer) + " min" : ""} |`);
+  });
   out.push(...daily(w, t));
   if (truthy(w.lagerung)) out.push("", `## ${t.store}`, "", w.lagerung);
   out.push("", `## ${t.why}`, "", ...w.warum.map((x: Obj) => `- **${x.titel}:** ${x.text}`));

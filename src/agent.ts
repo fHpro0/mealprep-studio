@@ -10,7 +10,7 @@ import path from "node:path";
 import { REPO, type Household } from "./config.ts";
 import { cpSlice, dumps, need, floatStr, fmtFixed, pyRound, pySum, pyStr, readText, truthy, type Obj } from "./py.ts";
 
-export { FEEDBACK_SCHEMA, PLAN_SCHEMA, ROUND_SCHEMA } from "./schemas.ts";
+export { FEEDBACK_SCHEMA, PLAN_SCHEMA, PREP_SCHEMA, ROUND_SCHEMA } from "./schemas.ts";
 
 const LANG: Record<string, string> = { de: "German", en: "English" };
 

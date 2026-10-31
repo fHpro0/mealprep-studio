@@ -380,3 +380,6 @@ details.box[open] summary{margin-bottom:8px}
 .improve [data-improve]{align-self:flex-start;min-height:40px}
 .row label .verdict{display:inline-block}
 .decision p{margin:0}
+.panel h3.phase{padding:16px 18px 6px;border-top:1px solid #f0eadc;color:var(--green)}
+.panel h3.phase:first-child{border-top:0}
+.bowl{display:inline-block;margin-top:4px;font-size:12.5px;font-weight:600;background:#f1ece0;border-radius:8px;padding:3px 8px}

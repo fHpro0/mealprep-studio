@@ -15,7 +15,7 @@ export const USAGE = `mealprep-studio — command line.
     mealprep-studio init  <dir> [--lang de|en]   create a household folder from the example
     mealprep-studio serve <dir> [--port N]       start the web app (LAN)
     mealprep-studio run   <dir> <action> [id]    run an action without the web app
-                                          actions: neue_runde | ueberarbeiten | plan_erstellen | feedback_uebernehmen | optimieren | einkauf_aktualisieren
+                                          actions: neue_runde | ueberarbeiten | plan_erstellen | feedback_uebernehmen | optimieren | einkauf_aktualisieren | ablauf_neu
     mealprep-studio calc  <dir> <round-id>       recalculate macros/costs of a round (after hand edits)
     mealprep-studio check <dir>                  validate config, ingredient DB, claude CLI, offers
 `;

@@ -268,3 +268,22 @@ test("refresh the shopping list of a planned week: packs and names redone, extra
   assert.match(msg, / — \d+\.\d\d €$/);
   assert.ok(fs.readFileSync(path.join(hh.paths.plans, "woche-2026-10-19.md"), "utf-8").includes(after.titel));
 });
+
+test("plan the prep day again: prepare everything into named bowls first, then cook; nothing else changes", async () => {
+  const { hh } = await replay("en");
+  const wp = path.join(hh.paths.weeks, "2026-10-19.json"), before = actions.read(wp);
+  const prep = [
+    { t: "0:00", titel: "Cut peppers", text: "800 g peppers in strips", gericht: before.rezepte[0].id, phase: "vorbereiten", schuessel: "Pepper bowl" },
+    { t: "0:20", titel: "Fry peppers", text: "Pepper bowl into the pan, 5 min", gericht: before.rezepte[0].id, phase: "kochen", schuessel: "Pepper bowl", timer: 5 },
+  ];
+  const fake = installFakeClaude([JSON.stringify({ is_error: false, structured_output: { prep }, duration_ms: 1, total_cost_usd: 0 })]);
+  try {
+    assert.match(await actions.replan_prep(hh, "2026-10-19", () => {}), /2 steps, 1 bowls$/);
+    assert.match(fake.calls[0].args[2], /mise en place[\s\S]*ONE bowl with a name/);
+  } finally { fake.restore(); }
+  const after = actions.read(wp);
+  assert.deepStrictEqual(after.prep, prep);
+  assert.deepStrictEqual({ ...after, prep: null }, { ...before, prep: null });
+  const md = fs.readFileSync(path.join(hh.paths.plans, "woche-2026-10-19.md"), "utf-8");
+  assert.match(md, /\*\*1 · Prepare\*\*[\s\S]*🥣 Pepper bowl[\s\S]*\*\*2 · Cook\*\*/);
+});

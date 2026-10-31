@@ -640,17 +640,23 @@ function prepView() {
     ${used.size ? `<div class="dish-legend">${dishes().filter(x => used.has(x.id)).map(x => dishTag(x.id)).join('')}</div>` : ''}
     <div class="panel">${W.prep.map((s, i) => {
       const id = `p-${i}`;
-      const label = s.titel ? `<span class="step-h">${dishTag(s.gericht)}<b>${esc(s.titel)}</b></span><span class="step-t">${esc(s.text)}</span>` : esc(s.text);
-      return `<div class="row ${s.neben ? 'neben' : ''} ${s.wichtig ? 'wichtig' : ''} ${done[id] ? 'done' : ''}">
+      // first all preparation into named bowls, then the cooking: a heading where the phase starts
+      const head = s.phase && s.phase !== W.prep[i - 1]?.phase ? `<h3 class="phase">${s.phase === 'vorbereiten' ? T.phase_prep : T.phase_cook}</h3>` : '';
+      const bowl = s.schuessel ? `<span class="bowl">🥣 ${esc(s.schuessel)}</span>` : '';
+      const label = s.titel ? `<span class="step-h">${dishTag(s.gericht)}<b>${esc(s.titel)}</b></span><span class="step-t">${esc(s.text)}</span>${bowl}` : esc(s.text) + bowl;
+      return `${head}<div class="row ${s.neben ? 'neben' : ''} ${s.wichtig ? 'wichtig' : ''} ${done[id] ? 'done' : ''}">
         <input type="checkbox" id="${id}" data-k="prep" ${done[id] ? 'checked' : ''}><span class="time">${s.neben ? '↳' : esc(s.t)}</span>
         <label for="${id}">${label}</label>
         ${s.timer ? `<button class="tbtn" data-min="${s.timer}" data-label="${esc(s.titel || s.text.slice(0, 40))}">⏱ ${s.timer}′</button>` : ''}</div>`;
     }).join('')}</div>
     <div class="panel"><h3>${T.equipment}</h3>${W.geraete.map(g => `<div class="row"><label>${esc(g)}</label></div>`).join('')}</div>
     ${containersHtml()}
-    <p><button class="ghost" id="resetp">${T.reset_checks}</button></p>`;
+    <p><button class="ghost" id="resetp">${T.reset_checks}</button> <button class="ghost" id="replan">🔁 ${T.replan_prep}</button></p>`;
 }
-function bindPrep() { bindChecks(); $$('.tbtn').forEach(b => b.onclick = () => startTimer(+b.dataset.min, b.dataset.label)) }
+function bindPrep() {
+  bindChecks(); $$('.tbtn').forEach(b => b.onclick = () => startTimer(+b.dataset.min, b.dataset.label));
+  $('#replan').onclick = () => confirm(T.replan_confirm) && run('ablauf_neu', W.id);
+}
 
 function bindChecks() {
   // older weeks stored shopping checks under "einkauf"
