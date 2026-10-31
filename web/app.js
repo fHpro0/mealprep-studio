@@ -459,7 +459,7 @@ function dealsView() {
     return rows.length ? `<div class="panel"><h3>${esc(k.name)}</h3>${rows.map(a => {
       const w = offerWish(a), on = PF.wuensche.includes(w);
       return `<div class="row deal"><button class="star" data-wish="${esc(w)}" aria-pressed="${on}" aria-label="${T.remember}">${on ? '★' : '☆'}</button>
-        <div class="what"><b>${esc([a.marke, a.produkt].filter(Boolean).join(' '))}</b><small>${esc(a.laden)}${a.treueprogramm ? ' · ' + T.loyalty : ''} · ${T.until} ${esc((a.gueltig_bis || '').split('-').reverse().slice(0, 2).join('.'))}.</small>${badge(a)}</div>
+        <div class="what"><b>${esc([a.marke, a.produkt].filter(Boolean).join(' '))}</b><small>${esc(a.laden)}${a.treueprogramm ? ' · ' + T.loyalty : ''}${a.quelle ? ' · ' + esc(a.quelle) : ''} · ${T.until} ${esc((a.gueltig_bis || '').split('-').reverse().slice(0, 2).join('.'))}.</small>${badge(a)}</div>
         <div class="price">${a.preis != null ? money(a.preis) : ""}${a.alter_preis ? `<s>${money(a.alter_preis)}</s>` : ''}${a.grundpreis ? `<small>${money(a.grundpreis)}/${esc(a.einheit || 'kg')}</small>` : ''}</div></div>`;
     }).join('')}</div>` : '';
   }).join('');

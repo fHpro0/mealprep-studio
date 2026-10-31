@@ -7,6 +7,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { packs } from "./calc.ts";
 import type { Household } from "./config.ts";
+import * as kaufda from "./kaufda.ts";
 import * as offers from "./offers.ts";
 import { dumps, fmtFixed, need, pyRound, readText, truthy, type Obj } from "./py.ts";
 
@@ -158,9 +159,30 @@ async function browse_raw(hh: Household, day: string): Promise<Obj | null> {
     }));
     fs.writeFileSync(cacheFile, dumps(found), "utf-8");
   }
+  if (truthy(o.kaufda)) await add_kaufda(hh, day, terms, found);
   const bad = hh.exclusions.map((x) => x.toLowerCase());
   const ok = (r: Obj) => !bad.some((b) => `${r.marke} ${r.produkt}`.toLowerCase().includes(b));
   return Object.fromEntries(terms.filter((t) => found[t]).map((t) => [t, found[t].filter(ok)]));
+}
+
+/** Second source (\`offers.kaufda = true\`): kaufDA's offer pages via Playwright, cached per day, merged into
+ * \`found\` without the offers marktguru already has (same store, price and price per kg). */
+async function add_kaufda(hh: Household, day: string, terms: string[], found: Obj): Promise<void> {
+  const cacheFile = path.join(hh.paths.jobs, `kaufda-${hh.offers.zip}-${day}.json`);
+  const cache: Obj = fs.existsSync(cacheFile) ? JSON.parse(readText(cacheFile)) : {};
+  const todo = terms.filter((t) => !Object.hasOwn(cache, t));
+  if (todo.length) {
+    const got = await kaufda.search_all(todo, day, hh.offers.retailers ?? []);
+    if (got) {
+      Object.assign(cache, got);
+      fs.writeFileSync(cacheFile, dumps(cache), "utf-8");
+    }
+  }
+  const key = (r: Obj) => `${r.laden_id}|${r.preis}|${r.grundpreis}`;
+  for (const t of terms) {
+    const have = new Set((found[t] ??= []).map(key));
+    for (const r of cache[t] ?? []) if (!have.has(key(r))) { found[t].push(r); have.add(key(r)) }
+  }
 }
 
 /** Stores a household may pick: known ids only, at most `offers.max_stores`. */
@@ -237,7 +259,7 @@ export async function deals_overview(hh: Household, db: Obj, day: string, chosen
       .sort((a, b) => (a.grundpreis ?? Infinity) - (b.grundpreis ?? Infinity))
       .map((r) => {
         for (const id of String(r.laden_id).split(",")) count[id] = (count[id] ?? 0) + 1;
-        return { ...pick_keys(r, ["produkt", "marke", "laden", "laden_id", "preis", "alter_preis", "grundpreis", "einheit", "gueltig_bis", "treueprogramm"]), ...verdict(db, r) };
+        return { ...pick_keys(r, ["produkt", "marke", "laden", "laden_id", "preis", "alter_preis", "grundpreis", "einheit", "gueltig_bis", "treueprogramm", "quelle"]), ...verdict(db, r) };
       }),
   })).filter((k) => k.angebote.length);
   const laeden = Object.keys(count).sort((a, b) => count[b] - count[a]).map((id) => ({ id, name: offers.RETAILERS[id] ?? id, angebote: count[id] }));

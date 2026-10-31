@@ -4,6 +4,7 @@ import { BOTS, kitchen_valid } from "../src/server.ts";
 import * as prices from "../src/prices.ts";
 import * as render from "../src/render.ts";
 import * as plate from "../src/plate.ts";
+import * as kaufda from "../src/kaufda.ts";
 import { Household } from "../src/config.ts";
 import { fixture, sameJson } from "./helpers.ts";
 
@@ -65,4 +66,21 @@ test("offer verdict: compared with the household's normal price per kg, and the 
   assert.equal(prices.verdict(db, o("Schweinerücken", 3.99)).urteil, "unbekannt", "an estimate is no normal price");
   assert.equal(prices.verdict(db, o("Hackfleisch", 19)).urteil, "unbekannt", "far above normal: another product");
   assert.deepStrictEqual(prices.verdict(db, o("Brie", null, { alter_preis: 4 })), { zutat: null, normal_eur_kg: null, laden_rabatt: 25, urteil: "laut_laden" });
+});
+
+test("kaufDA offer cards: price per kg, validity in German time, store id, strike price", () => {
+  assert.deepStrictEqual(kaufda.base_price("(6.23 / kg)"), [6.23, "kg"]);
+  assert.deepStrictEqual(kaufda.base_price("(1 kg = 18.73)"), [18.73, "kg"]);
+  assert.deepStrictEqual(kaufda.base_price("(App: 4.36 / kg)"), [4.36, "kg"]);
+  assert.equal(kaufda.base_price(""), null);
+  const card = { id: "x1", title: "Hackfleisch vom Hähnchen", publisherName: "Netto Marken-Discount",
+    validFrom: "2026-10-25T23:00:00.000+0000", validUntil: "2026-10-31T19:00:00.000+0000",
+    prices: { mainPrice: 2.49, secondaryPrice: 2.99, secondaryPriceIsUVP: true, priceByBaseUnit: "(6.23 / kg)" } };
+  assert.deepStrictEqual(kaufda.normalize(card), {
+    produkt: "Hackfleisch vom Hähnchen", marke: "", laden: "Netto Marken-Discount", laden_id: "netto-marken-discount",
+    preis: 2.49, grundpreis: 6.23, einheit: "kg", gueltig_von: "2026-10-26", gueltig_bis: "2026-10-31",
+    treueprogramm: false, id: "kaufda-x1", quelle: "kaufDA", alter_preis: 2.99 });
+  assert.equal(kaufda.normalize({ ...card, publisherName: "dm" }), null);
+  assert.equal(kaufda.normalize({ ...card, title: "10% Rabatt", prices: { mainPrice: 0 } }), null);
+  assert.equal(kaufda.normalize({ ...card, publisherName: "E center" })!.laden_id, "edeka");
 });

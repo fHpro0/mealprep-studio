@@ -233,6 +233,7 @@ enabled = true                        # Germany / Austria
 zip = "10115"
 retailers = ["aldi-sued", "lidl", "netto-marken-discount", "kaufland", "rewe", "edeka"]
 max_stores = 2                        # shop at no more than this many stores per round
+kaufda = false                        # second source: kaufDA offer pages via Playwright (private use only, see below)
 # browse = ["Hähnchen", "Lachs", ...] # leaflet categories read before every round (German default list); [] = off
 
 [images]                              # optional: local AI photos instead of drawn plates
@@ -284,6 +285,11 @@ loading.
 - **Supermarket offers** come from marktguru.de's public web API, which isn't officially documented.
   It may change or break, and you're responsible for using it in line with marktguru's terms.
   Turn it off with `[offers] enabled = false`; planning then uses estimated prices.
+- **kaufDA (optional, `kaufda = true`)** adds offers marktguru lacks (e.g. Edeka) and next week's leaflets. It
+  reads kaufDA's public offer pages with a headless browser (the optional `playwright` dependency; run
+  `npx playwright install chromium` once), respects the 2 s crawl delay from their `robots.txt`, and stays
+  away from the brochure viewer. kaufDA's terms allow the data for private use only, so keep it to your own
+  household. The location is the one kaufDA derives from your connection.
 - **Not medical advice.** Calories and macros are estimates from average nutrient data.
 
 ## FAQ
