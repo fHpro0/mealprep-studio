@@ -156,9 +156,19 @@ body{overflow-x:hidden}
 .bubble.claude{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);align-self:flex-start;border-bottom-left-radius:4px}
 .bubble.ihr{background:var(--lime);color:#183008;align-self:flex-end;border-bottom-right-radius:4px}
 .bubble small{display:block;opacity:.7;font-size:11px;margin-bottom:2px}
+.bubble{cursor:pointer}
+.bubble .t{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.bubble.open .t{-webkit-line-clamp:unset}
+.flow{list-style:none;counter-reset:s;display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 2px;padding:0}
+.flow li{counter-increment:s;font-size:13px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,.1);opacity:.7}
+.flow li::before{content:counter(s) '.';margin-right:5px;font-weight:700}
+.flow li.now{background:var(--lime);color:#183008;opacity:1;font-weight:600}
+.flow li.done{opacity:.9}.flow li.done::before{content:'✓'}
+.history{margin-top:12px;font-size:13px;opacity:.85}.history summary{cursor:pointer}
 .slothead{display:flex;align-items:baseline;justify-content:space-between;margin:22px 0 10px}
 .slothead h2{margin:0}
 .slothead span{color:var(--muted);font-size:14px}
+.slothead .reroll{font-size:14px;padding:6px 12px;min-height:36px}
 .cands{display:grid;gap:14px;grid-template-columns:1fr}
 @media(min-width:640px){.cands{grid-template-columns:1fr 1fr}}
 .cand{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;border:3px solid transparent;transition:border-color .15s,transform .15s;display:flex;flex-direction:column}
@@ -172,6 +182,7 @@ body{overflow-x:hidden}
 .cand.sel .selmark{display:block}
 .cand .body{padding:14px 16px 12px;flex:1;display:flex;flex-direction:column}
 .cand h3{font-size:20px;margin:0}
+.cand .pitch{margin:0 0 12px;font-size:14.5px;line-height:1.45;color:var(--ink)}
 .cand .u{color:var(--muted);font-size:14px;margin:2px 0 10px}
 .cand .answer{background:var(--lime-soft);border-radius:10px;padding:8px 10px;font-size:13.5px;margin:0 0 10px}
 .cand .answer b{color:#3c6a12}
@@ -348,3 +359,16 @@ details.box[open] summary{margin-bottom:8px}
 .kadd{margin:14px 0;width:100%;padding:12px;border:1px dashed #cfc6b2;border-radius:12px;background:transparent;font-weight:600;color:var(--green)}
 .sheet #ksave{width:100%;justify-content:center}
 @media(max-width:520px){.top .wrap{gap:6px}.logo{font-size:15px}.seg button{padding:6px 8px}.kbtn{width:34px;height:34px}.kbtn svg{width:18px;height:18px}}
+
+.row.deal{align-items:center}
+.row.deal .what{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.row.deal .what small{color:var(--muted);font-size:12.5px}
+.row.deal .price{display:flex;flex-direction:column;align-items:flex-end;font-weight:700;white-space:nowrap}
+.row.deal .price s{color:var(--muted);font-weight:400;font-size:12.5px}
+.row.deal .price small{color:var(--muted);font-weight:500;font-size:12px}
+.star{border:0;background:none;font-size:22px;line-height:1;padding:4px;color:#c9a227;cursor:pointer;min-width:36px;min-height:36px}
+.verdict{align-self:flex-start;font-size:12px;font-weight:600;border-radius:6px;padding:2px 7px;margin-top:3px;background:#f1ece0;color:#6b6252}
+.verdict.ok{background:var(--lime-soft);color:#2f5a0c}
+.verdict.meh{background:#fbf0d9;color:#8a5a0a}
+.verdict.bad{background:#fbe3dc;color:#a3321a}
+.wishes.filters{margin-top:8px}

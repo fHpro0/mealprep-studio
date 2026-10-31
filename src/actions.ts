@@ -1,4 +1,5 @@
 // The four actions behind the web buttons: new round, revise, plan, feedback.
+import { createHash } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { isDeepStrictEqual } from "node:util";
@@ -6,7 +7,9 @@ import * as agent from "./agent.ts";
 import * as calc from "./calc.ts";
 import { WEEKDAYS, type Household } from "./config.ts";
 import * as images from "./images.ts";
+import * as plate from "./plate.ts";
 import * as prices from "./prices.ts";
+import { RETAILERS } from "./offers.ts";
 import { week_markdown } from "./render.ts";
 import {
   KeyError, ZeroDivisionError, addDays, clock, ddmm, dmy, dumps, fmtFixed, fmtThousands, floatStr, fromIso, iso, need,
@@ -101,9 +104,48 @@ export function process_candidates(hh: Household, db: Obj, cands: Obj[], old: Re
     const prev = Object.hasOwn(old, c.id) ? old[c.id] : undefined;
     c.neu = prev === undefined || !isDeepStrictEqual(prev.rechnung?.haupt, c.rechnung.haupt);
     c.bild = prev && prev.bild_suche === c.bild_suche ? prev.bild ?? "" : "";
+    if (Array.isArray(c.teller) && c.teller.length && SAFE_ID.test(String(c.id))) {
+      // drawn plate instead of a stock photo; ?v= busts the browser cache when the dish changes
+      const svg = plate.render(c.id, c.titel ?? c.id, c.teller, !truthy(hh.meals.find((m) => m.id === c.slot)?.cold)), dir = path.join(hh.paths.images, "kandidaten");
+      mkdirp(dir);
+      fs.writeFileSync(path.join(dir, `${c.id}.svg`), svg);
+      c.bild = `img/kandidaten/${c.id}.svg?v=${createHash("sha1").update(svg).digest("hex").slice(0, 8)}`;
+    }
     out.push(c);
   }
   return [out, notes];
+}
+
+const SAFE_ID = /^[\p{L}\p{N}-]{1,80}$/u; // candidate ids are model output and become file names
+
+/** Same framing for every dish, so the photos look like one menu. */
+const photo_prompt = (dish: string, warm: boolean) => "Realistic appetizing food photograph, 45-degree angle, one serving on a white "
+  + `ceramic plate on a rustic wooden table, soft natural window light, shallow depth of field, high detail${warm ? ", gentle steam rising" : ""}. ${dish}`;
+
+/** Local AI photos (`[images] ai` command, e.g. mflux) replace the drawn plates one at a time, ~15 s each. */
+async function ai_photos(hh: Household, roundPath: string, onChange: () => void): Promise<void> {
+  const [cmd, ...args] = String(hh.raw.images?.ai ?? "").trim().split(/\s+/).filter(Boolean);
+  if (!cmd) return;
+  for (const c of read(roundPath).kandidaten) {
+    if (!truthy(c.bild_prompt) || !/\.svg(\?|$)/.test(c.bild ?? "") || !SAFE_ID.test(String(c.id))) continue;
+    const rel = `kandidaten/${c.id}.png`, out = path.join(hh.paths.images, rel);
+    const seed = String(parseInt(createHash("sha1").update(c.id).digest("hex").slice(0, 6), 16)); // same dish, same photo
+    mkdirp(path.dirname(out));
+    fs.rmSync(out, { force: true });
+    try {
+      await agent.runner.exec(cmd, [...args, "--seed", seed, "--output", out, "--prompt",
+        photo_prompt(c.bild_prompt, !truthy(hh.meals.find((m) => m.id === c.slot)?.cold))], { cwd: hh.root, timeoutMs: 5 * 60 * 1000 });
+    } catch (e) {
+      console.error(e);
+      continue;
+    }
+    if (!fs.existsSync(out)) continue;
+    const cur = read(roundPath);
+    // only if the dish was not revised meanwhile
+    for (const k of cur.kandidaten) if (k.id === c.id && k.bild === c.bild) k.bild = `img/${rel}?v=${createHash("sha1").update(fs.readFileSync(out)).digest("hex").slice(0, 8)}`;
+    write(roundPath, cur);
+    onChange();
+  }
 }
 
 /** Fill in missing photos one by one after the round is already visible. */
@@ -120,6 +162,7 @@ export function fetch_images_async(hh: Household, roundPath: string, onChange: (
         onChange();
       }
     }
+    await ai_photos(hh, roundPath, onChange);
   };
   const t: Promise<void> = work().catch((e) => { console.error(e); }).finally(() => { BACKGROUND.delete(t); });
   BACKGROUND.add(t);
@@ -160,19 +203,55 @@ function brief(c: Obj): Obj {
 const pick = (o: Obj, keys: string[]): Obj => Object.fromEntries(keys.map((k) => [k, o[k]]));
 
 // ---------- actions ----------------------------------------------------------------------------
-export async function new_round(hh: Household, _ident: string, progress: Progress): Promise<string> {
+/** The week's leaflet as the starting point for ideas (empty when `offers.browse` is not configured). */
+function browse_section(lf: { text: string; stores: string[] }): string {
+  if (!lf.text) return "";
+  const names = lf.stores.map((id) => RETAILERS[id] ?? id).join(" + ");
+  return `
+# This week's leaflet: ${names} (the household shops at these stores only, never more than ${lf.stores.length})
+${lf.text}
+
+Cook with the leaflet: EVERY dish is built on a main ingredient from these offers (the meat, fish, cheese or
+vegetable the dish is about) and names that offer in \`warum\`. Everything else is bought at the same stores.
+An ingredient that is not in the ingredient list goes into \`neue_zutaten\` with the offer's price per kg and store.
+`;
+}
+
+/** Titles of the dishes suggested in the last few rounds, newest first, so a new round can avoid them. */
+function recent_dishes(hh: Household, rounds = 4): string {
+  const lines = ids(hh.paths.rounds).reverse().slice(0, rounds).flatMap((rid) =>
+    (read(path.join(hh.paths.rounds, `${rid}.json`))?.kandidaten ?? []).map((c: Obj) => `- ${rid} · ${c.slot}: ${c.titel}`));
+  return lines.join("\n") || "(none)";
+}
+
+export async function new_round(hh: Household, ident: string, progress: Progress): Promise<string> {
   let db = calc.load_ingredients(hh);
-  const d = round_dates(hh);
+  // ident = an open round whose suggestions are thrown away for fresh ones (same dates); empty = the next round
+  const p0 = ident ? path.join(hh.paths.rounds, `${ident}.json`) : "";
+  const old = ident ? read(p0) : undefined;
+  if (ident && !old) throw new Error(`round ${ident} not found`);
+  if (old?.status === "geplant") throw new Error(`round ${ident} is already planned`);
+  const d = old ?? round_dates(hh);
   progress("offers");
-  const deals = await prices.deals_digest(hh, db, d.einkauf_iso);
+  const lf = await prices.browse_digest(hh, d.einkauf_iso, ident ? mailbox(hh, ident).laeden : []); // stores the household picked
+  const deals = await prices.deals_digest(hh, db, d.einkauf_iso, undefined, lf.stores);
+  const leaflet = browse_section(lf);
   const n = hh.agent.candidates_per_meal;
   progress("thinking");
-  const res = await agent.run(hh, agent.household_context(hh, db, deals) + `
+  const res = await agent.run(hh, agent.household_context(hh, db, deals) + leaflet + `
+# Dishes suggested in the last rounds
+${recent_dishes(hh)}
+
 # Task
 Propose a new round for ${d.zeitraum} (shopping ${d.einkaufstag}, prep ${d.preptag}).
 Give exactly ${n} candidates per slot (${hh.meals.map((m) => m.id).join(", ")}), all clearly different from each
-other, respecting every rule, exclusion and blocked category in the feedback log. Mix proven principles
-with 1–2 new ideas per slot. Prefer this week's offers where they fit. Write \`nachricht\` as a short intro.
+other, respecting every rule, exclusion and blocked category in the feedback log.
+Variety: the household finds the suggestions repetitive. Per slot, at most ONE candidate may come from the list
+above (only one the feedback log rates 8/10 or better); every other candidate is a dish not on that list. A new
+protein, a renamed variant or a different vegetable in the same dish does not make it new: same dish idea =
+same dish. Spread the new ones over different cuisines, main ingredients and sauce bases. Apply the proven
+principles (browned meat, real sauce, cheese, ...) to new dishes instead of repeating old ones.
+Prefer this week's offers where they fit. Write \`nachricht\` as a short intro.
 `, agent.ROUND_SCHEMA, hh.root);
   progress("calculating");
   calc.add_ingredients(hh, res.neue_zutaten ?? {});
@@ -182,8 +261,14 @@ with 1–2 new ideas per slot. Prefer this week's offers where they fit. Write \
     id: d.id, titel: d.zeitraum, zeitraum: d.zeitraum, einkaufstag: d.einkaufstag,
     einkauf_iso: d.einkauf_iso, preptag: d.preptag, status: "offen", erstellt: now(),
     nachricht: need(res, "nachricht"), verlauf: [{ zeit: now(), von: "claude", text: res.nachricht }],
-    kandidaten: cands, hinweise: notes,
+    kandidaten: cands, hinweise: notes, ...(lf.stores.length ? { einkauf_laeden: lf.stores } : {}),
   };
+  if (old) {
+    write(p0, old, path.join(hh.paths.jobs, "backups")); // keeps a copy of the discarded suggestions
+    const mp = path.join(hh.paths.mailbox, `${ident}.json`), mb = mailbox(hh, ident);
+    // picks and thumbs point at the old dishes; wishes and messages still apply
+    if (fs.existsSync(mp)) { delete mb.auswahl; delete mb.reaktionen; write(mp, mb) }
+  }
   await finish_round(hh, db, r, path.join(hh.paths.rounds, `${d.id}.json`), progress);
   return res.nachricht;
 }
@@ -195,9 +280,12 @@ export async function revise(hh: Household, rid: string, progress: Progress): Pr
   if (!r) throw new Error(`round ${rid} not found`);
   const mb = mailbox(hh, rid);
   progress("offers");
-  const deals = await prices.deals_digest(hh, db, r.einkauf_iso || iso(today()));
+  // a revision stays with the round's stores, otherwise one dish could need a third store
+  const lf = await prices.browse_digest(hh, r.einkauf_iso || iso(today()), mb.laeden?.length ? mb.laeden : r.einkauf_laeden ?? []);
+  const deals = await prices.deals_digest(hh, db, r.einkauf_iso || iso(today()), undefined, lf.stores);
+  const leaflet = browse_section(lf);
   progress("thinking");
-  const res = await agent.run(hh, agent.household_context(hh, db, deals) + `
+  const res = await agent.run(hh, agent.household_context(hh, db, deals) + leaflet + `
 # Current round
 ${dumps(r.kandidaten.map(brief))}
 
@@ -226,6 +314,7 @@ Revise the round. Return the full list again, ${hh.agent.candidates_per_meal} pe
     if (!idsNow.has(c.id) && !slotFull && (reac[c.id] || {}).daumen !== -1) cands.push({ ...c, neu: false });
   }
   r.kandidaten = cands; r.hinweise = notes; r.nachricht = res.nachricht;
+  if (lf.stores.length) r.einkauf_laeden = lf.stores;
   (r.verlauf ??= []).push({ zeit: now(), von: "claude", text: res.nachricht });
   await finish_round(hh, db, r, p, progress);
   return res.nachricht;
@@ -266,7 +355,7 @@ portions and its own steps. Never repeat it inside each recipe's \`zutaten\`.
 
 \`prep\`: one combined timeline for everything, offsets from 0:00, about 10–16 steps. Each step is ONE action:
 \`titel\` 2–4 words ("Bällchen formen"), \`text\` at most ~20 words incl. the amounts (produce in grams, as above), \`gericht\` = the recipe or
-extra id. Timers in minutes, parallel work as \`neben\`, at most 3 steps \`wichtig\`. Use the oven in parallel.
+extra id. Timers in minutes, at most 3 steps \`wichtig\`. Order: start the meat that cooks on its own first (oven or covered pot); while it cooks, do ALL the cutting for every dish as \`neben\` steps; then finish one dish completely before starting the next. \`neben\` is only for hands-off time (oven, covered simmering) — never two active hob, stirring or mixing steps at once.
 \`zusatz_einkauf\`: everything the recipes need that is neither in the calculated shopping list nor in the pantry
 file (vinegar, fresh herbs …), with a rough price; \`menge\` follows the produce rule too ("200 g Basilikum"). \`vorrat\`: only items the pantry file lists.
 Also: \`geraete\` = equipment incl. containers, ONLY items from the kitchen equipment list (plus the household's own

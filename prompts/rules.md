@@ -27,7 +27,7 @@ than on macros. The household profile and feedback log (given below) always win 
 ## Effort
 - Ready-to-cook cuts. No deboning, filleting, skinning. Pay more rather than add >10 min handwork.
 - Max two techniques per dish, max one make-or-break step (name it as `risiko`).
-- Oven over hob; two dishes in the oven at the same temperature in parallel is ideal.
+- Oven over hob. Prep order: the meat goes in first; while it cooks on its own, do all the cutting for every dish; then finish one dish completely before the next. Never two active hob or stirring tasks at the same time. Two trays in the oven at once is fine — that is hands-off time.
 - Frozen pre-cut vegetables (broccoli, pepper strips) are a legitimate speed-up for bakes and stews.
 - Total prep for the whole round should fit the household's time limit.
 - **Keep the daily routine dead simple.** One container per person and meal. No separate dressing

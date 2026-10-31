@@ -6,6 +6,7 @@
 // GET  /api/mailbox/<name>         mailbox file ({} if empty)
 // PUT  /api/mailbox/<name>         save mailbox file                   (PIN if configured)
 // GET  /api/kitchen                kitchen equipment inventory ({"items": []} if none)
+// GET  /api/deals/<round>          this week's leaflet for the round, with a verdict per offer
 // PUT  /api/kitchen                save the inventory                  (PIN if configured)
 // POST /api/run   {action, id}     start an action in the background    (PIN if configured)
 // POST /api/image {round, id}      try the next photo for a candidate   (PIN if configured)
@@ -17,7 +18,9 @@ import http from "node:http";
 import path from "node:path";
 import * as actions from "./actions.ts";
 import { REPO, type Household } from "./config.ts";
+import * as calc from "./calc.ts";
 import * as images from "./images.ts";
+import * as prices from "./prices.ts";
 import { cpSlice, dumps, pyRound, pyStr, readText, resolveLoose, truthy, type Obj } from "./py.ts";
 
 export const NAME = /^[a-z0-9-]{1,60}$/;
@@ -208,6 +211,13 @@ export function makeHandler(hh: Household, jobs: Jobs): http.RequestListener {
     if (p === "/api/index") return json(req, res, 200, { weeks: actions.ids(hh.paths.weeks), rounds: actions.ids(hh.paths.rounds) });
     if (p === "/api/status") return json(req, res, 200, jobs.get());
     if (p === "/api/kitchen") return json(req, res, 200, actions.read(hh.paths.kitchen, { items: [] }));
+    if (p.startsWith("/api/deals/")) {
+      const rid = p.slice("/api/deals/".length), r = NAME.test(rid) ? actions.read(path.join(hh.paths.rounds, `${rid}.json`)) : null;
+      if (!r) return json(req, res, 404, { error: "round not found" });
+      const mb = actions.read(path.join(hh.paths.mailbox, `${rid}.json`), {}) ?? {};
+      return void prices.deals_overview(hh, calc.load_ingredients(hh), r.einkauf_iso, mb.laeden?.length ? mb.laeden : r.einkauf_laeden ?? [])
+        .then((d) => json(req, res, 200, d), (e) => { console.error(e); json(req, res, 502, { error: "offers unavailable" }); });
+    }
     if (p.startsWith("/api/mailbox/")) {
       let f: string;
       try {

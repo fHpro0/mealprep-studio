@@ -17,6 +17,11 @@ export const WEEKDAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 
 const int = (v: any): number => Math.trunc(Number(v));
 
+// Default leaflet categories for idea finding. German on purpose: marktguru only covers DE/AT leaflets.
+export const BROWSE = ["Hähnchen", "Pute", "Hackfleisch", "Schwein", "Rind", "Lachs", "Fisch", "Garnelen", "Käse", "Feta",
+  "Mozzarella", "Halloumi", "Paprika", "Kürbis", "Brokkoli", "Blumenkohl", "Zucchini", "Aubergine", "Spitzkohl", "Lauch",
+  "Spinat", "Skyr", "Quark", "Eier"];
+
 export class Household {
   root: string;
   raw: Obj;
@@ -35,8 +40,9 @@ export class Household {
   get schedule(): Obj { return { days: 4, shopping_day: "sat", prep_day: "sun", first_day: "mon", ...this.raw.schedule }; }
   get budget(): number { return Number(this.raw.budget?.per_round ?? 50); }
   get currency(): string { return this.raw.budget?.currency ?? "€"; }
+  /** `offers.browse`: leaflet categories searched before every new round as idea input; [] turns it off. */
   get offers(): Obj {
-    return { enabled: false, provider: "marktguru", zip: "", retailers: [], markup: {}, second_store_min_saving: 3.0, ...this.raw.offers };
+    return { enabled: false, provider: "marktguru", zip: "", retailers: [], markup: {}, second_store_min_saving: 3.0, browse: BROWSE, ...this.raw.offers };
   }
   get agent(): Obj {
     return { command: "claude", model: "sonnet", effort: "", timeout_min: 8, candidates_per_meal: 4, ...this.raw.agent };

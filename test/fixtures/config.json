@@ -89,7 +89,33 @@
     "rewe": 1.15,
     "edeka": 1.15
    },
-   "second_store_min_saving": 3.0
+   "second_store_min_saving": 3.0,
+   "browse": [
+    "Hähnchen",
+    "Pute",
+    "Hackfleisch",
+    "Schwein",
+    "Rind",
+    "Lachs",
+    "Fisch",
+    "Garnelen",
+    "Käse",
+    "Feta",
+    "Mozzarella",
+    "Halloumi",
+    "Paprika",
+    "Kürbis",
+    "Brokkoli",
+    "Blumenkohl",
+    "Zucchini",
+    "Aubergine",
+    "Spitzkohl",
+    "Lauch",
+    "Spinat",
+    "Skyr",
+    "Quark",
+    "Eier"
+   ]
   },
   "agent": {
    "command": "claude",
@@ -936,7 +962,33 @@
     "rewe": 1.15,
     "edeka": 1.15
    },
-   "second_store_min_saving": 3.0
+   "second_store_min_saving": 3.0,
+   "browse": [
+    "Hähnchen",
+    "Pute",
+    "Hackfleisch",
+    "Schwein",
+    "Rind",
+    "Lachs",
+    "Fisch",
+    "Garnelen",
+    "Käse",
+    "Feta",
+    "Mozzarella",
+    "Halloumi",
+    "Paprika",
+    "Kürbis",
+    "Brokkoli",
+    "Blumenkohl",
+    "Zucchini",
+    "Aubergine",
+    "Spitzkohl",
+    "Lauch",
+    "Spinat",
+    "Skyr",
+    "Quark",
+    "Eier"
+   ]
   },
   "agent": {
    "command": "claude",
@@ -1798,7 +1850,8 @@
     "rewe": 1.15,
     "edeka": 1.2
    },
-   "second_store_min_saving": 0.5
+   "second_store_min_saving": 0.5,
+   "browse": []
   },
   "agent": {
    "command": "nonexistent-claude-xyz",

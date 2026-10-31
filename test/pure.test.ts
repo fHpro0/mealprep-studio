@@ -3,6 +3,7 @@ import test from "node:test";
 import { BOTS, kitchen_valid } from "../src/server.ts";
 import * as prices from "../src/prices.ts";
 import * as render from "../src/render.ts";
+import * as plate from "../src/plate.ts";
 import { Household } from "../src/config.ts";
 import { fixture, sameJson } from "./helpers.ts";
 
@@ -37,4 +38,31 @@ test("bot detection list", () => {
     assert.ok(BOTS.test(ua), ua);
   }
   for (const ua of ["", "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) Safari/604.1", "Mozilla/5.0 (X11; Linux x86_64) Firefox/126.0"]) assert.ok(!BOTS.test(ua), ua);
+});
+
+test("plate illustration: deterministic, model output cannot inject markup", () => {
+  const t = [{ name: "Sauce", farbe: "#c2412d", form: "sauce", anteil: 60 }, { name: "x", farbe: "red\"/><script>", form: "<g>", anteil: "9e9" }];
+  const svg = plate.render("dish-1", "Feta <b>&</b>", t);
+  assert.equal(svg, plate.render("dish-1", "Feta <b>&</b>", t));
+  assert.ok(svg.startsWith("<svg") && svg.includes("<title>Feta &lt;b&gt;&amp;&lt;/b&gt;</title>"));
+  assert.ok(!svg.includes("<script") && !svg.includes("red\""));
+  assert.deepStrictEqual(plate.clean(t)[1], { name: "x", farbe: "#b8a58a", form: "stuecke", anteil: 100 });
+  assert.deepStrictEqual(plate.clean("nope"), []);
+});
+
+test("offer verdict: compared with the household's normal price per kg, and the store's own 'instead of' price", () => {
+  const db = { hack: { name: "Hack gemischt", suche: "hackfleisch", muss: "hack", nicht: "vom hähnchen", eur_kg: 10, regulaer_eur_kg: 8 },
+    joghurt: { name: "Naturjoghurt", suche: "naturjoghurt", muss: "natur", eur_kg: 2 },
+    lauch: { name: "Lauch", suche: "lauch", eur_kg: 2.4 }, ruecken: { name: "Rücken", suche: "schweinerücken", eur_kg: 3.99, quelle: "schaetzung" }, note: "comment" };
+  const o = (produkt: string, grundpreis: number | null, extra = {}) => ({ produkt, marke: "", preis: 3, grundpreis, einheit: "kg", ...extra });
+  assert.deepStrictEqual(prices.verdict(db, o("Hackfleisch gemischt", 6)), { zutat: "Hack gemischt", normal_eur_kg: 8, vs_normal: -25, urteil: "echt" });
+  assert.equal(prices.verdict(db, o("Hackfleisch", 7.6)).urteil, "knapp");
+  assert.equal(prices.verdict(db, o("Hackfleisch", 8.5)).urteil, "schein");
+  assert.equal(prices.verdict(db, o("Hackfleisch vom Hähnchen", 5)).urteil, "unbekannt");
+  assert.equal(prices.verdict(db, o("Bio-Landhähnchen Flügel natur", 6)).urteil, "unbekannt", "loose pattern alone is no match");
+  assert.equal(prices.verdict(db, o("Knoblauch granuliert", 10)).urteil, "unbekannt", "word starts only");
+  assert.equal(prices.verdict(db, o("Lauch", 1.2)).urteil, "echt");
+  assert.equal(prices.verdict(db, o("Schweinerücken", 3.99)).urteil, "unbekannt", "an estimate is no normal price");
+  assert.equal(prices.verdict(db, o("Hackfleisch", 19)).urteil, "unbekannt", "far above normal: another product");
+  assert.deepStrictEqual(prices.verdict(db, o("Brie", null, { alter_preis: 4 })), { zutat: null, normal_eur_kg: null, laden_rabatt: 25, urteil: "laut_laden" });
 });

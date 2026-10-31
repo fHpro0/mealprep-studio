@@ -48,6 +48,7 @@ test("HTTP API: replay of the golden request script (static files, API, PIN, bot
   const root = tmpDir();
   copyDir(path.join(FX, "server-state"), root);
   const hh = config.load(root);
+  hh.raw.offers.browse = []; // the golden network traffic was recorded without the leaflet
   // claude blocks until the script opens the gate, so "busy" is deterministic
   let gateOpen = false;
   const waiters: (() => void)[] = [];

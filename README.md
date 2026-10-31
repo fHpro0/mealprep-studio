@@ -80,9 +80,15 @@ highlighted.
 Two people with different calorie targets share one cooking session. The main part of each dish is
 scaled so everybody hits their target, and the app tells you how many grams go into each box.
 
-**Supermarket comparison**<br>
-For Germany and Austria it compares Aldi, Lidl, Netto, Penny, Norma, Kaufland, Rewe, Edeka and
-others for your postcode. You get one recommended store, or two if the second one saves enough.
+**Cooks with this week's offers**<br>
+For Germany and Austria it reads the whole leaflet of Aldi, Lidl, Netto, Penny, Norma, Kaufland,
+Rewe, Edeka and others for your postcode, picks the two stores with the best deals (or the ones you
+choose) and builds every dish on an offer from them. You never need more than two stores.
+
+**Is the deal real?**<br>
+The *Offers* tab lists everything reduced this week. Each offer is checked against your own normal
+price per kg (from your ingredient list and receipts) and the store's "instead of" price, so fake
+deals are marked. Star offers to make Claude use them.
 
 **A prep timeline with timers**<br>
 One combined schedule for every dish, with oven steps in parallel and amounts written into each
@@ -98,6 +104,11 @@ ingredient in its title or ingredient list is dropped. "Without X" is still allo
 **Feedback that sticks**<br>
 Each person scores each dish from 1 to 10 and can tap quick tags (*too dry, not filling,
 great on day 4*). Claude turns this into ratings, blocked categories and rules in a Markdown log.
+
+**Pictures of the actual dish**<br>
+Every suggestion gets an isometric drawing of its plate right away. With a local image model
+(`[images] ai`, e.g. mflux on Apple Silicon) the drawing is replaced by a realistic food photo
+generated from Claude's description of the finished dish — offline, about 15 s per photo.
 
 **Plain files, no lock-in**<br>
 Profile, log, rounds and plans are Markdown and JSON in one folder you own. Each plan also comes
@@ -217,6 +228,11 @@ share = 0.58
 enabled = true                        # Germany / Austria
 zip = "10115"
 retailers = ["aldi-sued", "lidl", "netto-marken-discount", "kaufland", "rewe", "edeka"]
+max_stores = 2                        # shop at no more than this many stores per round
+# browse = ["Hähnchen", "Lachs", ...] # leaflet categories read before every round (German default list); [] = off
+
+[images]                              # optional: local AI photos instead of drawn plates
+ai = "/usr/bin/env HF_HUB_OFFLINE=1 mflux-generate-z-image-turbo --model mflux-community/z-image-turbo-mflux-q4 --steps 8 --width 960 --height 600"
 
 [agent]
 model = "sonnet"                      # "opus" is slower and more careful
@@ -241,6 +257,7 @@ in the app.
 | Action | Typical time |
 |---|---|
 | New round (8 ideas, offers, prices, photos) | ~1 min |
+| Local AI photos (optional, after the round is shown) | ~15 s per dish |
 | Revise a round (keeps liked dishes, replaces the rest) | ~30 s |
 | Full week plan (recipes, shopping list, timeline) | ~1–1.5 min |
 | Take in the week's feedback | ~10 s |
@@ -259,7 +276,7 @@ loading.
   `403`. It still has no user accounts, so don't put it on the open internet without a reverse
   proxy that handles authentication.
 - **What leaves your machine:** your profile and feedback go to Claude as part of the prompt. Offer
-  searches go to marktguru and photo searches go to Wikimedia Commons.
+  searches go to marktguru and photo searches go to Wikimedia Commons. Local AI photos never leave it.
 - **Supermarket offers** come from marktguru.de's public web API, which isn't officially documented.
   It may change or break, and you're responsible for using it in line with marktguru's terms.
   Turn it off with `[offers] enabled = false`; planning then uses estimated prices.

@@ -36,7 +36,8 @@ export const ROUND_SCHEMA = {
             "type": "string"
           },
           "untertitel": {
-            "type": "string"
+            "type": "string",
+            "description": "hook in at most 6 words"
           },
           "tags": {
             "type": "array",
@@ -49,10 +50,12 @@ export const ROUND_SCHEMA = {
             "description": "active prep minutes for this dish"
           },
           "pitch": {
-            "type": "string"
+            "type": "string",
+            "description": "2–3 appetising sentences like a meal-kit menu card: what is on the plate and how it tastes and feels (crispy, creamy, smoky …). No cooking steps"
           },
           "warum": {
-            "type": "string"
+            "type": "string",
+            "description": "1–2 sentences: why it fits this household (feedback, rules, offers)"
           },
           "risiko": {
             "type": "string"
@@ -64,6 +67,50 @@ export const ROUND_SCHEMA = {
           "bild_suche": {
             "type": "string",
             "description": "short English Wikimedia Commons query for a photo"
+          },
+          "bild_prompt": {
+            "type": "string",
+            "description": "always for a new or changed dish: English photo description of ONE serving exactly as served, 40–80 words. Every visible ingredient with its cooked look (browned, seared, glazed, melted, crispy), cut size, sauce colour and thickness, cheese, toppings, garnish and how it sits on the plate. Only what the recipe really contains; no brands, no text"
+          },
+          "teller": {
+            "type": "array",
+            "description": "always for a new or changed dish: ONE serving as it looks on the plate, drawn as an isometric illustration. 2–6 visible components, biggest first; sauce and cheese crust lie under/over the rest",
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "farbe",
+                "form",
+                "anteil"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "farbe": {
+                  "type": "string",
+                  "description": "colour as cooked, #rrggbb"
+                },
+                "form": {
+                  "type": "string",
+                  "enum": [
+                    "sauce",
+                    "kruste",
+                    "haufen",
+                    "stuecke",
+                    "streifen",
+                    "kugeln",
+                    "scheiben",
+                    "klecks",
+                    "streusel"
+                  ]
+                },
+                "anteil": {
+                  "type": "number",
+                  "description": "share of the plate in percent"
+                }
+              }
+            }
           },
           "rechnung": {
             "type": "object",

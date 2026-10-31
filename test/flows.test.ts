@@ -6,6 +6,8 @@ import fs from "node:fs";
 import path from "node:path";
 import test from "node:test";
 import * as actions from "../src/actions.ts";
+import * as prices from "../src/prices.ts";
+import { RETAILERS } from "../src/offers.ts";
 import { cmd_calc, cmd_check, cmd_init } from "../src/commands.ts";
 import * as config from "../src/config.ts";
 import { dumps } from "../src/py.ts";
@@ -81,6 +83,23 @@ test("English household: new round → revise → plan (twice, backups) → feed
   // a plan without one chosen dish per meal is refused with the same text
   fs.writeFileSync(path.join(hh.paths.mailbox, "2026-10-19.json"), JSON.stringify({ auswahl: { lunch: "lunch-chicken-bowl" } }));
   await assert.rejects(actions.plan(hh, "2026-10-19", () => {}), { message: fixture("flows").en_plan_error[1] });
+
+  // fresh ideas for an open round: same dates, old dishes listed as "do not repeat", picks reset, old round backed up
+  await assert.rejects(actions.new_round(hh, "2026-10-19", () => {}), /already planned/);
+  const open = actions.ids(hh.paths.rounds).at(-1)!, p = path.join(hh.paths.rounds, `${open}.json`), before = actions.read(p);
+  fs.writeFileSync(path.join(hh.paths.mailbox, `${open}.json`), JSON.stringify({ auswahl: { lunch: "x" }, reaktionen: { x: { daumen: 1 } }, wuensche: ["w"] }));
+  const reply = fixture("flows").en.find((s: any) => s.name === "neue_runde_2").replies;
+  const net = installFakeNet(fixture("net")), fake = installFakeClaude(reply.map((r: unknown) => JSON.stringify(r)));
+  try {
+    await actions.new_round(hh, open, () => {});
+    while (actions.BACKGROUND.size) await Promise.all([...actions.BACKGROUND]);
+    assert.ok(fake.calls[0].args[2].includes("# Dishes suggested in the last rounds\n- 2026-10-19 · lunch: Chicken rice bowl\n"));
+  } finally { fake.restore(); net.restore(); }
+  const after = actions.read(p);
+  assert.equal(after.id, open);
+  assert.equal(after.zeitraum, before.zeitraum);
+  assert.deepStrictEqual(actions.read(path.join(hh.paths.mailbox, `${open}.json`)), { wuensche: ["w"] });
+  assert.ok(fs.readdirSync(path.join(hh.paths.jobs, "backups")).some((f) => f.startsWith(open + ".")));
 });
 
 test("German household with offers, three persons, freezer, custom folders: round → plan → calc", async () => {
@@ -110,4 +129,72 @@ test("check: same report and exit code", async () => {
       assertNet(net.take(), g[name].net, name + " net");
     }
   } finally { process.env.PATH = oldPath; net.restore(); }
+});
+
+test("leaflet for idea finding: best 2 stores only, deduplicated, excluded words dropped, cached", async () => {
+  fixClock();
+  const root = tmpDir();
+  copyDir(path.join(FX, "household-custom"), root);
+  const hh = config.load(root);
+  const day = actions.round_dates(hh).einkauf_iso;
+  delete hh.raw.offers.browse;
+  assert.deepStrictEqual(hh.offers.browse, config.BROWSE, "on by default");
+  hh.raw.offers.browse = ["hähnchenbrust", "hackfleisch gemischt", "hähnchen hack"];
+  // the leaflet asks for 100 hits; reuse the recorded 40-hit answers
+  const recorded = fixture("net");
+  const net = installFakeNet({ ...recorded, ...Object.fromEntries(Object.entries(recorded).map(([u, v]) => [u.replace("&limit=40&", "&limit=100&"), v])) });
+  try {
+    const { text, stores } = await prices.browse_digest(hh, day);
+    assert.equal(stores.length, 2);
+    assert.match(text, /^## hähnchenbrust\n- .+ · .+ · \d+\.\d\d €/);
+    const lines = text.split("\n").filter((l) => l.startsWith("- "));
+    const names = stores.map((id) => RETAILERS[id].toLowerCase());
+    assert.ok(lines.length > 0 && lines.every((l) => names.some((n) => l.toLowerCase().split(" · ")[1].includes(n))), "only offers of the chosen stores");
+    assert.equal(new Set(lines).size, lines.length);
+    assert.ok(!/nuss/i.test(text));
+    net.take();
+    assert.deepStrictEqual(await prices.browse_digest(hh, day), { text, stores });
+    assert.deepStrictEqual(net.take().requests, []);
+    // a revision keeps the round's stores
+    const other = (await prices.browse_digest(hh, day, ["lidl"]));
+    assert.deepStrictEqual(other.stores, ["lidl"]);
+    assert.ok(other.text.split("\n").filter((l) => l.startsWith("- ")).every((l) => / · lidl/i.test(l)));
+  } finally { net.restore(); }
+  hh.raw.offers.browse = [];
+  assert.deepStrictEqual(await prices.browse_digest(hh, day), { text: "", stores: [] });
+});
+
+test("store choice: the pair that covers the most categories near the best price", () => {
+  const o = (id: string, g: number) => ({ laden_id: id, grundpreis: g, einheit: "kg" });
+  const found = { a: [o("x", 5), o("y", 9), o("z", 5.5)], b: [o("y", 4), o("x", 8), o("z", 4.2)], c: [o("x", 3), o("z", 9)] };
+  assert.deepStrictEqual(prices.pick_stores(found, 2), ["x", "y"]);
+  assert.deepStrictEqual(prices.pick_stores(found, 1), ["x"]); // x and z tie, first wins
+  assert.deepStrictEqual(prices.pick_stores({}, 2), []);
+});
+
+test("local AI photos replace drawn plates, one per dish with a photo description", async () => {
+  const root = path.join(tmpDir(), "k");
+  await captured(() => cmd_init([root, "--lang", "en"]));
+  const hh = config.load(root);
+  const bin = tmpDir(), log = path.join(bin, "args.txt");
+  // fake generator: records its arguments and writes the file given after --output
+  fs.writeFileSync(path.join(bin, "gen"), `#!/bin/sh\nprintf '%s\\n' "$@" >> ${log}\nwhile [ $# -gt 0 ]; do [ "$1" = --output ] && printf png > "$2"; shift; done\n`, { mode: 0o755 });
+  hh.raw.images = { ai: `${path.join(bin, "gen")} --steps 8` };
+  const p = path.join(hh.paths.rounds, "2026-11-02.json");
+  fs.mkdirSync(hh.paths.rounds, { recursive: true });
+  fs.writeFileSync(p, JSON.stringify({ kandidaten: [
+    { id: "chili", slot: "dinner", bild: "img/kandidaten/chili.svg?v=1", bild_prompt: "chili with a bubbly cheese crust" },
+    { id: "plain", slot: "lunch", bild: "img/kandidaten/plain.svg?v=1" },
+    { id: "../evil", slot: "lunch", bild: "img/kandidaten/x.svg", bild_prompt: "x" },
+  ] }));
+  let changes = 0;
+  await actions.fetch_images_async(hh, p, () => changes++);
+  const k = actions.read(p).kandidaten;
+  assert.match(k[0].bild, /^img\/kandidaten\/chili\.png\?v=[0-9a-f]{8}$/);
+  assert.equal(k[1].bild, "img/kandidaten/plain.svg?v=1");
+  assert.equal(k[2].bild, "img/kandidaten/x.svg");
+  assert.equal(changes, 1);
+  const args = fs.readFileSync(log, "utf-8");
+  assert.match(args, /^--steps\n8\n--seed\n\d+\n--output\n/);
+  assert.match(args, /food photograph.*steam rising\. chili with a bubbly cheese crust/);
 });
