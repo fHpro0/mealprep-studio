@@ -88,7 +88,8 @@ choose) and builds every dish on an offer from them. You never need more than tw
 **Is the deal real?**<br>
 The *Offers* tab lists everything reduced this week. Each offer is checked against your own normal
 price per kg (from your ingredient list and receipts) and the store's "instead of" price, so fake
-deals are marked. Star offers to make Claude use them.
+deals are marked. Star offers to make Claude use them. The shopping list names a substitute from the
+same store for every main ingredient, in case it is sold out.
 
 **A prep timeline with timers**<br>
 One combined schedule for every dish, with oven steps in parallel and amounts written into each

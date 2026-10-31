@@ -564,7 +564,7 @@ function shopView() {
   const groups = W.einkauf.map(g => `<div class="panel"><h3>${esc(g.bereich)}</h3>${g.items.map((it, i) => {
     const id = `e-${g.bereich}-${i}`, s = it.anz * it.preis; total += s; if (!done[id]) open += s;
     return `<div class="row ${done[id] ? 'done' : ''}"><input type="checkbox" id="${esc(id)}" data-k="shop" ${done[id] ? 'checked' : ''}>
-      <label for="${esc(id)}">${it.anz > 1 ? `<b>${it.anz} ×</b> ` : ''}${esc(it.name)}${it.a ? '<span class="badge">%</span>' : ''}${it.laden ? ` <span class="est">· ${esc(it.laden)}</span>` : ''}</label>
+      <label for="${esc(id)}">${it.anz > 1 ? `<b>${it.anz} ×</b> ` : ''}${esc(it.name)}${it.a ? '<span class="badge">%</span>' : ''}${it.laden ? ` <span class="est">· ${esc(it.laden)}</span>` : ''}${it.ersatz ? `<small class="alt">↳ ${T.instead}: <b>${esc(it.ersatz)}</b>${it.ersatz_aenderung ? ` · ${esc(it.ersatz_aenderung)}` : ''}</small>` : ''}</label>
       <span class="price">${it.a ? '' : '<span class="est">~</span>'}${money(s)}</span></div>`;
   }).join('')}</div>`).join('');
   return `<h2>${T.shop_list}</h2>

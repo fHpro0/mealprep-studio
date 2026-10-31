@@ -704,6 +704,32 @@
       }
      }
     },
+    "ersatz": {
+     "type": "array",
+     "description": "if a main ingredient is sold out: what to buy instead in the same store",
+     "items": {
+      "type": "object",
+      "required": [
+       "zutat",
+       "kaufen",
+       "aenderung"
+      ],
+      "properties": {
+       "zutat": {
+        "type": "string",
+        "description": "ingredient key from mengen_gesamt_g"
+       },
+       "kaufen": {
+        "type": "string",
+        "description": "the substitute with amount, e.g. \"1,4 kg Putenhack\""
+       },
+       "aenderung": {
+        "type": "string",
+        "description": "what changes when cooking, one short sentence"
+       }
+      }
+     }
+    },
     "zusatz_einkauf": {
      "type": "array",
      "description": "small items the recipes need that are neither in the calculated shopping list nor in the pantry file (vinegar, fresh herbs …). Never list what the pantry file already has.",

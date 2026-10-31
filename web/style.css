@@ -372,3 +372,5 @@ details.box[open] summary{margin-bottom:8px}
 .verdict.meh{background:#fbf0d9;color:#8a5a0a}
 .verdict.bad{background:#fbe3dc;color:#a3321a}
 .wishes.filters{margin-top:8px}
+.row label .alt{display:block;margin-top:3px;font-size:12.5px;color:var(--muted)}
+.row label .alt b{color:var(--ink);font-weight:600}

@@ -356,6 +356,9 @@ portions and its own steps. Never repeat it inside each recipe's \`zutaten\`.
 \`prep\`: one combined timeline for everything, offsets from 0:00, about 10–16 steps. Each step is ONE action:
 \`titel\` 2–4 words ("Bällchen formen"), \`text\` at most ~20 words incl. the amounts (produce in grams, as above), \`gericht\` = the recipe or
 extra id. Timers in minutes, at most 3 steps \`wichtig\`. Order: start the meat that cooks on its own first (oven or covered pot); while it cooks, do ALL the cutting for every dish as \`neben\` steps; then finish one dish completely before starting the next. \`neben\` is only for hands-off time (oven, covered simmering) — never two active hob, stirring or mixing steps at once.
+\`ersatz\`: for every main ingredient (meat, fish, cheese, the main vegetable) the substitute to buy if it is sold out:
+in the same store${r.einkauf_laeden?.length ? ` (${r.einkauf_laeden.map((id: string) => RETAILERS[id] ?? id).join(" or ")})` : ""}, same amount, similar macros and price, ready-to-cook, nothing excluded
+or blocked; \`aenderung\` says what changes when cooking ("Pute 2 Min kürzer braten"), or "nichts".
 \`zusatz_einkauf\`: everything the recipes need that is neither in the calculated shopping list nor in the pantry
 file (vinegar, fresh herbs …), with a rough price; \`menge\` follows the produce rule too ("200 g Basilikum"). \`vorrat\`: only items the pantry file lists.
 Also: \`geraete\` = equipment incl. containers, ONLY items from the kitchen equipment list (plus the household's own
@@ -402,6 +405,7 @@ export function build_week(hh: Household, db: Obj, r: Obj, chosen: Obj[], res: O
   const storePlan = prices.plan_stores(pr, [...items.values()], hh.offers.second_store_min_saving);
   const names = hh.language === "de" ? AISLES : AISLES_EN;
   const groups = new Map<string, Obj[]>();
+  const alt: Obj = Object.fromEntries((Array.isArray(res.ersatz) ? res.ersatz : []).map((e: Obj) => [e.zutat, e]));
   for (const row of storePlan.rows as Obj[]) {
     const a = db[row.zutat]?.aisle || row.aisle || "other";
     const sg = db[row.zutat]?.stueck_g;
@@ -412,6 +416,7 @@ export function build_week(hh: Household, db: Obj, r: Obj, chosen: Obj[], res: O
       name: `${row.name} (${fmtThousands(row.g)} g)`.replaceAll(",", hh.language === "de" ? "." : ",") + pcs, anz: row.packungen,
       preis: pyRound(row.eur / row.packungen, 2), a: truthy(row.angebot),
       laden: pr ? pr.laeden?.[row.laden_plan] ?? "" : row.laden ?? "",
+      ...(alt[row.zutat]?.kaufen ? { ersatz: String(alt[row.zutat].kaufen), ersatz_aenderung: String(alt[row.zutat].aenderung ?? "") } : {}),
     });
   }
   const byId: Obj = Object.fromEntries(need(res, "rezepte").map((x: Obj) => [x.id, x]));

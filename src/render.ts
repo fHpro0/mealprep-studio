@@ -8,7 +8,7 @@ const T: Record<string, Record<string, string>> = {
     plate: "Täglich anrichten", portion: "Portion", list: "Einkaufsliste", sum: "Summe", budget: "Budget",
     pantry: "Vorher im Schrank nachsehen", dont: "Nicht kaufen", need: "Was benötigt wird",
     steps: "Ablauf am Prep-Tag", store: "Lagerung", why: "Warum dieser Plan", fb: "Feedback-Fragen",
-    for: "für alle", portions: "Portionen", offer: "Angebot", est: "~",
+    for: "für alle", portions: "Portionen", offer: "Angebot", est: "~", instead: "falls nicht da",
     daily: "Vorbereiten & täglich zusammenbauen", assemble: "zusammenbauen", min: "Min",
     how: "So geht's",
   },
@@ -17,7 +17,7 @@ const T: Record<string, Record<string, string>> = {
     plate: "Plate it daily", portion: "Portion", list: "Shopping list", sum: "Total", budget: "Budget",
     pantry: "Check the pantry first", dont: "Don't buy", need: "What you need",
     steps: "Prep-day timeline", store: "Storage", why: "Why this plan", fb: "Feedback questions",
-    for: "for all", portions: "portions", offer: "offer", est: "~",
+    for: "for all", portions: "portions", offer: "offer", est: "~", instead: "if sold out",
     daily: "Prepare & assemble daily", assemble: "assemble", min: "min",
     how: "How to cook",
   },
@@ -63,8 +63,9 @@ export function week_markdown(hh: Household, w: Obj): string {
   for (const g of w.einkauf) {
     out.push(`### ${g.bereich}`, "", "| | Artikel | Preis | |", "|---|---|---|---|");
     for (const it of g.items) {
-      out.push(`| ${it.anz} × | ${it.name}${truthy(it.laden) ? " · " + it.laden : ""} | `
-        + `${fmtFixed(it.anz * it.preis, 2)} ${cur} | ${truthy(it.a) ? t.offer : t.est} |`);
+      out.push(`| ${it.anz} × | ${it.name}${truthy(it.laden) ? " · " + it.laden : ""}`
+        + (truthy(it.ersatz) ? `<br>↳ ${t.instead}: ${it.ersatz}${truthy(it.ersatz_aenderung) ? ` (${it.ersatz_aenderung})` : ""}` : "")
+        + ` | ${fmtFixed(it.anz * it.preis, 2)} ${cur} | ${truthy(it.a) ? t.offer : t.est} |`);
     }
     out.push("");
   }

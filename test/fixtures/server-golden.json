@@ -39,7 +39,7 @@
    "status": 200,
    "headers": {
     "content-type": "text/javascript",
-    "content-length": "53955",
+    "content-length": "54109",
     "cache-control": "no-store",
     "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
     "referrer-policy": "no-referrer",
@@ -47,8 +47,8 @@
     "x-frame-options": "DENY"
    },
    "body": {
-    "sha256": "11e9388debc369af2246300b8a0e47eafed3ea573cd05c97a6cd4cfaaa74d1e9",
-    "size": 53955
+    "sha256": "b232812a96644205c741e9b5abd6ecd451082b6c065bb2649713cc00268045a7",
+    "size": 54109
    }
   },
   {
@@ -56,7 +56,7 @@
    "status": 200,
    "headers": {
     "content-type": "text/css",
-    "content-length": "27723",
+    "content-length": "27857",
     "cache-control": "no-store",
     "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
     "referrer-policy": "no-referrer",
@@ -64,8 +64,8 @@
     "x-frame-options": "DENY"
    },
    "body": {
-    "sha256": "fce18f7601666d181c29a2b418f21a64109a94f9b05d2f5f3f6fa2af024c2611",
-    "size": 27723
+    "sha256": "feaf8225646a74401141e6d99c864059768327e88694107ac9baee5af250a3ac",
+    "size": 27857
    }
   },
   {
@@ -89,7 +89,7 @@
    "status": 200,
    "headers": {
     "content-type": "text/javascript",
-    "content-length": "16183",
+    "content-length": "16234",
     "cache-control": "no-store",
     "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
     "referrer-policy": "no-referrer",
@@ -97,8 +97,8 @@
     "x-frame-options": "DENY"
    },
    "body": {
-    "sha256": "96970b3889995ebc9cf951e731d98621ddfed9e3a9609ae0c62d035146a9b5ef",
-    "size": 16183
+    "sha256": "75ab4fb182119e91421c74096206d87b3c33add3d07ae36abf97d16941feb59d",
+    "size": 16234
    }
   },
   {
@@ -1325,7 +1325,7 @@
    "status": 200,
    "headers": {
     "content-type": "text/javascript",
-    "content-length": "53955",
+    "content-length": "54109",
     "cache-control": "no-store",
     "x-robots-tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate",
     "referrer-policy": "no-referrer",

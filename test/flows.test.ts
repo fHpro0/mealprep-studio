@@ -198,3 +198,16 @@ test("local AI photos replace drawn plates, one per dish with a photo descriptio
   assert.match(args, /^--steps\n8\n--seed\n\d+\n--output\n/);
   assert.match(args, /food photograph.*steam rising\. chili with a bubbly cheese crust/);
 });
+
+test("shopping list: a substitute for a sold-out main ingredient sits on its row", async () => {
+  const root = path.join(tmpDir(), "k");
+  await captured(() => cmd_init([root, "--lang", "en"]));
+  const hh = config.load(root);
+  const row = (zutat: string) => ({ zutat, name: zutat, g: 1400, pack_g: 1000, eur_kg: 6, laden: "", aisle: "chilled" });
+  const chosen = [{ id: "a", titel: "A", berechnet: { einkaufsliste: [row("chicken_mince"), row("cheese")], anteil: {} }, makros: {} }];
+  const res = { titel: "T", rezepte: [], prep: [], geraete: [], warum: [], feedback: [], ersatz: [{ zutat: "chicken_mince", kaufen: "1.4 kg turkey mince", aenderung: "nothing" }] };
+  const week = actions.build_week(hh, {}, { id: "2026-11-02", zeitraum: "", einkaufstag: "", preptag: "" }, chosen, res);
+  const items = week.einkauf.flatMap((g: any) => g.items);
+  assert.equal(items.find((i: any) => i.name.startsWith("chicken_mince")).ersatz, "1.4 kg turkey mince");
+  assert.equal(items.find((i: any) => i.name.startsWith("cheese")).ersatz, undefined);
+});

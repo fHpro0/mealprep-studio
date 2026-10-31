@@ -1,7 +1,7 @@
 // UI strings. Add a language by copying one block; household.toml `language` picks it.
 const I18N = {
   de: {
-    tab_pick: 'Auswahl', tab_pick_done: 'Auswahl ✓', tab_deals: 'Angebote',
+    tab_pick: 'Auswahl', tab_pick_done: 'Auswahl ✓', tab_deals: 'Angebote', instead: 'Falls nicht da',
     deals_head: 'Was ist reduziert?', deals_sub: (d, z) => `Alle Angebote der Woche (Stand ${d}, PLZ ${z}). ✓ heißt: billiger als euer normaler Preis.`,
     deals_loading: 'Prospekte werden geladen …', our_stores: 'Unsere Läden', max_stores: n => `höchstens ${n} wählen`,
     only_ours: 'Nur unsere Läden', only_real: 'Nur echte Angebote', vs_normal: 'vs. euer Normalpreis', normal: 'normal',
@@ -66,7 +66,7 @@ const I18N = {
     k_save: 'Speichern', k_empty: 'Noch nichts eingetragen. Ohne Liste geht Claude von einer normalen Küche aus.', k_saved: '✓ gespeichert', k_name_req: 'Jedes Gerät braucht einen Namen.', k_load_fail: 'Inventar konnte nicht geladen werden.'
   },
   en: {
-    tab_pick: 'Choose', tab_pick_done: 'Choose ✓', tab_deals: 'Offers',
+    tab_pick: 'Choose', tab_pick_done: 'Choose ✓', tab_deals: 'Offers', instead: 'If sold out',
     deals_head: 'What is on offer?', deals_sub: (d, z) => `All offers this week (as of ${d}, postcode ${z}). ✓ means: cheaper than your normal price.`,
     deals_loading: 'Loading leaflets …', our_stores: 'Our stores', max_stores: n => `pick at most ${n}`,
     only_ours: 'Only our stores', only_real: 'Only real deals', vs_normal: 'vs. your normal price', normal: 'normally',
