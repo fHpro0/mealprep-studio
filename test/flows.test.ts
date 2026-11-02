@@ -6,6 +6,8 @@ import fs from "node:fs";
 import path from "node:path";
 import test from "node:test";
 import * as actions from "../src/actions.ts";
+import * as prices from "../src/prices.ts";
+import { RETAILERS } from "../src/offers.ts";
 import { cmd_calc, cmd_check, cmd_init } from "../src/commands.ts";
 import * as config from "../src/config.ts";
 import { dumps } from "../src/py.ts";
@@ -81,6 +83,24 @@ test("English household: new round → revise → plan (twice, backups) → feed
   // a plan without one chosen dish per meal is refused with the same text
   fs.writeFileSync(path.join(hh.paths.mailbox, "2026-10-19.json"), JSON.stringify({ auswahl: { lunch: "lunch-chicken-bowl" } }));
   await assert.rejects(actions.plan(hh, "2026-10-19", () => {}), { message: fixture("flows").en_plan_error[1] });
+
+  // fresh ideas for an open round: same dates, old dishes listed as "do not repeat", picks reset, old round backed up
+  await assert.rejects(actions.new_round(hh, "2026-10-19", () => {}), /already planned/);
+  const open = actions.ids(hh.paths.rounds).at(-1)!, p = path.join(hh.paths.rounds, `${open}.json`), before = actions.read(p);
+  fs.writeFileSync(path.join(hh.paths.mailbox, `${open}.json`), JSON.stringify({ auswahl: { lunch: "x" }, reaktionen: { x: { daumen: 1 } }, wuensche: ["w"] }));
+  const reply = fixture("flows").en.find((s: any) => s.name === "neue_runde_2").replies;
+  const net = installFakeNet(fixture("net")), fake = installFakeClaude(reply.map((r: unknown) => JSON.stringify(r)));
+  try {
+    await actions.new_round(hh, open, () => {});
+    while (actions.BACKGROUND.size) await Promise.all([...actions.BACKGROUND]);
+    assert.ok(fake.calls[0].args[2].includes("# Dishes suggested in the last rounds\n- 2026-10-19 · lunch: Chicken rice bowl\n"));
+    assert.ok(fake.calls[0].args[2].includes('# The household\'s wishes and messages on the site (apply them to every new dish)\n{"wuensche": ["w"]'), "site wishes count");
+  } finally { fake.restore(); net.restore(); }
+  const after = actions.read(p);
+  assert.equal(after.id, open);
+  assert.equal(after.zeitraum, before.zeitraum);
+  assert.deepStrictEqual(actions.read(path.join(hh.paths.mailbox, `${open}.json`)), { wuensche: ["w"] });
+  assert.ok(fs.readdirSync(path.join(hh.paths.jobs, "backups")).some((f) => f.startsWith(open + ".")));
 });
 
 test("German household with offers, three persons, freezer, custom folders: round → plan → calc", async () => {
@@ -110,4 +130,177 @@ test("check: same report and exit code", async () => {
       assertNet(net.take(), g[name].net, name + " net");
     }
   } finally { process.env.PATH = oldPath; net.restore(); }
+});
+
+test("leaflet for idea finding: best 2 stores only, deduplicated, excluded words dropped, cached", async () => {
+  fixClock();
+  const root = tmpDir();
+  copyDir(path.join(FX, "household-custom"), root);
+  const hh = config.load(root);
+  const day = actions.round_dates(hh).einkauf_iso;
+  delete hh.raw.offers.browse;
+  assert.deepStrictEqual(hh.offers.browse, config.BROWSE, "on by default");
+  hh.raw.offers.browse = ["hähnchenbrust", "hackfleisch gemischt", "hähnchen hack"];
+  // the leaflet asks for 100 hits; reuse the recorded 40-hit answers
+  const recorded = fixture("net");
+  const net = installFakeNet({ ...recorded, ...Object.fromEntries(Object.entries(recorded).map(([u, v]) => [u.replace("&limit=40&", "&limit=100&"), v])) });
+  try {
+    const { text, stores } = await prices.browse_digest(hh, day);
+    assert.equal(stores.length, 2);
+    assert.match(text, /^## hähnchenbrust\n- .+ · .+ · \d+\.\d\d €/);
+    const lines = text.split("\n").filter((l) => l.startsWith("- "));
+    const names = stores.map((id) => RETAILERS[id].toLowerCase());
+    assert.ok(lines.length > 0 && lines.every((l) => names.some((n) => l.toLowerCase().split(" · ")[1].includes(n))), "only offers of the chosen stores");
+    assert.equal(new Set(lines).size, lines.length);
+    assert.ok(!/nuss/i.test(text));
+    net.take();
+    assert.deepStrictEqual(await prices.browse_digest(hh, day), { text, stores });
+    assert.deepStrictEqual(net.take().requests, []);
+    // a revision keeps the round's stores
+    const other = (await prices.browse_digest(hh, day, ["lidl"]));
+    assert.deepStrictEqual(other.stores, ["lidl"]);
+    assert.ok(other.text.split("\n").filter((l) => l.startsWith("- ")).every((l) => / · lidl/i.test(l)));
+  } finally { net.restore(); }
+  hh.raw.offers.browse = [];
+  assert.deepStrictEqual(await prices.browse_digest(hh, day), { text: "", stores: [] });
+});
+
+test("store choice: the pair that covers the most categories near the best price", () => {
+  const o = (id: string, g: number) => ({ laden_id: id, grundpreis: g, einheit: "kg" });
+  const found = { a: [o("x", 5), o("y", 9), o("z", 5.5)], b: [o("y", 4), o("x", 8), o("z", 4.2)], c: [o("x", 3), o("z", 9)] };
+  assert.deepStrictEqual(prices.pick_stores(found, 2), ["x", "y"]);
+  assert.deepStrictEqual(prices.pick_stores(found, 1), ["x"]); // x and z tie, first wins
+  assert.deepStrictEqual(prices.pick_stores({}, 2), []);
+});
+
+test("local AI photos: painted for new or changed dishes only, another take on demand", async () => {
+  const root = path.join(tmpDir(), "k");
+  await captured(() => cmd_init([root, "--lang", "en"]));
+  const hh = config.load(root);
+  const bin = tmpDir(), log = path.join(bin, "args.txt");
+  // fake generator: records its arguments and writes the file given after --output
+  fs.writeFileSync(path.join(bin, "gen"), `#!/bin/sh\nprintf '%s\\n' "$@" >> ${log}\nwhile [ $# -gt 0 ]; do [ "$1" = --output ] && printf png > "$2"; shift; done\n`, { mode: 0o755 });
+  hh.raw.images = { ai: `${path.join(bin, "gen")} --steps 8` };
+  const p = path.join(hh.paths.rounds, "2026-11-02.json");
+  fs.mkdirSync(hh.paths.rounds, { recursive: true });
+  fs.writeFileSync(p, JSON.stringify({ kandidaten: [
+    { id: "chili", slot: "dinner", bild: "img/kandidaten/chili.svg?v=1", bild_prompt: "chili with a bubbly cheese crust" },
+    { id: "plain", slot: "lunch", bild: "img/kandidaten/plain.svg?v=1" },
+    { id: "../evil", slot: "lunch", bild: "img/kandidaten/x.svg", bild_prompt: "x" },
+  ] }));
+  let changes = 0;
+  await actions.fetch_images_async(hh, p, () => changes++);
+  const k = actions.read(p).kandidaten;
+  assert.match(k[0].bild, /^img\/kandidaten\/chili\.png\?v=[0-9a-f]{8}$/);
+  assert.equal(k[1].bild, "img/kandidaten/plain.svg?v=1");
+  assert.equal(k[2].bild, "img/kandidaten/x.svg");
+  assert.equal(changes, 1);
+  const args = fs.readFileSync(log, "utf-8");
+  assert.match(args, /^--steps\n8\n--seed\n\d+\n--output\n/);
+  assert.match(args, /food photograph.*steam rising\. chili with a bubbly cheese crust/);
+  assert.equal(k[0].bild_fuer, "chili with a bubbly cheese crust");
+  // unchanged description: no new photo; changed description: painted anew
+  await actions.fetch_images_async(hh, p, () => changes++);
+  assert.equal(changes, 1);
+  const r = actions.read(p);
+  r.kandidaten[0].bild_prompt = "chili with sour cream";
+  fs.writeFileSync(p, JSON.stringify(r));
+  await actions.fetch_images_async(hh, p, () => changes++);
+  assert.equal(changes, 2);
+  assert.equal(actions.read(p).kandidaten[0].bild_fuer, "chili with sour cream");
+  // "another photo": a different seed
+  const seeds = () => [...fs.readFileSync(log, "utf-8").matchAll(/--seed\n(\d+)/g)].map((m) => Number(m[1]));
+  assert.ok(await actions.ai_photo(hh, actions.read(p).kandidaten[0], 1));
+  assert.equal(seeds().at(-1), seeds()[0] + 1);
+});
+
+test("shopping list: a substitute for a sold-out main ingredient sits on its row", async () => {
+  const root = path.join(tmpDir(), "k");
+  await captured(() => cmd_init([root, "--lang", "en"]));
+  const hh = config.load(root);
+  const row = (zutat: string) => ({ zutat, name: zutat, g: 1400, pack_g: 1000, eur_kg: 6, laden: "", aisle: "chilled" });
+  const chosen = [{ id: "a", titel: "A", berechnet: { einkaufsliste: [row("chicken_mince"), row("cheese")], anteil: {} }, makros: {} }];
+  const res = { titel: "T", rezepte: [], prep: [], geraete: [], warum: [], feedback: [], ersatz: [{ zutat: "chicken_mince", kaufen: "1.4 kg turkey mince", aenderung: "nothing" }] };
+  const week = actions.build_week(hh, {}, { id: "2026-11-02", zeitraum: "", einkaufstag: "", preptag: "" }, chosen, res);
+  const items = week.einkauf.flatMap((g: any) => g.items);
+  assert.equal(items.find((i: any) => i.name.startsWith("chicken_mince")).ersatz, "1.4 kg turkey mince");
+  assert.equal(items.find((i: any) => i.name.startsWith("cheese")).ersatz, undefined);
+});
+
+test("shopping list: sensible packs (no 15 eggs for 2, 3 % short of the need is fine), a fitting offer pack is bought", async () => {
+  const root = path.join(tmpDir(), "k");
+  await captured(() => cmd_init([root, "--lang", "en"]));
+  const hh = config.load(root);
+  const offer = (preis: number, eur_kg: number) => ({ regulaer_eur_kg: 9, angebote: { s: { laden: "S", produkt: "x", preis, eur_kg } } });
+  fs.writeFileSync(path.join(hh.paths.rounds, "2026-11-02-preise.json"), JSON.stringify({
+    laeden: { s: "S" }, zutaten: { egg: offer(3.49, 3.83), mince: offer(2.49, 6.23) } }));
+  const row = (zutat: string, g: number, pack_g: number) => ({ zutat, name: zutat, g, pack_g, eur_kg: 9, laden: "", aisle: "chilled" });
+  const chosen = [{ id: "a", titel: "A", berechnet: { einkaufsliste: [row("egg", 130, 360), row("mince", 2180, 500), row("cheese", 760, 250)], anteil: {} }, makros: {} }];
+  const res = { titel: "T", rezepte: [], prep: [], geraete: [], warum: [], feedback: [] };
+  const items = actions.build_week(hh, {}, { id: "2026-11-02", zeitraum: "", einkaufstag: "", preptag: "" }, chosen, res).einkauf.flatMap((g: any) => g.items);
+  const egg = items.find((i: any) => i.kurz === "egg"), mince = items.find((i: any) => i.kurz === "mince");
+  assert.deepStrictEqual([egg.anz, egg.pack, egg.a], [1, "360 g", false]);
+  assert.deepStrictEqual([mince.anz, mince.pack, mince.a], [6, "400 g", true]);
+  assert.equal(items.find((i: any) => i.kurz === "cheese").anz, 3, "10 g short of 3 packs is fine");
+});
+
+test("improve one dish: only that dish changes, the request is used up", async () => {
+  const { hh } = await replay("en");
+  const old = actions.read(path.join(hh.paths.rounds, "2026-10-19.json"));
+  const rid = "2026-11-09", p = path.join(hh.paths.rounds, `${rid}.json`);
+  fs.writeFileSync(p, JSON.stringify({ ...old, id: rid, status: "offen" }));
+  const [target, other] = old.kandidaten;
+  fs.writeFileSync(path.join(hh.paths.mailbox, `${rid}.json`), JSON.stringify({
+    optimieren: { id: target.id, text: "only meat and sauce, add peppers" }, reaktionen: { [target.id]: { notiz: "only meat and sauce, add peppers", daumen: 1 } } }));
+  const better = { ...target, titel: target.titel + " with peppers", antwort: "Added peppers.", rechnung: { haupt: target.rechnung.haupt } };
+  delete better.berechnet; delete better.makros;
+  const reply = { nachricht: "Done.", kandidaten: [better, { ...other, titel: "should be ignored" }] };
+  const net = installFakeNet(fixture("net")), fake = installFakeClaude([JSON.stringify({ is_error: false, structured_output: reply, duration_ms: 1, total_cost_usd: 0 })]);
+  try {
+    const msg = await actions.optimize(hh, rid, () => {});
+    while (actions.BACKGROUND.size) await Promise.all([...actions.BACKGROUND]);
+    assert.match(msg, /with peppers: Added peppers\./);
+    assert.match(fake.calls[0].args[2], /only meat and sauce, add peppers[\s\S]*Improve ONLY this dish/);
+  } finally { fake.restore(); net.restore(); }
+  const after = actions.read(p).kandidaten;
+  assert.equal(after.length, old.kandidaten.length);
+  assert.equal(after[0].titel, target.titel + " with peppers");
+  assert.deepStrictEqual(after.slice(1).map((k: any) => k.titel), old.kandidaten.slice(1).map((k: any) => k.titel));
+  assert.deepStrictEqual(actions.read(path.join(hh.paths.mailbox, `${rid}.json`)), { reaktionen: { [target.id]: { daumen: 1 } } });
+  await assert.rejects(actions.optimize(hh, "2026-10-19", () => {}), /already planned/);
+});
+
+test("refresh the shopping list of a planned week: packs and names redone, extras and substitutes kept", async () => {
+  const { hh } = await replay("en");
+  const wp = path.join(hh.paths.weeks, "2026-10-19.json"), w = actions.read(wp);
+  const first = w.einkauf[0].items[0];
+  delete first.pack; delete first.kurz; first.ersatz = "turkey instead";
+  fs.writeFileSync(wp, JSON.stringify(w));
+  const msg = await actions.refresh_shopping(hh, "2026-10-19", () => {});
+  const after = actions.read(wp), items = after.einkauf.flatMap((g: any) => g.items);
+  assert.ok(items.every((i: any) => i.bereich === undefined));
+  assert.equal(items.find((i: any) => i.kurz === first.name.split(" (")[0])?.ersatz, "turkey instead");
+  assert.ok(items.filter((i: any) => i.kurz).every((i: any) => i.pack), "every bought item names its pack");
+  assert.deepStrictEqual(after.einkauf.filter((g: any) => g.bereich === "Also buy"), w.einkauf.filter((g: any) => g.bereich === "Also buy"));
+  assert.match(msg, / — \d+\.\d\d €$/);
+  assert.ok(fs.readFileSync(path.join(hh.paths.plans, "woche-2026-10-19.md"), "utf-8").includes(after.titel));
+});
+
+test("plan the prep day again: prepare everything into named bowls first, then cook; nothing else changes", async () => {
+  const { hh } = await replay("en");
+  const wp = path.join(hh.paths.weeks, "2026-10-19.json"), before = actions.read(wp);
+  const prep = [
+    { t: "0:00", titel: "Cut peppers", text: "800 g peppers in strips", gericht: before.rezepte[0].id, phase: "vorbereiten", schuessel: "Pepper bowl" },
+    { t: "0:20", titel: "Fry peppers", text: "Pepper bowl into the pan, 5 min", gericht: before.rezepte[0].id, phase: "kochen", schuessel: "Pepper bowl", timer: 5 },
+  ];
+  const fake = installFakeClaude([JSON.stringify({ is_error: false, structured_output: { prep }, duration_ms: 1, total_cost_usd: 0 })]);
+  try {
+    assert.match(await actions.replan_prep(hh, "2026-10-19", () => {}), /2 steps, 1 bowls$/);
+    assert.match(fake.calls[0].args[2], /mise en place[\s\S]*ONE bowl with a name/);
+  } finally { fake.restore(); }
+  const after = actions.read(wp);
+  assert.deepStrictEqual(after.prep, prep);
+  assert.deepStrictEqual({ ...after, prep: null }, { ...before, prep: null });
+  const md = fs.readFileSync(path.join(hh.paths.plans, "woche-2026-10-19.md"), "utf-8");
+  assert.match(md, /\*\*1 · Prepare\*\*[\s\S]*🥣 Pepper bowl[\s\S]*\*\*2 · Cook\*\*/);
 });

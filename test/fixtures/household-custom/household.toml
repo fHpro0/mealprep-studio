@@ -60,6 +60,7 @@ enabled = true
 zip = "10115"
 retailers = ["lidl", "rewe", "edeka", "aldi-sued"]
 markup = { rewe = 1.15, edeka = 1.2 }
+browse = []                     # golden network traffic was recorded without the leaflet
 second_store_min_saving = 0.5
 
 [agent]

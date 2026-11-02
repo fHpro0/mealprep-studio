@@ -10,7 +10,7 @@ import path from "node:path";
 import { REPO, type Household } from "./config.ts";
 import { cpSlice, dumps, need, floatStr, fmtFixed, pyRound, pySum, pyStr, readText, truthy, type Obj } from "./py.ts";
 
-export { FEEDBACK_SCHEMA, PLAN_SCHEMA, ROUND_SCHEMA } from "./schemas.ts";
+export { FEEDBACK_SCHEMA, PLAN_SCHEMA, PREP_SCHEMA, ROUND_SCHEMA } from "./schemas.ts";
 
 const LANG: Record<string, string> = { de: "German", en: "English" };
 
@@ -37,7 +37,7 @@ function read(p: string, limit = 30000): string {
 export function household_context(hh: Household, db: Obj, deals: string): string {
   const persons = hh.persons.map((p) => `- ${p.id} (${p.name ?? ""}): ${p.kcal} kcal/day, protein ~${p.protein ?? "?"} g`).join("\n");
   const meals = hh.meals.map((m) =>
-    `- slot \`${m.id}\`: ${m.label ?? m.id}${truthy(m.cold) ? " — eaten COLD from a box" : ""}; `
+    `- slot \`${m.id}\`: ${m.label ?? m.id}${truthy(m.cold) ? " — eaten COLD from a box, never reheated: only dishes that taste best cold (bowls, salads with a seared or roasted component, wraps, antipasti-style plates); no stews, ragouts, bakes or sauced dishes that want reheating" : ""}; `
     + hh.persons.map((p) => `${p.id} ${pyRound(hh.meal_target(m.id, p.id))} kcal`).join(", ")
     + ` → one dish = ${hh.days * hh.persons.length} portions ≈ `
     + `${fmtFixed(pyRound(hh.days * pySum(hh.persons.map((p) => hh.meal_target(m.id, p.id))), -2), 0)} kcal in total`).join("\n");

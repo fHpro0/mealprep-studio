@@ -71,6 +71,7 @@ function normalize(offer: Obj): Obj {
     gueltig_bis: ranges.length ? (ranges[0].to || "").slice(0, 10) : "",
     treueprogramm: !!offer.requiresLoyalityMembership,
     id: offer.id ?? null,
+    ...(offer.oldPrice != null ? { alter_preis: offer.oldPrice } : {}), // the store's "instead of" price, rarely given
   };
 }
 

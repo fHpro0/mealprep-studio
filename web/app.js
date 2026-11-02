@@ -12,7 +12,7 @@ const ICON = {
   info: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>'
 };
 
-let CFG, T, weeks = [], rounds = [], W = null, R = null, PF = {}, PR = null, FB = {}, credits = {};
+let CFG, T, weeks = [], rounds = [], W = null, R = null, PF = {}, PR = null, FB = {}, credits = {}, EX = []; // EX: own shopping items
 let portion, tab = local.get('tab', 'pick');
 const cur = () => CFG.currency || '€';
 const money = n => n.toFixed(2).replace('.', CFG.language === 'de' ? ',' : '.') + ' ' + cur();
@@ -48,6 +48,7 @@ async function init() {
   $('#week').onchange = e => { local.set('week', e.target.value); loadWeek(e.target.value).then(render) };
   await loadAll();
   pollStatus(true);
+  watchImages();
 }
 
 async function loadAll() {
@@ -67,6 +68,7 @@ async function loadAll() {
 async function loadWeek(id) {
   W = await getJSON(`weeks/${id}.json`);
   FB = (await getJSON(`api/mailbox/feedback-${id}`)) || {};
+  EX = (await getJSON(`api/mailbox/einkauf-${id}`))?.artikel || [];
 }
 
 async function loadRound() {
@@ -74,7 +76,8 @@ async function loadRound() {
   if (!id) { R = null; return }
   [R, PF, PR] = await Promise.all([getJSON(`rounds/${id}.json`), getJSON(`api/mailbox/${id}`), getJSON(`rounds/${id}-preise.json`)]);
   PF ||= {};
-  PF.auswahl ||= {}; PF.reaktionen ||= {}; PF.wuensche ||= []; PF.nachrichten ||= [];
+  PF.auswahl ||= {}; PF.reaktionen ||= {}; PF.nachrichten ||= [];
+  PF.wuensche = (PF.wuensche || []).filter(w => typeof w === 'string'); // an empty entry once broke the offers tab
 }
 
 /* ---------------- Mailbox ---------------- */
@@ -125,7 +128,21 @@ async function pollStatus(first) {
     sawRunning = false; lastPhase = '';
     bar(s.ok ? 'done' : 'err', (s.ok ? T.finished : '⚠ ') + (s.summary || '') + (s.seconds ? ` (${s.seconds} s)` : ''));
     await loadAll();
+    watchImages();
   }
+}
+
+// photos (e.g. from a local AI) can land after the job is done: reload while drawn plates still wait for them
+let imgT;
+function watchImages(until = Date.now() + 5 * 60e3, last) {
+  clearTimeout(imgT);
+  if (Date.now() > until || !R?.kandidaten?.some(k => k.bild_prompt && k.bild_fuer !== k.bild_prompt)) return;
+  imgT = setTimeout(async () => {
+    const s = await getJSON('api/status');
+    if (s?.running) return;
+    if (last !== undefined && s?.updated !== last) await loadAll();
+    watchImages(until, s?.updated);
+  }, 5000);
 }
 
 let hidden = false;
@@ -140,16 +157,17 @@ function bar(kind, text) {
 /* ---------------- Render ---------------- */
 function render() {
   $$('#seg button').forEach(b => b.setAttribute('aria-pressed', b.dataset.p === portion));
-  const tabs = [['pick', R?.status === 'geplant' ? T.tab_pick_done : T.tab_pick], W && ['menu', T.tab_menu], W && ['shop', T.tab_shop], W && ['prep', T.tab_prep], W && ['day', T.tab_day], W && ['fb', T.tab_fb]].filter(Boolean);
+  $('#week').hidden = !weeks.length || ['pick', 'deals'].includes(tab); // both belong to the round being chosen
+  const tabs = [['pick', R?.status === 'geplant' ? T.tab_pick_done : T.tab_pick], R && ['deals', T.tab_deals], W && ['menu', T.tab_menu], W && ['shop', T.tab_shop], W && ['prep', T.tab_prep], W && ['day', T.tab_day], W && ['fb', T.tab_fb]].filter(Boolean);
   if (!tabs.some(([k]) => k === tab)) tab = tabs[0][0];
-  const views = { pick: R ? pickView : emptyView, menu: menuView, shop: shopView, prep: prepView, day: dayView, fb: fbView };
+  const views = { pick: R ? pickView : emptyView, deals: dealsView, menu: menuView, shop: shopView, prep: prepView, day: dayView, fb: fbView };
   $('#app').innerHTML = `
-    ${tab !== 'pick' && W ? hero() : ''}
+    ${!['pick', 'deals'].includes(tab) && W ? hero() : ''}
     <nav class="tabs" role="tablist">${tabs.map(([k, l]) => `<button role="tab" data-t="${k}" aria-selected="${tab === k}">${l}</button>`).join('')}</nav>
     <section>${views[tab]?.() ?? `<div class="empty">${T.nothing}</div>`}</section>
     ${creditsHtml()}`;
   $$('.tabs button').forEach(b => b.onclick = () => { tab = b.dataset.t; local.set('tab', tab); render(); scrollTo({ top: 0 }) });
-  ({ pick: R ? bindPick : bindEmpty, menu: bindMenu, shop: bindChecks, prep: bindPrep, day: bindDay, fb: bindFb })[tab]?.();
+  ({ pick: R ? bindPick : bindEmpty, deals: bindDeals, menu: bindMenu, shop: bindChecks, prep: bindPrep, day: bindDay, fb: bindFb })[tab]?.();
 }
 
 function hero() {
@@ -174,19 +192,23 @@ function emptyView() {
 function bindEmpty() { $('#newRound').onclick = () => run('neue_runde', '') }
 
 /* ---------------- Choose ---------------- */
+const bubble = v => `<div class="bubble ${v.von === 'ihr' ? 'ihr' : 'claude'}" onclick="this.classList.toggle('open')"><small>${v.von === 'ihr' ? T.you : T.claude}${v.zeit ? ' · ' + esc(v.zeit.slice(5, 16).replace('T', ' ')) : ''}</small><span class="t">${esc(v.text)}</span></div>`;
 function pickView() {
   const chat = [...(R.verlauf || []).map(v => ({ ...v, von: v.von || 'claude' })), ...PF.nachrichten.map(n => ({ ...n, von: 'ihr' }))]
     .sort((a, b) => (a.zeit || '').slice(0, 19).localeCompare((b.zeit || '').slice(0, 19)));
   const planned = R.status === 'geplant', all = CFG.meals.every(m => PF.auswahl[m.id]);
   return `
     <div class="round">
-      <div class="kicker">${esc(R.zeitraum)} · ${T.shopping} ${esc(R.einkaufstag)} · ${T.prep} ${esc(R.preptag)}</div>
+      <div class="kicker">${esc(R.zeitraum)}</div>
       <h2>${planned ? T.plan_ready : T.what_cook}</h2>
-      ${chat.length ? `<div class="chat">${chat.slice(-8).map(v => `<div class="bubble ${v.von === 'ihr' ? 'ihr' : 'claude'}"><small>${v.von === 'ihr' ? T.you : T.claude} · ${esc((v.zeit || '').slice(5, 16).replace('T', ' '))}</small>${esc(v.text)}</div>`).join('')}</div>` : `<p>${esc(R.nachricht)}</p>`}
+      <ol class="flow">${[T.step_pick, T.step_plan, `${T.shopping} ${esc(R.einkaufstag)}${R.einkauf_laeden?.length ? ' ' + T.at + ' ' + esc(R.einkauf_laeden.map(l => PR?.laeden?.[l] || l).join(' + ')) : ''} · ${T.prep} ${esc(R.preptag)}`]
+        .map((s, i) => `<li class="${i === (planned ? 2 : all ? 1 : 0) ? 'now' : i < (planned ? 2 : all ? 1 : 0) ? 'done' : ''}">${s}</li>`).join('')}</ol>
+      ${chat.length > 1 ? `<details class="history"><summary>${T.history} (${chat.length - 1})</summary><div class="chat">${chat.slice(-9, -1).map(bubble).join('')}</div></details>` : ''}
+      <div class="chat">${bubble(chat.at(-1) || { von: 'claude', text: R.nachricht })}</div>
       ${R.hinweise?.length ? `<div class="notes">${R.hinweise.map(esc).join(' · ')}</div>` : ''}
     </div>
     ${CFG.meals.map(m => `
-      <div class="slothead"><h2>${esc(m.label || m.id)}</h2><span>${T.pick_one}</span></div>
+      <div class="slothead"><h2>${esc(m.label || m.id)}</h2>${planned ? `<span>${T.pick_one}</span>` : `<button class="ghost reroll" data-reroll="${esc(m.id)}">${T.reroll}</button>`}</div>
       <div class="cands">${R.kandidaten.filter(k => k.slot === m.id).map(candCard).join('')}</div>`).join('')}
     <div class="slothead"><h2>${T.wishes_head}</h2><span>${T.wishes_sub}</span></div>
     <div class="wishes">${T.wishes.map(w => `<button class="wish" data-w="${esc(w)}" aria-pressed="${PF.wuensche.includes(w)}">${esc(w)}</button>`).join('')}</div>
@@ -207,6 +229,7 @@ function candCard(k) {
     <div class="ph" data-open="${k.id}">${img(k.bild, k.titel)}${k.neu ? `<span class="flag">${T.new_badge}</span>` : ''}<span class="selmark">${T.picked_badge}</span></div>
     <div class="body">
       <h3>${esc(k.titel)}</h3><div class="u">${esc(k.untertitel)}</div>
+      ${k.pitch ? `<p class="pitch">${esc(k.pitch)}</p>` : ''}
       ${k.antwort ? `<div class="answer"><b>${T.claude}:</b> ${esc(k.antwort)}</div>` : ''}
       <div class="chips">${m ? `<span class="chip k">${m.kcal} kcal</span><span class="chip">${m.p} g P</span><span class="chip">${m.kh} g ${T.carbs}</span>` : ''}
         ${k.kosten ? `<span class="chip">~${money(k.kosten)}</span>` : ''}<span class="chip o">${k.aktiv} min</span></div>
@@ -217,6 +240,8 @@ function candCard(k) {
         <button class="ib" data-open="${k.id}" aria-label="${T.details}">${ICON.info}</button>
       </div>
       <textarea class="note" data-note="${k.id}" rows="1" placeholder="${esc(T.note_ph)}">${esc(re.notiz || '')}</textarea>
+      ${R.status === 'geplant' ? '' : `<div class="improve"><div class="quick">${T.quick.map(q => `<button class="wish" data-quick="${esc(k.id)}" data-q="${esc(q)}">${esc(q)}</button>`).join('')}</div>
+        <button class="ghost" data-improve="${esc(k.id)}">✨ ${T.improve}</button></div>`}
     </div></article>`;
 }
 
@@ -338,7 +363,7 @@ function openCand(id) {
     <div class="sheet">
       <div class="kicker" style="color:var(--muted)">${esc(CFG.meals.find(x => x.id === k.slot)?.label || k.slot)} · ${k.aktiv} ${T.active_min} · ~${money(k.kosten || 0)}</div>
       <h2>${esc(k.titel)}</h2><p class="sub" style="margin:0">${esc(k.untertitel)}</p>
-      ${k.bild_suche ? `<button class="ghost swap" id="swap">${T.other_photo}</button>` : ''}${k.bild ? ` <span class="hint">${T.stock_photo}</span>` : ''}
+      ${k.bild_suche || k.bild_prompt ? `<button class="ghost swap" id="swap">${T.other_photo}</button>` : ''}${k.bild ? ` <span class="hint">${T.stock_photo}</span>` : ''}
       ${m ? `<div class="macro"><div><b>${m.kcal}</b><small>kcal</small></div><div><b>${m.p} g</b><small>${T.protein}</small></div><div><b>${m.kh} g</b><small>${T.carbs}</small></div></div>` : ''}
       <p>${esc(k.pitch)}</p>
       ${k.antwort ? `<div class="box ok"><h4>${T.reply}</h4><p>${esc(k.antwort)}</p></div>` : ''}
@@ -373,12 +398,29 @@ function bindPick() {
   });
   $$('[data-open]').forEach(b => b.onclick = () => openCand(b.dataset.open));
   $$('[data-note]').forEach(t => t.oninput = () => { (PF.reaktionen[t.dataset.note] ||= {}).notiz = t.value; save() });
-  $$('.wish').forEach(b => b.onclick = () => {
+  // improve one dish: quick buttons add to its note, the button sends the note for this dish only
+  $$('[data-quick]').forEach(b => b.onclick = () => {
+    const t = $(`[data-note="${CSS.escape(b.dataset.quick)}"]`), q = b.dataset.q;
+    t.value = t.value.includes(q) ? t.value : [t.value.trim(), q].filter(Boolean).join(', ');
+    t.dispatchEvent(new Event('input'));
+  });
+  $$('[data-improve]').forEach(b => b.onclick = () => {
+    const id = b.dataset.improve, text = (PF.reaktionen[id]?.notiz || '').trim(), k = R.kandidaten.find(x => x.id === id);
+    if (!text) { $(`[data-note="${CSS.escape(id)}"]`).focus(); return bar('err', T.improve_need) }
+    PF.optimieren = { id, text };
+    run('optimieren', R.id, `${k?.titel || id}: ${text}`);
+  });
+  $$('[data-w]').forEach(b => b.onclick = () => { // only the wish buttons, not the quick or store buttons that share the style
     const w = b.dataset.w;
     PF.wuensche = PF.wuensche.includes(w) ? PF.wuensche.filter(x => x !== w) : [...PF.wuensche, w];
     b.setAttribute('aria-pressed', PF.wuensche.includes(w)); save();
   });
   $('#idea').oninput = e => { PF.idee = e.target.value; save() };
+  // one section only: Claude replaces that slot's dishes, the rest of the round stays
+  $$('[data-reroll]').forEach(b => b.onclick = () => {
+    const m = CFG.meals.find(x => x.id === b.dataset.reroll);
+    if (confirm(T.reroll_confirm(m.label || m.id))) run('ueberarbeiten', R.id, T.reroll_msg(m.label || m.id));
+  });
   $('#combo')?.addEventListener('click', openCombo);
   $('#askClaude').onclick = () => {
     const parts = [], title = id => R.kandidaten.find(k => k.id === id)?.titel || id, re = Object.entries(PF.reaktionen);
@@ -388,11 +430,69 @@ function bindPick() {
     re.filter(([, r]) => r.notiz?.trim()).forEach(([id, r]) => parts.push(`${title(id)}: ${r.notiz.trim()}`));
     if (PF.wuensche.length) parts.push(`${T.ideas}: ${PF.wuensche.join(', ')}`);
     if (PF.idee?.trim()) parts.push(`${T.idea}: ${PF.idee.trim()}`);
-    if (!parts.length && !confirm(T.confirm_empty)) return;
-    run('ueberarbeiten', R.id, parts.join('\n') || '…');
+    // nothing to revise from: the confirm promises completely new ideas, so replace the round's suggestions
+    if (!parts.length) return confirm(T.confirm_empty) && run('neue_runde', R.status === 'geplant' ? '' : R.id);
+    run('ueberarbeiten', R.id, parts.join('\n'));
   };
   $('#makePlan') && ($('#makePlan').onclick = () => run('plan_erstellen', R.id, T.plan_msg(CFG.meals.map(m => R.kandidaten.find(k => k.id === PF.auswahl[m.id])?.titel).join(' + '))));
   $('#newRound') && ($('#newRound').onclick = () => run('neue_runde', ''));
+}
+
+/* ---------------- Offers ---------------- */
+// Everything reduced this week, with a verdict per offer, so the household can pick its stores and favourites together.
+let DL = null, dlFor = '', dlReal = false, dlMine = true;
+const offerWish = a => `${T.offer_wish}: ${[a.marke, a.produkt].filter(Boolean).join(' ')} (${a.laden})`;
+function dealsView() {
+  if (dlFor !== R.id) {
+    dlFor = R.id; DL = null;
+    getJSON(`api/deals/${R.id}`).then(d => { DL = d || { kategorien: [] }; tab === 'deals' && render() });
+  }
+  if (!DL) return `<div class="empty">${T.deals_loading}</div>`;
+  const mine = PF.laeden?.length ? PF.laeden : DL.gewaehlt, inMine = a => a.laden_id.split(',').some(id => mine.includes(id));
+  const show = a => (!dlMine || inMine(a)) && (!dlReal || a.urteil === 'echt' || a.urteil === 'laut_laden');
+  const badge = a => a.urteil === 'echt' ? `<span class="verdict ok">✓ ${a.vs_normal} % ${T.vs_normal} ${money(a.normal_eur_kg)}/kg</span>`
+    : a.urteil === 'knapp' ? `<span class="verdict meh">${a.vs_normal} % ${T.vs_normal} ${money(a.normal_eur_kg)}/kg</span>`
+    : a.urteil === 'schein' ? `<span class="verdict bad">✕ ${T.not_real} (${T.normal} ${money(a.normal_eur_kg)}/kg)</span>`
+    : a.urteil === 'laut_laden' ? `<span class="verdict meh">−${a.laden_rabatt} % ${T.per_store}</span>`
+    : `<span class="verdict">${T.no_reference}</span>`;
+  const cats = DL.kategorien.map(k => {
+    const rows = k.angebote.filter(show);
+    return rows.length ? `<div class="panel"><h3>${esc(k.name)}</h3>${rows.map(a => {
+      const w = offerWish(a), on = PF.wuensche.includes(w);
+      return `<div class="row deal"><button class="star" data-wish="${esc(w)}" aria-pressed="${on}" aria-label="${T.remember}">${on ? '★' : '☆'}</button>
+        <div class="what"><b>${esc([a.marke, a.produkt].filter(Boolean).join(' '))}</b><small>${esc(a.laden)}${a.treueprogramm ? ' · ' + T.loyalty : ''}${a.quelle ? ' · ' + esc(a.quelle) : ''} · ${T.until} ${esc((a.gueltig_bis || '').split('-').reverse().slice(0, 2).join('.'))}.</small>${badge(a)}</div>
+        <div class="price">${a.preis != null ? money(a.preis) : ""}${a.alter_preis ? `<s>${money(a.alter_preis)}</s>` : ''}${a.grundpreis ? `<small>${money(a.grundpreis)}/${esc(a.einheit || 'kg')}</small>` : ''}</div></div>`;
+    }).join('')}</div>` : '';
+  }).join('');
+  const starred = PF.wuensche.filter(w => w.startsWith(T.offer_wish + ':')).length;
+  return `<h2>${T.deals_head}</h2>
+    <p class="sub">${T.deals_sub(DL.stichtag?.split('-').reverse().join('.') || '', DL.plz || '')}</p>
+    <div class="slothead"><h2>${T.our_stores}</h2><span>${T.max_stores(DL.max)}</span></div>
+    <div class="wishes">${DL.laeden.map(l => `<button class="wish" data-store="${esc(l.id)}" aria-pressed="${mine.includes(l.id)}">${esc(l.name)} · ${l.angebote}</button>`).join('')}</div>
+    <div class="wishes filters"><button class="wish" id="dlMine" aria-pressed="${dlMine}">${T.only_ours}</button><button class="wish" id="dlReal" aria-pressed="${dlReal}">${T.only_real}</button></div>
+    ${cats || `<div class="empty">${T.nothing}</div>`}
+    <div class="actions"><button class="big claude" id="dealsRun"><span>${T.deals_run}<small>${T.deals_run_sub(starred)}</small></span></button></div>`;
+}
+function bindDeals() {
+  if (!DL) return;
+  $$('[data-store]').forEach(b => b.onclick = () => {
+    let m = [...(PF.laeden?.length ? PF.laeden : DL.gewaehlt)];
+    m = m.includes(b.dataset.store) ? m.filter(x => x !== b.dataset.store) : [...m, b.dataset.store].slice(-DL.max); // a third store replaces the oldest
+    PF.laeden = m; save(); render();
+  });
+  $$('[data-wish]').forEach(b => b.onclick = () => {
+    const w = b.dataset.wish;
+    PF.wuensche = PF.wuensche.includes(w) ? PF.wuensche.filter(x => x !== w) : [...PF.wuensche, w];
+    save(); render();
+  });
+  $('#dlMine').onclick = () => { dlMine = !dlMine; render() };
+  $('#dlReal').onclick = () => { dlReal = !dlReal; render() };
+  $('#dealsRun').onclick = () => {
+    const names = (PF.laeden?.length ? PF.laeden : DL.gewaehlt).map(id => DL.laeden.find(l => l.id === id)?.name || id).join(' + ');
+    const starred = PF.wuensche.filter(w => w.startsWith(T.offer_wish + ':'));
+    run('ueberarbeiten', R.id, T.deals_msg(names, starred));
+    tab = 'pick'; render();
+  };
 }
 
 /* ---------------- Week plan ---------------- */
@@ -479,16 +579,52 @@ function shopView() {
   let total = 0, open = 0;
   const groups = W.einkauf.map(g => `<div class="panel"><h3>${esc(g.bereich)}</h3>${g.items.map((it, i) => {
     const id = `e-${g.bereich}-${i}`, s = it.anz * it.preis; total += s; if (!done[id]) open += s;
+    const o = it.angebot, v = o?.vs_normal;
+    const real = v == null ? '' : v <= -10 ? `<span class="verdict ok">✓ ${v} % ${T.vs_normal}</span>` : v < 0 ? `<span class="verdict meh">${v} % ${T.vs_normal}</span>` : `<span class="verdict bad">✕ ${T.not_real}</span>`;
     return `<div class="row ${done[id] ? 'done' : ''}"><input type="checkbox" id="${esc(id)}" data-k="shop" ${done[id] ? 'checked' : ''}>
-      <label for="${esc(id)}">${it.anz > 1 ? `<b>${it.anz} ×</b> ` : ''}${esc(it.name)}${it.a ? '<span class="badge">%</span>' : ''}${it.laden ? ` <span class="est">· ${esc(it.laden)}</span>` : ''}</label>
+      <label for="${esc(id)}"><b>${it.anz} × ${it.pack ? esc(it.pack) + ' ' : ''}</b>${esc(it.kurz || it.name)}${it.laden ? ` <span class="est">· ${esc(it.laden)}</span>` : ''}
+        ${it.kurz ? `<small class="alt">${T.needed}: ${esc([...it.name.matchAll(/\(([\d.,]+ g)\)/g)].pop()?.[1] || '')}</small>` : ''}
+        ${o ? `<small class="alt">${T.found_at} ${esc(o.laden)}: „${esc(o.produkt)}“ · ${money(o.preis)} ${T.per} ${esc(it.pack || '')}${o.bis ? ` · ${T.until} ${esc(o.bis.split('-').reverse().slice(0, 2).join('.'))}.` : ''}</small>${real}` : it.kurz ? `<small class="alt">${T.no_offer}</small>` : ''}
+        ${it.ersatz ? `<small class="alt">↳ ${T.instead}: <b>${esc(it.ersatz)}</b>${it.ersatz_aenderung ? ` · ${esc(it.ersatz_aenderung)}` : ''}</small>` : ''}</label>
       <span class="price">${it.a ? '' : '<span class="est">~</span>'}${money(s)}</span></div>`;
   }).join('')}</div>`).join('');
   return `<h2>${T.shop_list}</h2>
     <p class="sub">${esc(W.einkaufstag)} · ${T.card_hint} · <span class="est">${T.est}</span></p>
+    ${storeDecision()}
+    <div class="actions"><button class="big plan" id="copyList"><span>📋 ${T.copy_list}<small>${T.copy_sub}</small></span></button>
+      <button class="ghost" id="refreshShop">🔄 ${T.refresh_shop}</button></div>
     ${groups}
+    <div class="panel"><h3>${T.own_items}</h3>${EX.map((x, i) => `<div class="row"><label>${esc(x)}</label><button class="ghost" data-rmx="${i}" aria-label="${T.remove}">✕</button></div>`).join('')}
+      <div class="row"><input class="note" id="exNew" placeholder="${esc(T.own_ph)}" enterkeyhint="done"><button class="ghost" id="exAdd">${T.add}</button></div></div>
     ${W.vorrat?.length ? `<div class="panel"><h3>${T.check_pantry}</h3>${W.vorrat.map(v => `<div class="row"><label>${esc(v)}</label></div>`).join('')}</div>` : ''}
     ${W.nicht_kaufen?.length ? `<div class="panel"><h3 style="color:#b23b1e">${T.dont_buy}</h3>${W.nicht_kaufen.map(v => `<div class="row"><label>✕ ${esc(v)}</label></div>`).join('')}</div>` : ''}
     <div class="sumbar"><div><small>${T.open} ${money(open)}</small><br><b>${money(total)}</b> <small>${T.of} ${money(W.budget.limit)}</small></div><button class="ghost" id="reset">${T.reset}</button></div>`;
+}
+
+// One store or two? Shows what the second store would save against the household's threshold.
+function storeDecision() {
+  const c = W.laeden_vergleich;
+  if (!c?.allein?.laeden?.length) return '';
+  const save = c.allein.summe - c.zwei.summe, second = c.zwei.laeden.find(l => !c.allein.laeden.includes(l));
+  const text = c.zwei.laeden.length < 2 || save <= 0.005 ? T.one_store(c.allein.laeden[0])
+    : save >= c.grenze ? T.two_stores(c.zwei.laeden.join(' + '), money(save))
+    : T.second_not_worth(c.allein.laeden[0], second, money(save), money(c.grenze));
+  return `<div class="box ok decision"><p>${text}</p></div>`;
+}
+
+// One line per item still to buy, no bullets: pasted into Apple Reminders every line becomes its own reminder.
+function shopText() {
+  const done = local.get(key('shop'), {}), stores = new Set(W.einkauf.flatMap(g => g.items.map(i => i.laden)).filter(Boolean));
+  return W.einkauf.flatMap(g => g.items.map((it, i) => done[`e-${g.bereich}-${i}`] ? '' :
+    `${it.anz}× ${it.pack ? it.pack + ' ' : ''}${it.kurz || it.name.replace(/^(.*?) \((.*)\)$/, '$1 $2')}${stores.size > 1 && it.laden ? ` (${it.laden})` : ''}`)).concat(EX).filter(Boolean).join('\n');
+}
+async function copyText(text) {
+  try { await navigator.clipboard.writeText(text); return true } catch { }
+  // http on the phone has no clipboard API: fall back to a selected textarea
+  const t = Object.assign(document.createElement('textarea'), { value: text });
+  t.setAttribute('readonly', ''); t.style.cssText = 'position:fixed;top:0;opacity:0';
+  document.body.append(t); t.select(); t.setSelectionRange(0, text.length);
+  const ok = document.execCommand('copy'); t.remove(); return ok;
 }
 
 // Recipes and extras share one colour each, in the menu and on every prep step.
@@ -507,17 +643,23 @@ function prepView() {
     ${used.size ? `<div class="dish-legend">${dishes().filter(x => used.has(x.id)).map(x => dishTag(x.id)).join('')}</div>` : ''}
     <div class="panel">${W.prep.map((s, i) => {
       const id = `p-${i}`;
-      const label = s.titel ? `<span class="step-h">${dishTag(s.gericht)}<b>${esc(s.titel)}</b></span><span class="step-t">${esc(s.text)}</span>` : esc(s.text);
-      return `<div class="row ${s.neben ? 'neben' : ''} ${s.wichtig ? 'wichtig' : ''} ${done[id] ? 'done' : ''}">
+      // first all preparation into named bowls, then the cooking: a heading where the phase starts
+      const head = s.phase && s.phase !== W.prep[i - 1]?.phase ? `<h3 class="phase">${s.phase === 'vorbereiten' ? T.phase_prep : T.phase_cook}</h3>` : '';
+      const bowl = s.schuessel ? `<span class="bowl">🥣 ${esc(s.schuessel)}</span>` : '';
+      const label = s.titel ? `<span class="step-h">${dishTag(s.gericht)}<b>${esc(s.titel)}</b></span><span class="step-t">${esc(s.text)}</span>${bowl}` : esc(s.text) + bowl;
+      return `${head}<div class="row ${s.neben ? 'neben' : ''} ${s.wichtig ? 'wichtig' : ''} ${done[id] ? 'done' : ''}">
         <input type="checkbox" id="${id}" data-k="prep" ${done[id] ? 'checked' : ''}><span class="time">${s.neben ? '↳' : esc(s.t)}</span>
         <label for="${id}">${label}</label>
         ${s.timer ? `<button class="tbtn" data-min="${s.timer}" data-label="${esc(s.titel || s.text.slice(0, 40))}">⏱ ${s.timer}′</button>` : ''}</div>`;
     }).join('')}</div>
     <div class="panel"><h3>${T.equipment}</h3>${W.geraete.map(g => `<div class="row"><label>${esc(g)}</label></div>`).join('')}</div>
     ${containersHtml()}
-    <p><button class="ghost" id="resetp">${T.reset_checks}</button></p>`;
+    <p><button class="ghost" id="resetp">${T.reset_checks}</button> <button class="ghost" id="replan">🔁 ${T.replan_prep}</button></p>`;
 }
-function bindPrep() { bindChecks(); $$('.tbtn').forEach(b => b.onclick = () => startTimer(+b.dataset.min, b.dataset.label)) }
+function bindPrep() {
+  bindChecks(); $$('.tbtn').forEach(b => b.onclick = () => startTimer(+b.dataset.min, b.dataset.label));
+  $('#replan').onclick = () => confirm(T.replan_confirm) && run('ablauf_neu', W.id);
+}
 
 function bindChecks() {
   // older weeks stored shopping checks under "einkauf"
@@ -529,6 +671,17 @@ function bindChecks() {
     cb.closest('.row').classList.toggle('done', cb.checked);
   });
   $('#reset') && ($('#reset').onclick = () => { local.set(key('shop'), {}); render() });
+  $('#refreshShop') && ($('#refreshShop').onclick = () => run('einkauf_aktualisieren', W.id));
+  // own items (detergent, …): saved in the mailbox so both phones see them, copied with the list
+  const saveEX = () => send('PUT', `api/mailbox/einkauf-${W.id}`, { artikel: EX }).then(render);
+  const addEX = () => { const v = $('#exNew').value.trim(); if (v) { EX = [...EX, v]; saveEX() } };
+  $('#exAdd') && ($('#exAdd').onclick = addEX);
+  $('#exNew') && ($('#exNew').onkeydown = e => e.key === 'Enter' && addEX());
+  $$('[data-rmx]').forEach(b => b.onclick = () => { EX = EX.filter((_, i) => i !== +b.dataset.rmx); saveEX() });
+  $('#copyList') && ($('#copyList').onclick = async () => {
+    const text = shopText(), ok = await copyText(text);
+    bar(ok ? 'done' : 'err', ok ? T.copied : `${T.copy_fail}\n${text}`);
+  });
   $('#resetp') && ($('#resetp').onclick = () => { local.set(key('prep'), {}); render() });
 }
 

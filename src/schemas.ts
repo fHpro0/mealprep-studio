@@ -36,7 +36,8 @@ export const ROUND_SCHEMA = {
             "type": "string"
           },
           "untertitel": {
-            "type": "string"
+            "type": "string",
+            "description": "hook in at most 6 words"
           },
           "tags": {
             "type": "array",
@@ -49,10 +50,12 @@ export const ROUND_SCHEMA = {
             "description": "active prep minutes for this dish"
           },
           "pitch": {
-            "type": "string"
+            "type": "string",
+            "description": "2–3 appetising sentences like a meal-kit menu card: what is on the plate and how it tastes and feels (crispy, creamy, smoky …). No cooking steps"
           },
           "warum": {
-            "type": "string"
+            "type": "string",
+            "description": "1–2 sentences: why it fits this household (feedback, rules, offers)"
           },
           "risiko": {
             "type": "string"
@@ -64,6 +67,50 @@ export const ROUND_SCHEMA = {
           "bild_suche": {
             "type": "string",
             "description": "short English Wikimedia Commons query for a photo"
+          },
+          "bild_prompt": {
+            "type": "string",
+            "description": "always for a new or changed dish: English photo description of ONE serving exactly as served, 40–80 words. Every visible ingredient with its cooked look (browned, seared, glazed, melted, crispy), cut size, sauce colour and thickness, cheese, toppings, garnish and how it sits on the plate. Only what the recipe really contains, in plain visual words: never the name of a dish it imitates (pizza, lasagne, burger) and never a missing part (\"no dough\") — the image model draws every food word it reads. No brands, no text"
+          },
+          "teller": {
+            "type": "array",
+            "description": "always for a new or changed dish: ONE serving as it looks on the plate, drawn as an isometric illustration. 2–6 visible components, biggest first; sauce and cheese crust lie under/over the rest",
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "farbe",
+                "form",
+                "anteil"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "farbe": {
+                  "type": "string",
+                  "description": "colour as cooked, #rrggbb"
+                },
+                "form": {
+                  "type": "string",
+                  "enum": [
+                    "sauce",
+                    "kruste",
+                    "haufen",
+                    "stuecke",
+                    "streifen",
+                    "kugeln",
+                    "scheiben",
+                    "klecks",
+                    "streusel"
+                  ]
+                },
+                "anteil": {
+                  "type": "number",
+                  "description": "share of the plate in percent"
+                }
+              }
+            }
           },
           "rechnung": {
             "type": "object",
@@ -360,6 +407,32 @@ export const PLAN_SCHEMA = {
         }
       }
     },
+    "ersatz": {
+      "type": "array",
+      "description": "if a main ingredient is sold out: what to buy instead in the same store",
+      "items": {
+        "type": "object",
+        "required": [
+          "zutat",
+          "kaufen",
+          "aenderung"
+        ],
+        "properties": {
+          "zutat": {
+            "type": "string",
+            "description": "ingredient key from mengen_gesamt_g"
+          },
+          "kaufen": {
+            "type": "string",
+            "description": "the substitute with amount, e.g. \"1,4 kg Putenhack\""
+          },
+          "aenderung": {
+            "type": "string",
+            "description": "what changes when cooking, one short sentence"
+          }
+        }
+      }
+    },
     "zusatz_einkauf": {
       "type": "array",
       "description": "small items the recipes need that are neither in the calculated shopping list nor in the pantry file (vinegar, fresh herbs …). Never list what the pantry file already has.",
@@ -412,6 +485,18 @@ export const PLAN_SCHEMA = {
           },
           "timer": {
             "type": "integer"
+          },
+          "phase": {
+            "type": "string",
+            "enum": [
+              "vorbereiten",
+              "kochen"
+            ],
+            "description": "vorbereiten = cutting, weighing, mixing before any heat; kochen = everything after"
+          },
+          "schuessel": {
+            "type": "string",
+            "description": "the named bowl this step fills (vorbereiten) or empties (kochen), e.g. 'Gemüse-Schüssel Stroganoff'"
           },
           "neben": {
             "type": "boolean"
@@ -543,5 +628,16 @@ export const FEEDBACK_SCHEMA = {
       "type": "string",
       "description": "2–4 sentences back to the household"
     }
+  }
+};
+
+/** plan the prep day again: only the timeline */
+export const PREP_SCHEMA = {
+  "type": "object",
+  "required": [
+    "prep"
+  ],
+  "properties": {
+    "prep": PLAN_SCHEMA.properties.prep
   }
 };
